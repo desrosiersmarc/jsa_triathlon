@@ -1,0 +1,17 @@
+.home-card {
+  background-color: $white;
+  color: $red;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 3px;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 100;
+}
+
+.home-card-title {
+  font-size: 15px;
+}
