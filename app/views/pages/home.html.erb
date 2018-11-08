@@ -71,15 +71,16 @@
         </div>
       </div>
     <% end %>
-    <div class="col-xs-6 col-sm-4 col-md-3">
-      <div class="home-card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dmbf8fog4/image/upload/c_crop,g_auto,h_300/v1505038846/kcosaebengklioqznlub.jpg)">
-        <div class="home-card-title">
-          <i class="fas fa-images"></i>
-          <p>Pictures</p>
+    <%= link_to pictures_path do %>
+      <div class="col-xs-6 col-sm-4 col-md-3">
+        <div class="home-card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dmbf8fog4/image/upload/c_crop,g_auto,h_300/v1505038846/kcosaebengklioqznlub.jpg)">
+          <div class="home-card-title">
+            <i class="fas fa-images"></i>
+            <p>Pictures</p>
+          </div>
         </div>
       </div>
-    </div>
-
+    <% end %>
     <div class="col-xs-6 col-sm-4 col-md-3">
       <div class="home-card">
         <div class="home-card-title">
