@@ -10,14 +10,20 @@ puts "Delete pictures"
   Picture.delete_all
 
 puts "Create pictures"
-  Picture.create(title: "Roc Azur",
+url="http://eu.ironman.com/~/media/e52189b7e5f94db0bb2d43e717ec87ad/28092017%20rotator%20im703nice%203.jpg?w=1600&h=980&c=1"
+  pict = Picture.create(title: "Roc Azur",
     link: 'https://photos.app.goo.gl/3sAbyDVDjVxWJWDq8',
     date: '15 octobre 2018',
     user_id: User.first.id,
     like: 5)
-  Picture.create(title: "Biscarrosse",
-    link: 'https://photos.app.goo.gl/DaDZgD8ZhALD33f78',
-    date: '23 septembre 2018',
-    user_id: User.first.id,
-    like: 12)
+  pict.remote_photo_url = url
+  pict.save
+
+  pict = Picture.create(title: "Biscarrosse",
+  link: 'https://photos.app.goo.gl/3sAbyDVDjVxWJWDq8',
+  date: '15 mars 2018',
+  user_id: User.first.id,
+  like: 5)
+  pict.remote_photo_url = url
+  pict.save
 

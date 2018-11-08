@@ -1,1 +1,16 @@
-#New pictures
+<div class="container">
+  <div class="row">
+    Ajouter un albul photo
+    <%= simple_form_for(@picture) do |f| %>
+      <%= f.input :title, label: 'Titre' %>
+      <%= f.input :date %>
+      <%= f.input :link, label: "Colle ici le lien vers l'album photo" %>
+      <%= f.input :user_id, value: 1 %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.submit "Créer l'album" %>
+
+    <% end %>
+  </div>
+</div>
+
