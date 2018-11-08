@@ -1,0 +1,52 @@
+<div class="container">
+<h3>Albums photos</h3>
+  <div class="row">
+    <% @pictures.each do |picture| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a href="<%= picture.link %>" target="_blank">
+          <div class="home-card">
+            <p>
+              <%= picture.description %>
+            </p>
+            <p>
+              <%= picture.date %>
+            </p>
+
+          </div>
+        </a>
+
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="picture-card">
+        <div class="picture-card-photo picture" style="background-image: url(https://picsum.photos/600);">
+          <div class="picture-card-title">
+            Biscarrosse
+          </div>
+          <div class="picture-card-name">
+            Jean-François
+          </div>
+          <div class="picture-card-date">
+            25 octobre 2018
+          </div>
+        </div>
+        <div class="picture-card-container">
+          <div class="picture-card-like">
+            <i class="fas fa-heart"></i>
+            12
+          </div>
+          <div class="picture-card-review">
+            <i class="far fa-comments"></i>
+            23
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
