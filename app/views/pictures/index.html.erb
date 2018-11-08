@@ -1,11 +1,14 @@
 <div class="container">
 <h3>Albums photos</h3>
+  <%= link_to new_picture_path do %>
+    <i class="far fa-edit"></i>
+  <% end %>
   <div class="row">
     <% @pictures.each do |picture| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <a href="<%= picture.link %>" target="_blank">
           <div class="picture-card">
-            <div class="picture-card-photo picture" style="background-image: url(https://picsum.photos/600);">
+            <div class="picture-card-photo picture" style="background-image: url('<%= cl_image_path picture.photo %>');">
               <div class="picture-card-title">
                 <%= picture.title %>
               </div>

@@ -9,12 +9,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 100;
+  background-position: center center;
+  background-size: cover !important;
 }
 
 .home-card-title {
   font-size: 15px;
   color: $white;
+  font-size:20px;
   text-shadow: 2px 2px $gray;
   display: flex;
   flex-direction: column;
