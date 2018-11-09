@@ -1,0 +1,16 @@
+.plus-button {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: $red;
+  i {
+    color: $white;
+  }
+}
