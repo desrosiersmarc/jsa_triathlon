@@ -1,15 +1,17 @@
 <div class="container">
   <div class="row">
-    Ajouter un albul photo
+    <h3>Ajouter un album photo</h3>
     <%= simple_form_for(@picture) do |f| %>
+    <%= f.error_notification %>
       <%= f.input :title, label: 'Titre' %>
-      <%= f.input :date %>
+      <div class="datepicker">
+        <%= f.input :date, as: :date, order: [:day, :month, :year] %>
+      </div>
       <%= f.input :link, label: "Colle ici le lien vers l'album photo" %>
-      <%= f.input :user_id, value: 1 %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
-      <%= f.submit "Créer l'album" %>
-
+      <%= f.submit "Créer l'album", class: 'btn btn-danger btn-block' %>
     <% end %>
   </div>
 </div>
