@@ -1,8 +1,5 @@
 <div class="container">
 <h3>Albums photos</h3>
-  <%= link_to new_picture_path do %>
-    <i class="far fa-edit"></i>
-  <% end %>
   <div class="row">
     <% @pictures.each do |picture| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
@@ -34,7 +31,11 @@
       </div>
     <% end %>
   </div>
+  <div class="plus-button">
+    <%= link_to new_picture_path do %>
+      <i class="far fa-edit"></i>
+    <% end %>
+  </div>
 </div>
-
 
 
