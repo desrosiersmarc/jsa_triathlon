@@ -17,6 +17,11 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
+<%= f.input :firstname, label: (t(".firstname")) %>
+<%= f.input :lastname, label: t(".lastname") %>
+<!-- sTODO -->
+<%#= f.input :birthday, as: :date, label: t(".birthday") %>
+<%= f.input :mobil_phone, label: t(".mobil_phone") %>
       </div>
 
       <div class="form-actions">
