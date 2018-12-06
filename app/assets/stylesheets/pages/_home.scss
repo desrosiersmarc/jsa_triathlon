@@ -40,6 +40,7 @@
   font-size: 1.4em;
   font-weight: bold;
   padding-bottom: 10px;
+  width: 90vw;
 }
 
 .wrapper-link {
@@ -52,6 +53,7 @@
   border-bottom: solid 2px $red;
   position: absolute;
   bottom: 10px;
+  color: $white;
   &:hover {
     border-radius: 3px;
     border: none;
