@@ -24,7 +24,7 @@
   <div class="container">
     <div class="row">
       <div class="wrapper-title">
-        Le prochain événement du club
+        Evénement du club
       </div>
       <div class="home-card home-card-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= cl_image_path('JSA Triathlon/Stadium_fgbv6j.jpg', :quality=>25)  %>)">
         <div class="home-card-title">
@@ -40,16 +40,15 @@
   <div class="container">
     <div class="row">
       <div class="wrapper-title">
-        Le prochain entrainement
+        Entrainements
       </div>
       <div class="home-card home-card-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= cl_image_path('JSA Triathlon/gbv5kduuof8mfpganben.jpg', :quality=>25)  %>)">
       </div>
     </div>
   </div>
-
-  <div class="wrapper-link">
-    Voir le planning
-  </div>
+  <%= link_to calendar_path, class: "wrapper-link"  do %>
+      Voir le planning
+  <% end %>
 </div>
 <div class="wrapper">
   <div class="container">
