@@ -11,6 +11,9 @@
   align-items: center;
   background-position: center center;
   background-size: cover !important;
+  &-homepage {
+    min-height: 42vh;
+  }
 }
 
 .home-card-title {
