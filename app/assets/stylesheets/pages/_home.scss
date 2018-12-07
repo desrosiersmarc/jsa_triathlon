@@ -31,6 +31,7 @@
 
 .carousel-partners-height {
   height: 40vh;
+  min-width:90vw;
 }
 
 .carousel-events-height {
@@ -67,4 +68,8 @@
   &-black {
     color: $gray;
   }
+}
+
+.video {
+  min-height: 42vh;
 }
