@@ -69,7 +69,6 @@
   <div class="wrapper-link">
     Voir tous les résultats
   </div>
-
 </div>
 <div class="wrapper">
   <div class="wrapper-title">
@@ -89,9 +88,10 @@
   <div class="wrapper-title">
     Les photos
   </div>
-  <%= link_to pictures_path do %>
-    <div class="home-card home-card-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= cl_image_path('JSA Triathlon/jsa_dggizl.jpg', :quality=>25)  %>)">
-    </div>
+  <%= render 'picture_link' %>
+
+  <%= link_to pictures_path, class: "wrapper-link wrapper-link-black" do %>
+    Voir toutes les photos
   <% end %>
 </div>
 

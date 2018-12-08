@@ -40,9 +40,12 @@
 
 .picture-card-photo {
   width: 100%;
-  background-color: yellow;
   height: 100px;
   position:relative;
+  &-homepage {
+    min-width:90vw;
+    min-height: 35vh;
+  }
 }
 
 .picture-card-title {
