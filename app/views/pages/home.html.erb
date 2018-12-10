@@ -44,8 +44,9 @@
   <div class="wrapper-title">
     Entrainements
   </div>
-  <div class="home-card home-card-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= cl_image_path('JSA Triathlon/gbv5kduuof8mfpganben.jpg', :quality=>25)  %>)">
-  </div>
+<!--   <div class="home-card home-card-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= cl_image_path('JSA Triathlon/gbv5kduuof8mfpganben.jpg', :quality=>25)  %>)">
+  </div> -->
+  <%= render 'training_link' %>
   <%= link_to calendar_path, class: "wrapper-link"  do %>
       Voir le planning
   <% end %>
