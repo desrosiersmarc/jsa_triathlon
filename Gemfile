@@ -21,6 +21,8 @@ gem 'webpacker'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'devise-i18n'
+gem 'jquery-rails'
+gem 'ckeditor_rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
