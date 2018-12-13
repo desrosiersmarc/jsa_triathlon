@@ -5,7 +5,7 @@
     <%= f.error_notification %>
       <%= f.input :title, label: 'Titre' %>
       <div class="datepicker">
-        <%= f.input :date, as: :date, order: [:day, :month, :year] %>
+        <%= f.input :date, as: :date, order: [:day, :month, :year], input_html: {class: 'date-time'} %>
       </div>
       <%= f.input :link, label: "Colle ici le lien vers l'album photo" %>
       <%= f.hidden_field :user_id, value: current_user.id %>

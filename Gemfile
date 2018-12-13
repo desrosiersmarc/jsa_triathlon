@@ -23,6 +23,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'devise-i18n'
 gem 'jquery-rails'
 gem 'ckeditor_rails'
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

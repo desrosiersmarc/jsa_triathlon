@@ -1,0 +1,13 @@
+<%= simple_form_for(@article) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name, class: 'title-article' %>
+  <%= f.input :date, as: :date, order: [:day, :month, :year] ,input_html: { class: 'date-time'} %>
+  <%= f.input :start_time, as: :time, start_hour: 8, end_hour: 22, minute_step: 15, input_html: { class: 'date-time'} %>
+  <%= f.input :end_time, as: :time, start_hour: 8,end_hour: 22, minute_step: 15, input_html: { class: 'date-time'} %>
+  <%= f.input :location %>
+  <%= f.input :link %>
+  <%= f.text_area :content, class: 'ckeditor' %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.input :article_type_id, collection: @article_types %>
+  <%= f.submit 'Go', class: 'btn btn-block btn-danger' %>
+<% end %>
