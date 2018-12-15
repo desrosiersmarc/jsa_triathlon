@@ -65,7 +65,8 @@ when "development"
       link: Faker::Internet.url,
       content: Faker::Lorem.paragraph(rand(0..3)),
       user: User.all.sample,
-      article_type: ArticleType.all.sample)
+      article_type: ArticleType.all.sample,
+      photo: "http://res.cloudinary.com/dmbf8fog4/image/upload/v1544742939/gcbt5ejuknaxtuzxy0fd.jpg")
       print "*"
     end
   puts ""

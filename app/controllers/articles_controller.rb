@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_article, only: [:show, :edit, :update]
-  before_action :charge_article_types, only: [:new, :edit]
+  before_action :charge_article_types, only: [:index, :new, :edit]
 
 
   def index
@@ -47,7 +47,8 @@ private
       :link,
       :content,
       :user_id,
-      :article_type_id)
+      :article_type_id,
+      :photo)
   end
 
   def find_article

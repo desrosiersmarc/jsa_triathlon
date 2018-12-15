@@ -1,13 +1,15 @@
 <%= simple_form_for(@article) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :name, class: 'title-article' %>
+  <%= f.input :name, class: 'title-article', input_html: {maxlength: 30}, label: t(".name") %>
   <%= f.input :date, as: :date, order: [:day, :month, :year] ,input_html: { class: 'date-time'} %>
-  <%= f.input :start_time, as: :time, start_hour: 8, end_hour: 22, minute_step: 15, input_html: { class: 'date-time'} %>
-  <%= f.input :end_time, as: :time, start_hour: 8,end_hour: 22, minute_step: 15, input_html: { class: 'date-time'} %>
-  <%= f.input :location %>
-  <%= f.input :link %>
-  <%= f.text_area :content, class: 'ckeditor' %>
+  <%= f.input :start_time, as: :time, start_hour: 8, end_hour: 22, minute_step: 15, input_html: { class: 'date-time'}, label: t('.start_time') %>
+  <%= f.input :end_time, as: :time, start_hour: 8,end_hour: 22, minute_step: 15, input_html: { class: 'date-time'}, label: t('.end_time') %>
+  <%= f.input :location, label: t('.location') %>
+  <%= f.input :link, label: t('.link') %>
+  <%= f.input :photo, label: t('.photo'), label_html:{class: 'red-alert'} , errors: "Sélectionnez une photo"%>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.text_area :content, class: 'ckeditor', label: t('.content') %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.input :article_type_id, collection: @article_types %>
+  <%= f.input :article_type_id, collection: @article_types, label: t('.article_type'), selected: 3 %>
   <%= f.submit 'Go', class: 'btn btn-block btn-danger' %>
 <% end %>
