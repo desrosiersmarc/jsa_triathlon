@@ -1,3 +1,5 @@
-<h3>article#show</h3>
-
-<%= @article.inspect %>
+<div class="container">
+  <div class="row">
+    <%= render 'article_card', {article: @article}  %>
+  </div>
+</div>

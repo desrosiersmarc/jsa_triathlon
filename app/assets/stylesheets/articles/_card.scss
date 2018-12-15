@@ -1,0 +1,30 @@
+.article {
+  background-color: $white;
+  color: $gray;
+  padding: 10px;
+  margin: 0 0 0 0;
+  a {
+   text-decoration: none;
+   color: $orange;
+  }
+  i {
+    color: $white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  }
+  &-card {
+    border-radius: 0 0 5px 5px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+    min-height: 120px;
+    margin-bottom: 15px;
+  }
+  &-picture {
+    height: 350px;
+    background-position: center center;
+    background-size: cover !important;
+    color: $white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    border-radius: 5px 5px 0 0;
+
+  }
+}
+
