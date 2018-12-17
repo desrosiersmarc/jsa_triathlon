@@ -42,17 +42,8 @@ def seed_articles(article_type_sample_id)
       print "*"
 end
 
-
-case Rails.env
-when "development"
-  puts "Delete all"
-    Picture.delete_all
-    Article.delete_all
-    User.delete_all
-
-  seed_user
-
-  puts "Create pictures"
+def seed_pictures
+    puts "Create pictures"
   url="http://eu.ironman.com/~/media/e52189b7e5f94db0bb2d43e717ec87ad/28092017%20rotator%20im703nice%203.jpg?w=1600&h=980&c=1"
     pict = Picture.create(title: "Roc Azur",
       link: 'https://photos.app.goo.gl/3sAbyDVDjVxWJWDq8',
@@ -69,6 +60,18 @@ when "development"
     like: 5)
     pict.remote_photo_url = url
     pict.save
+end
+
+case Rails.env
+when "development"
+  puts "Delete all"
+    Picture.delete_all
+    Article.delete_all
+    User.delete_all
+
+  seed_user
+
+  seed_pictures
 
   set_article_types
 
