@@ -27,7 +27,7 @@ def seed_user
   puts " : X"
 end
 
-def seed_articles(article_type_write)
+def seed_articles(article_type_sample_id)
   Article.create(
       name: Faker::FunnyName.name,
       date: Time.now.strftime('%v'),
@@ -37,7 +37,7 @@ def seed_articles(article_type_write)
       link: Faker::Internet.url,
       content: Faker::Lorem.paragraph(rand(0..3)),
       user: User.all.sample,
-      article_type: article_type_write,
+      article_type_id: article_type_sample_id,
       photo: "http://res.cloudinary.com/dmbf8fog4/image/upload/v1544742939/gcbt5ejuknaxtuzxy0fd.jpg")
       print "*"
 end
