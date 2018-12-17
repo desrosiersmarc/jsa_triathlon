@@ -7,11 +7,12 @@ class PagesController < ApplicationController
                       .reverse
                       .take(3)
     @club_events = select_articles(1)
-    @training = Article.where(article_type: 2).last
-    @contests = select_articles(2)
-    @schools = select_articles(3)
+    @contests = select_articles(3)
+    @schools = select_articles(4)
     @results = select_articles(6)
-    #TODO @picture for mobile and @pictures > mobile
+    # 2 Training
+    # 5 Partner
+
 
   end
 
