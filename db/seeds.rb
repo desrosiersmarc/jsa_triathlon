@@ -27,6 +27,22 @@ def seed_user
   puts " : X"
 end
 
+def seed_articles(article_type_write)
+  Article.create(
+      name: Faker::FunnyName.name,
+      date: Time.now.strftime('%v'),
+      start_time: Time.now.strftime('%T'),
+      end_time: Time.now.strftime('%T'),
+      location: Faker::Address.city,
+      link: Faker::Internet.url,
+      content: Faker::Lorem.paragraph(rand(0..3)),
+      user: User.all.sample,
+      article_type: article_type_write,
+      photo: "http://res.cloudinary.com/dmbf8fog4/image/upload/v1544742939/gcbt5ejuknaxtuzxy0fd.jpg")
+      print "*"
+end
+
+
 case Rails.env
 when "development"
   puts "Delete all"
@@ -56,23 +72,18 @@ when "development"
 
   set_article_types
 
+
   puts "Create Articles"
-    60.times do Article.create(
-      name: Faker::FunnyName.name,
-      date: Time.now.strftime('%v'),
-      start_time: Time.now.strftime('%T'),
-      end_time: Time.now.strftime('%T'),
-      location: Faker::Address.city,
-      link: Faker::Internet.url,
-      content: Faker::Lorem.paragraph(rand(0..3)),
-      user: User.all.sample,
-      article_type: ArticleType.all.sample,
-      photo: "http://res.cloudinary.com/dmbf8fog4/image/upload/v1544742939/gcbt5ejuknaxtuzxy0fd.jpg")
-      print "*"
-    end
+    60.times do seed_articles(ArticleType.all.sample)    end
   puts ""
   puts "Articles created"
 when "production"
   set_article_types
   seed_user
+  seed_articles(1)
+  seed_articles(2)
+  seed_articles(3)
+  seed_articles(4)
+  seed_articles(5)
+  seed_articles(6)
 end
