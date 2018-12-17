@@ -1,0 +1,13 @@
+<div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+  <%= render 'homepage_card_template', {article: articles.first} %>
+</div>
+<div class="col-xs-12 hidden-sm">
+  <div class="correct-xs"></div>
+</div>
+
+
+<% articles.each do |article| %>
+  <div class="hidden-xs col-sm-4">
+    <%= render 'homepage_card_template', {article: article} %>
+  </div>
+<% end %>

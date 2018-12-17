@@ -16,6 +16,7 @@ def set_article_types
     ArticleType.create! id:3, name: 'Course'
     ArticleType.create! id:4, name: 'Ecole'
     ArticleType.create! id:5, name: 'Partenaire'
+    ArticleType.create! id:6, name: 'Résultat'
   puts "Article Types created"
 end
 
@@ -56,7 +57,7 @@ when "development"
   set_article_types
 
   puts "Create Articles"
-    20.times do Article.create(
+    60.times do Article.create(
       name: Faker::FunnyName.name,
       date: Time.now.strftime('%v'),
       start_time: Time.now.strftime('%T'),

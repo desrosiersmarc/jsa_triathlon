@@ -32,8 +32,11 @@
   <div class="wrapper-title">
     Evénement du club
   </div>
-  <div class="home-card home-card-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= cl_image_path('JSA Triathlon/Stadium_fgbv6j.jpg', :quality=>25)  %>)">
-    <div class="home-card-title">
+  <div class="container">
+    <div class="row">
+      <div class="picture-card-homepage">
+        <%= render 'wrapper_cards', {articles: @club_events} %>
+      </div>
     </div>
   </div>
   <div class="wrapper-link wrapper-link-black">
@@ -55,7 +58,10 @@
   <div class="wrapper-title">
     La prochaine course
   </div>
-  <div class="home-card home-card-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= cl_image_path('JSA Triathlon/calendrier_agenda.jpg', :quality=>25)  %>)">
+  <div class="container">
+    <div class="row">
+      <%= render 'wrapper_cards', {articles: @contests} %>
+    </div>
   </div>
   <%= link_to calendar_path, class: "wrapper-link wrapper-link-black"  do %>
       Voir le calendrier
@@ -65,8 +71,12 @@
   <div class="wrapper-title">
     Les derniers résultats
   </div>
-  <div class="home-card home-card-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= cl_image_path('JSA Triathlon/Ironman_WC_2016_Kona_frenchfuel_3_r3kgoy.jpg', :quality=>25) %>)">
+  <div class="container">
+    <div class="row">
+      <%= render 'wrapper_cards', {articles: @results} %>
+    </div>
   </div>
+
   <div class="wrapper-link">
     Voir tous les résultats
   </div>
@@ -75,21 +85,43 @@
   <div class="wrapper-title">
     L'école de triathlon
   </div>
-  <div class="home-card home-card-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= cl_image_path('JSA Triathlon/logo-ecoles-FFTRI.jpg', :quality=>25) %>)">
+  <div class="container">
+    <div class="row">
+      <%= render 'wrapper_cards', {articles: @schools} %>
+    </div>
   </div>
 </div>
 <div class="wrapper wrapper-black">
   <div class="wrapper-title">
     Bourse d'échange matériel
   </div>
-  <div class="home-card home-card-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dmbf8fog4/image/upload/c_crop,g_auto,h_300/v1541453464/material_y31jlr.jpg)">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 ">
+      <div class="picture-card">
+        <div class="home-card home-card-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dmbf8fog4/image/upload/c_crop,g_auto,h_300/v1541453464/material_y31jlr.jpg)">
+        </div>
+
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="correct-xs">
+
+      </div>
+    </div>
+
   </div>
+</div>
 </div>
 <div class="wrapper">
   <div class="wrapper-title">
     Les photos
   </div>
-  <%= render 'picture_link' %>
+  <div class="container">
+    <div class="row">
+      <%= render 'picture_link', {pictures: @pictures} %>
+    </div>
+  </div>
 
   <%= link_to pictures_path, class: "wrapper-link wrapper-link-black" do %>
     Voir toutes les photos

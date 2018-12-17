@@ -1,0 +1,27 @@
+<div class="picture-card-homepage">
+  <a href="<%= article.link %>" target="_blank">
+    <div class="picture-card">
+      <div class="picture-card-photo picture picture-card-photo-homepage" style="background-image: url('<%= helper_image_path(article) %>');">
+        <div class="picture-card-title">
+          <%= article.name %>
+        </div>
+        <div class="picture-card-name">
+          <%= article.user.firstname %>
+        </div>
+        <div class="picture-card-date">
+          <%= article.date.strftime('%d/%m/%Y') %>
+        </div>
+      </div>
+      <div class="picture-card-container">
+        <div class="picture-card-like">
+          <i class="fas fa-map-marker-alt"></i>
+          <%= article.location %>
+        </div>
+        <div class="picture-card-review">
+          <i class="fas fa-link"></i>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+
