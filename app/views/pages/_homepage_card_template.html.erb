@@ -1,25 +1,29 @@
 <div class="picture-card-homepage">
   <a href="<%= article.link %>" target="_blank">
     <div class="picture-card">
-      <div class="picture-card-photo picture picture-card-photo-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= helper_image_path(article) %>');">
-        <div class="picture-card-title">
-          <%= article.name %>
+      <%= link_to article_path(article) do %>
+        <div class="picture-card-photo picture picture-card-photo-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= helper_image_path(article) %>');">
+          <div class="picture-card-title">
+            <%= article.name %>
+          </div>
+          <div class="picture-card-name">
+            <%= article.user.firstname %>
+          </div>
+          <div class="picture-card-date">
+            <%= article.date.strftime('%d/%m/%Y') %>
+          </div>
         </div>
-        <div class="picture-card-name">
-          <%= article.user.firstname %>
-        </div>
-        <div class="picture-card-date">
-          <%= article.date.strftime('%d/%m/%Y') %>
-        </div>
-      </div>
+      <% end %>
       <div class="picture-card-container">
         <div class="picture-card-like">
           <i class="fas fa-map-marker-alt"></i>
           <%= article.location %>
         </div>
-        <div class="picture-card-review">
-          <i class="fas fa-link"></i>
-        </div>
+        <%= link_to article.link do %>
+          <div class="picture-card-review">
+            <i class="fas fa-link"></i>
+          </div>
+        <% end %>
       </div>
     </div>
   </a>
