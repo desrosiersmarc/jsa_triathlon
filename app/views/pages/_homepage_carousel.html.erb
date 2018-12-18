@@ -7,29 +7,55 @@
           <li data-target="#carousel-homepage" data-slide-to="0" class="active"></li>
           <li data-target="#carousel-homepage" data-slide-to="1"></li>
           <li data-target="#carousel-homepage" data-slide-to="2"></li>
+          <li data-target="#carousel-homepage" data-slide-to="3"></li>
+          <li data-target="#carousel-homepage" data-slide-to="4"></li>
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_picture_cloudinary_path('JSA Triathlon/0001_A2A0479-me_okbavq.jpg')%>);">
+            <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@club_events.first) %>);">
             </div>
             <div class="carousel-caption">
-              blabla
+              <h3>
+                <%= @club_events.first.name %>
+              </h3>
             </div>
           </div>
           <div class="item ">
-            <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_picture_cloudinary_path('JSA Triathlon/0001_A2A0334-me_lycckv.jpg')%>);">
+            <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@contests.first) %>);">
             </div>
             <div class="carousel-caption">
-              blabla
+              <h3>
+                <%= @contests.first.name %>
+              </h3>
             </div>
           </div>
           <div class="item ">
-            <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_picture_cloudinary_path('opu3zpprpbduwzdr0fe8.jpg')%>);">
+            <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@results.first)%>);">
             </div>
             <div class="carousel-caption">
-              blabla
+              <h3>
+                <%= @results.first.name %>
+              </h3>
+            </div>
+          </div>
+           <div class="item ">
+            <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@schools.first) %>);">
+            </div>
+            <div class="carousel-caption">
+              <h3>
+              <%= @schools.first.name %>
+              </h3>
+            </div>
+          </div>
+          <div class="item ">
+            <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@pictures.first)%>);">
+            </div>
+            <div class="carousel-caption">
+              <h3>
+                <%= @pictures.first.title %>
+              </h3>
             </div>
           </div>
         </div>
