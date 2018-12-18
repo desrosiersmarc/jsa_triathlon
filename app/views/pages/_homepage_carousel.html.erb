@@ -14,49 +14,62 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@club_events.first) %>);">
-            </div>
-            <div class="carousel-caption">
-              <h3>
-                <%= @club_events.first.name %>
-              </h3>
-            </div>
+            <%= link_to article_path(@club_events.first) do %>
+              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@club_events.first) %>);">
+              </div>
+              <div class="carousel-caption">
+                <h3>
+                  <%= @club_events.first.name %>
+                </h3>
+                <p>Evénement du club</p>
+              </div>
+            <% end %>
           </div>
           <div class="item ">
-            <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@contests.first) %>);">
-            </div>
-            <div class="carousel-caption">
-              <h3>
-                <%= @contests.first.name %>
-              </h3>
-            </div>
+            <%= link_to article_path(@contests.first) do %>
+              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@contests.first) %>);">
+              </div>
+              <div class="carousel-caption">
+                <h3>
+                  <%= @contests.first.name %>
+                </h3>
+                <p>Course</p>
+              </div>
+            <% end %>
           </div>
           <div class="item ">
-            <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@results.first)%>);">
-            </div>
-            <div class="carousel-caption">
-              <h3>
-                <%= @results.first.name %>
-              </h3>
-            </div>
+            <%= link_to article_path(@results.first) do %>
+              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@results.first)%>);">
+              </div>
+              <div class="carousel-caption">
+                <h3>
+                  <%= @results.first.name %>
+                </h3>
+                <p>Résultats</p>
+              </div>
+            <% end %>
           </div>
            <div class="item ">
-            <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@schools.first) %>);">
-            </div>
-            <div class="carousel-caption">
-              <h3>
-              <%= @schools.first.name %>
-              </h3>
-            </div>
+            <%= link_to article_path(@schools.first) do %>
+              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@schools.first) %>);">
+              </div>
+              <div class="carousel-caption">
+                <h3>
+                <%= @schools.first.name %>
+                </h3>
+              </div>
+            <% end %>
           </div>
           <div class="item ">
-            <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@pictures.first)%>);">
-            </div>
-            <div class="carousel-caption">
-              <h3>
-                <%= @pictures.first.title %>
-              </h3>
-            </div>
+            <%= link_to picture_path(@pictures.first) do %>
+              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@pictures.first)%>);">
+              </div>
+              <div class="carousel-caption">
+                <h3>
+                  <%= @pictures.first.title %>
+                </h3>
+              </div>
+            <% end %>
           </div>
         </div>
 
