@@ -31,10 +31,14 @@
       </div>
     <% end %>
   </div>
-  <%= link_to new_picture_path do %>
-    <div class="plus-button">
-      <i class="far fa-edit"></i>
-    </div>
+  <% if user_signed_in? %>
+    <% if current_user.role == 'admin' %>
+      <%= link_to new_picture_path do %>
+        <div class="plus-button">
+          <i class="far fa-edit"></i>
+        </div>
+      <% end %>
+      <% end %>
   <% end %>
 </div>
 

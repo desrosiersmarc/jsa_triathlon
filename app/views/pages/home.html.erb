@@ -127,6 +127,15 @@
     Voir toutes les photos
   <% end %>
 </div>
+<% if user_signed_in? %>
+  <% if current_user.role == 'admin' %>
+    <%= link_to new_article_path do %>
+      <div class="plus-button">
+        <i class="far fa-edit"></i>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
 
 <%= render 'homepage_partners' %>
 <%= render 'shared/footer'  %>
