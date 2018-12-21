@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Les événements du club</h3>
+    </div>
+    <% @club_events.each do |club| %>
+      <div class="col-xs-12 col-sm-4">
+          <%= render 'homepage_card_template', {article: club} %>
+      </div>
+    <% end %>
+  </div>
+</div>

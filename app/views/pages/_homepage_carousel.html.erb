@@ -14,49 +14,50 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <%= link_to article_path(@club_events.first) do %>
-              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@club_events.first) %>);">
+            <%= link_to article_path(@club_events_top3.first) do %>
+              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@club_events_top3.first) %>);">
               </div>
               <div class="carousel-caption">
                 <h3>
-                  <%= @club_events.first.name %>
+                  <%= @club_events_top3.first.name %>
                 </h3>
                 <p>Evénement du club</p>
               </div>
             <% end %>
           </div>
           <div class="item ">
-            <%= link_to article_path(@contests.first) do %>
-              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@contests.first) %>);">
+            <%= link_to article_path(@contests_top3.first) do %>
+              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@contests_top3.first) %>);">
               </div>
               <div class="carousel-caption">
                 <h3>
-                  <%= @contests.first.name %>
+                  <%= @contests_top3.first.name %>
                 </h3>
                 <p>Course</p>
               </div>
             <% end %>
           </div>
           <div class="item ">
-            <%= link_to article_path(@results.first) do %>
-              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@results.first)%>);">
+            <%= link_to article_path(@results_top3.first) do %>
+              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@results_top3.first)%>);">
               </div>
               <div class="carousel-caption">
                 <h3>
-                  <%= @results.first.name %>
+                  <%= @results_top3.first.name %>
                 </h3>
                 <p>Résultats</p>
               </div>
             <% end %>
           </div>
            <div class="item ">
-            <%= link_to article_path(@schools.first) do %>
-              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@schools.first) %>);">
+            <%= link_to article_path(@schools_top3.first) do %>
+              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@schools_top3.first) %>);">
               </div>
               <div class="carousel-caption">
                 <h3>
-                <%= @schools.first.name %>
+                <%= @schools_top3.first.name %>
                 </h3>
+                <p>Ecole de triathlon</p>
               </div>
             <% end %>
           </div>
@@ -68,6 +69,7 @@
                 <h3>
                   <%= @pictures.first.title %>
                 </h3>
+                <p>Photos</p>
               </div>
             <% end %>
           </div>

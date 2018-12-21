@@ -26,6 +26,15 @@
                 #23
               </div>
             </div>
+            <% if user_signed_in? %>
+              <% if current_user.role == 'admin' %>
+                <%= link_to edit_picture_path(picture) do %>
+                  <div class="homepage-card-edit-link ">
+                    <i class="far fa-edit"></i>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
           </div>
         </a>
       </div>
