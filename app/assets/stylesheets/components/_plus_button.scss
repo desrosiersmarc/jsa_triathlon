@@ -1,5 +1,5 @@
 .plus-button {
-  position: absolute;
+  position: fixed;
   bottom: 50px;
   right: 50px;
   box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
@@ -10,6 +10,7 @@
   align-items: center;
   border-radius: 50%;
   background-color: $red;
+  z-index: 1;
   i {
     color: $white;
   }

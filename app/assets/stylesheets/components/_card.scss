@@ -109,3 +109,17 @@ justify-content: space-around;
   // min-height: 250px;
 
 }
+
+.homepage-card-edit-link {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  background-color: $red;
+  top: 0;
+  right: 15px;
+  border-radius: 0 3px 0 0;
+  text-align: center;
+  i {
+    color: $white;
+  }
+}

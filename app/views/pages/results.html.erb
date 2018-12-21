@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>
+        Les résultats
+      </h3>
+    </div>
+    <% @results.each do |result| %>
+      <div class="col-xs-12 col-sm-4">
+          <%= render 'homepage_card_template', {article: result} %>
+      </div>
+    <% end %>
+  </div>
+</div>

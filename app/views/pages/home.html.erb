@@ -35,13 +35,13 @@
   <div class="container">
     <div class="row">
       <div class="picture-card-homepage">
-        <%= render 'wrapper_cards', {articles: @club_events} %>
+        <%= render 'wrapper_cards', {articles: @club_events_top3} %>
       </div>
     </div>
   </div>
-  <div class="wrapper-link wrapper-link-black">
+  <%= link_to club_events_path, class: "wrapper-link wrapper-link-black" do  %>
     Voir tous les événements
-  </div>
+  <% end %>
 </div>
 <div class="wrapper wrapper-black">
   <div class="wrapper-title">
@@ -60,12 +60,13 @@
   </div>
   <div class="container">
     <div class="row">
-      <%= render 'wrapper_cards', {articles: @contests} %>
+      <%= render 'wrapper_cards', {articles: @contests_top3} %>
     </div>
   </div>
-  <%= link_to calendar_path, class: "wrapper-link wrapper-link-black"  do %>
+  <%= link_to contests_path, class: "wrapper-link wrapper-link-black"  do %>
       Voir le calendrier
   <% end %>
+
 </div>
 <div class="wrapper wrapper-black">
   <div class="wrapper-title">
@@ -73,13 +74,12 @@
   </div>
   <div class="container">
     <div class="row">
-      <%= render 'wrapper_cards', {articles: @results} %>
+      <%= render 'wrapper_cards', {articles: @results_top3} %>
     </div>
   </div>
-
-  <div class="wrapper-link">
+  <%= link_to results_path, class: "wrapper-link" do %>
     Voir tous les résultats
-  </div>
+  <% end %>
 </div>
 <div class="wrapper">
   <div class="wrapper-title">
@@ -87,9 +87,12 @@
   </div>
   <div class="container">
     <div class="row">
-      <%= render 'wrapper_cards', {articles: @schools} %>
+      <%= render 'wrapper_cards', {articles: @schools_top3} %>
     </div>
   </div>
+  <%= link_to school_path, class: "wrapper-link wrapper-link-black"  do %>
+    Voir tous les articles
+  <% end %>
 </div>
 <div class="wrapper wrapper-black">
   <div class="wrapper-title">
@@ -127,6 +130,15 @@
     Voir toutes les photos
   <% end %>
 </div>
+<% if user_signed_in? %>
+  <% if current_user.role == 'admin' %>
+    <%= link_to new_article_path do %>
+      <div class="plus-button">
+        <i class="far fa-edit"></i>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
 
 <%= render 'homepage_partners' %>
 <%= render 'shared/footer'  %>
