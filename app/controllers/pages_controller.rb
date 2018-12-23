@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :calendar]
+  skip_before_action :authenticate_user!,
+                      only: [:home, :calendar, :club_events, :results]
   before_action :select_contests, only: [:home, :contests]
   before_action :select_club_events, only: [:home, :club_events]
   before_action :select_school, only: [:home, :school]
