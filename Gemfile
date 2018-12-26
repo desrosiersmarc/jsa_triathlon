@@ -24,6 +24,7 @@ gem 'devise-i18n'
 gem 'jquery-rails'
 gem 'ckeditor_rails'
 gem 'faker'
+gem 'figaro'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
