@@ -1,35 +1,43 @@
 <div class="col-xs-12">
   <%= link_to article_path(article) do %>
     <div class="article article-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= helper_image_path(article) %>') ">
-      <h3><%= article.name %></h3>
-      <p>
-        <i class="far fa-calendar-check"></i>
-        <%= article.date.strftime('%v') %>
-        <i class="far fa-clock"></i>
-        <%= article.start_time.strftime('%R') %> -
-        <%= article.end_time.strftime('%R') %>
-      </p>
-      <p>
-        <i class="fas fa-map-marker-alt"></i>
-        <%= article.location %>
-      </p>
-      <p>
-        <i class="fas fa-user-edit"></i>
-        <%= article.user.firstname %>
-      </p>
-      <p>
+      <div class="article-type">
         <i class="fab fa-elementor"></i>
         <%= article.article_type.name %>
-      </p>
-      <p>
-        <i class="fas fa-link"></i>
-        <a href="<%= article.link %>" target='_blank'>
-          Cliquez-ici
-        </a>
-      </p>
+      </div>
+      <div class="article-author">
+        <i class="fas fa-user-edit"></i>
+        <%= article.user.firstname %>
+      </div>
     </div>
   <% end %>
   <div class="article article-card">
+    <div class="article-title">
+      <h3>
+        <%= article.name %>
+      </h3>
+      <a href="<%= article.link %>" target='_blank'>
+        <div class="article-link">
+          <%= article.link %>
+        </div>
+      </a>
+    </div>
+    <div class="article-location-date-time">
+      <div>
+        <i class="fas fa-map-marker-alt"></i>
+        <%= article.location %>
+      </div>
+      <div>
+        <i class="far fa-calendar-check"></i>
+        <%= article.date.strftime('%v') %>
+      </div>
+      <div>
+        <i class="far fa-clock"></i>
+        <%= article.start_time.strftime('%R') %> -
+        <%= article.end_time.strftime('%R') %>
+      </div>
+    </div>
+      <hr>
     <p><%= raw article.content %></p>
     <p>
   </div>
