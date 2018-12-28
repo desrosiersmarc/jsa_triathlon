@@ -90,12 +90,12 @@ when "development"
   puts ""
   puts "Articles created"
 when "production"
-  set_article_types
+  # set_article_types
   seed_user
-  seed_articles(1)
-  seed_articles(2)
-  seed_articles(3)
-  seed_articles(4)
-  seed_articles(5)
-  seed_articles(6)
+  # seed_articles(1)
+  # seed_articles(2)
+  # seed_articles(3)
+  # seed_articles(4)
+  # seed_articles(5)
+  # seed_articles(6)
 end
