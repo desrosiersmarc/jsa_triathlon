@@ -100,6 +100,10 @@
 .picture-card-container {
 display: flex;
 justify-content: space-between;
+color: $gray;
+i {
+  color: $gray;
+}
 }
 
 .picture {
