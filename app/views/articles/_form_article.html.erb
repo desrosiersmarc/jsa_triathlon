@@ -11,5 +11,6 @@
   <%= f.text_area :content, class: 'ckeditor', label: t('.content') %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.input :article_type_id, collection: @article_types, label: t('.article_type'), selected: 3 %>
+  <%= f.input :active, label: " Publier l'article" %>
   <%= f.submit 'Go', class: 'btn btn-block btn-danger' %>
 <% end %>
