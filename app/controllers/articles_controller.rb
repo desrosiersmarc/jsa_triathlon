@@ -48,6 +48,7 @@ private
       :content,
       :user_id,
       :article_type_id,
+      :active,
       :photo)
   end
 
