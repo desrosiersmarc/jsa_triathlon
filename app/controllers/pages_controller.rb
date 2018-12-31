@@ -29,7 +29,7 @@ class PagesController < ApplicationController
 
 private
   def select_articles(article_type)
-    Article.where(article_type: article_type)
+    Article.where(article_type: article_type, active: true)
             .sort_by { |article| article.updated_at}
             .reverse
   end

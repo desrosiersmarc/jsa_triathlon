@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
 
   def index
-    @articles = Article.all
+    @articles = Article.all.where(active: true)
   end
 
   def new
@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to articles_path
+      redirect_to article_path(@article)
     else
       render :new
     end
@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
   def update
     @article.update(article_params)
     if @article.save
-      redirect_to articles_path
+      redirect_to article_path(@article)
     else
       render :edit
     end
