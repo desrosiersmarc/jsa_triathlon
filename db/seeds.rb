@@ -45,7 +45,8 @@ def seed_articles(article_type_sample_id)
       link: Faker::Internet.url,
       content: Faker::Lorem.paragraph(rand(0..3)),
       user: User.all.sample,
-      article_type_id: ArticleType.all.sample.id)
+      article_type_id: ArticleType.all.sample.id,
+      active: true)
   article.remote_photo_url = url
   article.save
       print "*"
