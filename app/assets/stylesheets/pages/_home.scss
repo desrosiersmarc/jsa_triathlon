@@ -82,3 +82,32 @@
   text-align: center;
 }
 
+.in-construction {
+  position: absolute;
+  background-color: red;
+  height: 50%;
+  width: 64vh;
+  top: 25%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  color: #FFF;
+  animation-duration: 5s;
+  animation-iteration-count: 4;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: $white;
+    font-size: 40px;
+    font-weight: bolder;
+    border: 2px solid $red;
+
+  }
+}
+
+.trans-property {
+}
+
+
+
