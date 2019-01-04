@@ -10,6 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <%= link_to "Mes articles", my_articles_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Club", club_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Résultats", results_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Les photos", pictures_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -51,6 +52,9 @@
 <!--         <li><a href="#">1-En construction</a></li>
         <li><a href="#">2-En construction</a></li> -->
         <% if user_signed_in? %>
+          <li>
+            <%= link_to "Mes articles", my_articles_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
               <i class="fas fa-sign-out-alt"></i>

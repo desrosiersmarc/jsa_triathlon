@@ -6,6 +6,13 @@
           <div class="picture-card-title">
             <%= article.name %>
           </div>
+          <% if !article.active %>
+            <div class="picture-card-status">
+              <i class="fas fa-exclamation-triangle"></i>
+              non publié
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+          <% end %>
           <div class="picture-card-name">
             <%= article.user.firstname %>
           </div>

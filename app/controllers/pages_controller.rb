@@ -21,9 +21,14 @@ class PagesController < ApplicationController
     @results_top3 = @results.take(3)
     # 2 Training
     # 5 Partner
+    #
 
+  end
 
-
+  def my_articles
+    @my_articles = Article.where(user: current_user)
+                          .sort_by {|article| article.updated_at}
+                          .reverse
   end
 
 

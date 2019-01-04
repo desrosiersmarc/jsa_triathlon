@@ -7,4 +7,5 @@ class Article < ApplicationRecord
   validates :date, presence: true
   validates :article_type_id, presence: true
   validates :photo, presence: true
+
 end
