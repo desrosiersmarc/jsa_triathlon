@@ -11,4 +11,13 @@ module ApplicationHelper
       image_path('https://picsum.photos/200/300/?gravity=east')
     end
   end
+
+  def helper_image_tag(element)
+    if element.photo?
+      cl_image_tag(element.photo)
+    else
+      image_path('https://picsum.photos/200/300/?gravity=east')
+    end
+  end
+
 end

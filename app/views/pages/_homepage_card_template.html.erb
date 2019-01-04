@@ -13,9 +13,16 @@
               <i class="fas fa-exclamation-triangle"></i>
             </div>
           <% end %>
-          <div class="picture-card-name">
-            <%= article.user.firstname %>
-          </div>
+          <% if article.user.photo? %>
+            <div class="picture-card-name-photo" style="background-image: url(<%= helper_image_path(article.user) %>)">
+            </div>
+          <% else %>
+            <div class="picture-card-name">
+              <%= article.user.firstname %>
+            </div>
+          <% end %>
+
+
           <div class="picture-card-date">
             <%= article.date.strftime('%d/%m/%Y') %>
           </div>
