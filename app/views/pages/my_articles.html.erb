@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+  <h3>Mes articles</h3>
+      <% @my_articles.each do |article| %>
+    <div class="col-xs-12 col-sm-4">
+        <%= render 'homepage_card_template', {article: article} %>
+    </div>
+      <% end %>
+
+  </div>
+</div>

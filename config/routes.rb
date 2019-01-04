@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'contests', to: 'pages#contests'
   get 'school', to: 'pages#school'
   get 'results', to: 'pages#results'
+  get 'my_articles', to: 'pages#my_articles'
 
 
 
