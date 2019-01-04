@@ -83,6 +83,17 @@
   text-shadow: 0 1px 2px rgba(0,0,0,0.8);
   font-size: 18px;
   font-weight: lighter;
+  &-photo {
+    position:absolute;
+    height: 40px;
+    width:40px;
+    border-radius:20px;
+    background-position: center center;
+    background-size: cover !important;
+    bottom: 5px;
+    left: 5px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  }
 }
 
 .picture-card-date {
