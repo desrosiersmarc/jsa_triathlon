@@ -86,7 +86,7 @@
   position: absolute;
   background-color: red;
   height: 50%;
-  width: 64vh;
+  width: 50vh;
   top: 25%;
   z-index: 1;
   display: flex;
@@ -106,7 +106,11 @@
   }
 }
 
-.trans-property {
+.licence {
+  position: fixed;
+  left: 5px;
+  bottom: 15px;
+  z-index:1;
 }
 
 
