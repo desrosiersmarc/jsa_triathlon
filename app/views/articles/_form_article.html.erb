@@ -1,7 +1,12 @@
 <%= simple_form_for(@article) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :photo, label: t('.photo'), label_html:{class: 'red-alert'}, error: 'il faut une photo'%>
-  <%= f.input :photo_cache, as: :hidden %>
+  <div class="article-form-photo">
+    <%= f.input :photo, label: t('.photo'), label_html:{class: 'red-alert'}, error: 'il faut une photo'%>
+    <%= f.input :photo_cache, as: :hidden %>
+    <% if @article.photo? %>
+      <%= cl_image_tag(@article.photo, :width => 400, :thumb => "pad") %>
+    <% end %>
+  </div>
   <%= f.input :name, class: 'title-article', input_html: {placeholder: "Le titre doit faire au maximum 50 caractères", maxlength: 50}, label: t(".name"), id:"name_id" %>
   <%= f.input :date, as: :date, order: [:day, :month, :year] ,input_html: { class: 'date-time'} %>
   <%= f.input :start_time, as: :time, start_hour: 8, end_hour: 22, minute_step: 15, input_html: { class: 'date-time'}, label: t('.start_time') %>
@@ -12,5 +17,5 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.input :article_type_id, collection: @article_types, label: t('.article_type') %>
   <%= f.input :active, label: " Publier l'article ?" %>
-  <%= f.submit 'Go', class: 'btn btn-block btn-danger' %>
+  <%= f.submit 'Enregistrer', class: 'btn btn-block btn-danger' %>
 <% end %>
