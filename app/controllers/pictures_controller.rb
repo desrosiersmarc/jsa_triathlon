@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+  before_action :find_picture, only: [:edit, :update]
 #TODO remove :new
   def index
     @pictures = Picture.all
@@ -18,8 +19,16 @@ class PicturesController < ApplicationController
     end
   end
 
-private
+  def update
+    @picture.update(picture_params)
+    if @picture.save
+      redirect_to pictures_path
+    else
+      render :edit
+    end
+  end
 
+private
   def picture_params
     params.require(:picture).permit(
       :link,
@@ -28,6 +37,10 @@ private
       :date,
       :like,
       :photo)
+  end
+
+  def find_picture
+    @picture = Picture.find(params[:id])
   end
 
 end
