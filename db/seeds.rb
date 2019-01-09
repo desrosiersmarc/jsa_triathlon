@@ -101,20 +101,20 @@ def seed_sport_types
   puts "Sport types created"
 end
 
-def seed_products(url)
-  puts "Create Products"
-  product = Product.create(user_id: User.sample,
-  name: Faker::FunnyName.name,
-  size_id: Size.sample,
-  description: Lorem.paragraph(rand(0..3)),
+def seed_products
+  url = "http://res.cloudinary.com/dmbf8fog4/image/upload/v1544742939/gcbt5ejuknaxtuzxy0fd.jpg"
+  product = Product.create(user_id: User.all.sample.id,
+  name: 'Batman',
+  size_id: Size.all.sample.id,
+  description: Faker::Lorem.paragraph(rand(0..3)),
   price: rand(0..999),
   stock: rand(0..99),
   sex: ['Unisex', 'Femme', 'Homme'].sample,
-  sport_type_id: SportType.sample,
-  product_type_id: ProductType.sample)
-  product.remote_photo_url = url
+  sport_type_id: SportType.all.sample.id,
+  product_type_id: ProductType.all.sample.id)
+  # product.remote_photo_url = url
   product.save
-  puts '*'
+  print '*'
 
 end
 
@@ -124,6 +124,7 @@ when "development"
   puts "Delete all"
     Picture.delete_all
     Article.delete_all
+    Product.delete_all
     User.delete_all
     Size.delete_all
     ProductType.delete_all
@@ -144,8 +145,7 @@ when "development"
   puts "Articles created"
 
   puts "Create Products"
-  url ='http://captivationssportswear.com/wp-content/uploads/2014/02/US-website-slider_Triathlon-960x600.jpg'
-  10.times do seed_products(url) end
+  10.times do seed_products end
   puts "Products created"
 
 when "production"

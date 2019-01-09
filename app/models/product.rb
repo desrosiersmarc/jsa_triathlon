@@ -3,4 +3,6 @@ class Product < ApplicationRecord
   belongs_to :size
   belongs_to :sport_type
   belongs_to :product_type
+
+  mount_uploader :photo, PhotoUploader
 end
