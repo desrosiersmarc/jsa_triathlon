@@ -9,10 +9,13 @@ Rails.application.routes.draw do
   get 'results', to: 'pages#results'
   get 'my_articles', to: 'pages#my_articles'
 
+  get 'sportswears', to: 'products#sportswears'
+
 
 
   resources :pictures, only: [:index, :new, :create, :show, :edit, :update]
   #TODO create update method
   resources :articles
+  resources :products, only: [:new, :create, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

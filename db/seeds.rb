@@ -72,31 +72,93 @@ def seed_pictures
     pict.save
 end
 
+def seed_sizes
+  puts "Create sizes"
+  Size.create! id:1, name: 'XXS'
+  Size.create! id:2, name: 'XS'
+  Size.create! id:3, name: 'S'
+  Size.create! id:4, name: 'M'
+  Size.create! id:5, name: 'L'
+  Size.create! id:6, name: 'XL'
+  Size.create! id:7, name: 'XXL'
+  puts "Sizes created"
+end
+
+def seed_product_types
+  puts "Create product types"
+  ProductType.create! id:1, name: "Tenues"
+  ProductType.create! id:2, name: "Bourse d'échange"
+  puts "Product types created<"
+end
+
+def seed_sport_types
+  puts "Create sport types"
+  SportType.create! id:1, name: "Triathlon"
+  SportType.create! id:2, name: "Natation"
+  SportType.create! id:3, name: "Vélo"
+  SportType.create! id:4, name: "Course à pied"
+  SportType.create! id:5, name: "Electro"
+  puts "Sport types created"
+end
+
+def seed_products
+  url = "http://res.cloudinary.com/dmbf8fog4/image/upload/v1544742939/gcbt5ejuknaxtuzxy0fd.jpg"
+  product = Product.create(user_id: User.all.sample.id,
+  name: 'Batman',
+  size_id: Size.all.sample.id,
+  description: Faker::Lorem.paragraph(rand(0..3)),
+  price: rand(0..999),
+  stock: rand(0..99),
+  sex: ['Unisex', 'Femme', 'Homme'].sample,
+  sport_type_id: SportType.all.sample.id,
+  product_type_id: ProductType.all.sample.id)
+  # product.remote_photo_url = url
+  product.save
+  print '*'
+
+end
+
+
 case Rails.env
 when "development"
   puts "Delete all"
     Picture.delete_all
     Article.delete_all
+    Product.delete_all
     User.delete_all
+    Size.delete_all
+    ProductType.delete_all
+    SportType.delete_all
 
   seed_user
-
   seed_pictures
-
   set_article_types
+
+  seed_sizes
+  seed_product_types
+  seed_sport_types
 
 
   puts "Create Articles"
     60.times do seed_articles(ArticleType.all.sample)    end
   puts ""
   puts "Articles created"
+
+  puts "Create Products"
+  10.times do seed_products end
+  puts "Products created"
+
 when "production"
   # set_article_types
-  seed_user
+  # seed_user
   # seed_articles(1)
   # seed_articles(2)
   # seed_articles(3)
   # seed_articles(4)
   # seed_articles(5)
   # seed_articles(6)
+  seed_sizes
+  seed_product_types
+  seed_sport_types
+
 end
