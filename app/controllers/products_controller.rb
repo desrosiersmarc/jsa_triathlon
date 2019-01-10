@@ -4,8 +4,14 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update]
 
   def sportswears
-    @sportswears = Product.where(product_type_id: 1)
+    @sportswears = if user_signed_in?
+                    Product.where(product_type_id: 1)
                           .sort_by {|product| product.sport_type}
+                  else
+                    Product.where(product_type_id: 1)
+                          .where(active: true)
+                          .sort_by {|product| product.sport_type}
+                  end
   end
 
   def new
