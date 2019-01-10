@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 
   def sportswears
     @sportswears = Product.where(product_type_id: 1)
+                          .sort_by {|product| product.sport_type}
   end
 
   def new

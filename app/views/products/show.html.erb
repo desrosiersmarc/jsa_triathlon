@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
-    <h3>Détail d'un produit</h3>
-    <%= @product.inspect %>
+    <div class="col-xs-12">
+      <h3>Détail du produit</h3>
+      <%= render 'card_product', product: @product %>
+    </div>
   </div>
 </div>

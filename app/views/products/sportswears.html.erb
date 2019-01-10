@@ -1,10 +1,19 @@
 <div class="container">
   <div class="row">
-    <h3>Sportswears</h3>
+    <h3>Tenues</h3>
     <% @sportswears.each do |sportswear| %>
       <div class="col-xs-12 col-sm-6">
-        <%= sportswear.inspect %>
+        <%= render 'card_product', product: sportswear %>
       </div>
+    <% end %>
+    <% if user_signed_in? %>
+      <% if current_user.role == 'admin' %>
+        <%= link_to new_product_path do %>
+          <div class="plus-button">
+            <i class="far fa-edit"></i>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
