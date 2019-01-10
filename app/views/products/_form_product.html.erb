@@ -15,7 +15,7 @@
   <%= f.input :size, collection: @sizes %>
   <%= f.input :sex, collection: @sex %>
   <%= f.input :sport_type, collection: @sport_types %>
-  <%= f.input :product_type, collection: @product_types %>
+  <%= f.input :product_type, collection: @product_types, as: :hidden %>
   <%= f.input :active %>
   <%= f.submit 'Enregistrer', class: 'btn btn-danger btn-block' %>
 <% end %>
