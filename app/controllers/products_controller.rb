@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update]
 
   def sportswears
-    @sportswears = if user_signed_in?
+    @sportswears = if user_signed_in? && current_user.role == 'admin'
                     Product.where(product_type_id: 1)
                           .sort_by {|product| product.sport_type}
                   else
