@@ -74,6 +74,7 @@ end
 
 def seed_sizes
   puts "Create sizes"
+  Size.create! id:0, name: 'Divers'
   Size.create! id:1, name: 'XXS'
   Size.create! id:2, name: 'XS'
   Size.create! id:3, name: 'S'
@@ -111,7 +112,8 @@ def seed_products
   stock: rand(0..99),
   sex: ['Unisex', 'Femme', 'Homme'].sample,
   sport_type_id: SportType.all.sample.id,
-  product_type_id: ProductType.all.sample.id)
+  product_type_id: ProductType.all.sample.id,
+  active: true)
   # product.remote_photo_url = url
   product.save
   print '*'

@@ -1,0 +1,46 @@
+.card-product-content {
+  background-color: $white;
+  position: relative;
+  a {
+    color: $gray;
+  }
+}
+.card-product-title {
+  text-align: center;
+}
+.card-product-photo {
+  height: 400px;
+  background-position: center center;
+  background-size: cover !important;
+  border-radius: 0 0 3px 3px;
+}
+.card-product-user {
+  position: absolute;
+  top: 90px;
+  left: 10px;
+}
+.card-product-description {
+  position: absolute;
+  bottom: 10px;
+  background-color: $white;
+  padding: 5px;
+  margin: 10px;
+  width: 97%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card-product-informations {
+  position: absolute;
+  top: 90px;
+  right: 10px;
+  background-color: $white;
+  padding: 5px;
+}
+
+.product-border {
+  border-radius: 3px;
+  border: 1px solid $gray-lighter;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  margin-bottom: 15px;
+}

@@ -1,0 +1,26 @@
+<div class="card-product-content product-border">
+  <div class="card-product-title">
+    <h2><%= product.sport_type.name %></h2>
+  </div>
+  <%= link_to product_path(product) do %>
+    <div class="card-product-photo" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= helper_image_path(product) %>') " >
+      <div class="card-product-user">
+        <%= product.user.firstname %>
+      </div>
+      <div class="card-product-description product-border">
+        <%= product.description %>
+      </div>
+      <div class="card-product-informations product-border">
+        <div class="product-price">
+          Prix : <%= product.price %>€
+        </div>
+        <div class="product-stock">
+         Stock : <%= product.stock %>
+        </div>
+        <div>
+          <%= product.sex %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

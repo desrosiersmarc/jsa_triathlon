@@ -1,0 +1,16 @@
+<%= simple_form_for(@product) do |f| %>
+  <%= f.error_notification %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :stock %>
+  <%= f.input :size, collection: @sizes %>
+  <%= f.input :sex, collection: @sex %>
+  <%= f.input :sport_type, collection: @sport_types %>
+  <%= f.input :product_type, collection: @product_types %>
+  <%= f.input :active %>
+  <%= f.submit 'Enregistrer', class: 'btn btn-danger btn-block' %>
+<% end %>
