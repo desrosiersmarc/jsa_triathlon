@@ -3,6 +3,11 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
+  <div class="article-form-photo">
+    <% if @product.photo? %>
+      <%= cl_image_tag(@product.photo, width: 400) %>
+    <% end %>
+  </div>
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :price %>
