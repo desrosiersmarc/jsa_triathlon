@@ -10,7 +10,7 @@
                 <%= picture.title %>
               </div>
               <div class="picture-card-name">
-                <%= picture.user.firstname %>
+                <%= render 'shared/user_picture', user: picture.user %>
               </div>
               <div class="picture-card-date">
                 <%= picture.date.strftime('%d/%m/%Y') %>
@@ -23,7 +23,6 @@
               </div>
               <div class="picture-card-review">
                 <i class="far fa-comments"></i>
-                #23
               </div>
             </div>
             <% if user_signed_in? %>

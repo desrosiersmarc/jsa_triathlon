@@ -20,4 +20,12 @@ module ApplicationHelper
     end
   end
 
+  def herlper_user_picture(user)
+    if user.photo?
+      cl_image_path(user.photo, :gravity=>"face", :crop=>"thumb")
+    else
+      image_path('https://picsum.photos/200/300/?gravity=east')
+    end
+  end
+
 end
