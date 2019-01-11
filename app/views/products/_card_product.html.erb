@@ -12,7 +12,7 @@
         </div>
       <% end %>
       <div class="card-product-user">
-        <%= product.user.firstname %>
+        <%= render 'shared/user_picture', user: product.user %>
       </div>
       <div class="card-product-description product-border">
         <%= product.description %>
