@@ -14,7 +14,8 @@
             </div>
           <% end %>
           <% if article.user.photo? %>
-            <div class="picture-card-name-photo" style="background-image: url(<%= helper_image_path(article.user) %>)">
+            <div class="picture-card-name-photo">
+              <%= render 'shared/user_picture', user: article.user %>
             </div>
           <% else %>
             <div class="picture-card-name">
