@@ -108,9 +108,34 @@
 
 .licence {
   position: fixed;
-  left: 5px;
-  bottom: 15px;
+  top: 80px;
   z-index:1;
+  background-color: $red;
+  color: $white;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  &:hover{
+  background-color: $white;
+  color: $red;
+  }
+}
+
+.taxes {
+  position: fixed;
+  bottom: 5px;
+  z-index: 1;
+  background-color: $red;
+  color: $white;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  &:hover {
+  background-color: $white;
+  color: $red;
+  border: 1px solid $red;
+  }
 }
 
 
