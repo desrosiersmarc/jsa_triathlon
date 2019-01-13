@@ -31,3 +31,13 @@
   -moz-animation: AnimationName 26s ease infinite;
   animation: AnimationName 26s ease infinite;
 }
+
+.gradient-an-black-gray {
+  background: linear-gradient(270deg, #010202, #676969);
+  background-size: 400% 400%;
+
+  -webkit-animation: AnimationName 30s ease infinite;
+  -moz-animation: AnimationName 30s ease infinite;
+  animation: AnimationName 30s ease infinite;
+}
+

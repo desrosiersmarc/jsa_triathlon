@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   before_action :select_club_events, only: [:home, :club_events]
   before_action :select_school, only: [:home, :school]
   before_action :select_results, only: [:home, :results]
+  before_action :select_clubs, only: [:home]
 
   def home
     @pictures = Picture.all
@@ -14,7 +15,7 @@ class PagesController < ApplicationController
 
     # 2 Training
     # 5 Partner
-
+    @clubs = @clubs.take(3)
     @club_events_top3 = @club_events.take(3)
     @contests_top3 = @contests.take(3)
     @schools_top3 = @schools.take(3)
@@ -53,6 +54,10 @@ private
 
   def select_results
     @results = select_articles(6)
+  end
+
+  def select_clubs
+    @clubs = select_articles(7)
   end
 
 end
