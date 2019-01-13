@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<div class="wrapper wrapper-black">
+<div class="wrapper wrapper-black gradient-an-black-red">
   <%= render 'in_construction' %>
   <div class="wrapper-title">
     Le club
@@ -152,11 +152,13 @@
     </div>
   </a>
 <% end %>
-<div class="taxes">
-  <i class="fas fa-hands-helping"></i>
-  Réduisez vos impôts en aidant le club
-  <i class="fas fa-hands-helping"></i>
-</div>
+<%= link_to impots_path do %>
+  <div class="taxes">
+    <i class="fas fa-hands-helping"></i>
+    Réduisez vos impôts en aidant le club
+    <i class="fas fa-hands-helping"></i>
+  </div>
+<% end %>
 
 <%= render 'homepage_partners' %>
 <%= render 'shared/footer'  %>
