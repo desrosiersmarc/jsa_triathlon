@@ -11,23 +11,20 @@
   </div>
 </div>
 
-<div class="wrapper wrapper-black">
-  <%= render 'in_construction' %>
+<div class="wrapper wrapper-black gradient-an-black-gray">
   <div class="wrapper-title">
     Le club
   </div>
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <div class="video">
-          <iframe width="300px" height="300px" src="https://www.youtube.com/embed/oLqh_tu98Gs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        <%= render 'wrapper_cards', {articles: @clubs} %>
       </div>
     </div>
   </div>
-  <div class="wrapper-link wrapper-link">
+  <%= link_to clubs_path, class: "wrapper-link wrapper-link" do %>
     Découvrir le club
-  </div>
+  <% end %>
 </div>
 <div class="wrapper">
   <div class="wrapper-title">
@@ -152,11 +149,13 @@
     </div>
   </a>
 <% end %>
-<div class="taxes">
-  <i class="fas fa-hands-helping"></i>
-  Réduisez vos impôts en aidant le club
-  <i class="fas fa-hands-helping"></i>
-</div>
+<%= link_to impots_path do %>
+  <div class="taxes">
+    <i class="fas fa-hands-helping"></i>
+    Réduisez vos impôts en aidant le club
+    <i class="fas fa-hands-helping"></i>
+  </div>
+<% end %>
 
 <%= render 'homepage_partners' %>
 <%= render 'shared/footer'  %>
