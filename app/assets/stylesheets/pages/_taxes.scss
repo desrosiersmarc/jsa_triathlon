@@ -1,6 +1,6 @@
 .taxes {
   position: fixed;
-  bottom: 5px;
+  top: 0;
   z-index: 1;
   background-color: red;
   color: $white;
@@ -10,6 +10,24 @@
   &:hover {
   background-color: $orange;
   }
+}
+
+.taxes-shift {
+  color: $white;
+  background-color: $white;
+}
+
+.taxes-close {
+  font-size: 26px;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  color: rgba(255, 255, 255, 0.5);
+  z-index:1;
+}
+
+.div-close {
+  display: none;
 }
 
 
