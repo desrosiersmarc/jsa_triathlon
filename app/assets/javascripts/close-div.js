@@ -10,10 +10,10 @@ function closeTaxeDiv(){
   closeTaxe.style.display = "none";
   closeTaxeShift.style.display = "none";
   sessionStorage.setItem('closeTaxeDisplay', 'false');
-}
+};
 
 var closeTaxeDisplay = sessionStorage.getItem('closeTaxeDisplay');
 
 if (closeTaxeDisplay == 'false') {
   closeTaxeDiv();
-}
+};
