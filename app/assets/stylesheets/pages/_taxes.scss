@@ -1,18 +1,45 @@
 .taxes {
   position: fixed;
-  bottom: 5px;
+  top: 0;
   z-index: 1;
   background-color: red;
   color: $white;
   padding: 5px;
   width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   &:hover {
-  background-color: $orange;
+    background: linear-gradient(270deg, #101eec, #ec10e4);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 0s ease infinite;
+    -moz-animation: AnimationName 0s ease infinite;
+    animation: AnimationName 0s ease infinite;
   }
 }
 
+.taxes-shift {
+  color: $white;
+  background-color: $white;
+}
 
+.taxes-close {
+  width: 40px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 5px;
+}
+
+.taxes-text {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: white;
+
+}
 
 
 
