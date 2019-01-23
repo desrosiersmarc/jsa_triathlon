@@ -1,17 +1,7 @@
 <%= render 'homepage_carousel' %>
-<div class="container">
-  <div class="row">
-    <div class="fb-post">
-      <div class="wrapper-title">
-        Dernier post facebook
-      </div>
-        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FJSATriathlon%2Fposts%2F2032913406816430&width=500" width="80%" height="632" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-    </div>
 
-  </div>
-</div>
 
-<div class="wrapper wrapper-black gradient-an-black-gray">
+<div class="wrapper">
   <div class="wrapper-title">
     Le club
   </div>
@@ -26,7 +16,7 @@
     Découvrir le club
   <% end %>
 </div>
-<div class="wrapper">
+<div class="wrapper wrapper-black">
   <div class="wrapper-title">
     Evénement du club
   </div>
@@ -41,7 +31,7 @@
     Voir tous les événements
   <% end %>
 </div>
-<div class="wrapper wrapper-black">
+<div class="wrapper">
   <%= render 'in_construction' %>
   <div class="wrapper-title">
     Entrainements
@@ -53,7 +43,7 @@
       Voir le planning
   <% end %>
 </div>
-<div class="wrapper">
+<div class="wrapper wrapper-black">
   <div class="wrapper-title">
     La prochaine course
   </div>
@@ -66,19 +56,10 @@
       Voir le calendrier
   <% end %>
 
-</div>
-<div class="wrapper wrapper-black">
-  <div class="wrapper-title">
-    Les derniers résultats
-  </div>
-  <div class="container">
-    <div class="row">
-      <%= render 'wrapper_cards', {articles: @results_top3} %>
-    </div>
-  </div>
-  <%= link_to results_path, class: "wrapper-link" do %>
-    Voir tous les résultats
+  <%= link_to results_path, class: "home-results" do %>
+    Voir les résultats
   <% end %>
+
 </div>
 <div class="wrapper">
   <div class="wrapper-title">
