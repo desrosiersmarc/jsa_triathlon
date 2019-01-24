@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index ]
+  skip_before_action :authenticate_user!, only: [:index, :impots ]
 
   def index
     @clubs = Article.where(article_type: 7) + Article.where(article_type: 8)

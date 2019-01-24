@@ -12,7 +12,7 @@
       </div>
     </div>
   </div>
-  <%= link_to clubs_path, class: "wrapper-link wrapper-link" do %>
+  <%= link_to clubs_path, class: "wrapper-link wrapper-link-black" do %>
     Découvrir le club
   <% end %>
 </div>
@@ -27,7 +27,7 @@
       </div>
     </div>
   </div>
-  <%= link_to club_events_path, class: "wrapper-link wrapper-link-black" do  %>
+  <%= link_to club_events_path, class: "wrapper-link wrapper-link-white" do  %>
     Voir tous les événements
   <% end %>
 </div>
@@ -39,7 +39,7 @@
 <!--   <div class="home-card home-card-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= cl_image_path('JSA Triathlon/gbv5kduuof8mfpganben.jpg', :quality=>25)  %>)">
   </div> -->
   <%= render 'training_link' %>
-  <%= link_to calendar_path, class: "wrapper-link"  do %>
+  <%= link_to calendar_path, class: "wrapper-link wrapper-link-black"  do %>
       Voir le planning
   <% end %>
 </div>
@@ -52,14 +52,22 @@
       <%= render 'wrapper_cards', {articles: @contests_top3} %>
     </div>
   </div>
-  <%= link_to contests_path, class: "wrapper-link wrapper-link-black"  do %>
+  <%= link_to contests_path, class: "wrapper-link wrapper-link-white"  do %>
       Voir le calendrier
   <% end %>
 
-  <%= link_to results_path, class: "home-results" do %>
-    Voir les résultats
-  <% end %>
-
+  <div class="hidden-xs">
+    <%= link_to results_path, class: "home-results" do %>
+      Voir les résultats
+    <% end %>
+  </div>
+</div>
+<div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+  <div class="result-on-mobile-wrapper">
+    <%= link_to results_path, class: "result-on-mobile-content" do %>
+      Résultats
+    <% end %>
+  </div>
 </div>
 <div class="wrapper">
   <div class="wrapper-title">
@@ -124,7 +132,7 @@
   <% end %>
 <% else %>
   <a href="https://espacetri.fftri.com/">
-    <div class="licence ">
+    <div class="licence box-shadow-md">
       <div>Se</div>
       <div>licencier</div>
     </div>
