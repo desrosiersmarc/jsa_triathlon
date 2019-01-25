@@ -1,89 +1,107 @@
 <div class="wrapper-carousel">
   <div class="container">
     <div class="row">
-      <div id="carousel-homepage" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-homepage" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-homepage" data-slide-to="1"></li>
-          <li data-target="#carousel-homepage" data-slide-to="2"></li>
-          <li data-target="#carousel-homepage" data-slide-to="3"></li>
-          <li data-target="#carousel-homepage" data-slide-to="4"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <%= link_to article_path(@club_events_top3.first) do %>
-              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@club_events_top3.first) %>);">
-              </div>
-              <div class="carousel-caption">
-                <h3>
-                  <%= @club_events_top3.first.name %>
-                </h3>
-                <p>Evénement du club</p>
-              </div>
-            <% end %>
-          </div>
-          <div class="item ">
-            <%= link_to article_path(@contests_top3.first) do %>
-              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@contests_top3.first) %>);">
-              </div>
-              <div class="carousel-caption">
-                <h3>
-                  <%= @contests_top3.first.name %>
-                </h3>
-                <p>Course</p>
-              </div>
-            <% end %>
-          </div>
-          <div class="item ">
-            <%= link_to article_path(@results_top3.first) do %>
-              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@results_top3.first)%>);">
-              </div>
-              <div class="carousel-caption">
-                <h3>
-                  <%= @results_top3.first.name %>
-                </h3>
-                <p>Résultats</p>
-              </div>
-            <% end %>
-          </div>
-           <div class="item ">
-            <%= link_to article_path(@schools_top3.first) do %>
-              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@schools_top3.first) %>);">
-              </div>
-              <div class="carousel-caption">
-                <h3>
-                <%= @schools_top3.first.name %>
-                </h3>
-                <p>Ecole de triathlon</p>
-              </div>
-            <% end %>
-          </div>
-          <div class="item ">
-            <%= link_to picture_path(@pictures.first) do %>
-              <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@pictures.first)%>);">
-              </div>
-              <div class="carousel-caption">
-                <h3>
-                  <%= @pictures.first.title %>
-                </h3>
-                <p>Photos</p>
-              </div>
-            <% end %>
-          </div>
+      <div class="wrapper-title-content">
+        <div class="wrapper-title wrapper-title-border-bottom">
+          Qui sommes nous ?
         </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div id="carousel-homepage" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-homepage" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-homepage" data-slide-to="1"></li>
+            <li data-target="#carousel-homepage" data-slide-to="2"></li>
+            <li data-target="#carousel-homepage" data-slide-to="3"></li>
+            <li data-target="#carousel-homepage" data-slide-to="4"></li>
+          </ol>
 
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-homepage" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-homepage" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <%= link_to article_path(@club_events_top3.first) do %>
+                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@club_events_top3.first) %>);">
+                </div>
+                <div class="carousel-caption">
+                  <h3>
+                    <%= @club_events_top3.first.name %>
+                  </h3>
+                  <p>Evénement du club</p>
+                </div>
+              <% end %>
+            </div>
+            <div class="item ">
+              <%= link_to article_path(@contests_top3.first) do %>
+                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@contests_top3.first) %>);">
+                </div>
+                <div class="carousel-caption">
+                  <h3>
+                    <%= @contests_top3.first.name %>
+                  </h3>
+                  <p>Course</p>
+                </div>
+              <% end %>
+            </div>
+            <div class="item ">
+              <%= link_to article_path(@results_top3.first) do %>
+                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@results_top3.first)%>);">
+                </div>
+                <div class="carousel-caption">
+                  <h3>
+                    <%= @results_top3.first.name %>
+                  </h3>
+                  <p>Résultats</p>
+                </div>
+              <% end %>
+            </div>
+             <div class="item ">
+              <%= link_to article_path(@schools_top3.first) do %>
+                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@schools_top3.first) %>);">
+                </div>
+                <div class="carousel-caption">
+                  <h3>
+                  <%= @schools_top3.first.name %>
+                  </h3>
+                  <p>Ecole de triathlon</p>
+                </div>
+              <% end %>
+            </div>
+            <div class="item ">
+              <%= link_to picture_path(@pictures.first) do %>
+                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@pictures.first)%>);">
+                </div>
+                <div class="carousel-caption">
+                  <h3>
+                    <%= @pictures.first.title %>
+                  </h3>
+                  <p>Photos</p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-homepage" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-homepage" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="home-club-history">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur ut reprehenderit dolorum assumenda. Quo quidem aut debitis assumenda ipsa aliquid, cum dolorem dolorum ea accusamus! Excepturi illo laboriosam incidunt placeat!
+          </p>
+          <%= link_to clubs_path, class: "link-to-class" do %>
+            En savoir plus
+            <i class="fas fa-arrow-right"></i>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
