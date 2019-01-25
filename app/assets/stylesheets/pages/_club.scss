@@ -1,0 +1,19 @@
+.home-club-history {
+  position: relative;
+  padding-bottom: 30px;
+}
+
+
+.link-to-class {
+  position: absolute;
+  right: 15px;
+  color: $white;
+  i {
+    color: $red;
+  }
+  &:hover {
+    text-decoration: none;
+    transition: 1s ease;
+    color: $red;
+  }
+}
