@@ -1,6 +1,10 @@
 .home-club-history {
   position: relative;
   padding-bottom: 30px;
+  height: 70vh;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 
@@ -8,6 +12,7 @@
   position: absolute;
   right: 15px;
   color: $white;
+  bottom: 10px;
   i {
     color: $red;
   }

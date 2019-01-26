@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   #TODO create update method
   resources :articles
   resources :products, only: [:new, :show, :create, :edit, :update]
-  resources :clubs, only: [:index]
+  resources :clubs, only: [:index, :new, :edit, :show, :create, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
