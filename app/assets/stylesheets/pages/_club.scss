@@ -15,5 +15,12 @@
     text-decoration: none;
     transition: 1s ease;
     color: $red;
+    border: 1px solid red;
+    height: 30px;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
   }
 }
