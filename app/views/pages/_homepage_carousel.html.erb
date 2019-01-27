@@ -93,14 +93,29 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-6">
-        <div class="home-club-history">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur ut reprehenderit dolorum assumenda. Quo quidem aut debitis assumenda ipsa aliquid, cum dolorem dolorum ea accusamus! Excepturi illo laboriosam incidunt placeat!
-          </p>
-          <%= link_to clubs_path, class: "link-to-class" do %>
-            En savoir plus
-            <i class="fas fa-arrow-right"></i>
+        <div class="home-club-content">
+
+          <% if user_signed_in? %>
+            <% if current_user.role == 'admin' %>
+              <%= link_to edit_club_path(@club) do %>
+                <div class="home-club-history-edit-link">
+                  <i class="far fa-edit"></i>
+                </div>
+              <% end %>
+            <% end %>
           <% end %>
+
+          <div class="home-club-history">
+            <p>
+              <%= raw homepage_club.content %>
+            </p>
+          </div>
+          <div class="home-club-learn-more">
+            <%= link_to clubs_path, class: "link-to-class" do %>
+              En savoir plus
+              <i class="fas fa-arrow-right"></i>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

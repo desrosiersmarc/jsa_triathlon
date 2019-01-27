@@ -1,13 +1,25 @@
+.home-club-content {
+  position: relative;
+}
+
 .home-club-history {
   position: relative;
   padding-bottom: 30px;
+  height: 69vh;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.home-club-learn-more {
+  display: flex;
+  justify-content: flex-end;
 }
 
 
 .link-to-class {
-  position: absolute;
-  right: 15px;
   color: $white;
+  width: 160px;
   i {
     color: $red;
   }
@@ -15,5 +27,25 @@
     text-decoration: none;
     transition: 1s ease;
     color: $red;
+    border: 1px solid red;
+    height: 30px;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
   }
+}
+
+.home-club-history-edit-link {
+  height: 30px;
+  width: 30px;
+  color: $white;
+  background-color: $red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 10px;
+  position: absolute;
+  z-index: 1;
 }

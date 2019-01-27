@@ -15,14 +15,14 @@ class PagesController < ApplicationController
                       .take(3)
 
     # 5 Partner
+    @club = Club.all.first
     @clubs = @clubs.take(3)
     @club_events_top3 = @club_events.take(3)
     @contests_top3 = @contests.take(3)
     @schools_top3 = @schools.take(3)
     @results_top3 = @results.take(3)
     @trainings_top3 = @trainings.take(3)
-    # 5 Partner
-    #
+
 
   end
 
