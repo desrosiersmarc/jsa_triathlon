@@ -1,6 +1,20 @@
 <div class="container">
   <div class="row">
-    <h3>L'histoire et la vie du club</h3>
-    <%= raw @club_history.content %>
+    <div class="club-heading club-history-detail">
+      <h3>L'histoire et la vie du club</h3>
+      <%= raw @clubs.find(1).content %>
+    </div>
+    <div class="club-heading club-infrastructure">
+    <h3>Les lieux d'entrainements</h3>
+      <%= raw @clubs.find(2).content %>
+    </div>
+    <div class="club-heading club-management-tem">
+      <h3>Le bureau</h3>
+      <%= raw @clubs.find(3).content %>
+    </div>
+    <div class="club-heading club-commission">
+      <h3>Les commissions</h3>
+      <%= raw @clubs.find(4).content %>
+    </div>
   </div>
 </div>
