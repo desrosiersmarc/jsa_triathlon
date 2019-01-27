@@ -94,17 +94,6 @@
       </div>
       <div class="col-xs-12 col-md-6">
         <div class="home-club-content">
-
-          <% if user_signed_in? %>
-            <% if current_user.role == 'admin' %>
-              <%= link_to edit_club_path(@club) do %>
-                <div class="home-club-history-edit-link">
-                  <i class="far fa-edit"></i>
-                </div>
-              <% end %>
-            <% end %>
-          <% end %>
-
           <div class="home-club-history">
             <p>
               <%= raw homepage_club.content %>
