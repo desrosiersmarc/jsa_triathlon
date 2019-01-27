@@ -1,10 +1,6 @@
 <div class="container">
   <div class="row">
     <h3>L'histoire et la vie du club</h3>
-    <% @clubs.each do |club| %>
-    <div class="col-xs-12 col-sm-4">
-      <%= render 'pages/homepage_card_template', {article: club} %>
-    </div>
-    <% end %>
+    <%= raw @club_history.content %>
   </div>
 </div>

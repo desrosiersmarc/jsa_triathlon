@@ -1,5 +1,5 @@
 .home-club-content {
-
+  position: relative;
 }
 
 .home-club-history {
@@ -35,4 +35,17 @@
     align-items: center;
     background-color: rgba(255, 255, 255, 0.9);
   }
+}
+
+.home-club-history-edit-link {
+  height: 30px;
+  width: 30px;
+  color: $white;
+  background-color: $red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 10px;
+  position: absolute;
+  z-index: 1;
 }

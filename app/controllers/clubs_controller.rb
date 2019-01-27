@@ -2,6 +2,7 @@ class ClubsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :impots ]
   before_action :find_club, only: [:new, :edit, :show, :update]
 
+
   def new
     @club = Club.new
   end
@@ -33,7 +34,8 @@ class ClubsController < ApplicationController
 
 
   def index
-    @clubs = Article.where(article_type: 7) + Article.where(article_type: 8)
+    # @clubs = Article.where(article_type: 7) + Article.where(article_type: 8)
+    @club_history = Club.first
 
   end
 
