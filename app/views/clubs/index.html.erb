@@ -1,6 +1,29 @@
 <div class="container">
   <div class="row">
-    <h3>L'histoire et la vie du club</h3>
-    <%= raw @club_history.content %>
+    <div class="club-heading box-shadow-md">
+      <%= render 'edit_link', club: @clubs.find(1)  %>
+      <h3>L'histoire et la vie du club</h3>
+      <%= raw @clubs.find(1).content %>
+    </div>
+    <div class="club-heading box-shadow-md">
+      <%= render 'edit_link', club: @clubs.find(2)  %>
+      <h3>Les lieux d'entrainements</h3>
+      <%= raw @clubs.find(2).content %>
+    </div>
+    <div class="club-heading box-shadow-md">
+      <%= render 'edit_link', club: @clubs.find(5)  %>
+      <h3>Les encadrants</h3>
+      <%= raw @clubs.find(5).content %>
+    </div>
+    <div class="club-heading box-shadow-md">
+      <%= render 'edit_link', club: @clubs.find(3)  %>
+      <h3>Le bureau</h3>
+      <%= raw @clubs.find(3).content %>
+    </div>
+    <div class="club-heading box-shadow-md">
+      <%= render 'edit_link', club: @clubs.find(4)  %>
+      <h3>Les commissions</h3>
+      <%= raw @clubs.find(4).content %>
+    </div>
   </div>
 </div>
