@@ -1,22 +1,6 @@
 <%= render 'homepage_carousel', homepage_club: @club %>
 
-
 <div class="wrapper">
-  <div class="wrapper-title">
-    Le club
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <%= render 'wrapper_cards', {articles: @clubs} %>
-      </div>
-    </div>
-  </div>
-  <%= link_to clubs_path, class: "wrapper-link wrapper-link-black" do %>
-    Découvrir le club
-  <% end %>
-</div>
-<div class="wrapper wrapper-black">
   <div class="wrapper-title">
     Evénement du club
   </div>
@@ -27,11 +11,11 @@
       </div>
     </div>
   </div>
-  <%= link_to club_events_path, class: "wrapper-link wrapper-link-white" do  %>
+  <%= link_to club_events_path, class: "wrapper-link wrapper-link-black" do  %>
     Voir tous les événements
   <% end %>
 </div>
-<div class="wrapper">
+<div class="wrapper wrapper-black">
   <div class="wrapper-title">
     Entrainements
   </div>
@@ -40,11 +24,11 @@
       <%= render 'wrapper_cards', {articles: @trainings_top3} %>
     </div>
   </div>
-  <%= link_to calendar_path, class: "wrapper-link wrapper-link-black"  do %>
+  <%= link_to calendar_path, class: "wrapper-link wrapper-link-white"  do %>
       Voir le planning
   <% end %>
 </div>
-<div class="wrapper wrapper-black">
+<div class="wrapper">
   <div class="wrapper-title">
     La prochaine course
   </div>
@@ -53,7 +37,7 @@
       <%= render 'wrapper_cards', {articles: @contests_top3} %>
     </div>
   </div>
-  <%= link_to contests_path, class: "wrapper-link wrapper-link-white"  do %>
+  <%= link_to contests_path, class: "wrapper-link wrapper-link-black"  do %>
       Voir le calendrier
   <% end %>
 
@@ -70,7 +54,7 @@
     <% end %>
   </div>
 </div>
-<div class="wrapper">
+<div class="wrapper wrapper-black">
   <div class="wrapper-title">
     L'école de triathlon
   </div>
@@ -79,11 +63,11 @@
       <%= render 'wrapper_cards', {articles: @schools_top3} %>
     </div>
   </div>
-  <%= link_to school_path, class: "wrapper-link wrapper-link-black"  do %>
+  <%= link_to school_path, class: "wrapper-link wrapper-link-white"  do %>
     Voir tous les articles
   <% end %>
 </div>
-<div class="wrapper wrapper-black">
+<div class="wrapper">
   <div class="wrapper-title">
     Divers
   </div>
@@ -109,7 +93,7 @@
   </div>
 </div>
 </div>
-<div class="wrapper">
+<div class="wrapper wrapper-black">
   <div class="wrapper-title">
     Les photos
   </div>
@@ -119,7 +103,7 @@
     </div>
   </div>
 
-  <%= link_to pictures_path, class: "wrapper-link wrapper-link-black" do %>
+  <%= link_to pictures_path, class: "wrapper-link wrapper-link-white" do %>
     Voir toutes les photos
   <% end %>
 </div>
