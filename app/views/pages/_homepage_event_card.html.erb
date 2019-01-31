@@ -1,0 +1,54 @@
+<!-- for mobile -->
+<div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+  <%= link_to article_path(articles.first) do %>
+    <div class="event-card-content box-shadow-md">
+      <div class="event-card-text gradient-an-blue-purple">
+        <h3><%= articles.first.name %></h3>
+        <p><%= articles.first.date %></p>
+        <p><%= articles.first.location %></p>
+        <div class="event-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= helper_image_path(articles.first) %>');">
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if user_signed_in? %>
+    <% if current_user.role == 'admin' %>
+      <%= link_to edit_article_path(articles.first) do %>
+        <div class="homepage-card-edit-link ">
+          <i class="far fa-edit"></i>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+<div class="col-xs-12 hidden-sm">
+  <div class="correct-xs"></div>
+</div>
+
+<!-- for other device -->
+<div class="hidden-xs">
+  <% articles.each do |article| %>
+    <div class="col-sm-6 col-md-4">
+      <%= link_to article_path(article) do %>
+        <div class="event-card-content box-shadow-md">
+          <div class="event-card-text gradient-an-blue-purple">
+            <h3><%= article.name %></h3>
+            <p><%= article.date %></p>
+            <p><%= article.location %></p>
+            <div class="event-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= helper_image_path(article) %>');">
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <% if current_user.role == 'admin' %>
+          <%= link_to edit_article_path(article) do %>
+            <div class="homepage-card-edit-link ">
+              <i class="far fa-edit"></i>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
