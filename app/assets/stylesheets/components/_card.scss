@@ -135,19 +135,6 @@ i {
 
 }
 
-.homepage-card-edit-link {
-  position: absolute;
-  height: 30px;
-  width: 30px;
-  background-color: $red;
-  top: 0;
-  right: 15px;
-  border-radius: 0 3px 0 0;
-  text-align: center;
-  i {
-    color: $white;
-  }
-}
 
 .user-picture {
   position:relative;
@@ -180,6 +167,4 @@ i {
   }
 }
 
-.box-shadow-md {
-  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
-}
+

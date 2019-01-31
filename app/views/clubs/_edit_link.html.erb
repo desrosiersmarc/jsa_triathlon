@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <% if current_user.role == 'admin' %>
     <%= link_to edit_club_path(club) do %>
-      <div class="club-heading-edit-link">
+      <div class="article-edit-link">
         <i class="far fa-edit"></i>
       </div>
     <% end %>

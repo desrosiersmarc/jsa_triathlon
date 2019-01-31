@@ -1,0 +1,24 @@
+.article-edit-link {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background-color: $white;
+  top: 0;
+  right: 15px;
+  border-radius: 0 3px 0 40px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 5px 0 0;
+  transition: 1s ease;
+  i {
+    color: $red;
+  }
+  &:hover {
+    transition: 1s ease;
+    background-color: $red;
+    i {
+      color: $white;
+    }
+  }
+}
+
