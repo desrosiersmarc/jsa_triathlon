@@ -15,7 +15,7 @@
   <% if user_signed_in? %>
     <% if current_user.role == 'admin' %>
       <%= link_to edit_article_path(articles.first) do %>
-        <div class="homepage-card-edit-link ">
+        <div class="article-edit-link ">
           <i class="far fa-edit"></i>
         </div>
       <% end %>
@@ -45,7 +45,7 @@
       <% if user_signed_in? %>
         <% if current_user.role == 'admin' %>
           <%= link_to edit_article_path(article) do %>
-            <div class="homepage-card-edit-link ">
+            <div class="article-edit-link ">
               <i class="far fa-edit"></i>
             </div>
           <% end %>
