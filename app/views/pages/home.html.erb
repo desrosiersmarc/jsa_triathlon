@@ -2,13 +2,11 @@
 
 <div class="wrapper">
   <div class="wrapper-title">
-    Evénement du club
+    Evénements du club
   </div>
   <div class="container">
     <div class="row">
-      <div class="picture-card-homepage">
-        <%= render 'wrapper_cards', {articles: @club_events_top3} %>
-      </div>
+      <%= render 'homepage_event_card', {articles: @club_events_top3} %>
     </div>
   </div>
   <%= link_to club_events_path, class: "wrapper-link wrapper-link-black" do  %>
