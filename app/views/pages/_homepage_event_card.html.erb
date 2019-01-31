@@ -7,7 +7,7 @@
         <p><%= articles.first.date.strftime('%d/%m/%Y') %></p>
         <i class="fas fa-map-marker-alt"></i>
         <p><%= articles.first.location %></p>
-        <div class="event-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= helper_image_path(articles.first) %>');">
+        <div class="event-card-picture" style="background-image: url('<%= helper_image_path(articles.first) %>');">
         </div>
       </div>
     </div>
@@ -37,7 +37,7 @@
             <p><%= article.date.strftime('%d/%m/%Y') %></p>
             <i class="fas fa-map-marker-alt"></i>
             <p><%= article.location %></p>
-            <div class="event-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= helper_image_path(article) %>');">
+            <div class="event-card-picture" style="background-image: url('<%= helper_image_path(article) %>');">
             </div>
           </div>
         </div>
