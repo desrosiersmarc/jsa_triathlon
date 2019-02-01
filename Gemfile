@@ -25,6 +25,7 @@ gem 'jquery-rails'
 gem 'ckeditor_rails'
 gem 'faker'
 gem 'figaro'
+gem 'google-api-client', require: 'google/apis/calendar_v3'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
