@@ -1,0 +1,22 @@
+<h3>Events</h3>
+<ul>
+  <% @event_list.items.each do |event| %>
+    <li>
+      <h3>
+        <p><%= event.summary %></p>
+      </h3>
+      <p>Description : <%= raw event.description %></p>
+      <% if event.status != 'cancelled' %>
+        <p><%= event.start.date_time.strftime('%A %d/%m/%Y') %></p>
+        <p>
+          <%= event.start.date_time.strftime('%H:%M') %>
+          <i class="fas fa-arrow-alt-circle-right"></i>
+          <%= event.end.date_time.strftime('%H:%M') %>
+        </p>
+        <p><%= event.location %></p>
+        <p><%= event.id %></p>
+      <% end %>
+        <p><%= event.status %></p>
+    </li>
+  <% end %>
+</ul>
