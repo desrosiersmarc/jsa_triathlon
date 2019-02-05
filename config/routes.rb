@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   get 'finances', to: 'clubs#finances'
   get 'impots', to: 'clubs#impots'
 
+  # Google API test
+  get '/redirect', to: 'calendar#redirect', as: 'redirect'
+  get '/callback', to: 'calendar#callback', as: 'callback'
+  get '/calendars', to: 'calendar#calendars', as: 'calendars'
+  get '/events', to: 'calendar#events', as: 'events'
+
 
 
   resources :pictures, only: [:index, :new, :create, :show, :edit, :update]

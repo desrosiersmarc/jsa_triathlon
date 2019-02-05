@@ -1,0 +1,46 @@
+.calendar-card-content {
+  background-color: white;
+  padding: 5px;
+  border-radius: 3px;
+  height: 300px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-card-date-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendar-card-date {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.calendar-card-location {
+  color: $gray-light;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.calendar-card-month {
+  color: $gray-light;
+}
+
+.calendar-card-title {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.calendar-card-description {
+  font-size: 10px;
+  text-align: center;
+}
+
+.calendar-card-time {
+  font-weight: bold;
+}
