@@ -24,7 +24,6 @@ gem 'devise-i18n'
 gem 'jquery-rails'
 gem 'ckeditor_rails'
 gem 'faker'
-gem 'figaro'
 gem 'google-api-client', require: 'google/apis/calendar_v3'
 
 group :development do
