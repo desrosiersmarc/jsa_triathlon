@@ -9,12 +9,12 @@ fr:
       short: "%b %d"
       long: "%B %d, %Y"
 
-    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
     abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
 
     # Don't forget the nil at the beginning; there's no such thing as a 0th month
     month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Decembre]
-    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    abbr_month_names: [~, Jan, Fév, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
     # Used in date_select and datetime_select.
     order:
       - :year

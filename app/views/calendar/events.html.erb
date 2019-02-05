@@ -1,22 +1,41 @@
-<h3>Events</h3>
-<ul>
-  <% @event_list.items.each do |event| %>
-    <li>
-      <h3>
-        <p><%= event.summary %></p>
-      </h3>
-      <p>Description : <%= raw event.description %></p>
-      <% if event.status != 'cancelled' %>
-        <p><%= event.start.date_time.strftime('%A %d/%m/%Y') %></p>
-        <p>
-          <%= event.start.date_time.strftime('%H:%M') %>
-          <i class="fas fa-arrow-alt-circle-right"></i>
-          <%= event.end.date_time.strftime('%H:%M') %>
-        </p>
-        <p><%= event.location %></p>
-        <p><%= event.id %></p>
+<div class="container">
+  <div class="row">
+    <h3>Events</h3>
+    <ul>
+      <% @event_list.items.each do |event| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="calendar-card-content box-shadow-md">
+            <div class="calendar-card-date-content">
+              <div class="calendar-card-day">
+                <%= l event.start.date_time, format: '%A' %>
+              </div>
+              <div class="calendar-card-date">
+                <%= event.start.date_time.strftime('%d') %>
+              </div>
+              <div class="calendar-card-month">
+                <%= l event.start.date_time, format: '%B' %>
+              </div>
+            </div>
+            <div class="calendar-card-title">
+              <%= event.summary %>
+            </div>
+            <div class="calendar-card-time">
+              <%= event.start.date_time.strftime('%H:%M') %>
+              <i class="fas fa-arrow-alt-circle-right"></i>
+              <%= event.end.date_time.strftime('%H:%M') %>
+            </div>
+            <div class="calendar-card-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <%= event.location %>
+            </div>
+            <div class="calendar-card-description">
+              Description : <%= raw event.description %>
+            </div>
+          </div>
+        </div>
+        <% if event.status != 'cancelled' %>
+        <% end %>
       <% end %>
-        <p><%= event.status %></p>
-    </li>
-  <% end %>
-</ul>
+    </ul>
+  </div>
+</div>
