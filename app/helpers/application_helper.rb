@@ -20,7 +20,7 @@ module ApplicationHelper
     end
   end
 
-  def herlper_user_picture(user)
+  def helper_user_picture(user)
     if user.photo?
       cl_image_path(user.photo, :gravity=>"face", :crop=>"thumb")
     else
