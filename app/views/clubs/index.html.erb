@@ -1,31 +1,45 @@
 <div class="container">
   <div class="row">
-    <div class="club-heading box-shadow-md">
+    <div class="club-heading box-shadow-md" id="history">
       <%= render 'edit_link', club: @clubs.find(1)  %>
       <h3>L'histoire et la vie du club</h3>
       <%= raw @clubs.find(1).content %>
     </div>
-    <div class="club-heading box-shadow-md">
+    <div class="club-heading box-shadow-md" id="training-places">
       <%= render 'edit_link', club: @clubs.find(2)  %>
       <h3>Les lieux d'entrainements</h3>
       <%= raw @clubs.find(2).content %>
     </div>
-    <div class="club-heading box-shadow-md">
+    <div class="club-heading box-shadow-md" id="coachs">
       <%= render 'edit_link', club: @clubs.find(5)  %>
       <h3>Les encadrants</h3>
       <%= raw @clubs.find(5).content %>
+      <div class="row">
+        <% @coachs.each do |coach| %>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <%= render 'user_card', {user: coach} %>
+        </div>
+        <% end %>
+      </div>
     </div>
-    <div class="club-heading box-shadow-md">
+    <div class="club-heading box-shadow-md" id="office">
       <%= render 'edit_link', club: @clubs.find(3)  %>
       <h3>Le bureau</h3>
       <%= raw @clubs.find(3).content %>
+      <div class="row">
+        <% @office_members.each do |member| %>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <%= render 'user_card', {user: member} %>
+        </div>
+        <% end %>
+      </div>
     </div>
-    <div class="club-heading box-shadow-md">
+    <div class="club-heading box-shadow-md" id="commissions">
       <%= render 'edit_link', club: @clubs.find(4)  %>
       <h3>Les commissions</h3>
       <%= raw @clubs.find(4).content %>
     </div>
-    <div class="club-heading box-shadow-md">
+    <div class="club-heading box-shadow-md" id="members">
       <h3>Les membres</h3>
       <div class="row">
         <% @users.each do |user| %>
