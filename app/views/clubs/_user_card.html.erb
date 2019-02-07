@@ -1,0 +1,13 @@
+<div class="user-card-content box-shadow-md">
+  <div class="user-card-picture" style="background-image: url(<%= helper_user_picture(user) %>")>
+
+  </div>
+  <div class="user-card-name">
+    <%= user.firstname %> <%= user.lastname %>
+  </div>
+  <div class="user-card-title-content">
+    <div class="user-card-title">
+      <%= user.role %>
+    </div>
+  </div>
+</div>

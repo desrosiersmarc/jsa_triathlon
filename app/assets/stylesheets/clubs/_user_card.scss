@@ -1,0 +1,40 @@
+.user-card-content {
+  background-color: $white;
+  border: solid 1px $gray;
+  position: relative;
+  width: 100%;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+
+.user-card-picture {
+  height: 250px;
+  background-position: center center;
+  background-size: cover !important;
+}
+
+.user-card-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+
+}
+
+.user-card-title-content {
+    border-bottom: 25px solid $red;
+    border-left: 35px solid transparent;
+    border-right: 18px solid transparent;
+    right: -22px;
+    color: #FFF;
+    position: absolute;
+    top: 21px;
+    width: 150px;
+    -webkit-transform: rotate(0.1turn);
+    transform: rotate(0.1turn);
+    display: flex;
+    justify-content: center;
+}
+.user-card-title {
+  position: absolute;
+}

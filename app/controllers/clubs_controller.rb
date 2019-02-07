@@ -36,7 +36,7 @@ class ClubsController < ApplicationController
   def index
     # @clubs = Article.where(article_type: 7) + Article.where(article_type: 8)
     @clubs = Club.all
-
+    @users = User.all
   end
 
   def finances
