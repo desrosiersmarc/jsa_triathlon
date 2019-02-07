@@ -36,7 +36,9 @@ class ClubsController < ApplicationController
   def index
     # @clubs = Article.where(article_type: 7) + Article.where(article_type: 8)
     @clubs = Club.all
-    @users = User.all
+    @users = User.all.sort_by { |member| member.lastname}
+    @office_members = User.where(office_member: true).sort_by { |member| member.lastname}
+    @coachs = User.where(coach: true).sort_by { |member| member.lastname}
   end
 
   def finances
