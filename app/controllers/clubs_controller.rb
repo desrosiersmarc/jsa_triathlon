@@ -36,9 +36,10 @@ class ClubsController < ApplicationController
   def index
     # @clubs = Article.where(article_type: 7) + Article.where(article_type: 8)
     @clubs = Club.all
-    @users = User.all.sort_by { |member| member.lastname}
-    @office_members = User.where(office_member: true).sort_by { |member| member.lastname}
-    @coachs = User.where(coach: true).sort_by { |member| member.lastname}
+    @users_to_display = User.where(display_profil: true)
+    @users = @users_to_display.sort_by { |member| member.lastname}
+    @office_members = @users_to_display.where(office_member: true).sort_by { |member| member.lastname}
+    @coachs = @users_to_display.where(coach: true).sort_by { |member| member.lastname}
   end
 
   def finances
