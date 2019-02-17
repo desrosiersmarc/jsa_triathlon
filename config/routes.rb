@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'my_articles', to: 'pages#my_articles'
 
   get 'sportswears', to: 'products#sportswears'
+  get 'bourse_echange', to: 'products#bourse_echange'
   get 'finances', to: 'clubs#finances'
   get 'impots', to: 'clubs#impots'
 

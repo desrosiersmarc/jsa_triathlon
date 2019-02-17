@@ -3,6 +3,27 @@
     <div class="col-xs-12">
       <h3>Détail du produit</h3>
       <%= render 'card_product', product: @product %>
+      <% if @product.product_type.id == 2 %>
+      <div class="card-product-seller box-shadow-md">
+        <div>
+          <i class="fas fa-user-astronaut"></i>
+          <%= @product.user.firstname %>
+          <%= @product.user.lastname %>
+        </div>
+
+        <div>
+          <i class="fas fa-mobile-alt"></i>
+          <a href="tel: <%= @product.user.mobil_phone %>", class="phone-link">
+            <%= @product.user.mobil_phone %>
+          </a>
+        </div>
+
+        <div>
+          <i class="far fa-envelope"></i>
+          <%= @product.user.email %>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>

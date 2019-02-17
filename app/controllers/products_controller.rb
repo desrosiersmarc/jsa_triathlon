@@ -14,6 +14,12 @@ class ProductsController < ApplicationController
                   end
   end
 
+  def bourse_echange
+    @products = Product.where(product_type_id: 2)
+                        .where(active: true)
+                        .sort_by {|product| product.sport_type}
+  end
+
   def new
     @product = Product.new
   end

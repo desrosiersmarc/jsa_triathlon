@@ -19,6 +19,18 @@
   top: 90px;
   left: 10px;
 }
+.card-product-seller {
+  display: flex;
+  min-height: 60px;
+  background-color: $red;
+  color: $white;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 5px;
+  border-radius: 3px;
+  align-items: center;
+  margin-bottom: 20px;
+}
 .card-product-description {
   position: absolute;
   bottom: 10px;
@@ -43,6 +55,13 @@
   border: 1px solid $gray-lighter;
   box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
   margin-bottom: 15px;
+}
 
-
+.phone-link {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
 }
