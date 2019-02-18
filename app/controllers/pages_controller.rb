@@ -37,7 +37,6 @@ private
   def select_articles(article_type)
     Article.where(article_type: article_type, active: true)
             .sort_by { |article| article.date}
-            .reverse
   end
 
   def select_contests
