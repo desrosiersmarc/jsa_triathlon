@@ -6,8 +6,8 @@ class Product < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
-  validates :name, presence: true
-  validates :description, presence: true
+  validates :name, presence: true, length: {maximum: 60, minimum: 5}
+  validates :description, presence: true, length: {maximum: 120, minimum: 5}
   validates :price, presence: true
   validates :stock, presence: true
 end
