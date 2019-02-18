@@ -5,7 +5,9 @@ class ArticlesController < ApplicationController
 
 
   def index
-    @articles = Article.all.where(active: true)
+    @articles = Article.where(active: true)
+                        .where('date > ?', Time.now - 7.day)
+                        .sort_by { |article| article.date}
   end
 
   def new

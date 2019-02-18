@@ -36,6 +36,7 @@ class PagesController < ApplicationController
 private
   def select_articles(article_type)
     Article.where(article_type: article_type, active: true)
+            .where('date > ?', Time.now - 7.day)
             .sort_by { |article| article.date}
   end
 
