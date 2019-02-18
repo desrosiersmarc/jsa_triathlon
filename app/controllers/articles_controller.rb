@@ -6,7 +6,6 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.where(active: true)
-                        .where('date > ?', Time.now - 7.day)
                         .sort_by { |article| article.date}
   end
 
