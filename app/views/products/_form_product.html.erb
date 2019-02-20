@@ -12,11 +12,11 @@
   <%= f.input :description %>
   <%= f.input :price %>
   <%= f.input :stock %>
-  <%= f.input :size, collection: @sizes %>
+  <%= f.input :size_id, collection: @sizes %>
   <%= f.input :sex, collection: @sex %>
-  <%= f.input :sport_type, collection: @sport_types %>
+  <%= f.input :sport_type_id, collection: @sport_types %>
   <% if current_user.role == 'admin' %>
-    <%= f.input :product_type, collection: @product_types%>
+    <%= f.input :product_type_id, collection: @product_types%>
   <% else %>
     <%= f.input :product_type, input_html: {value: 2}, as: :hidden%>
   <% end %>
