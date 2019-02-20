@@ -1,6 +1,7 @@
 <div class="card-product-content product-border">
   <div class="card-product-title">
-    <h2><%= product.sport_type.name %></h2>
+    <h3><%= product.name %></h3>
+    <p><%= product.sport_type.name %></p>
   </div>
   <%= link_to product_path(product) do %>
     <div class="card-product-photo" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= helper_image_path(product) %>') " >
