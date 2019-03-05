@@ -28,4 +28,22 @@ module ApplicationHelper
     end
   end
 
+  def member?
+    if user_signed_in?
+      if current_user.role == 'admin' || current_user.member
+        return true
+      else
+        return false
+      end
+    end
+  end
+
+  def admin?
+    if user_signed_in?
+      if current_user.role == 'admin'
+        return true
+      end
+    end
+  end
+
 end

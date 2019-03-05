@@ -42,13 +42,11 @@
       </div>
     </div>
   </a>
-  <% if user_signed_in? %>
-    <% if current_user.role == 'admin' %>
-      <%= link_to edit_article_path(article) do %>
-        <div class="article-edit-link ">
-          <i class="far fa-edit"></i>
-        </div>
-      <% end %>
+  <% if admin? %>
+    <%= link_to edit_article_path(article) do %>
+      <div class="article-edit-link ">
+        <i class="far fa-edit"></i>
+      </div>
     <% end %>
   <% end %>
 </div>

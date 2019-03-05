@@ -1,5 +1,7 @@
 <%= render 'homepage_carousel', homepage_club: @club %>
-
+<% if member? %>
+    <%= render 'homepage_form' %>
+<% end %>
 <div class="wrapper">
   <div class="wrapper-title">
     Evénements du club
@@ -118,14 +120,12 @@
     Voir toutes les photos
   <% end %>
 </div>
-<% if user_signed_in? %>
-  <% if current_user.role == 'admin' %>
+<% if admin? %>
     <%= link_to new_article_path do %>
       <div class="plus-button">
         <i class="far fa-edit"></i>
       </div>
     <% end %>
-  <% end %>
 <% else %>
   <a href="https://espacetri.fftri.com/">
     <div class="licence box-shadow-md">
