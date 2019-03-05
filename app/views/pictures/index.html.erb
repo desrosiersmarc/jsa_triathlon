@@ -25,13 +25,11 @@
                 <i class="far fa-comments"></i>
               </div>
             </div>
-            <% if user_signed_in? %>
-              <% if current_user.role == 'admin' %>
-                <%= link_to edit_picture_path(picture) do %>
-                  <div class="article-edit-link ">
-                    <i class="far fa-edit"></i>
-                  </div>
-                <% end %>
+            <% if admin? %>
+              <%= link_to edit_picture_path(picture) do %>
+                <div class="article-edit-link ">
+                  <i class="far fa-edit"></i>
+                </div>
               <% end %>
             <% end %>
           </div>
@@ -39,14 +37,12 @@
       </div>
     <% end %>
   </div>
-  <% if user_signed_in? %>
-    <% if current_user.role == 'admin' %>
-      <%= link_to new_picture_path do %>
-        <div class="plus-button">
-          <i class="far fa-edit"></i>
-        </div>
-      <% end %>
-      <% end %>
+  <% if admin? %>
+    <%= link_to new_picture_path do %>
+      <div class="plus-button">
+        <i class="far fa-edit"></i>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
