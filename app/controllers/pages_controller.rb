@@ -43,11 +43,16 @@ private
     else
       return articles
     end
-
   end
 
   def select_contests
     @contests = select_articles(3)
+  end
+
+  def select_all_articles(article_type)
+    articles = Article.where(article_type: article_type, active: true)
+                .sort_by {|article| article.date}
+                .reverse
   end
 
   def select_club_events
@@ -59,7 +64,7 @@ private
   end
 
   def select_results
-    @results = select_articles(6)
+    @results = select_all_articles(6)
   end
 
   def select_clubs
