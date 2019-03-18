@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+
 def set_article_types
   print "Delete Article Types"
   ArticleType.delete_all
@@ -120,35 +122,52 @@ def seed_products
 
 end
 
+def seed_user_production
+  filepath = "db/jsa_members.csv"
+  CSV.foreach(filepath) do |row|
+    User.create(firstname: row[0],
+                lastname: row[1],
+                email: row[4],
+                password: row[8],
+                member: true,
+                mobil_phone: '0606060606',
+                profil: 'Membre')
+    print "*"
+    #puts "#{row[0].upcase} #{row[1]} - #{row[4]} - #{row[8]}"
+  end
+end
+
+
 
 case Rails.env
 when "development"
-  puts "Delete all"
-    Picture.delete_all
-    Article.delete_all
-    Product.delete_all
-    User.delete_all
-    Size.delete_all
-    ProductType.delete_all
-    SportType.delete_all
+  # puts "Delete all"
+  #   Picture.delete_all
+  #   Article.delete_all
+  #   Product.delete_all
+  #   User.delete_all
+  #   Size.delete_all
+  #   ProductType.delete_all
+  #   SportType.delete_all
 
-  seed_user
-  seed_pictures
-  set_article_types
+  # seed_user
+  # seed_pictures
+  # set_article_types
 
-  seed_sizes
-  seed_product_types
-  seed_sport_types
+  # seed_sizes
+  # seed_product_types
+  # seed_sport_types
 
 
-  puts "Create Articles"
-    60.times do seed_articles(ArticleType.all.sample)    end
-  puts ""
-  puts "Articles created"
+  # puts "Create Articles"
+  #   60.times do seed_articles(ArticleType.all.sample)    end
+  # puts ""
+  # puts "Articles created"
 
-  puts "Create Products"
-  10.times do seed_products end
-  puts "Products created"
+  # puts "Create Products"
+  # 10.times do seed_products end
+  # puts "Products created"
+  seed_user_production
 
 when "production"
   # set_article_types
@@ -159,8 +178,9 @@ when "production"
   # seed_articles(4)
   # seed_articles(5)
   # seed_articles(6)
-  seed_sizes
-  seed_product_types
-  seed_sport_types
+  #seed_sizes
+  #seed_product_types
+  #seed_sport_types
+  seed_user_production
 
 end
