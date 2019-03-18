@@ -40,7 +40,7 @@
       <%= raw @clubs.find(4).content %>
     </div>
     <div class="club-heading box-shadow-md" id="members">
-      <h3>Les membres</h3>
+      <h3>Les membres (<%= @users.count %>)</h3>
       <div class="row">
         <% @users.each do |user| %>
           <div class="col-xs-6 col-sm-4 col-md-3">
