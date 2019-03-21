@@ -13,7 +13,6 @@ class PagesController < ApplicationController
                       .sort_by { |article| article.updated_at}
                       .reverse
                       .take(3)
-
     # 5 Partner
     @club = Club.all.first
     @clubs = @clubs.take(3)
@@ -22,6 +21,8 @@ class PagesController < ApplicationController
     @schools_top3 = @schools.take(3)
     @results_top3 = @results.take(3)
     @trainings_top3 = @trainings.take(3)
+
+    @product_echange_count = Product.where(product_type_id: 2, active: true)
 
 
   end
