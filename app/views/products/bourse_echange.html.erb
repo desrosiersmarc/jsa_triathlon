@@ -6,5 +6,12 @@
         <%= render 'card_product', product: product %>
       </div>
     <% end %>
+    <% if member? %>
+      <%= link_to new_product_path do %>
+        <div class="plus-button">
+          <i class="far fa-edit"></i>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
