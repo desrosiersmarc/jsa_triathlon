@@ -31,7 +31,8 @@
       </div>
     </div>
   <% end %>
-  <% if admin? %>
+  <% if member? %>
+  <!-- TODO -->
     <%= link_to edit_product_path(product) do %>
       <div class="article-edit-link ">
         <i class="far fa-edit"></i>

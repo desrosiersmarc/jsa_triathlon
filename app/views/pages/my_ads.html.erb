@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <h3>Mes annonces</h3>
+    <% @my_ads.each do |ad| %>
+      <div class="col-xs-12 col-sm-6">
+        <%= render 'products/card_product', product: ad %>
+      </div>
+    <% end %>
+  </div>
+</div>

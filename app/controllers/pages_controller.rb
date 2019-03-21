@@ -33,6 +33,9 @@ class PagesController < ApplicationController
                           .reverse
   end
 
+  def my_ads
+    @my_ads = Product.where(user: current_user, product_type_id: 2)
+  end
 
 private
   def select_articles(article_type)
