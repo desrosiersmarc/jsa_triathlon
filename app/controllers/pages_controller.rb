@@ -22,7 +22,7 @@ class PagesController < ApplicationController
     @results_top3 = @results.take(3)
     @trainings_top3 = @trainings.take(3)
 
-    @product_echange_count = Product.where(product_type_id: 2, active: true)
+    @product_echange_count = Product.where(product_type_id: 2, active: true).count
 
 
   end
