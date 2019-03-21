@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'school', to: 'pages#school'
   get 'results', to: 'pages#results'
   get 'my_articles', to: 'pages#my_articles'
+  get 'my_ads', to: 'pages#my_ads'
 
   get 'sportswears', to: 'products#sportswears'
   get 'bourse_echange', to: 'products#bourse_echange'

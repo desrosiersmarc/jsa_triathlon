@@ -13,7 +13,7 @@
     <%= link_to "Les photos", pictures_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <% if member? %>
-      <div class="navbar-wagon-item navbar-wagon-link">Mes annonces</div>
+      <%= link_to "Mes annonces", my_ads_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
 
     <% if admin? %>
