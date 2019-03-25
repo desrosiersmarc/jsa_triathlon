@@ -10,6 +10,7 @@
   </div>
   <%= f.input :name, label: 'Nom' %>
   <%= f.input :description, input_html: {placeholder: 'Vous diposez de 240 caractères pour décrire votre produit', maxlength: 240} %>
+  <div class="counter-text counter-hide" id="counter-description">...</div>
   <%= f.input :price, label: 'Prix' %>
   <%= f.input :stock %>
   <%= f.input :size_id, label: 'Taille' ,collection: @sizes %>
