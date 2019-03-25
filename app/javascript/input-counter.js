@@ -1,25 +1,43 @@
-countDescription = document.getElementById('counter-description')
+countDescription = document.getElementById('counter-description');
+countName = document.getElementById('counter-name');
 
-description = document.getElementById('product_description')
+description = document.getElementById('product_description');
+productName = document.getElementById('product_name');
 
-function countChar() {
+function countCharDescription(){
   countDescription.innerHTML = description.value.length + '/240';
 };
 
+function countCharName(){
+  countName.innerHTML = productName.value.length + '/22';
+};
+
 function showCounter(){
-  document.getElementById('counter-description').classList.remove('counter-hide');
-  countChar();
+  countDescription.classList.remove('counter-hide');
+  countCharDescription();
+};
+
+function showCounterName(){
+  countName.classList.remove('counter-hide');
+  countCharName();
 };
 
 function hideCounter(){
-  document.getElementById('counter-description').classList.add('counter-hide');
+  countDescription.classList.add('counter-hide');
 };
 
-description.addEventListener('keydown', countChar);
+function hideCounterName(){
+  countName.classList.add('counter-hide');
+};
+
+description.addEventListener('keydown', countCharDescription);
+productName.addEventListener('keydown', countCharName);
 
 description.addEventListener('focus', showCounter);
+productName.addEventListener('focus', showCounterName);
 
 description.addEventListener('blur', hideCounter);
+productName.addEventListener('blur', hideCounterName);
 
 
 

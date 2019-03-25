@@ -8,7 +8,8 @@
       <%= cl_image_tag(@product.photo, width: 400) %>
     <% end %>
   </div>
-  <%= f.input :name, label: 'Nom' %>
+  <%= f.input :name, label: 'Nom', input_html: {maxlength: 22} %>
+  <div class="counter-text counter-hide" id="counter-name">...</div>
   <%= f.input :description, input_html: {placeholder: 'Vous diposez de 240 caractères pour décrire votre produit', maxlength: 240} %>
   <div class="counter-text counter-hide" id="counter-description">...</div>
   <%= f.input :price, label: 'Prix' %>
