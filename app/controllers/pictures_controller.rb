@@ -4,6 +4,8 @@ class PicturesController < ApplicationController
 #TODO remove :new
   def index
     @pictures = Picture.all
+                        .sort_by {|picture| picture.date}
+                        .reverse
   end
 
   def new
