@@ -8,7 +8,7 @@ module ApplicationHelper
     if element.photo?
       cl_image_path(element.photo)
     else
-      image_path('https://picsum.photos/200/300/?gravity=east')
+      image_path('https://res.cloudinary.com/dmbf8fog4/image/upload/v1541682380/JSA%20Triathlon/bbmygg5lpt0nyympgnxf.jpg')
     end
   end
 
