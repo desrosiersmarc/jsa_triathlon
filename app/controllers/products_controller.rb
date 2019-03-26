@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:sportswears, :show]
+  skip_before_action :authenticate_user!, only: [:sportswears, :show, :bourse_echange]
   before_action :load_collections, only: [:new, :create, :edit, :update]
   before_action :find_product, only: [:show, :edit, :update]
 
