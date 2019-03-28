@@ -137,6 +137,21 @@ def seed_user_production
   end
 end
 
+def seed_picture_albums
+  filepath = "db/recup_albums - csv.csv"
+  puts "picture album creation"
+  CSV.foreach(filepath) do |row|
+    Picture.create(title: row[0],
+                  date: row[1],
+                  link: row[2],
+                  user_id: User.first.id)
+    print "*"
+  end
+  puts "Done !"
+end
+
+
+
 
 
 case Rails.env
@@ -167,7 +182,8 @@ when "development"
   # puts "Create Products"
   # 10.times do seed_products end
   # puts "Products created"
-  seed_user_production
+  #seed_user_production
+  seed_picture_albums
 
 when "production"
   # set_article_types
@@ -181,6 +197,7 @@ when "production"
   #seed_sizes
   #seed_product_types
   #seed_sport_types
-  seed_user_production
+  #seed_user_production
+  seed_picture_albums
 
 end
