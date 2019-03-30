@@ -9,7 +9,7 @@ function countCharDescription(){
 };
 
 function countCharName(){
-  countName.innerHTML = productName.value.length + '/22';
+  countName.innerHTML = productName.value.length + '/40';
 };
 
 function showCounter(){
