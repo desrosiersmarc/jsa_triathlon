@@ -7,7 +7,15 @@
 }
 .card-product-title {
   text-align: center;
+  padding: 0 15px;
 }
+
+.card-product-title-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .card-product-photo {
   height: 400px;
   background-position: center center;
