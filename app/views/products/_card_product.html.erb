@@ -22,9 +22,11 @@
         <div class="product-price">
           Prix : <%= product.price %>€
         </div>
-        <div class="product-stock">
-         Stock : <%= product.stock %>
-        </div>
+        <% if product.product_type_id == 1 %>
+          <div class="product-stock">
+           Stock : <%= product.stock %>
+          </div>
+        <% end %>
         <div>
           <%= product.sex %>
         </div>
