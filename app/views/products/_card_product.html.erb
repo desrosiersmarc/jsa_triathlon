@@ -26,6 +26,10 @@
           <div class="product-stock">
            Stock : <%= product.stock %>
           </div>
+        <% else %>
+          <div class="product-size">
+            Taille : <%= product.size.name %>
+          </div>
         <% end %>
         <div>
           <%= product.sex %>
