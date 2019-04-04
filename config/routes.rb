@@ -12,8 +12,10 @@ Rails.application.routes.draw do
 
   get 'sportswears', to: 'products#sportswears'
   get 'bourse_echange', to: 'products#bourse_echange'
+
   get 'finances', to: 'clubs#finances'
   get 'impots', to: 'clubs#impots'
+
 
   # Google API test
   get '/redirect', to: 'calendar#redirect', as: 'redirect'
