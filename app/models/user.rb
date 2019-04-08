@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   mount_uploader :photo, PhotoUploader
 
-validates :firstname, presence: true
-validates :lastname, presence: true
-validates :mobil_phone, presence: true, numericality: true, length: {maximum: 13, minimum: 10 }
+  has_many :reviews
+  validates :firstname, presence: true
+  validates :lastname, presence: true
+  validates :mobil_phone, presence: true, numericality: true, length: {maximum: 13, minimum: 10 }
 end
