@@ -34,11 +34,14 @@
           <i class="fas fa-map-marker-alt"></i>
           <%= article.location %>
         </div>
-        <%= link_to article.link do %>
-          <div class="picture-card-review">
-            <i class="fas fa-link"></i>
-          </div>
-        <% end %>
+        <div class="picture-card-review">
+          <i class="fas fa-heart"></i>
+          <%= article.total_likes %>
+        </div>
+        <div class="picture-card-review">
+          <i class="fas fa-comments"></i>
+          <%= article.count_reviews %>
+        </div>
       </div>
     </div>
   </a>
