@@ -1,5 +1,22 @@
 <div class="container">
   <div class="row">
     <%= render 'article_card', {article: @article}  %>
+
+    <h3>Commentaires</h3>
+    <%= simple_form_for [@article, @review] do |f|%>
+      <%= f.error_notification %>
+      <%#= f.input :user_id, input_html: {value: current_user.id} %>
+      <%#= f.input :article_id, input_html: {value: @article.id} %>
+      <%= f.input :content %>
+      <%= f.button :submit, 'Publier' %>
+    <% end %>
+
+    <% @article.reviews.each do |review| %>
+      <div class="review-content">
+        <%= review.content %>
+        <%= review.created_at.strftime('%-d-%-m-%Y %R') %>
+        <%= review.user.firstname %>
+      </div>
+    <% end %>
   </div>
 </div>
