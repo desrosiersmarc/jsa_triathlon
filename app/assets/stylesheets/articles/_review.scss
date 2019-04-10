@@ -16,3 +16,21 @@
   text-align: right;
   font-size: 10px;
 }
+
+.like {
+  display: flex;
+  align-items: center;
+
+  &-heart {
+    margin: 0 5px 0 5px;
+
+  }
+  &-count {
+    margin: 0 5px 0 5px;
+
+  }
+  &-form {
+    margin: 0 5px 0 5px;
+
+  }
+}
