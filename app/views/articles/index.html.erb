@@ -2,7 +2,9 @@
   <div class="row">
     <h3>Liste des articles</h3>
     <% @articles.each do |article| %>
+    <div class="col-xs-12 col-sm-6">
       <%= render 'article_card', {article: article} %>
+    </div>
     <% end %>
   </div>
 </div>
