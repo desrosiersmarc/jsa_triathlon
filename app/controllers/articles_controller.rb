@@ -5,8 +5,9 @@ class ArticlesController < ApplicationController
 
 
   def index
-    @articles = Article.where(active: true)
-                        .sort_by { |article| article.date}
+    # @articles = Article.where(active: true)
+                        # .sort_by { |article| article.date}
+    @articles = Article.all
   end
 
   def new
