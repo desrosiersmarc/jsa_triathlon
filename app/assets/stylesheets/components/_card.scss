@@ -125,8 +125,9 @@
 }
 
 .picture-card-review {
-  &:hover {
-    color: red;
+  color: $red;
+  i {
+    color: $red;
   }
 
 }
@@ -135,9 +136,6 @@
 display: flex;
 justify-content: space-between;
 color: $gray;
-i {
-  color: $gray;
-}
 }
 
 .picture {

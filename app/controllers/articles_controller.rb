@@ -27,6 +27,10 @@ class ArticlesController < ApplicationController
     @reviews = @article.reviews.where('content != ?', '')
                                 .sort_by {|review| review.created_at}
                                 .reverse
+    @add_like = 1
+    if current_user.reviews != []
+      (current_user.reviews.map {|r| r.like}.reduce(:+) > 0) ? (@add_like = -1) : (@add_like = 1)
+    end
   end
 
   def edit
