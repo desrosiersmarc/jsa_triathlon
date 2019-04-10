@@ -37,9 +37,6 @@
         </div>
       <% end %>
       <%= simple_form_for [@article, @review] do |f|%>
-        <%= f.error_notification %>
-        <%#= f.input :user_id, input_html: {value: current_user.id} %>
-        <%#= f.input :article_id, input_html: {value: @article.id} %>
         <%= f.input :content, label: 'Ecrire un commentaire' %>
         <%= f.button :submit, 'Publier', class: 'btn btn-danger btn-block' %>
       <% end %>
