@@ -17,7 +17,14 @@ class ProductsController < ApplicationController
   def petites_annonces
     @products = Product.where(product_type_id: 2)
                         .where(active: true)
+                        .where(sold: false)
                         .sort_by {|product| product.sport_type}
+
+    @sold_products = Product.where(product_type_id: 2)
+                              .where(active: true)
+                              .where(sold: true)
+                              .where("updated_at > ?", Time.now-30.day)
+
   end
 
   def new

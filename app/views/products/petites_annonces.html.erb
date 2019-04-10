@@ -6,6 +6,11 @@
         <%= render 'card_product', product: product %>
       </div>
     <% end %>
+    <% @sold_products.each do |product| %>
+      <div class="col-xs-12 col-sm-6">
+        <%= render 'card_product', product: product %>
+      </div>
+    <% end %>
     <% if member? %>
       <%= link_to new_product_path do %>
         <div class="plus-button">
