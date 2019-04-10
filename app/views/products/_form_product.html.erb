@@ -22,6 +22,9 @@
   <% else %>
     <%= f.input :product_type_id, input_html: {value: 2}, as: :hidden%>
   <% end %>
-  <%= f.input :active, label: "Publier l'annonce" %>
+  <div class="product-form-checkbox">
+    <%= f.input :active, label: "Publier l'annonce" %>
+    <%= f.input :sold, label: "Article vendu" %>
+  </div>
   <%= f.submit 'Enregistrer', class: 'btn btn-danger btn-block' %>
 <% end %>
