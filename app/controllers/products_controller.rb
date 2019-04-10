@@ -62,6 +62,7 @@ private
       :sport_type_id,
       :product_type_id,
       :active,
+      :sold,
       :photo)
   end
 
