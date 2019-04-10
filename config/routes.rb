@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'my_ads', to: 'pages#my_ads'
 
   get 'sportswears', to: 'products#sportswears'
-  get 'bourse_echange', to: 'products#bourse_echange'
+  get 'petites_annonces', to: 'products#petites_annonces'
 
   get 'finances', to: 'clubs#finances'
   get 'impots', to: 'clubs#impots'

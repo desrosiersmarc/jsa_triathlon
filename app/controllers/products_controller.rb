@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:sportswears, :show, :bourse_echange]
+  skip_before_action :authenticate_user!, only: [:sportswears, :show, :petites_annonces]
   before_action :load_collections, only: [:new, :create, :edit, :update]
   before_action :find_product, only: [:show, :edit, :update]
 
@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
                   end
   end
 
-  def bourse_echange
+  def petites_annonces
     @products = Product.where(product_type_id: 2)
                         .where(active: true)
                         .sort_by {|product| product.sport_type}
