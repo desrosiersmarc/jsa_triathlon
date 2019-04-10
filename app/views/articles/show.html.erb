@@ -2,20 +2,26 @@
   <div class="row">
     <%= render 'article_card', {article: @article}  %>
 
-    <h3>Commentaires</h3>
+    <h3>Commentaires (<%= @reviews.count %>)</h3>
     <%= simple_form_for [@article, @review] do |f|%>
       <%= f.error_notification %>
       <%#= f.input :user_id, input_html: {value: current_user.id} %>
       <%#= f.input :article_id, input_html: {value: @article.id} %>
-      <%= f.input :content %>
-      <%= f.button :submit, 'Publier' %>
+      <%= f.input :content, label: 'Ecrire un commentaire' %>
+      <%= f.button :submit, 'Publier', class: 'btn btn-danger btn-block' %>
     <% end %>
 
-    <% @article.reviews.each do |review| %>
-      <div class="review-content">
-        <%= review.content %>
-        <%= review.created_at.strftime('%-d-%-m-%Y %R') %>
-        <%= review.user.firstname %>
+    <% @reviews.each do |review| %>
+      <div class="review">
+        <div class="review-name">
+          <%= review.user.firstname %>
+        </div>
+        <div class="review-content box-shadow-md">
+          <%= review.content %>
+        </div>
+        <div class="review-date">
+          <%= review.created_at.strftime('%-d-%-m-%Y %R') %>
+        </div>
       </div>
     <% end %>
   </div>

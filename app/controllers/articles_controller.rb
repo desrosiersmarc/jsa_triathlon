@@ -24,6 +24,9 @@ class ArticlesController < ApplicationController
 
   def show
     @review = Review.new
+    @reviews = @article.reviews.where('content != ?', '')
+                                .sort_by {|review| review.created_at}
+                                .reverse
   end
 
   def edit
