@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   skip_before_action :authenticate_user!, only: []
   before_action :find_article, only: [:new, :create, :update]
+  before_action :find_review, only: [:update]
 
   def new
   end
@@ -17,6 +18,10 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    @review.update(review_params)
+    if @review.save
+      redirect_to article_path(@article)
+    end
   end
 
 private
@@ -26,5 +31,9 @@ private
 
   def find_article
     @article = Article.find(params[:article_id])
+  end
+
+  def find_review
+    @review = Review.find(params[:id])
   end
 end
