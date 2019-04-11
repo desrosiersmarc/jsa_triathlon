@@ -24,13 +24,33 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @review = Review.new
     @reviews = @article.reviews.where('content != ?', '')
                                 .sort_by {|review| review.created_at}
                                 .reverse
-    @add_like = 1
-    if current_user.reviews != []
-      (current_user.reviews.map {|r| r.like}.reduce(:+) > 0) ? (@add_like = -1) : (@add_like = 1)
+
+    if @article.reviews.map{|r| r.user_id}.include?(current_user.id)
+      reviews = @article.reviews.where(user_id: current_user.id)
+      @review = reviews.first
+      likes = reviews.map{|r| r.like}.reduce(:+)
+      case likes
+      when 1
+        @method = "patch"
+        @label = "Dislike"
+        @add_like = 0
+      when 2..1000
+        @method = "patch"
+        @label = "Dislike"
+        @add_like = -1
+      else
+        @method = "patch"
+        @label = "Like"
+        @add_like = 1
+      end
+    else
+      @review = Review.new
+      @method = "post"
+      @label = "Like"
+      @add_like = 1
     end
   end
 
