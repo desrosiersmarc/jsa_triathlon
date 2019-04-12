@@ -8,12 +8,10 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.user_id = current_user.id
+    @review.user_id = current_user
     @review.article_id = @article.id
     if @review.save
       redirect_to article_path(@article)
-    else
-      render 'articles/show' #TODO
     end
   end
 

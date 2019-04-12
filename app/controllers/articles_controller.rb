@@ -28,8 +28,8 @@ class ArticlesController < ApplicationController
                                 .sort_by {|review| review.created_at}
                                 .reverse
 
-    if @article.reviews.map{|r| r.user_id}.include?(current_user.id)
-      reviews = @article.reviews.where(user_id: current_user.id)
+    if @article.reviews.map{|r| r.user_id}.include?(current_user)
+      reviews = @article.reviews.where(user_id: current_user)
       @review = reviews.first
       likes = reviews.map{|r| r.like}.reduce(:+)
       case likes
@@ -56,6 +56,8 @@ class ArticlesController < ApplicationController
       @class = "btn btn btn-primary"
       @add_like = 1
     end
+
+    @likers
   end
 
   def edit
