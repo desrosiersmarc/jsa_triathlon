@@ -12,7 +12,7 @@
         <div class="like-form">
           <%= simple_form_for([@article, @review], remote: false, method: @method) do |f|%>
             <%= f.input :like, as: :hidden, input_html: {value: @add_like} %>
-            <%= f.button :submit, @label, class: 'btn btn-primary' %>
+            <%= f.button :submit, @label, class: @class %>
           <% end %>
         </div>
       </div>

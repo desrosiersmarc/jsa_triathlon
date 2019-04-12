@@ -35,21 +35,25 @@ class ArticlesController < ApplicationController
       case likes
       when 1
         @method = "patch"
-        @label = "Dislike"
+        @label = "Je n'aime plus"
+        @class = "btn btn btn-danger"
         @add_like = 0
       when 2..1000
         @method = "patch"
-        @label = "Dislike"
+        @label = "Je n'aime plus"
+        @class = "btn btn btn-danger"
         @add_like = -1
       else
         @method = "patch"
-        @label = "Like"
+        @label = "J'aime"
+        @class = "btn btn btn-primary"
         @add_like = 1
       end
     else
       @review = Review.new
       @method = "post"
-      @label = "Like"
+      @label = "J'aime"
+      @class = "btn btn btn-primary"
       @add_like = 1
     end
   end
@@ -89,4 +93,5 @@ private
   def charge_article_types
     @article_types = ArticleType.all
   end
+
 end
