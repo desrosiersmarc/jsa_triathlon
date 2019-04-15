@@ -2,28 +2,8 @@
   <div class="row">
     <%= render 'article_card', {article: @article}  %>
     <div class="col-xs-12">
-      <div class="like">
-        <div class="like-heart">
-          <i class="far fa-heart"></i>
-        </div>
-        <div class="like-count">
-          <%= @article.total_likes %>
-        </div>
-        <div class="like-form">
-          <% if user_signed_in? %>
-            <%= simple_form_for([@article, @review], remote: false, method: @method) do |f|%>
-              <%= f.input :like, as: :hidden, input_html: {value: @add_like} %>
-              <%= f.button :submit, @label, class: @class %>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="likers">
-          aimé par :
-          <% @likers.each do |liker| %>
-            <%= liker %>,
-          <% end %>
-        </div>
-      </div>
+      <%= render 'like', {article: @article, review: @review, like_method: @method,
+        add_like: @add_like, like_label: @label, like_class: @class, likers: @likers} %>
       <div>
         <% if !user_signed_in? %>
           <%= link_to new_user_session_path, class: "btn btn-warning btn-block" do %>

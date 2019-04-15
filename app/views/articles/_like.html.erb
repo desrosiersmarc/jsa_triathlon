@@ -1,0 +1,22 @@
+<div class="like">
+  <div class="like-heart">
+    <i class="far fa-heart"></i>
+  </div>
+  <div class="like-count" id="like-count">
+    <%= article.total_likes %>
+  </div>
+  <div class="like-form">
+    <% if user_signed_in? %>
+      <%= simple_form_for([article, review], remote: false, method: like_method) do |f|%>
+        <%= f.input :like, as: :hidden, input_html: {value: @add_like} %>
+        <%= f.button :submit, like_label, class: like_class %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="likers">
+    aimé par :
+    <% likers.each do |liker| %>
+      <%= liker %>,
+    <% end %>
+  </div>
+</div>
