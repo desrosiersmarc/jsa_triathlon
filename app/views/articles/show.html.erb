@@ -10,9 +10,11 @@
           <%= @article.total_likes %>
         </div>
         <div class="like-form">
-          <%= simple_form_for([@article, @review], remote: false, method: @method) do |f|%>
-            <%= f.input :like, as: :hidden, input_html: {value: @add_like} %>
-            <%= f.button :submit, @label, class: @class %>
+          <% if user_signed_in? %>
+            <%= simple_form_for([@article, @review], remote: false, method: @method) do |f|%>
+              <%= f.input :like, as: :hidden, input_html: {value: @add_like} %>
+              <%= f.button :submit, @label, class: @class %>
+            <% end %>
           <% end %>
         </div>
         <div class="likers">
@@ -20,9 +22,14 @@
           <% @likers.each do |liker| %>
             <%= liker %>,
           <% end %>
-
-
         </div>
+      </div>
+      <div>
+        <% if !user_signed_in? %>
+          <%= link_to new_user_session_path, class: "btn btn-warning btn-block" do %>
+            Connectez vous pour laisser un commentaire ou un like
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="col-xs-12">
@@ -42,11 +49,12 @@
           </div>
         </div>
       <% end %>
-      <%= simple_form_for [@article, @review], remote: false do |f|%>
-        <%= f.input :content, label: 'Ecrire un commentaire' %>
-        <%= f.button :submit, 'Publier', class: 'btn btn-danger btn-block' %>
+      <% if user_signed_in? %>
+        <%= simple_form_for [@article, @review], remote: false do |f|%>
+          <%= f.input :content, label: 'Ecrire un commentaire' %>
+          <%= f.button :submit, 'Publier', class: 'btn btn-danger btn-block' %>
+        <% end %>
       <% end %>
-
     </div>
   </div>
 </div>

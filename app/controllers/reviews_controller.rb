@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   before_action :find_review, only: [:update]
 
   def new
+    @review = Review.new
   end
 
   def create
