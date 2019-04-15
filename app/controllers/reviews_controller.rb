@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   before_action :find_review, only: [:update]
 
   def new
+    @review = Review.new
   end
 
   def create
@@ -11,9 +12,14 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.article_id = @article.id
     if @review.save
-      redirect_to article_path(@article)
+      respond_to do |format|
+        format.html {redirect_to article_path(@article)}
+        format.js
+      end
+
     end
   end
+
 
   def update
     @review.update(review_params)
