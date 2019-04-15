@@ -15,6 +15,14 @@
             <%= f.button :submit, @label, class: @class %>
           <% end %>
         </div>
+        <div class="likers">
+          aimé par :
+          <% @likers.each do |liker| %>
+            <%= liker %>,
+          <% end %>
+
+
+        </div>
       </div>
     </div>
     <div class="col-xs-12">

@@ -27,37 +27,38 @@ class ArticlesController < ApplicationController
     @reviews = @article.reviews.where('content != ?', '')
                                 .sort_by {|review| review.created_at}
                                 .reverse
-
-    if @article.reviews.map{|r| r.user_id}.include?(current_user)
-      reviews = @article.reviews.where(user_id: current_user)
-      @review = reviews.first
-      likes = reviews.map{|r| r.like}.reduce(:+)
-      case likes
-      when 1
-        @method = "patch"
-        @label = "Je n'aime plus"
-        @class = "btn btn btn-danger"
-        @add_like = 0
-      when 2..1000
-        @method = "patch"
-        @label = "Je n'aime plus"
-        @class = "btn btn btn-danger"
-        @add_like = -1
+    if user_signed_in?
+      if @article.reviews.map{|r| r.user_id}.include?(current_user.id)
+        reviews = @article.reviews.where(user_id: current_user.id)
+        @review = reviews.first
+        @likes = reviews.map{|r| r.like}.reduce(:+)
+        case @likes
+        when 1
+          @method = "patch"
+          @label = "Je n'aime plus"
+          @class = "btn btn btn-danger"
+          @add_like = 0
+        when 2..1000
+          @method = "patch"
+          @label = "Je n'aime plus"
+          @class = "btn btn btn-danger"
+          @add_like = -1
+        else
+          @method = "patch"
+          @label = "J'aime"
+          @class = "btn btn btn-primary"
+          @add_like = 1
+        end
       else
-        @method = "patch"
+        @review = Review.new
+        @method = "post"
         @label = "J'aime"
         @class = "btn btn btn-primary"
         @add_like = 1
       end
-    else
-      @review = Review.new
-      @method = "post"
-      @label = "J'aime"
-      @class = "btn btn btn-primary"
-      @add_like = 1
     end
 
-    @likers
+    @likers = likers_list
   end
 
   def edit
@@ -94,6 +95,21 @@ private
 
   def charge_article_types
     @article_types = ArticleType.all
+  end
+
+  def liker_name(id)
+    firstname = User.find(id).firstname.downcase.capitalize
+    lastname = User.find(id).lastname[0].downcase.capitalize + "."
+
+    firstname + " " + lastname
+  end
+
+  def likers_list
+    likers_list = []
+    @article.reviews.map{|review| review.user_id}.uniq.each do |user|
+      likers_list << liker_name(user)
+    end
+    return likers_list
   end
 
 end
