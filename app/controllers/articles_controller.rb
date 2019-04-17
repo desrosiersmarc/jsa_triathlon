@@ -27,11 +27,13 @@ class ArticlesController < ApplicationController
     @reviews = @article.reviews.where('content != ?', '')
                                 .sort_by {|review| review.created_at}
                                 .reverse
+    @review = Review.new
+
     if user_signed_in?
-      if @article.reviews.map{|r| r.user_id}.include?(current_user.id)
-        reviews = @article.reviews.where(user_id: current_user.id)
-        @review = reviews.first
-        @likes = reviews.map{|r| r.like}.reduce(:+)
+      if @article.likes.map{|r| r.user_id}.include?(current_user.id)
+        likes = @article.likes.where(user_id: current_user.id)
+        @like = likes.first
+        @likes = likes.map{|r| r.like}.reduce(:+)
         case @likes
         when 1
           @method = "patch"
@@ -50,7 +52,7 @@ class ArticlesController < ApplicationController
           @add_like = 1
         end
       else
-        @review = Review.new
+        @like = Like.new
         @method = "post"
         @label = "J'aime"
         @class = "btn btn btn-primary"
@@ -106,9 +108,16 @@ private
 
   def likers_list
     likers_list = []
-    @article.reviews.map{|review| review.user_id}.uniq.each do |user|
-      likers_list << liker_name(user)
-    end
+    @article.likes.map{|like|
+                        if like.like >0
+                          like.user_id
+                          end
+                      }.uniq
+                        .each do |user|
+                          if !user.nil?
+                            likers_list << liker_name(user)
+                          end
+                       end
     return likers_list
   end
 

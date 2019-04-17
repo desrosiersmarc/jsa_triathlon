@@ -1,0 +1,4 @@
+<%= simple_form_for [article, review], remote: false do |f|%>
+  <%= f.input :content, label: 'Ecrire un commentaire' %>
+  <%= f.button :submit, 'Publier', class: 'btn btn-danger btn-block' %>
+<% end %>

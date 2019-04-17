@@ -2,6 +2,7 @@ class Article < ApplicationRecord
   belongs_to :user
   belongs_to :article_type
   has_many :reviews
+  has_many :likes
   mount_uploader :photo, PhotoUploader
 
   validates :name, presence: true, length: {maximum: 60, minimum: 5}
@@ -13,8 +14,8 @@ class Article < ApplicationRecord
 
   def total_likes
     sum = 0
-    self.reviews.each do |review|
-      sum += review.like
+    self.likes.each do |like|
+      sum += like.like
     end
     return sum
   end

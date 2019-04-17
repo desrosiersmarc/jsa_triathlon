@@ -1,0 +1,15 @@
+<div id="reviews-div">
+  <% reviews.each do |review| %>
+    <div class="review">
+      <div class="review-name">
+        <%= review.user.firstname %>
+      </div>
+      <div class="review-content box-shadow-md">
+        <%= review.content %>
+      </div>
+      <div class="review-date">
+        <%= review.created_at.strftime('%-d-%-m-%Y %R') %>
+      </div>
+    </div>
+  <% end %>
+</div>
