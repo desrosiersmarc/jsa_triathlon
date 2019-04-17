@@ -6,6 +6,8 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   has_many :reviews
+  has_many :likes
+
   validates :firstname, presence: true
   validates :lastname, presence: true
   validates :mobil_phone, presence: true, numericality: true, length: {maximum: 13, minimum: 10 }

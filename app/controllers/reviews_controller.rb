@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   skip_before_action :authenticate_user!, only: []
-  before_action :find_article, only: [:new, :create, :update]
-  before_action :find_review, only: [:update]
+  before_action :find_article, only: [:new, :create]
 
   def new
     @review = Review.new
@@ -16,15 +15,6 @@ class ReviewsController < ApplicationController
         format.html {redirect_to article_path(@article)}
         format.js
       end
-
-    end
-  end
-
-
-  def update
-    @review.update(review_params)
-    if @review.save
-      redirect_to article_path(@article)
     end
   end
 
@@ -37,7 +27,4 @@ private
     @article = Article.find(params[:article_id])
   end
 
-  def find_review
-    @review = Review.find(params[:id])
-  end
 end

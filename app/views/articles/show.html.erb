@@ -2,7 +2,7 @@
   <div class="row">
     <%= render 'article_card', {article: @article}  %>
     <div class="col-xs-12">
-      <%= render 'like', {article: @article, review: @review, like_method: @method,
+      <%= render 'likes/form_like', {article: @article, like: @like, like_method: @method,
         add_like: @add_like, like_label: @label, like_class: @class, likers: @likers} %>
       <div>
         <% if !user_signed_in? %>
@@ -16,24 +16,9 @@
       <h3>
         Commentaires (<%= @reviews.count %>)
       </h3>
-      <% @reviews.each do |review| %>
-        <div class="review">
-          <div class="review-name">
-            <%= review.user.firstname %>
-          </div>
-          <div class="review-content box-shadow-md">
-            <%= review.content %>
-          </div>
-          <div class="review-date">
-            <%= review.created_at.strftime('%-d-%-m-%Y %R') %>
-          </div>
-        </div>
-      <% end %>
+      <%= render 'reviews/display_review', {reviews: @reviews} %>
       <% if user_signed_in? %>
-        <%= simple_form_for [@article, @review], remote: false do |f|%>
-          <%= f.input :content, label: 'Ecrire un commentaire' %>
-          <%= f.button :submit, 'Publier', class: 'btn btn-danger btn-block' %>
-        <% end %>
+        <%= render 'reviews/form_review', {article: @article, review: @review} %>
       <% end %>
     </div>
   </div>
