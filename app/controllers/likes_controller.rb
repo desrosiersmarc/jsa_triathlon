@@ -22,7 +22,10 @@ class LikesController < ApplicationController
   def update
     @like.update(like_params)
     if @like.save
-      redirect_to article_path(@article)
+      respond_to do |format|
+        format.html {redirect_to article_path(@article)}
+        format.js
+      end
     end
   end
 
