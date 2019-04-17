@@ -13,9 +13,6 @@
       </div>
     </div>
     <div class="col-xs-12">
-      <h3>
-        Commentaires (<%= @reviews.count %>)
-      </h3>
       <%= render 'reviews/display_review', {reviews: @reviews} %>
       <% if user_signed_in? %>
         <%= render 'reviews/form_review', {article: @article, review: @review} %>
