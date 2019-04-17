@@ -1,0 +1,10 @@
+
+function refreshForm(innerHTML) {
+  const newReviewForm = document.getElementById('reviews-div');
+  newReviewForm.innerHTML = innerHTML;
+}
+
+
+refreshForm('<%= j render "reviews/display_review", reviews: @reviews %>');
+
+
