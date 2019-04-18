@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
         format.js
       end
     end
+    @notice = current_user.firstname + ", ton commentaire a bien été posté... 👍"
   end
 
 private
