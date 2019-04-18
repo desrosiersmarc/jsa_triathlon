@@ -5,15 +5,15 @@
   <div class="like-count" id="like-count">
     <%= article.total_likes %>
   </div>
-  <div class="like-form">
+  <div class="like-form" data-like="<%= add_like %>">
     <% if user_signed_in? %>
-      <%= simple_form_for([article, like], remote: false, method: like_method) do |f|%>
-        <%= f.input :like, as: :hidden, input_html: {value: @add_like} %>
+      <%= simple_form_for([article, like], remote: true, method: like_method) do |f|%>
+        <%= f.input :like, as: :hidden, input_html: {value: add_like} %>
         <%= f.button :submit, like_label, class: like_class %>
       <% end %>
     <% end %>
   </div>
-  <div class="likers">
+  <div class="likers" id="likers">
     aimé par :
     <% likers.each do |liker| %>
       <%= liker %>,
