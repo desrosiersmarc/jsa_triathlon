@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <h3>Dashboard</h3>
+      <h4>Articles</h4>
+      <% @stat_articles.each do |article| %>
+        <p>
+          <%= article[:user].firstname %>
+          <%= article[:nb_items] %>
+        </p>
+      <% end %>
+      <h4>Likes</h4>
+      <% @stat_likes.each do |like| %>
+        <p>
+          <%= like[:user].firstname %>
+          <%= like[:nb_items] %>
+        </p>
+      <% end %>
+      <h4>Reviews</h4>
+      <% @stat_reviews.each do |review| %>
+        <p>
+          <%= review[:user].firstname %>
+          <%= review[:nb_items] %>
+        </p>
+      <% end %>
+  </div>
+</div>

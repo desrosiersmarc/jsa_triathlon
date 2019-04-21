@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   resources :pictures, only: [:index, :new, :create, :show, :edit, :update]
   #TODO create update method
+  resources :dashboards, only: [:index]
   resources :articles do
     resources :reviews, only: [:new, :create]
     resources :likes, only: [:new, :create, :update]
