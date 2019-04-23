@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       redirect_to article_path(@article)
-      send_article_email
+      # send_article_email
     else
       render :new
     end
