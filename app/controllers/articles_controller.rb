@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       redirect_to article_path(@article)
+      send_article_email
     else
       render :new
     end
@@ -93,6 +94,7 @@ private
 
   def find_article
     @article = Article.find(params[:id])
+    send_article = @article
   end
 
   def charge_article_types
@@ -119,6 +121,10 @@ private
                           end
                        end
     return likers_list
+  end
+
+  def send_article_email
+    UserMailer.article(User.first).deliver_now
   end
 
 end
