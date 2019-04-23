@@ -5,9 +5,7 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.article.subject
   #
-  def article(user)
-    @greeting = "Hi"
-
-    mail(to: user.email, subject: "Rubriques")
+  def article(user, article_type)
+    mail(to: user.email, subject: "[JSA] Nouvel article #{article_type.upcase}")
   end
 end

@@ -124,7 +124,7 @@ private
   end
 
   def send_article_email
-    UserMailer.article(User.first).deliver_now
+    UserMailer.article(current_user, @article.article_type.name).deliver_now
   end
 
 end
