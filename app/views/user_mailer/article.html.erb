@@ -9,21 +9,21 @@
   <p>
     Un nouvel article vient d'être publié sur le site du club (www.angoulemetriathlon.fr) :
   </p>
-  <div class="article-content-title"><%= @article.article_type.name %></div>
+  <div class="article-content-title"><%#= @article.article_type.name %></div>
   <div class="article-content">
-    <p><%= @article.name %></p>
+    <p><%#= @article.name %></p>
     <p>
       <i class="fas fa-calendar-check"></i>
-      <%= @article.date.strftime('%d-%-m-%Y') %>
+      <%#= @article.date.strftime('%d-%-m-%Y') %>
     </p>
     <p>
       <i class="fas fa-map-marker-alt"></i>
-      <%= @article.location %>
+      <%#= @article.location %>
     </p>
     <i class="fas fa-newspaper"></i>
     <i class="far fa-heart"></i>
     <i class="far fa-comments"></i>
-    <% article_link = ("https://jsa-triathlon.herokuapp.com/articles/" + @article.id.to_s) %>
+    <%# article_link = ("https://jsa-triathlon.herokuapp.com/articles/" + @article.id.to_s) %>
 
   <p>
     <a href="<%= article_link %>" >
@@ -40,10 +40,10 @@
   <p>Bonne journée</p>
   <p>Ecrit avec
     <i class="far fa-smile-beam"></i> par
-    <%= Article.last.user.firstname %>
-    (<%= Article.last.user.profil %>)
+    <%#= Article.last.user.firstname %>
+    (<%#= Article.last.user.profil %>)
   </p>
-  <p><%= Article.last.user.mobil_phone %></p>
+  <p><%#= Article.last.user.mobil_phone %></p>
 </div>
 
 <%= render 'footer' %>
