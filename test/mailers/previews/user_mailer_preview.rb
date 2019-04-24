@@ -7,7 +7,7 @@ class UserMailerPreview < ActionMailer::Preview
     @article = Article.last
     user = User.first
 
-    UserMailer.article(user, @article.article_type.name)
+    UserMailer.article(user, @article)
   end
 
 end
