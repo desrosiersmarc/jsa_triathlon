@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_article, only: [:show, :edit, :update, :send_article_email]
   before_action :charge_article_types, only: [:index, :new, :edit]
+  before_action :mailing_list, only: [:create, :update]
 
 
   def index
@@ -18,7 +19,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       redirect_to article_path(@article)
-      send_article_email
+      @list_members.each do |member|
+        send_article_email(member)
+      end
     else
       render :new
     end
@@ -123,8 +126,13 @@ private
     return likers_list
   end
 
-  def send_article_email
-    UserMailer.article(current_user, @article).deliver_now
+  def mailing_list
+    @list_members = User.where(notification: true)
+                        .where(role: "admin")
+  end
+
+  def send_article_email(user)
+    UserMailer.article(user, @article).deliver_now
   end
 
 end
