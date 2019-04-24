@@ -7,29 +7,33 @@
   </p>
 
   <p>
-    Un nouvel article vient d'être publié sur le site du club (www.angoulemetriathlon.fr) :
+    Un nouvel article vient d'être publié sur le site du club :
   </p>
   <div class="article-content-title"><%= @article.article_type.name %></div>
   <div class="article-content">
-    <p><%= @article.name %></p>
+    <h4><%= @article.name %></h4>
     <p>
       <i class="fas fa-calendar-check"></i>
       <%= @article.date.strftime('%d-%-m-%Y') %>
+      de <%= @article.start_time.strftime('%H:%M') %>
+      à <%= @article.end_time.strftime('%H:%M') %>
     </p>
     <p>
       <i class="fas fa-map-marker-alt"></i>
       <%= @article.location %>
     </p>
-    <i class="fas fa-newspaper"></i>
-    <i class="far fa-heart"></i>
-    <i class="far fa-comments"></i>
     <% article_link = ("https://jsa-triathlon.herokuapp.com/articles/" + @article.id.to_s) %>
 
-  <p>
-    <a href="<%= article_link %>" >
-      Lien vers l'article
-    </a>
-  </p>
+    <p>
+      <i class="fas fa-newspaper"></i>
+      <%= @article.content[0..30] %>
+      ...
+      <a href="<%= article_link %>" >
+        Lire la suite
+      </a>
+    </p>
+    <i class="far fa-heart"></i>
+    <i class="far fa-comments"></i>
 
   </div>
 
@@ -38,12 +42,13 @@
   <p>N'hésites pas à le commenter ou à le liker (surtout en cas d'entrainement vélo pour préciser ta présence)</p>
 
   <p>Bonne journée</p>
-  <p>Ecrit avec
-    <i class="far fa-smile-beam"></i> par
-    <%= Article.last.user.firstname %>
-    (<%= Article.last.user.profil %>)
+  <p>
+    <i class="far fa-smile-beam"></i>
+    <%= @article.user.firstname %>
+    (<%= @article.user.profil %>)
   </p>
-  <p><%= Article.last.user.mobil_phone %></p>
+  <p><%= @article.user.mobil_phone %></p>
+  <p><%= @article.user.email %></p>
 </div>
 
 <%= render 'footer' %>
