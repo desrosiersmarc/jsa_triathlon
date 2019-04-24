@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :find_article, only: [:show, :edit, :update]
+  before_action :find_article, only: [:show, :edit, :update, :send_article_email]
   before_action :charge_article_types, only: [:index, :new, :edit]
 
 
@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       redirect_to article_path(@article)
-      # send_article_email
+      send_article_email
     else
       render :new
     end
@@ -124,7 +124,7 @@ private
   end
 
   def send_article_email
-    UserMailer.article(current_user, @article.article_type.name).deliver_now
+    UserMailer.article(current_user, @article).deliver_now
   end
 
 end
