@@ -132,7 +132,8 @@ private
   end
 
   def send_article_email(user)
-    UserMailer.article(user, @article).deliver_now
+    @user = user
+    UserMailer.article(@user, @article).deliver_later
   end
 
 end

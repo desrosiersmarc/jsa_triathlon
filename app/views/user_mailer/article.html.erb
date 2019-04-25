@@ -1,16 +1,16 @@
 <%= render 'header' %>
-<div class="mail-content">
+<div class="mail-content article-shadow">
   <img src="https://res.cloudinary.com/dmbf8fog4/image/upload/c_scale,w_100/v1555969918/JSA%20Triathlon/logo.jpg" alt="">
 
   <p>
-    Bonjour à toutes et à tous,
+    Bonjour <%= @user.firstname %>,
   </p>
 
   <p>
-    Un nouvel article vient d'être publié sur le site du club :
+    Un nouvel article vient d'être publié sur le site du club.
   </p>
-  <div class="article-content-title"><%= @article.article_type.name %></div>
-  <div class="article-content">
+  <div class="article-content-title article-shadow"><%= @article.article_type.name %></div>
+  <div class="article-content article-shadow">
     <h4><%= @article.name %></h4>
     <p>
       <i class="fas fa-calendar-check"></i>
@@ -47,8 +47,11 @@
     <%= @article.user.firstname %>
     (<%= @article.user.profil %>)
   </p>
-  <p><%= @article.user.mobil_phone %></p>
-  <p><%= @article.user.email %></p>
+  <p>
+    <i class="fas fa-mobile-alt"></i>
+    <%= @article.user.mobil_phone %>
+    <i class="far fa-envelope"></i>
+    <%= @article.user.email %></p>
 </div>
 
 <%= render 'footer' %>
