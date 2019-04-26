@@ -36,9 +36,22 @@
   </div>
   <% if member? %>
     <%= link_to new_picture_path do %>
-      <div class="plus-button">
-        <i class="fas fa-camera-retro"></i>
+      <div class="hidden-sm hidden-md hidden-lg">
+        <%= link_to new_picture_path do %>
+          <div class="plus-button plus-button-mobile">
+            <i class="fas fa-camera-retro"></i>
+          </div>
+        <% end %>
       </div>
+      <div class="hidden-xs">
+        <%= link_to new_picture_path do %>
+          <div class="plus-button plus-button-desktop">
+            <i class="fas fa-camera-retro"></i>
+              <div> Ajouter un album photo</div>
+          </div>
+        <% end %>
+      </div>
+
     <% end %>
   <% end %>
 </div>

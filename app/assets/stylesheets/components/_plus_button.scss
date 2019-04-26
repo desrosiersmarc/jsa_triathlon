@@ -4,15 +4,32 @@
   right: 50px;
   box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
   height: 50px;
-  width: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  background-color: $green-flash;
+  border-radius: 25px;
+  background-color: $red;
+  color: $white;
   text-shadow: 1px 1px 2px gray;
   z-index: 1;
   i {
     color: $white;
+  }
+  &-mobile {
+    width: 50px;
+  }
+  &-desktop {
+    padding: 0 10px;
+    i {
+      padding-right: 5px;
+    }
+  }
+  &:hover {
+    background: linear-gradient(270deg, #101eec, #ec10e4);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 0s ease infinite;
+    -moz-animation: AnimationName 0s ease infinite;
+    animation: AnimationName 0s ease infinite;
   }
 }

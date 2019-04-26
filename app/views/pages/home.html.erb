@@ -129,11 +129,21 @@
   <% end %>
 </div>
 <% if admin? %>
-    <%= link_to new_article_path do %>
-      <div class="plus-button">
-        <i class="far fa-edit"></i>
-      </div>
-    <% end %>
+    <div class="hidden-sm hidden-md hidden-lg">
+      <%= link_to new_article_path do %>
+        <div class="plus-button plus-button-mobile">
+          <i class="far fa-edit"></i>
+        </div>
+      <% end %>
+    </div>
+    <div class="hidden-xs">
+      <%= link_to new_article_path do %>
+        <div class="plus-button plus-button-desktop">
+          <i class="far fa-edit"></i>
+           Ecrire un article
+        </div>
+      <% end %>
+    </div>
 <% else %>
   <a href="https://espacetri.fftri.com/">
     <div class="licence box-shadow-md">
