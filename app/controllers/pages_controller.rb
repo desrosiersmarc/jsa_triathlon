@@ -37,6 +37,10 @@ class PagesController < ApplicationController
     @my_ads = Product.where(user: current_user, product_type_id: 2)
   end
 
+  def trainings
+    @trainings = select_all_articles(2)
+  end
+
 private
   def select_articles(article_type)
     articles = Article.where(article_type: article_type, active: true)
