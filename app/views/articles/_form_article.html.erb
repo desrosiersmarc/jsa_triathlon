@@ -1,5 +1,6 @@
 <%= simple_form_for(@article) do |f| %>
   <%= f.error_notification %>
+  <%= f.input :article_type_id, collection: @article_types, label: t('.article_type') %>
   <div class="article-form-photo">
     <%= f.input :photo, label: t('.photo'), label_html:{class: 'red-alert'}, error: 'il faut une photo'%>
     <%= f.input :photo_cache, as: :hidden %>
@@ -15,7 +16,6 @@
   <%= f.input :location, label: t('.location') %>
   <%= f.text_area :content, class: 'ckeditor', label: t('.content') %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.input :article_type_id, collection: @article_types, label: t('.article_type') %>
   <%= f.input :active, label: " Publier l'article ?" %>
   <%= f.submit 'Enregistrer', class: 'btn btn-block btn-danger' %>
 <% end %>
