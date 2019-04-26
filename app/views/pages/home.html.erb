@@ -24,9 +24,14 @@
       <%= render 'wrapper_cards', {articles: @trainings_top3} %>
     </div>
   </div>
-  <%= link_to calendar_path, class: "wrapper-link wrapper-link-white"  do %>
+  <%= link_to trainings_path, class: "wrapper-link wrapper-link-white"  do %>
       Voir tous les entraînements
   <% end %>
+  <div class="hidden-xs">
+    <%= link_to calendar_path, class: "home-results" do %>
+      Voir le calendrier
+    <% end %>
+  </div>
 </div>
 <div class="wrapper">
   <div class="wrapper-title">
