@@ -1,6 +1,6 @@
 <%= render 'homepage_carousel', homepage_club: @club %>
 <% if member? %>
-    <%= render 'homepage_form' %>
+    <%#= render 'homepage_form' %>
 <% end %>
 <div class="wrapper">
   <div class="wrapper-title">
@@ -17,20 +17,25 @@
 </div>
 <div class="wrapper wrapper-black">
   <div class="wrapper-title">
-    Entrainements
+    Entraînements
   </div>
   <div class="container">
     <div class="row">
       <%= render 'wrapper_cards', {articles: @trainings_top3} %>
     </div>
   </div>
-  <%= link_to calendar_path, class: "wrapper-link wrapper-link-white"  do %>
-      Voir le planning
+  <%= link_to trainings_path, class: "wrapper-link wrapper-link-white"  do %>
+      Voir tous les entraînements
   <% end %>
+  <div class="hidden-xs">
+    <%= link_to calendar_path, class: "home-results" do %>
+      Voir le calendrier
+    <% end %>
+  </div>
 </div>
 <div class="wrapper">
   <div class="wrapper-title">
-    La prochaine course
+    Prochaines épreuves
   </div>
   <div class="container">
     <div class="row">
@@ -38,7 +43,7 @@
     </div>
   </div>
   <%= link_to contests_path, class: "wrapper-link wrapper-link-black"  do %>
-      Voir le calendrier
+      Voir toutes les épreuves
   <% end %>
 
   <div class="hidden-xs">
@@ -124,11 +129,21 @@
   <% end %>
 </div>
 <% if admin? %>
-    <%= link_to new_article_path do %>
-      <div class="plus-button">
-        <i class="far fa-edit"></i>
-      </div>
-    <% end %>
+    <div class="hidden-sm hidden-md hidden-lg">
+      <%= link_to new_article_path do %>
+        <div class="plus-button plus-button-mobile">
+          <i class="far fa-edit"></i>
+        </div>
+      <% end %>
+    </div>
+    <div class="hidden-xs">
+      <%= link_to new_article_path do %>
+        <div class="plus-button plus-button-desktop">
+          <i class="far fa-edit"></i>
+           Ecrire un article
+        </div>
+      <% end %>
+    </div>
 <% else %>
   <a href="https://espacetri.fftri.com/">
     <div class="licence box-shadow-md">

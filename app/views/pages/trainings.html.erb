@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <h3>Liste de tous les entraînements</h3>
+    <% @trainings.each do |training| %>
+      <div class="col-xs-12 col-sm-4">
+        <%= render 'homepage_card_template', article: training %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
