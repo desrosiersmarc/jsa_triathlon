@@ -45,5 +45,9 @@ module ApplicationHelper
       end
     end
   end
-
+  def helper_list_contests(date)
+    @list_articles = Article.where("date = ?",  Date.strptime(date, '%Y-%m-%d') )
+                            .where(article_type: 3)
+                            .where(active: true)
+  end
 end

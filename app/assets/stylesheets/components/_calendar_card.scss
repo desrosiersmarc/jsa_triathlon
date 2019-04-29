@@ -1,8 +1,8 @@
 .calendar-card-content {
   background-color: white;
-  padding: 5px;
+  // padding: 5px;
   border-radius: 3px;
-  height: 300px;
+  height: 200px;
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
@@ -16,31 +16,37 @@
   align-items: center;
 }
 
+.calendar-card-month-year-content {
+  position: absolute;
+  bottom: 15px;
+  width: 86%;
+  background-color: $gray;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 0 0 3px 3px;
+}
 .calendar-card-date {
   font-weight: bold;
   font-size: 30px;
 }
 
-.calendar-card-location {
-  color: $gray-light;
-  margin: 10px 0;
-  text-align: center;
-}
-
 .calendar-card-month {
-  color: $gray-light;
-}
-
-.calendar-card-title {
-  margin: 15px 0;
-  text-align: center;
-}
-
-.calendar-card-description {
-  font-size: 10px;
-  text-align: center;
+  color: $white;
 }
 
 .calendar-card-time {
   font-weight: bold;
+}
+
+.contest-little-card{
+  background-color: white;
+  height: 40px;
+  padding: 5px;
+  border-radius: 3px;
+  margin-bottom:10px;
+  display: flex;
+  justify-content: space-between;
+  a {
+    color: $gray;
+  }
 }

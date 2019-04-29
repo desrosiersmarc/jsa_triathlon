@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!,
                       only: [:home, :calendar, :club_events, :results, :contests]
-  before_action :select_contests, only: [:home, :contests]
+  before_action :select_contests, only: [:home, :contests, :list_dates]
   before_action :select_club_events, only: [:home, :club_events]
   before_action :select_school, only: [:home, :school]
   before_action :select_results, only: [:home, :results]
@@ -39,6 +39,11 @@ class PagesController < ApplicationController
 
   def trainings
     @trainings = select_all_articles(2)
+  end
+
+  def contests
+    @list_dates = @contests.map {|article| article.date.strftime('%Y-%-m-%d')}
+                           .uniq
   end
 
 private

@@ -10,12 +10,57 @@
       </a>
     </div> -->
     <div class="col-xs-12">
-      <h3>Les prochaines courses</h3>
+      <h3>Les prochaines épreuves</h3>
     </div>
-    <% @contests.each do |contest| %>
+    <%# @contests.each do |contest| %>
       <div class="col-xs-12 col-sm-4">
-          <%= render 'homepage_card_template', {article: contest} %>
+          <%#= render 'homepage_card_template', {article: contest} %>
       </div>
-    <% end %>
+    <%# end %>
   </div>
+  <% @list_dates.each do |date| %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+        <div class="calendar-card-content box-shadow-md">
+
+            <div class="calendar-card-date">
+              <%= l Date.strptime(date, '%Y-%m-%d'), format: '%A' %>
+            </div>
+            <div class="calendar-card-date">
+              <%= Date.strptime(date, '%Y-%m-%d').strftime('%d') %>
+            </div>
+            <div class="calendar-card-date">
+              <%= l Date.strptime(date, '%Y-%m-%d'), format: '%B'%>
+            </div>
+            <div class="calendar-card-month-year-content">
+              <div class="calendar-card-month">
+              </div>
+              <div class="calendar-card-month">
+                <%= l Date.strptime(date, '%Y-%m-%d'), format: '%Y'%>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
+        <% helper_list_contests(date).each do |contest| %>
+          <%= link_to article_path(contest) do %>
+            <div class="contest-little-card box-shadow-md">
+              <div>
+                <%= contest.name %> à
+                <%= contest.location %>
+              </div>
+              <div>
+                <i class="fas fa-user-friends"></i>
+                -
+                <i class="fas fa-heart"></i>
+                <%= contest.likes.count %>
+                <i class="fas fa-comments"></i>
+                <%= contest.reviews.count %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
