@@ -20,34 +20,45 @@
   </div>
   <% @list_dates.each do |date| %>
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
         <div class="calendar-card-content box-shadow-md">
-          <div class="calendar-card-date-content">
-            <div class="calendar-card-day">
+
+            <div class="calendar-card-date">
               <%= l Date.strptime(date, '%Y-%m-%d'), format: '%A' %>
             </div>
             <div class="calendar-card-date">
               <%= Date.strptime(date, '%Y-%m-%d').strftime('%d') %>
             </div>
-            <div class="calendar-card-month">
+            <div class="calendar-card-date">
               <%= l Date.strptime(date, '%Y-%m-%d'), format: '%B'%>
             </div>
-            <div class="calendar-card-month">
-              <%= l Date.strptime(date, '%Y-%m-%d'), format: '%Y'%>
+            <div class="calendar-card-month-year-content">
+              <div class="calendar-card-month">
+              </div>
+              <div class="calendar-card-month">
+                <%= l Date.strptime(date, '%Y-%m-%d'), format: '%Y'%>
+              </div>
             </div>
-          </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9">
+      <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
         <% helper_list_contests(date).each do |contest| %>
-          <p>
-            <%= contest.name %> à
-            <%= contest.location %>
-            <%= contest.likes.count %> membre(s) y participent
-            <%= link_to article_path(contest) do %>
-              link
-            <% end %>
-          </p>
+          <%= link_to article_path(contest) do %>
+            <div class="contest-little-card box-shadow-md">
+              <div>
+                <%= contest.name %> à
+                <%= contest.location %>
+              </div>
+              <div>
+                <i class="fas fa-user-friends"></i>
+                -
+                <i class="fas fa-heart"></i>
+                <%= contest.likes.count %>
+                <i class="fas fa-comments"></i>
+                <%= contest.reviews.count %>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
