@@ -20,14 +20,18 @@
   position: absolute;
   bottom: 15px;
   width: 86%;
-  background-color: $gray;
+  background-color: $orange;
   font-size: 20px;
-  text-align: center;
+  font-weight: 100;
   border-radius: 0 0 3px 3px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .calendar-card-date {
-  font-weight: bold;
-  font-size: 30px;
+  font-weight: 100;
+  font-size: 22px;
 }
 
 .calendar-card-month {
@@ -46,7 +50,12 @@
   margin-bottom:10px;
   display: flex;
   justify-content: space-between;
-  a {
-    color: $gray;
+  color: $gray;
+  &:hover{
+    color: $white;
+    background-color: $orange
   }
+}
+a:hover {
+  text-decoration: none;
 }

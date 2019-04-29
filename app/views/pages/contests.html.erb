@@ -1,44 +1,27 @@
 <div class="container">
   <div class="row">
-<!--     <div class="col-xs-12">
-      <h3>Partageons nos objectifs de l'année</h3>
-      <p>Vous pouvez compléter le formulaire en cliquant sur le lien ci-dessous pour partager vos objectifs. Cela permettra d'organiser des entrainements communs, du co-voiturage... et ensuite de suivre les résultats  </p>
-      <a href="https://forms.gle/cZAuZKr6kXTaE16a8", target="_blank">
-        <div class="btn btn-danger">
-          Compléter le formulaire
-        </div>
-      </a>
-    </div> -->
     <div class="col-xs-12">
       <h3>Les prochaines épreuves</h3>
     </div>
-    <%# @contests.each do |contest| %>
-      <div class="col-xs-12 col-sm-4">
-          <%#= render 'homepage_card_template', {article: contest} %>
-      </div>
-    <%# end %>
   </div>
   <% @list_dates.each do |date| %>
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
         <div class="calendar-card-content box-shadow-md">
-
-            <div class="calendar-card-date">
-              <%= l Date.strptime(date, '%Y-%m-%d'), format: '%A' %>
+          <div class="calendar-card-date">
+            <%= l Date.strptime(date, '%Y-%m-%d'), format: '%A' %>
+          </div>
+          <div class="calendar-card-date">
+            <%= Date.strptime(date, '%Y-%m-%d').strftime('%d') %>
+          </div>
+          <div class="calendar-card-date">
+            <%= l Date.strptime(date, '%Y-%m-%d'), format: '%B'%>
+          </div>
+          <div class="calendar-card-month-year-content">
+            <div class="calendar-card-month">
+              <%= l Date.strptime(date, '%Y-%m-%d'), format: '%Y'%>
             </div>
-            <div class="calendar-card-date">
-              <%= Date.strptime(date, '%Y-%m-%d').strftime('%d') %>
-            </div>
-            <div class="calendar-card-date">
-              <%= l Date.strptime(date, '%Y-%m-%d'), format: '%B'%>
-            </div>
-            <div class="calendar-card-month-year-content">
-              <div class="calendar-card-month">
-              </div>
-              <div class="calendar-card-month">
-                <%= l Date.strptime(date, '%Y-%m-%d'), format: '%Y'%>
-              </div>
-            </div>
+          </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
