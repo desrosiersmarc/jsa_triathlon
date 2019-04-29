@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :likes
   has_many :articles
+  has_many :participations
 
   validates :firstname, presence: true
   validates :lastname, presence: true

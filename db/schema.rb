@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190424113645) do
+ActiveRecord::Schema.define(version: 20190429210818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(version: 20190424113645) do
     t.bigint "user_id"
     t.index ["article_id"], name: "index_likes_on_article_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "article_id"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_participations_on_article_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -149,6 +159,8 @@ ActiveRecord::Schema.define(version: 20190424113645) do
   add_foreign_key "clubs", "users"
   add_foreign_key "likes", "articles"
   add_foreign_key "likes", "users"
+  add_foreign_key "participations", "articles"
+  add_foreign_key "participations", "users"
   add_foreign_key "pictures", "users"
   add_foreign_key "products", "product_types"
   add_foreign_key "products", "sizes"
