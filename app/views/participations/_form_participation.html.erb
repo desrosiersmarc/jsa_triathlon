@@ -1,0 +1,4 @@
+<%= simple_form_for [article, participation], remote: false do|f| %>
+  <%= f.input :status, input_html: {value: participation_value} %>
+  <%= f.button :submit %>
+<% end %>

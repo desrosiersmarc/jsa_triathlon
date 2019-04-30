@@ -1,8 +1,9 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :find_article, only: [:show, :edit, :update, :send_article_email]
+  before_action :find_article, only: [:show, :edit, :update, :send_article_email, :find_participation]
   before_action :charge_article_types, only: [:index, :new, :edit]
   before_action :mailing_list, only: [:create, :update]
+  #before_action :find_participation, only: [:show]
 
 
   def index
@@ -139,6 +140,10 @@ private
   def send_article_email(user)
     @user = user
     UserMailer.article(@user, @article).deliver_later
+  end
+
+  def find_participation
+    @participation = Participation.where(article_id: @article.id, user_id: current_user.id).first
   end
 
 end
