@@ -1,9 +1,23 @@
 <div class="container">
   <div class="row">
+    <%= link_to "Voir toutes les épreuves", contests_path, class: "btn btn-primary btn-block" %>
     <%= render 'article_card', {article: @article}  %>
     <div class="col-xs-12">
       <%= render 'likes/form_like', {article: @article, like: @like, like_method: @method,
         add_like: @add_like, like_label: @label, like_class: @class, likers: @likers} %>
+        <p>
+          <%#= link_to "Je participe",new_article_participation_path(@article), class: "btn btn-primary" %>
+          <%# if !@participation.nil? %>
+            <%#= link_to "Je ne participe plus", edit_article_participation_path(@article,@participation),class: "btn btn-danger" %>
+          <%# end %>
+        </p>
+        <div>
+          Membres participants :
+          <i class="fas fa-hard-hat"></i>
+          <% @article.participations.each do |participation| %>
+            <%= participation.user.firstname %>,
+          <% end %>
+        </div>
       <div>
         <% if !user_signed_in? %>
           <%= link_to new_user_session_path, class: "btn btn-warning btn-block" do %>

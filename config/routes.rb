@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   resources :articles do
     resources :reviews, only: [:new, :create]
     resources :likes, only: [:new, :create, :update]
+    resources :participations, only: [:new, :create, :edit, :update]
   end
   resources :products, only: [:new, :show, :create, :edit, :update]
   resources :clubs, only: [:index, :new, :edit, :show, :create, :update]
