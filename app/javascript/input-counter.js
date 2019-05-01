@@ -40,4 +40,3 @@ description.addEventListener('blur', hideCounter);
 productName.addEventListener('blur', hideCounterName);
 
 
-

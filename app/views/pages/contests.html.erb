@@ -27,7 +27,7 @@
       <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
         <% helper_list_contests(date).each do |contest| %>
           <%= link_to article_path(contest) do %>
-            <div class="contest-little-card box-shadow-md">
+            <div class="contest-little-card box-shadow-md" id="<%= contest.id %>">
               <div>
                 <%= contest.name %> à
                 <%= contest.location %>
@@ -42,7 +42,15 @@
               </div>
             </div>
           <% end %>
+          <div class="participants-container" id="<%= contest.id.to_s + '-participants' %>">
+            <div class="participants-text">
+              <% helper_list_participants(contest).each do |participant| %>
+                <%= participant.user.firstname %>,
+              <% end %>
+            </div>
+          </div>
         <% end %>
+
       </div>
     </div>
   <% end %>

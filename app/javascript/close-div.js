@@ -17,5 +17,3 @@ var closeTaxeDisplay = sessionStorage.getItem('closeTaxeDisplay');
 if (closeTaxeDisplay == 'false') {
   closeTaxeDiv();
 };
-
-
