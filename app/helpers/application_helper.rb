@@ -50,4 +50,8 @@ module ApplicationHelper
                             .where(article_type: 3)
                             .where(active: true)
   end
+
+  def helper_list_participants(article)
+    article.participations
+  end
 end

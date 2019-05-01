@@ -42,20 +42,4 @@
   font-weight: bold;
 }
 
-.contest-little-card{
-  background-color: white;
-  height: 40px;
-  padding: 5px;
-  border-radius: 3px;
-  margin-bottom:10px;
-  display: flex;
-  justify-content: space-between;
-  color: $gray;
-  &:hover{
-    color: $white;
-    background-color: $orange
-  }
-}
-a:hover {
-  text-decoration: none;
-}
+

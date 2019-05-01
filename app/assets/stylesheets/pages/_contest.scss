@@ -1,0 +1,35 @@
+.participants-container {
+  display: flex;
+  justify-content: flex-end;
+  display: none;
+}
+
+.participants-text {
+  background-color: $orange;
+  color: $white;
+  text-align: right;
+  width: fit-content;
+  padding: 0 9px 0 10px;
+}
+
+.display-participants {
+  display: flex;
+}
+
+.contest-little-card{
+  background-color: white;
+  height: 40px;
+  padding: 5px;
+  border-radius: 3px;
+  margin-top:10px;
+  display: flex;
+  justify-content: space-between;
+  color: $gray;
+  &:hover{
+    color: $white;
+    background-color: $orange
+  }
+}
+a:hover {
+  text-decoration: none;
+}
