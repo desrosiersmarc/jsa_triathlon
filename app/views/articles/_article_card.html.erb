@@ -29,7 +29,7 @@
       </div>
       <div>
         <i class="far fa-calendar-check"></i>
-        <%= article.date.strftime('%v') %>
+        <%= l article.date, format: '%A %d %B %Y' %>
       </div>
       <div>
         <i class="far fa-clock"></i>
