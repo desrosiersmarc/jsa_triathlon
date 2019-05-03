@@ -37,6 +37,9 @@
         <%= article.end_time.strftime('%R') %>
       </div>
     </div>
+    <div class="participation-content">
+      <%= render 'participations/form_participation', {article: @article, participation: @participation, participation_value: 1} %>
+    </div>
       <hr>
     <p><%= raw article.content %></p>
     <p>

@@ -1,0 +1,10 @@
+//participations
+function refreshForm2(innerHTML) {
+  const newReviewForm2 = document.getElementById('participation-list');
+  newReviewForm2.innerHTML = innerHTML;
+
+}
+
+refreshForm2('<%= j render "participations/participation_list", article: @article %>');
+
+

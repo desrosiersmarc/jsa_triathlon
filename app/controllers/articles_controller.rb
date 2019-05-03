@@ -33,6 +33,7 @@ class ArticlesController < ApplicationController
                                 .sort_by {|review| review.created_at}
                                 .reverse
     @review = Review.new
+    @participation = Participation.new
 
     if user_signed_in?
       if @article.likes.map{|r| r.user_id}.include?(current_user.id)

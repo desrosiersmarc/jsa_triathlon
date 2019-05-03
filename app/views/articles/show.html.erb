@@ -5,19 +5,7 @@
     <div class="col-xs-12">
       <%= render 'likes/form_like', {article: @article, like: @like, like_method: @method,
         add_like: @add_like, like_label: @label, like_class: @class, likers: @likers} %>
-        <p>
-          <%#= link_to "Je participe",new_article_participation_path(@article), class: "btn btn-primary" %>
-          <%# if !@participation.nil? %>
-            <%#= link_to "Je ne participe plus", edit_article_participation_path(@article,@participation),class: "btn btn-danger" %>
-          <%# end %>
-        </p>
-        <div>
-          Membres participants :
-          <i class="fas fa-hard-hat"></i>
-          <% @article.participations.each do |participation| %>
-            <%= participation.user.firstname %>,
-          <% end %>
-        </div>
+      <%= render 'participations/participation_list', {article: @article} %>
       <div>
         <% if !user_signed_in? %>
           <%= link_to new_user_session_path, class: "btn btn-warning btn-block" do %>
