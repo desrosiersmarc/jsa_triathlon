@@ -70,3 +70,19 @@
   }
 }
 
+.participation-content {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  a {
+    color: $white;
+  }
+}
+
+.participation-list {
+  background-color: white;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+

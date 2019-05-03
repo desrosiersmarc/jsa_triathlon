@@ -29,13 +29,16 @@
       </div>
       <div>
         <i class="far fa-calendar-check"></i>
-        <%= article.date.strftime('%v') %>
+        <%= l article.date, format: '%A %d %B %Y' %>
       </div>
       <div>
         <i class="far fa-clock"></i>
         <%= article.start_time.strftime('%R') %> -
         <%= article.end_time.strftime('%R') %>
       </div>
+    </div>
+    <div class="participation-content">
+      <%= render 'participations/form_participation', {article: @article, participation: @participation, participation_value: 1} %>
     </div>
       <hr>
     <p><%= raw article.content %></p>

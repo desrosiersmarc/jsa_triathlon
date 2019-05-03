@@ -11,7 +11,10 @@ class ParticipationsController < ApplicationController
     @participation.user_id = current_user.id
     @participation.article_id = @article.id
     if @participation.save
-      redirect_to article_path(@article)
+      respond_to do |format|
+        format.html {redirect_to article_path(@article)}
+        format.js
+      end
     end
 
   end
