@@ -33,3 +33,10 @@
 a:hover {
   text-decoration: none;
 }
+
+.contest-list-like-comment {
+  color: $orange;
+  &:hover {
+    color: $white;
+  }
+}
