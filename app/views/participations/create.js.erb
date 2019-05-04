@@ -8,3 +8,10 @@ function refreshForm2(innerHTML) {
 refreshForm2('<%= j render "participations/participation_list", article: @article %>');
 
 
+function refreshForm4(innerHTML) {
+  const newReviewForm4 = document.getElementById('contest-buttons');
+  newReviewForm4.innerHTML = innerHTML;
+}
+
+refreshForm4('<%= j render "participations/destroy", {article: @article, participation: @participation} %>');
+

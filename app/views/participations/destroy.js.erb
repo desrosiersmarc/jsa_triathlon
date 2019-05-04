@@ -1,0 +1,15 @@
+function refreshForm3(innerHTML) {
+  const newReviewForm3 = document.getElementById('participation-list');
+  newReviewForm3.innerHTML = innerHTML;
+}
+
+refreshForm3('<%= j render "participations/participation_list", article: @article %>');
+
+
+function refreshForm4(innerHTML) {
+  const newReviewForm4 = document.getElementById('contest-buttons');
+  newReviewForm4.innerHTML = innerHTML;
+}
+
+refreshForm4('<%= j render "participations/form_participation", {article: @article, participation: @participation, participation_value: 1} %>');
+
