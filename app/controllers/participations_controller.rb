@@ -1,6 +1,6 @@
 class ParticipationsController < ApplicationController
-  before_action :find_article, only: [:new, :create, :edit, :update]
-  before_action :find_participation, only: [:edit, :update]
+  before_action :find_article, only: [:new, :create, :edit, :update, :destroy]
+  before_action :find_participation, only: [:destroy]
 
   def new
     @participation = Participation.new
@@ -16,18 +16,17 @@ class ParticipationsController < ApplicationController
         format.js
       end
     end
-
   end
 
-  def edit
-  end
-
-  def update
-    @participation.update(participation_params)
-    if @participation.save
-      redirect_to article_path(@article)
+  def destroy
+    if @participation.delete
+      respond_to do |format|
+        format.html {}
+        format.js
+      end
     end
   end
+
 private
   def find_participation
     @participation = Participation.find(params[:id])

@@ -1,8 +1,9 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :find_article, only: [:show, :edit, :update, :send_article_email, :find_participation]
+  before_action :find_article, only: [:show, :edit, :update, :send_article_email]
   before_action :charge_article_types, only: [:index, :new, :edit]
   before_action :mailing_list, only: [:create, :update]
+  before_action :find_participation, only: [:show]
   #before_action :find_participation, only: [:show]
 
 
@@ -33,7 +34,9 @@ class ArticlesController < ApplicationController
                                 .sort_by {|review| review.created_at}
                                 .reverse
     @review = Review.new
-    @participation = Participation.new
+    if @participation.nil?
+      @participation = Participation.new
+    end
 
     if user_signed_in?
       if @article.likes.map{|r| r.user_id}.include?(current_user.id)
