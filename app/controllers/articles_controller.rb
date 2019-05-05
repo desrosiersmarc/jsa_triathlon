@@ -8,8 +8,6 @@ class ArticlesController < ApplicationController
 
 
   def index
-    # @articles = Article.where(active: true)
-                        # .sort_by { |article| article.date}
     @articles = Article.all
   end
 
@@ -21,8 +19,10 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       redirect_to article_path(@article)
-      @list_members.each do |member|
-        send_article_email(member)
+      if @article.send_email
+        @list_members.each do |member|
+          send_article_email(member)
+        end
       end
     else
       render :new
@@ -79,9 +79,11 @@ class ArticlesController < ApplicationController
     @article.update(article_params)
     if @article.save
       redirect_to article_path(@article)
-      if @article.article_type_id == 6
-        @list_members.each do |member|
-          send_article_email(member)
+      if @article.send_email
+        if @article.article_type_id == 6
+          @list_members.each do |member|
+            send_article_email(member)
+          end
         end
       end
     else
@@ -102,6 +104,7 @@ private
       :user_id,
       :article_type_id,
       :active,
+      :send_email,
       :photo)
   end
 
