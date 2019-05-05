@@ -18,7 +18,8 @@
 
 .contest-little-card{
   background-color: white;
-  height: 40px;
+  flex-wrap: wrap;
+  min-height: 40px;
   padding: 5px;
   border-radius: 3px;
   margin-top:10px;
