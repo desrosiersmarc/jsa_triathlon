@@ -14,7 +14,7 @@
     <h4><%= @article.name %></h4>
     <p>
       <i class="fas fa-calendar-check"></i>
-      <%= @article.date.strftime('%d-%-m-%Y') %>
+      <%= l @article.date, format: '%A %d %B %Y' %>
       de <%= @article.start_time.strftime('%H:%M') %>
       à <%= @article.end_time.strftime('%H:%M') %>
     </p>
@@ -26,7 +26,7 @@
 
     <p>
       <i class="fas fa-newspaper"></i>
-      <%= raw @article.content[0..30] %>
+      <%= raw @article.content[0..60] %>
       ...
       <a href="<%= article_link %>" >
         Lire la suite
@@ -39,7 +39,7 @@
 
 
 
-  <p>N'hésites pas à le commenter ou à le liker.</p>
+  <p>N'hésite pas à le commenter ou à le liker.</p>
 
   <p>Bonne journée</p>
   <p>
