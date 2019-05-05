@@ -44,7 +44,11 @@
         <%= render 'participations/destroy', {article: @article, participation: @participation} %>
       <% end %>
     </div>
-      <hr>
+    <div class="participation-list">
+      <%= render 'participations/participation_list', {article: @article} %>
+    </div>
+    <hr>
+    <b>Contenu de l'article :</b>
     <p><%= raw article.content %></p>
     <p>
   </div>

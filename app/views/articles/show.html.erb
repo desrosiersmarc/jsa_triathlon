@@ -3,10 +3,6 @@
     <%= link_to "Voir toutes les épreuves", contests_path, class: "btn btn-primary btn-block" %>
     <%= render 'article_card', {article: @article}  %>
     <div class="col-xs-12">
-      <div class="participation-list box-shadow-md">
-        <%= render 'participations/participation_list', {article: @article} %>
-      </div>
-
       <%= render 'likes/form_like', {article: @article, like: @like, like_method: @method,
         add_like: @add_like, like_label: @label, like_class: @class, likers: @likers} %>
       <div>
