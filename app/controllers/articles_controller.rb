@@ -138,7 +138,6 @@ private
 
   def mailing_list
     @list_members = User.where(notification: true)
-                        .where(role: "admin")
   end
 
   def send_article_email(user)
