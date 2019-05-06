@@ -1,6 +1,11 @@
 <%= simple_form_for(@article) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :article_type_id, collection: @article_types, label: t('.article_type') %>
+  <% if admin? %>
+    <%= f.input :article_type_id, collection: @article_types, label: t('.article_type') %>
+  <% else %>
+    <%= f.input :article_type_id, as: :hidden, input_html: {value: 3} %>
+  <% end %>
+
   <div class="article-form-photo">
     <%= f.input :photo, label: t('.photo'), label_html:{class: 'red-alert'}, error: 'il faut une photo'%>
     <%= f.input :photo_cache, as: :hidden %>
@@ -11,14 +16,17 @@
   <%= f.input :name, class: 'title-article', input_html: {placeholder: "Le titre doit faire au maximum 50 caractères", maxlength: 50}, label: t(".name"), id:"name_id" %>
   <%= f.input :date, as: :date, order: [:day, :month, :year] ,input_html: { class: 'date-time'} %>
   <%= f.input :start_time, as: :time, start_hour: 8, end_hour: 22, minute_step: 15, input_html: { class: 'date-time'}, label: t('.start_time') %>
-  <%= f.input :end_time, as: :time, start_hour: 8,end_hour: 23, minute_step: 15, input_html: { class: 'date-time'}, label: t('.end_time') %>
+  <%= f.input :end_time, as: :time, start_hour: 7,end_hour: 23, minute_step: 15, input_html: { class: 'date-time'}, label: t('.end_time') %>
   <%= f.input :link, label: t('.link')%>
   <%= f.input :location, label: t('.location') %>
-  <%= f.text_area :content, class: 'ckeditor', label: t('.content') %>
+  <% if admin? %>
+    <%= f.text_area :content, class: 'ckeditor', label: t('.content') %>
+    <%= f.input :active, label: " Publier l'article ?" %>
+    <div class="article-mail-div">
+      <%= f.input :send_email, label: "Cocher cette case pour envoyer l'article aux membres 🤗" %>
+    </div>
+  <% end %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.input :active, label: " Publier l'article ?" %>
-  <div class="article-mail-div">
-    <%= f.input :send_email, label: "Cocher cette case pour envoyer l'article aux membres 🤗" %>
-  </div>
+
   <%= f.submit 'Enregistrer', class: 'btn btn-block btn-danger' %>
 <% end %>

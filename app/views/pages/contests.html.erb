@@ -54,4 +54,21 @@
       </div>
     </div>
   <% end %>
+  <% if member? %>
+    <div class="hidden-sm hidden-md hidden-lg">
+      <%= link_to new_article_path do %>
+        <div class="plus-button plus-button-mobile">
+          <i class="far fa-edit"></i>
+        </div>
+      <% end %>
+    </div>
+    <div class="hidden-xs">
+      <%= link_to new_article_path do %>
+        <div class="plus-button plus-button-desktop">
+          <i class="far fa-edit"></i>
+           Ajouter une course
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
