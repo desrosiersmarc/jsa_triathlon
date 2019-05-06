@@ -8,6 +8,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  &:hover {
+    background-color: $orange;
+    color: $white;
+
+  }
 }
 
 .calendar-card-date-content {

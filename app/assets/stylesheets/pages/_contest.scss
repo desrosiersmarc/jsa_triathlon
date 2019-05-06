@@ -41,3 +41,14 @@ a:hover {
     color: $white;
   }
 }
+
+.contest-little-card-info-picture {
+  display: flex;
+}
+.contest-little-card-picture {
+  width: 40px;
+  background-position: center center;
+  background-size: cover !important;
+  border-radius: 2px;
+  margin-right: 5px;
+}
