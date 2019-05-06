@@ -30,6 +30,7 @@ function hideCounterName(){
   countName.classList.add('counter-hide');
 };
 
+if (countDescription !== null) {
 description.addEventListener('keydown', countCharDescription);
 productName.addEventListener('keydown', countCharName);
 
@@ -38,5 +39,6 @@ productName.addEventListener('focus', showCounterName);
 
 description.addEventListener('blur', hideCounter);
 productName.addEventListener('blur', hideCounterName);
+}
 
 
