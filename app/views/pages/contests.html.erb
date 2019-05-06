@@ -28,7 +28,9 @@
         <% helper_list_contests(date).each do |contest| %>
           <%= link_to article_path(contest) do %>
             <div class="contest-little-card box-shadow-md" id="<%= contest.id %>">
-              <div>
+              <div class="contest-little-card-info-picture">
+                <div class="contest-little-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= helper_image_path(contest) %>');">
+                </div>
                 <%= contest.name %> à
                 <%= contest.location %>
               </div>
