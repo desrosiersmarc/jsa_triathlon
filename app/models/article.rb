@@ -10,7 +10,7 @@ class Article < ApplicationRecord
   validates :date, presence: true
   validates :article_type_id, presence: true
   validates :photo, presence: true
-  validates :location, length: {maximum: 60, minimum: 5}
+  validates :location, presence: true, length: {maximum: 60, minimum: 5}
 
 
   def total_likes
