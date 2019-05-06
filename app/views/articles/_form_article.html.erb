@@ -15,7 +15,7 @@
   </div>
   <%= f.input :name, class: 'title-article', input_html: {placeholder: "Le titre doit faire au maximum 50 caractères", maxlength: 50}, label: t(".name"), id:"name_id" %>
   <%= f.input :date, as: :date, order: [:day, :month, :year] ,input_html: { class: 'date-time'} %>
-  <%= f.input :start_time, as: :time, start_hour: 8, end_hour: 22, minute_step: 15, input_html: { class: 'date-time'}, label: t('.start_time') %>
+  <%= f.input :start_time, as: :time, start_hour: 6, end_hour: 22, minute_step: 15, input_html: { class: 'date-time'}, label: t('.start_time') %>
   <%= f.input :end_time, as: :time, start_hour: 7,end_hour: 23, minute_step: 15, input_html: { class: 'date-time'}, label: t('.end_time') %>
   <%= f.input :link, label: t('.link')%>
   <%= f.input :location, label: t('.location') %>
