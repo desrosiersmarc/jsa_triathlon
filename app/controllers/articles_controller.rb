@@ -149,7 +149,9 @@ private
   end
 
   def find_participation
-    @participation = Participation.where(article_id: @article.id, user_id: current_user.id).first
+    if !current_user.nil?
+      @participation = Participation.where(article_id: @article.id, user_id: current_user.id).first
+    end
   end
 
 end
