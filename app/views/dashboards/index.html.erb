@@ -1,26 +1,22 @@
 <div class="container">
   <div class="row">
-    <h3>Dashboard</h3>
-      <h4>Articles</h4>
-      <% @stat_articles.each do |article| %>
-        <p>
-          <%= article[:user].firstname %>
-          <%= article[:nb_items] %>
-        </p>
-      <% end %>
-      <h4>Likes</h4>
-      <% @stat_likes.each do |like| %>
-        <p>
-          <%= like[:user].firstname %>
-          <%= like[:nb_items] %>
-        </p>
-      <% end %>
-      <h4>Reviews</h4>
-      <% @stat_reviews.each do |review| %>
-        <p>
-          <%= review[:user].firstname %>
-          <%= review[:nb_items] %>
-        </p>
-      <% end %>
+    <div class="dashboard-content box-shadow-md">
+      <h4>Depuis le <%= l Time.now-7.day, format: '%A %d %B' %></h4>
+      <p>+<%= @nb_articles %> articles</p>
+      <p>+<%= @nb_likes %> likes</p>
+      <p>+<%= @nb_reviews %> reviews</p>
+
+      <h4>Top influenceurs </h4>
+        <% @influencers.each do |influencer| %>
+          <p>
+            <%= influencer[:user].firstname %>
+            <%= influencer[:score] %>
+            pts
+          </p>
+        <% end %>
+
+    </div>
   </div>
+</div>
+<div class="triangle">
 </div>

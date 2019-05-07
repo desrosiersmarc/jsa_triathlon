@@ -1,29 +1,26 @@
 class DashboardsController < ApplicationController
+  before_action :influencers, only: [:index]
   def index
-    # stat_articles = []
-    # User.all.each do |user|
-    #   if user.articles.count > 0
-    #     stat_articles << {user: user, nb_articles: user.articles.count}
-    #   end
-    # end
-    # @stat_articles = stat_articles.sort_by{|statistic| statistic[:nb_articles]}
-    #                               .reverse
-    #                               .take(5)
-    @stat_articles = statistics("articles")
-    @stat_reviews = statistics("reviews")
-    @stat_likes = statistics("likes")
+    @nb_articles = Article.where('updated_at > ?', Time.now-7.day)
+                          .where(active: true)
+                          .count
+    @nb_reviews = Review.where('updated_at > ?', Time.now-7.day)
+                          .count
+    @nb_likes = Like.where('updated_at > ?', Time.now-7.day)
+                          .count
   end
 
-private
-  def statistics(model_to_analyse)
-    stats = []
+  def influencers
+    influencers = []
     User.all.each do |user|
-      if user.send(model_to_analyse).count > 0
-        stats << {user: user, nb_items: user.send(model_to_analyse).count}
+      contributions = 0
+      contributions = user.articles.count + user.reviews.count + user.likes.count
+      if contributions != 0
+        influencers << {user: user, score: contributions}
       end
     end
-    @stats = stats.sort_by{|statistic| statistic[:nb_items]}
-                                  .reverse
-                                  .take(5)
+    @influencers = influencers.sort_by{|influencer| influencer[:score]}
+                              .reverse
+                              .take(5)
   end
 end

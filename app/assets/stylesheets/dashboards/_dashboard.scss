@@ -1,0 +1,17 @@
+.dashboard-content{
+  border-radius: 3px;
+  background-color: white;
+  padding: 5px;
+  margin-top: 15px;
+}
+
+.triangle{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 90vh 0 0 10vh;
+  border-color: transparent transparent transparent #C9103B;
+  position: absolute;
+  top: 79px;
+  z-index: -1;
+}
