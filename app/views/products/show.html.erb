@@ -1,14 +1,89 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h3>Détail du produit</h3>
-      <%= render 'card_product', product: @product %>
-      <% if @product.product_type.id == 2 %>
-      <div class="card-product-seller box-shadow-md">
+<div class="product-show-content">
+  <div class="product-show-return">
+    <% if @product.product_type_id == 2 %>
+      <%= link_to petites_annonces_path do %>
+        <i class="fas fa-long-arrow-alt-left"></i> retour vers les annonces
+      <% end %>
+    <% else %>
+    <%= link_to sportswears_path do %>
+        <i class="fas fa-long-arrow-alt-left"></i> retour vers les tenues
+      <% end %>
+
+    <% end %>
+  </div>
+  <div class="product-show-triangle"></div>
+  <div class="product-show-title">
+    <%= @product.name.upcase %>
+  </div>
+  <div class="product-show-sporttype">
+    <%= @product.sport_type.name %>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <%= link_to product_path(@product) do %>
+          <div class="card-product-photo" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= helper_image_path(@product) %>') " >
+            <% if !@product.active %>
+              <div class="picture-card-status">
+                <i class="fas fa-exclamation-triangle"></i>
+                non publié
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+            <% end %>
+            <div class="product-show-user">
+              <%= render 'shared/user_picture', user: @product.user %>
+            </div>
+            <% if @product.sold %>
+              <div class="product-show-sold">
+               😃🎉 VENDU 🎉😃
+              </div>
+            <% end %>
+            <% if member? %>
+              <%= link_to edit_product_path(@product) do %>
+                <div class="article-edit-link ">
+                  <i class="far fa-edit"></i>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="product-show-information-content">
+          <div class="product-show-information">
+            <div class="product-show-price">
+              <%= @product.price %>€
+            </div>
+            <% if @product.product_type_id == 1 %>
+              <div class="product-show-stock">
+                Stock : <%= @product.stock %>
+              </div>
+            <% else %>
+              <div class="product-show-size">
+                Taille : <%= @product.size.name %>
+              </div>
+            <% end %>
+            <div>
+              <%= @product.sex %>
+            </div>
+          </div>
+          <div class="product-show-description">
+            <%= @product.description %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if @product.product_type.id == 2 %>
+  <div class="product-show-seller">
+      <div class="product-show-seller-information">
         <div>
-          <i class="fas fa-user-astronaut"></i>
+          Contactez
           <%= @product.user.firstname %>
           <%= @product.user.lastname %>
+          <i class="fas fa-long-arrow-alt-right"></i>
         </div>
 
         <div>
@@ -17,13 +92,19 @@
             <%= @product.user.mobil_phone %>
           </a>
         </div>
-
         <div>
           <i class="far fa-envelope"></i>
-          <%= @product.user.email %>
+          <a href="mailto:<%= @product.user.email %>">
+            <%= @product.user.email %>
+          </a>
         </div>
       </div>
-      <% end %>
-    </div>
   </div>
-</div>
+<% end %>
+
+
+
+
+
+
+
