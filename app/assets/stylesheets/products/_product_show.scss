@@ -1,0 +1,103 @@
+.product-show-content {
+
+}
+
+.product-show-return {
+  color: $gray;
+  margin: 10px;
+  a {
+    color: $gray;
+  }
+  &:hover{
+    a {
+      color: $pink;
+    }
+  }
+}
+
+
+.product-show-triangle{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 50vw 50vw 0;
+  border-color: transparent #fcbadc transparent transparent;
+  position: absolute;
+  top: 70px;
+  z-index: -1;
+  right: 0;
+}
+
+.product-show-title{
+  font-size: 20px;
+  text-align: center;
+}
+
+.product-show-sporttype{
+  color: $pink;
+  text-align: center;
+  margin: 10px;
+}
+
+.product-show-user{
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+
+.product-show-sold{
+  position: relative;
+  background-color: rgba(255, 0, 0, 0.5);
+  color: white;
+  top: 160px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-show-information-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-show-information{
+  border: solid 2px $pink;
+  background-color: white;
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.product-show-description{
+  margin-top: 40px;
+  text-align: center;
+}
+
+.product-show-seller{
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.product-show-seller-information{
+  color: $pink;
+  width: fit-content;
+  padding:15px;
+  a {
+    color: $pink;
+  }
+  &:hover {
+    border-radius: 3px;
+    border: solid 1px $light-gray;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+    color: $gray;
+    a{
+      color: $gray;
+    }
+  }
+
+}
