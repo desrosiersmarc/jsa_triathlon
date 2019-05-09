@@ -1,3 +1,16 @@
 .box-shadow-md {
   box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
 }
+
+.return-link {
+  color: $gray;
+  margin: 10px;
+  a {
+    color: $gray;
+  }
+  &:hover{
+    a {
+      color: $pink;
+    }
+  }
+}

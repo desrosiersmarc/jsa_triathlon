@@ -1,7 +1,41 @@
 .influencer-content{
-  position: fixed;
-  top: 70px;
-  right: 0px;
-  background-color: $white;
-  font-size: 12px;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+.influencer{
+  position: relative;
+  top: -10px;
+  background-color: $red;
+  width: fit-content;
+  height: 40px;
+  width: 40px;
+  border-radius: 0 0 0 40px;
+  display: flex;
+  justify-content: center;
+  i {
+    color: $white;
+  }
+  &:hover{
+    background: linear-gradient(270deg, #101eec, #ec10e4);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 0s ease infinite;
+    -moz-animation: AnimationName 0s ease infinite;
+    animation: AnimationName 0s ease infinite;
+  }
+}
+.influencer-stat{
+  display: flex;
+  align-items: center;
+}
+
+.influencer-li{
+  height: 60px;
+}
+ul {
+  list-style: none;
+}
+.influencer-score{
+  padding-left: 10px;
 }

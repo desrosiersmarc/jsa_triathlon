@@ -1,5 +1,7 @@
 class DashboardsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
   before_action :influencers, only: [:index]
+
   def index
     @nb_articles = Article.where('updated_at > ?', Time.now-7.day)
                           .where(active: true)
