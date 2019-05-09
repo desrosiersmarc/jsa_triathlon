@@ -1,20 +1,44 @@
+<div class="return-link">
+  <%= link_to root_path do %>
+    <i class="fas fa-long-arrow-alt-left"></i> retour vers l'accueil
+  <% end %>
+</div>
 <div class="container">
   <div class="row">
     <div class="dashboard-content box-shadow-md">
       <h4>Depuis le <%= l Time.now-7.day, format: '%A %d %B' %></h4>
-      <p>+<%= @nb_articles %> articles</p>
-      <p>+<%= @nb_likes %> likes</p>
-      <p>+<%= @nb_reviews %> reviews</p>
+      <p>Création de ...</p>
+      <ul>
+        <li>
+          +<%= @nb_articles %> articles
+        </li>
+        <li>
+          +<%= @nb_likes %> likes
+        </li>
+        <li>
+          +<%= @nb_reviews %> commentaires
+        </li>
+      </ul>
 
-      <h4>Top influenceurs </h4>
-        <% @influencers.each do |influencer| %>
-          <p>
-            <%= influencer[:user].firstname %>
-            <%= influencer[:score] %>
-            pts
-          </p>
-        <% end %>
-
+      <p>Top influenceurs* </p>
+        <ul>
+          <% @influencers.each do |influencer| %>
+            <div class="influencer-li">
+              <li>
+                <div class="influencer-stat">
+                  <%= render 'shared/user_picture', {user: influencer[:user]} %>
+                  <div class="influencer-score">
+                    <%= influencer[:score] %>
+                  </div>
+                  pts
+                </div>
+              </li>
+            </div>
+          <% end %>
+        </ul>
+        <div class="point-explanation">
+        *Total des points = nombre d'article créés + le nombre de likes + le nombre de commentaires
+      </div>
     </div>
   </div>
 </div>
