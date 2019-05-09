@@ -8,3 +8,20 @@
     <% end %>
   </div>
 </div>
+<% if member? %>
+  <div class="hidden-sm hidden-md hidden-lg">
+    <%= link_to new_product_path do %>
+      <div class="plus-button plus-button-mobile">
+        <i class="far fa-edit"></i>
+      </div>
+    <% end %>
+  </div>
+  <div class="hidden-xs">
+    <%= link_to new_product_path do %>
+      <div class="plus-button plus-button-desktop">
+        <i class="far fa-edit"></i>
+         Déposer une annonce
+      </div>
+    <% end %>
+  </div>
+<% end %>
