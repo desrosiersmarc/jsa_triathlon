@@ -14,26 +14,32 @@
     body i {
       color:#C9103B;
     }
+
     .mail-content {
       background-color: #FFF;
       padding: 10px;
       border-radius: 15px 15px 0 0;
 
     }
-    .article-content-title {
-      border-top: solid 1px #221F20;
-      border-left: solid 1px #221F20;
-      border-right: solid 1px #221F20;
-      border-radius: 5px 5px 0 0 ;
-      padding: 10px;
-      background-color: #C9103B;
-      color: #FFF;
-      font-weight: bold;
+    .article-post-it-content{
+      display: flex;
+      justify-content: center;
+      margin-top: -15px;
     }
-    .article-content {
-      border: solid 1px #221F20;
-      padding: 10px;
-      border-radius: 0 0 5px 5px;
+    .article-post-it {
+      /*border: solid 1px #221F20;*/
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #C9D7F8;
+      width: 160px;
+      height: 160px;
+      transform: rotate(10deg);
+    }
+
+    .article-post-it i {
+      color: #221F20 ;
     }
     .article-shadow{
       box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
@@ -59,6 +65,96 @@
     .cdos-address {
       text-align: center;
     }
+    .calendar-content{
+      display: flex;
+      justify-content: center;
+    }
+
+    .calendar-card-content {
+      background-color: white;
+      margin-top: 10px;
+      border-radius: 3px;
+      height: 200px;
+      width: 150px;
+      border: solid 1px #221F20;/*Gray*/
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      /*padding: 0 10px;*/
+      box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .calendar-card-date-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .calendar-card-month-year-content {
+      bottom: 15px;
+      width: 100%;
+      background-color: #C9103B; /*red*/
+      font-size: 20px;
+      font-weight: 100;
+      border-radius: 0 0 3px 3px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-weight: bold;
+    }
+    .calendar-card-date {
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    .calendar-card-day {
+      font-weight: bold;
+      font-size: 50px;
+      color: #C9103B; /*red*/
+    }
+
+    .calendar-card-month {
+      color: $white;
+    }
+
+    .calendar-card-time {
+      font-weight: bold;
+    }
+
+    .article-content{
+      display: flex;
+      justify-content: center;
+    }
+    .article-content-text{
+      font-size: 12px;
+      width: 75%;
+      border: solid 1px grey;
+      padding: 10px;
+    }
+    .article-content-link {
+      border-top: solid 1px #221F20;
+      border-left: solid 1px #221F20;
+      border-right: solid 1px #221F20;
+      border-radius: 0 0 5px 5px;
+      padding: 10px;
+      background-color: #C9103B;
+      color: #FFF;
+      font-weight: bold;
+      font-size: 20px;
+      width: 75%;
+      text-align: center;
+    }
+    .article-content-link a {
+      text-decoration: none;
+    }
+    .article-content-and-link {
+      width: fit-content;
+    }
+
   </style>
 </head>
 <body>

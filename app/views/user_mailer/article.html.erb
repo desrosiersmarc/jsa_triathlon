@@ -2,56 +2,71 @@
 <div class="mail-content article-shadow">
   <img src="https://res.cloudinary.com/dmbf8fog4/image/upload/c_scale,w_100/v1555969918/JSA%20Triathlon/logo.jpg" alt="">
 
-  <p>
-    Bonjour <%= @user.firstname %>,
-  </p>
+  <div class="calendar-content">
+    <div class="calendar-card-content">
+      <div class="calendar-card-date">
+        <%= l @article.date, format: '%A' %>
+      </div>
+      <div class="calendar-card-day">
+        <%= l @article.date, format: '%d' %>
+      </div>
+      <div class="calendar-card-date">
+        <%= l @article.date, format: '%B'%>
+      </div>
+      <div class="calendar-card-month-year-content">
+        <div class="calendar-card-month">
+          <%= l @article.date, format: '%Y'%>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <p>
-    Un nouvel article vient d'être publié sur le site du club.
-  </p>
-  <div class="article-content-title article-shadow"><%= @article.article_type.name %></div>
-  <div class="article-content article-shadow">
-    <h4><%= @article.name %></h4>
-    <p>
+  <div class="article-post-it-content">
+    <div class="article-post-it article-shadow">
       <i class="fas fa-calendar-check"></i>
-      <%= l @article.date, format: '%A %d %B %Y' %>
-      de <%= @article.start_time.strftime('%H:%M') %>
-      à <%= @article.end_time.strftime('%H:%M') %>
-    </p>
-    <p>
+      <p>
+        Rendez-vous à <%= @article.start_time.strftime('%H:%M') %>
+      </p>
       <i class="fas fa-map-marker-alt"></i>
-      <%= @article.location %>
-    </p>
-    <% article_link = ("https://jsa-triathlon.herokuapp.com/articles/" + @article.id.to_s) %>
+      <p>
+        <%= @article.location %>
+      </p>
 
-    <p>
-      <i class="fas fa-newspaper"></i>
-      <%= raw @article.content[0..60] %>
-      ...
-      <a href="<%= article_link %>" >
-        Lire la suite
-      </a>
-    </p>
-    <i class="far fa-heart"></i>
-    <i class="far fa-comments"></i>
-
+    </div>
   </div>
 
 
 
-  <p>N'hésite pas à le commenter ou à le liker.</p>
+  <div class="article-content">
+    <div class="article-content-and-link">
+      <div class="article-content-text">
+        <p>
+          Bonjour <%= @user.firstname %>,
+        </p>
+        <p>
+          <%= raw @article.content %>
+        </p>
 
-  <p>Bonne journée</p>
-  <p>
-    <i class="far fa-smile-beam"></i>
-    <%= @article.user.firstname %>
-    (<%= @article.user.profil %>)
-  </p>
-  <p>
-    <i class="fas fa-mobile-alt"></i>
-    <%= @article.user.mobil_phone %>
-    <i class="far fa-envelope"></i>
-    <%= @article.user.email %></p>
+        <p>Bonne journée</p>
+        <p>
+          <i class="far fa-smile-beam"></i>
+          <%= @article.user.firstname %>
+          (<%= @article.user.profil %>)
+        </p>
+        <p>
+          <i class="fas fa-mobile-alt"></i>
+          <%= @article.user.mobil_phone %>
+          <i class="far fa-envelope"></i>
+          <%= @article.user.email %></p>
+      </div>
+      <a href=<%= 'https://jsa-triathlon.herokuapp.com/articles/' + "#{@article.id.to_s}" %> >
+        <div class="article-content-link">
+          Voir l'article
+
+        </div>
+      </a>
+    </div>
+  </div>
 </div>
 
 <%= render 'footer' %>
