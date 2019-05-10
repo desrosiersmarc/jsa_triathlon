@@ -8,6 +8,6 @@ class UserMailer < ApplicationMailer
   def article(user, article)
     @article = article
     @user = user
-    mail(to: @user.email, subject: "[JSA] Nouvel article dans la rubrique : #{@article.article_type.name.upcase}")
+    mail(to: @user.email, subject: "[JSA] #{@article.name} #{l @article.date, format: '%A %d %B'}")
   end
 end
