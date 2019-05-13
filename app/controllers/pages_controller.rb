@@ -20,7 +20,7 @@ class PagesController < ApplicationController
     @contests_top3 = @contests.take(3)
     @schools_top3 = @schools.take(3)
     @results_top3 = @results.take(3)
-    @trainings_top3 = @trainings.take(3)
+    @trainings_top3 = @trainings.take(3).reverse
 
     @product_echange_count = Product.where(product_type_id: 2, active: true).count
 
@@ -47,9 +47,9 @@ class PagesController < ApplicationController
   end
 
 private
-  def select_articles(article_type)
+  def select_articles(article_type, nb_days)
     articles = Article.where(article_type: article_type, active: true)
-            .where('date > ?', Time.now - 7.day)
+            .where('date > ?', Time.now - nb_days.day)
             .sort_by { |article| article.date}
     if articles == []
       return Article.where(article_type: article_type, active: true)
@@ -59,7 +59,7 @@ private
   end
 
   def select_contests
-    @contests = select_articles(3)
+    @contests = select_articles(3, 7)
   end
 
   def select_all_articles(article_type)
@@ -69,11 +69,11 @@ private
   end
 
   def select_club_events
-    @club_events = select_articles(1)
+    @club_events = select_articles(1, 7)
   end
 
   def select_school
-    @schools = select_articles(4)
+    @schools = select_articles(4, 7)
   end
 
   def select_results
@@ -81,11 +81,11 @@ private
   end
 
   def select_clubs
-    @clubs = select_articles(7)
+    @clubs = select_articles(7, 7)
   end
 
   def select_trainings
-    @trainings = select_articles(2)
+    @trainings = select_articles(2, 2)
   end
 
 end
