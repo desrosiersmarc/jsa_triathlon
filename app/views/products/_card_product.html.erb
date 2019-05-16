@@ -1,13 +1,9 @@
-<div class="card-product-content product-border">
+<div class="card-product-content">
   <% if product.sold %>
     <div class="product-sold">
      😃🎉 VENDU 🎉😃
     </div>
   <% end %>
-  <div class="card-product-title">
-    <h3 class="card-product-title-ellipsis"><%= product.name %></h3>
-    <p><%= product.sport_type.name %></p>
-  </div>
   <%= link_to product_path(product) do %>
     <div class="card-product-photo" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= helper_image_path(product) %>') " >
       <% if !product.active %>
@@ -20,28 +16,16 @@
       <div class="card-product-user">
         <%= render 'shared/user_picture', user: product.user %>
       </div>
-      <div class="card-product-description product-border">
-        <%= product.description %>
-      </div>
-      <div class="card-product-informations product-border">
-        <div class="product-price">
-          Prix : <%= product.price %>€
-        </div>
-        <% if product.product_type_id == 1 %>
-          <div class="product-stock">
-           Stock : <%= product.stock %>
-          </div>
-        <% else %>
-          <div class="product-size">
-            Taille : <%= product.size.name %>
-          </div>
-        <% end %>
-        <div>
-          <%= product.sex %>
-        </div>
-      </div>
     </div>
   <% end %>
+  <div class="card-product-title">
+    <h3 class="card-product-title-ellipsis"><%= product.name %></h3>
+    <div>Taille : <%= product.size.name %> <%= product.sex %></div>
+    <div><%= product.price %>€</div>
+
+  </div>
+
+
   <% if member? %>
   <!-- TODO -->
     <%= link_to edit_product_path(product) do %>

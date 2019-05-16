@@ -4,6 +4,9 @@
   a {
     color: $gray;
   }
+  &:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  }
 }
 .card-product-title {
   text-align: center;
@@ -24,8 +27,8 @@
 }
 .card-product-user {
   position: absolute;
-  top: 90px;
-  left: 10px;
+  top: 5px;
+  left: 5px;
 }
 .card-product-seller {
   display: flex;
