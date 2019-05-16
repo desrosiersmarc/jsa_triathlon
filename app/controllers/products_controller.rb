@@ -15,10 +15,12 @@ class ProductsController < ApplicationController
   end
 
   def petites_annonces
-    @products = Product.where(product_type_id: 2)
-                        .where(active: true)
-                        .where(sold: false)
-                        .sort_by {|product| product.sport_type}
+    @triathlon_products = select_product(1)
+    @swim_products = select_product(2)
+    @bike_products = select_product(3)
+    @run_products = select_product(4)
+    @electro_products = select_product(5)
+    @rent_products = select_product(6)
 
     @sold_products = Product.where(product_type_id: 2)
                               .where(active: true)
@@ -82,6 +84,14 @@ private
     @product_types = ProductType.all
     @sex = ['Homme', 'Femme', 'Unisex']
     @sport_types = SportType.all
+  end
+
+  def select_product(sport_type_id)
+    Product.where(product_type_id: 2)
+           .where(sport_type_id: sport_type_id)
+           .where(active: true)
+           .where(sold: false)
+           .sort_by {|product| product.sport_type}
   end
 
 end
