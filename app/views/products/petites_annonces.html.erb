@@ -1,7 +1,27 @@
 <div class="container">
   <div class="row">
     <h3>Petites annonces</h3>
-    <div class="col-xs-12">
+    <div class="hidden-xs a-list-content">
+      <% if @triathlon_products.count > 0 %>
+        <a href="#triathlon" class="product-a-list">Triathlon (<%= @triathlon_products.count %>)</a>
+      <% end %>
+      <% if @swim_products.count > 0 %>
+        <a href="#swim" class="product-a-list">Natation (<%= @swim_products.count %>)</a>
+      <% end %>
+      <% if @bike_products.count > 0 %>
+        <a href="#bike" class="product-a-list">Vélo (<%= @bike_products.count %>)</a>
+      <% end %>
+      <% if @run_products.count > 0 %>
+        <a href="#run" class="product-a-list">Course à pied (<%= @run_products.count %>)</a>
+      <% end %>
+      <% if @electro_products.count > 0 %>
+        <a href="#electro" class="product-a-list">Electro (<%= @electro_products.count %>)</a>
+      <% end %>
+      <% if @rent_products.count > 0 %>
+        <a href="#rent" class="product-a-list">Location (<%= @rent_products.count %>)</a>
+      <% end %>
+    </div>
+    <div class="col-xs-12" id="triathlon">
       <% if @triathlon_products.count > 0 %>
         <h4>Triathlon (<%= @triathlon_products.count %>)</h4>
         <% @triathlon_products.each do |product| %>
@@ -11,7 +31,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-xs-12">
+    <div class="col-xs-12" id="swim">
       <% if @swim_products.count > 0 %>
         <h4>Natation (<%= @swim_products.count %>)</h4>
         <% @swim_products.each do |product| %>
@@ -21,7 +41,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-xs-12">
+    <div class="col-xs-12" id="bike">
       <% if @bike_products.count > 0 %>
         <h4>Vélo (<%= @bike_products.count %>)</h4>
          <% @bike_products.each do |product| %>
@@ -31,7 +51,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-xs-12">
+    <div class="col-xs-12" id="run">
       <% if @run_products.count > 0 %>
         <h4>Course à pied (<%= @run_products.count %>)</h4>
         <% @run_products.each do |product| %>
@@ -41,7 +61,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-xs-12">
+    <div class="col-xs-12" id="electro">
       <% if @electro_products.count > 0 %>
         <h4>Electro (<%= @electro_products.count %>)</h4>
         <% @electro_products.each do |product| %>
@@ -51,7 +71,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-xs-12">
+    <div class="col-xs-12" id="rent">
       <% if @rent_products.count > 0 %>
         <h4>Location (<%= @rent_products.count %>)</h4>
         <% @rent_products.each do |product| %>
