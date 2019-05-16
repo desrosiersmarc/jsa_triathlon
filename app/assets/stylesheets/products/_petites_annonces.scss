@@ -1,0 +1,19 @@
+.product-a-list{
+  padding: 10px 10px 25px 10px;
+  border: solid 1px $gray;
+  &:hover {
+    padding: 10px;
+    background-color: rgba(201, 16, 59, 0.2);
+    color: $white;
+    border: $red;
+    border-bottom: 15px solid $red;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  }
+}
+a {
+  color: $gray;
+}
+
+.a-list-content {
+  margin-bottom: 30px;
+}
