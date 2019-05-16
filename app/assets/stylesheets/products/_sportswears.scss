@@ -1,0 +1,46 @@
+.sportswears-title-content{
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+.sportswears-title{
+  width: fit-content;
+  font-size: 24px;
+  border-bottom: solid 2px $red;
+}
+.card-sportswears-content{
+  margin-bottom: 30px;
+  &:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  }
+}
+.card-sportswears-title{
+
+}
+.card-sportswears-title-ellipsis{
+  text-align: center;
+  font-size: 25px;
+}
+.card-sportswears-sport-type{
+  color: $red;
+  text-align: center;
+  font-size: 25px;
+}
+.card-sportswears-photo{
+  height: 400px;
+  background-position: center center;
+  background-size: cover !important;
+}
+.card-status-content{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.sportswears-status{
+  height: 30px;
+  width: 100%;
+  background-color: $red;
+  color: $white;
+  text-align: center;
+  z-index: 1;
+}

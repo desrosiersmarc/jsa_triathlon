@@ -1,0 +1,29 @@
+<div class="card-sportswears-content">
+  <%= link_to product_path(product) do %>
+    <div class="card-sportswears-photo" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= helper_image_path(product) %>') " >
+      <div class="card-status-content">
+        <% if !product.active %>
+          <div class="sportswears-status">
+            <i class="fas fa-exclamation-triangle"></i>
+            non publié
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <div class="card-sportswears-title">
+    <div class="card-sportswears-title-ellipsis"><%= product.name %></div>
+    <div class="card-sportswears-sport-type">
+      <%= product.sport_type.name %>
+    </div>
+  </div>
+  <% if member? %>
+  <!-- TODO -->
+    <%= link_to edit_product_path(product) do %>
+      <div class="article-edit-link ">
+        <i class="far fa-edit"></i>
+      </div>
+    <% end %>
+  <% end %>
+</div>
