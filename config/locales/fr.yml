@@ -40,7 +40,7 @@ fr:
       name: "Titre de l'article, de l'événement"
       start_time: "Si besoin, heure du début"
       end_time: "Si besoin, heure de fin"
-      location: "Si besoin, lieu de l'événement"
+      location: "Lieu de l'événement"
       link: "Si besoin, coller le lien vers l'événement"
       photo: "Sélectionnez une photo pour illustrer l'article, l'événement"
       content: "Contenu de l'article"
