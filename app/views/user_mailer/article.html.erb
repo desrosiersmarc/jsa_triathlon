@@ -1,72 +1,62 @@
 <%= render 'header' %>
 <div class="mail-content article-shadow">
-  <img src="https://res.cloudinary.com/dmbf8fog4/image/upload/c_scale,w_100/v1555969918/JSA%20Triathlon/logo.jpg" alt="">
-
-  <div class="calendar-content">
-    <div class="calendar-card-content">
-      <div class="calendar-card-date">
-        <%= l @article.date, format: '%A' %>
-      </div>
-      <div class="calendar-card-day">
-        <%= l @article.date, format: '%d' %>
-      </div>
-      <div class="calendar-card-date">
-        <%= l @article.date, format: '%B'%>
-      </div>
-      <div class="calendar-card-month-year-content">
-        <div class="calendar-card-month">
-          <%= l @article.date, format: '%Y'%>
-        </div>
-      </div>
-    </div>
+  <div class="logo-title">
+    <img src="https://res.cloudinary.com/dmbf8fog4/image/upload/c_scale,w_100/v1555969918/JSA%20Triathlon/logo.jpg" alt="">
+    <p class="jsa-title">
+      Angoulême Triathlon
+    </p>
   </div>
 
-  <div class="article-post-it-content">
-    <div class="article-post-it article-shadow">
-      <i class="fas fa-calendar-check"></i>
-      <p>
-        Rendez-vous à <%= @article.start_time.strftime('%H:%M') %>
-      </p>
-      <i class="fas fa-map-marker-alt"></i>
-      <p>
-        <%= @article.location %>
-      </p>
-
-    </div>
+  <p>Bonjour <%= @user.firstname %>, </p>
+  <p>Un nouvel article vient d'être publié sur notre site dans la rubrique <%= @article.article_type.name.downcase %>.</p>
+  <span class="bold-mail">
+    <%= @article.name %>
+  </span>
+  <p>
+    Cet événement aura lieu le
+    <span class="bold-mail">
+      <%= l @article.date, format: '%A' %>
+      <%= l @article.date, format: '%d' %>
+      <%= l @article.date, format: '%B'%>
+      <%= l @article.date, format: '%Y'%>
+    </span>
+    à
+    <span class="bold-mail">
+      <%= @article.location %>
+    </span>
+    à partir de
+    <span class="bold-mail">
+      <%= @article.start_time.strftime('%H:%M') %>
+    </span>
+  </p>
+  <div class="mail-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path(@article.photo) %>') ">
   </div>
-
-
-
-  <div class="article-content">
-    <div class="article-content-and-link">
-      <div class="article-content-text">
-        <p>
-          Bonjour <%= @user.firstname %>,
-        </p>
-        <p>
-          <%= raw @article.content %>
-        </p>
-
-        <p>Bonne journée</p>
-        <p>
-          <i class="far fa-smile-beam"></i>
-          <%= @article.user.firstname %>
-          (<%= @article.user.profil %>)
-        </p>
-        <p>
-          <i class="fas fa-mobile-alt"></i>
-          <%= @article.user.mobil_phone %>
-          <i class="far fa-envelope"></i>
-          <%= @article.user.email %></p>
+  <p>
+    <%= raw @article.content %>
+  </p>
+  <div class="article-content-link">
+    <a href=<%= 'https://jsa-triathlon.herokuapp.com/articles/' + "#{@article.id.to_s}" %> >
+        <div class="article-link">
+        Voir l'article
+        <i class="fas fa-long-arrow-alt-right"></i>
       </div>
-      <a href=<%= 'https://jsa-triathlon.herokuapp.com/articles/' + "#{@article.id.to_s}" %> >
-        <div class="article-content-link">
-          Voir l'article
-
-        </div>
-      </a>
-    </div>
+    </a>
   </div>
+
+
+  <p>Bonne journée</p>
+  <p>
+    <%= @article.user.firstname %>
+    (<%= @article.user.profil %>)
+  </p>
+  <p>
+    <i class="fas fa-mobile-alt"></i>
+    <%= @article.user.mobil_phone %>
+  </p>
+  <p>
+    <i class="far fa-envelope"></i>
+    <%= @article.user.email %>
+  </p>
 </div>
 
 <%= render 'footer' %>
