@@ -8,9 +8,9 @@
       <%= cl_image_tag(@product.photo, width: 400) %>
     <% end %>
   </div>
-  <%= f.input :name, label: 'Nom', input_html: {maxlength: 40} %>
+  <%= f.input :name, label: "Titre de l'annonce", input_html: {maxlength: 40} %>
   <div class="counter-text counter-hide" id="counter-name">...</div>
-  <%= f.input :description, input_html: {placeholder: 'Vous diposez de 240 caractères pour décrire votre produit', maxlength: 240} %>
+  <%= f.input :description, label:"description de l'annonce", input_html: {placeholder: 'Vous diposez de 350 caractères pour décrire votre produit', maxlength: 350} %>
   <div class="counter-text counter-hide" id="counter-description">...</div>
   <%= f.input :price, label: 'Prix' %>
   <%= f.input :stock, collection: 1..20, label: 'Stock / Quantité' %>
@@ -18,9 +18,9 @@
   <%= f.input :sex, collection: @sex %>
   <%= f.input :sport_type_id, label: "Type d'activité", collection: @sport_types %>
   <% if admin? %>
-    <%= f.input :product_type_id, collection: @product_types%>
+    <%= f.input :product_type_id, label: "Rubrique de publication", collection: @product_types%>
   <% else %>
-    <%= f.input :product_type_id, input_html: {value: 2}, as: :hidden%>
+    <%= f.input :product_type_id, label: "Rubrique de publication", input_html: {value: 2}, as: :hidden%>
   <% end %>
   <div class="product-form-checkbox">
     <%= f.input :active, label: "Publier l'annonce" %>

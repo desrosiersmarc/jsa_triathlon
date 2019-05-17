@@ -5,7 +5,7 @@ description = document.getElementById('product_description');
 productName = document.getElementById('product_name');
 
 function countCharDescription(){
-  countDescription.innerHTML = description.value.length + '/240';
+  countDescription.innerHTML = description.value.length + '/350';
 };
 
 function countCharName(){
