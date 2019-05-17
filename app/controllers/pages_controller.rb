@@ -20,7 +20,7 @@ class PagesController < ApplicationController
     @contests_top3 = @contests.take(3)
     @schools_top3 = @schools.take(3)
     @results_top3 = @results.take(3)
-    @trainings_top3 = @trainings.take(3)
+    @trainings_top3 = @trainings.take(3).reverse
 
     @product_echange_count = Product.where(product_type_id: 2, active: true).count
 
@@ -38,7 +38,6 @@ class PagesController < ApplicationController
   end
 
   def trainings
-    # @trainings = select_all_articles(2)
     @trainings = select_articles(2,365).reverse
   end
 
@@ -86,7 +85,7 @@ private
   end
 
   def select_trainings
-    @trainings = select_articles(2, 2)
+    @trainings = select_articles(2, 3)
   end
 
 end
