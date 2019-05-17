@@ -11,13 +11,10 @@
       font-family: "Open Sans", "Helvetica", "sans-serif";
       color: #221F20;
     }
-    body i {
-      color:#C9103B;
-    }
 
     .mail-content {
       background-color: #FFF;
-      padding: 10px;
+      padding: 5vw;
       border-radius: 15px 15px 0 0;
 
     }
@@ -51,16 +48,14 @@
     }
 
     .footer-content{
-      background-color: #1F1D1D;
-      color: #FFF;
+      border-top: solid 2px #C9103B; /*red*/
+      background-color: #FFF;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 10px;
       border-radius: 0 0 15px 15px;
-    }
-    .footer-content a {
-      color: #FFF;
+      box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
     }
     .cdos-address {
       text-align: center;
@@ -136,25 +131,46 @@
       padding: 10px;
     }
     .article-content-link {
-      border-top: solid 1px #221F20;
-      border-left: solid 1px #221F20;
-      border-right: solid 1px #221F20;
-      border-radius: 0 0 5px 5px;
+      display:flex;
+      justify-content: center;
+    }
+
+    .article-link {
       padding: 10px;
       background-color: #C9103B;
       color: #FFF;
       font-weight: bold;
       font-size: 20px;
-      width: 75%;
       text-align: center;
+      width: 200px;
+      border-radius: 25px
     }
     .article-content-link a {
       text-decoration: none;
     }
-    .article-content-and-link {
-      width: fit-content;
+
+    .logo-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      padding-bottom: 20px;
+      border-bottom: solid 2px #C9103B; /*red*/
+
+    }
+    .jsa-title{
+      padding-left: 20px;
     }
 
+    .mail-picture {
+      height: 350px;
+      background-position: center center;
+      background-size: cover !important;
+      color: $white;
+    }
+    .bold-mail {
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
