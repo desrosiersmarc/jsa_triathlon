@@ -38,7 +38,8 @@ class PagesController < ApplicationController
   end
 
   def trainings
-    @trainings = select_all_articles(2)
+    # @trainings = select_all_articles(2)
+    @trainings = select_articles(2,365).reverse
   end
 
   def contests

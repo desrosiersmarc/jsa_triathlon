@@ -143,8 +143,8 @@ private
 
   def send_article_email(user)
     @user = user
-    # UserMailer.article(@user, @article).deliver_later
-    UserMailer.article(@user, @article).deliver_now
+    UserMailer.article(@user, @article).deliver_later
+    # UserMailer.article(@user, @article).deliver_now
   end
 
   def find_participation
