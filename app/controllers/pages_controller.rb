@@ -20,7 +20,7 @@ class PagesController < ApplicationController
     @contests_top3 = @contests.take(3)
     @schools_top3 = @schools.take(3)
     @results_top3 = @results.take(3)
-    @trainings_top3 = @trainings.take(3).reverse
+    @trainings_top3 = @trainings.take(3)
 
     @product_echange_count = Product.where(product_type_id: 2, active: true).count
 
