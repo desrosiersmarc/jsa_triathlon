@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   before_action :find_article, only: [:show, :edit, :update, :send_article_email]
   before_action :charge_article_types, only: [:index, :new, :edit]
   before_action :mailing_list, only: [:create, :update]
+  before_action :mailing_list_admin, only: [:create, :update]
   before_action :find_participation, only: [:show]
   #before_action :find_participation, only: [:show]
 
@@ -19,6 +20,11 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       redirect_to article_path(@article)
+      if @article.send_email_admin
+        @list_admins.each do |admin|
+          send_article_email(admin)
+        end
+      end
       if @article.send_email
         @list_members.each do |member|
           send_article_email(member)
@@ -79,6 +85,11 @@ class ArticlesController < ApplicationController
     @article.update(article_params)
     if @article.save
       redirect_to article_path(@article)
+      if @article.send_email_admin
+        @list_admins.each do |admin|
+          send_article_email(admin)
+        end
+      end
       if @article.send_email
         @list_members.each do |member|
           send_article_email(member)
@@ -103,6 +114,7 @@ private
       :article_type_id,
       :active,
       :send_email,
+      :send_email_admin,
       :photo)
   end
 
@@ -138,7 +150,11 @@ private
   end
 
   def mailing_list
-    @list_members = User.where(notification: true)
+    @list_members = User.where(notification: true).where(role: nil)
+  end
+
+  def mailing_list_admin
+    @list_admins = User.where(role: 'admin')
   end
 
   def send_article_email(user)
