@@ -16,13 +16,13 @@ class DashboardsController < ApplicationController
     influencers = []
     User.all.each do |user|
       contributions = 0
-      contributions = user.articles.count + user.reviews.count + user.likes.count
+      contributions = user.articles.count*5 + user.reviews.count*2 + user.likes.count*1
       if contributions != 0
         influencers << {user: user, score: contributions}
       end
     end
     @influencers = influencers.sort_by{|influencer| influencer[:score]}
                               .reverse
-                              .take(5)
+                              .take(10)
   end
 end
