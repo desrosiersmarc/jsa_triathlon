@@ -16,7 +16,17 @@ class DashboardsController < ApplicationController
     influencers = []
     User.all.each do |user|
       contributions = 0
-      contributions = user.articles.count*5 + user.reviews.count*2 + user.likes.count*1
+
+      contributions = user.articles.where(article_type_id: 3)
+                                   .where('updated_at > ?', Time.now-30.day)
+                                   .count*5
+                    + user.reviews.where('updated_at > ?', Time.now-30.day)
+                                  .count*2
+                    + user.likes.where('updated_at > ?', Time.now-30.day)
+                                .count
+
+
+
       if contributions != 0
         influencers << {user: user, score: contributions}
       end
