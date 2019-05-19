@@ -1,111 +1,194 @@
 <div class="container">
   <div class="row">
-    <h3>Petites annonces</h3>
-    <div class="hidden-xs a-list-content">
-      <% if @triathlon_products.count > 0 %>
-        <a href="#triathlon" class="product-a-list">Triathlon (<%= @triathlon_products.count %>)</a>
-      <% end %>
-      <% if @swim_products.count > 0 %>
-        <a href="#swim" class="product-a-list">Natation (<%= @swim_products.count %>)</a>
-      <% end %>
-      <% if @bike_products.count > 0 %>
-        <a href="#bike" class="product-a-list">Vélo (<%= @bike_products.count %>)</a>
-      <% end %>
-      <% if @run_products.count > 0 %>
-        <a href="#run" class="product-a-list">Course à pied (<%= @run_products.count %>)</a>
-      <% end %>
-      <% if @electro_products.count > 0 %>
-        <a href="#electro" class="product-a-list">Electro (<%= @electro_products.count %>)</a>
-      <% end %>
-      <% if @rent_products.count > 0 %>
-        <a href="#rent" class="product-a-list">Location (<%= @rent_products.count %>)</a>
-      <% end %>
+    <div class="product-heading-content">
+      <div class="product-heading-title" id="go-top">
+        Petites annonces
+      </div>
     </div>
-    <div class="col-xs-12" id="triathlon">
-      <% if @triathlon_products.count > 0 %>
-        <h4>Triathlon (<%= @triathlon_products.count %>)</h4>
+    <div class="hidden-xs">
+      <div class="a-list-content">
+        <% if @triathlon_products.count > 0 %>
+          <a href="#triathlon" class="product-a-list">Triathlon (<%= @triathlon_products.count %>)</a>
+        <% end %>
+        <% if @swim_products.count > 0 %>
+          <a href="#swim" class="product-a-list">Natation (<%= @swim_products.count %>)</a>
+        <% end %>
+        <% if @bike_products.count > 0 %>
+          <a href="#bike" class="product-a-list">Vélo (<%= @bike_products.count %>)</a>
+        <% end %>
+        <% if @run_products.count > 0 %>
+          <a href="#run" class="product-a-list">Course à pied (<%= @run_products.count %>)</a>
+        <% end %>
+        <% if @electro_products.count > 0 %>
+          <a href="#electro" class="product-a-list">Electro (<%= @electro_products.count %>)</a>
+        <% end %>
+        <% if @rent_products.count > 0 %>
+          <a href="#rent" class="product-a-list">Location (<%= @rent_products.count %>)</a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="triathlon">
+  <% if @triathlon_products.count > 0 %>
+    <%= render 'gray_triangle' %>
+    <div class="container">
+      <div class="row">
+        <div class="product-heading-content">
+          <div class="product-heading-title">
+            Triathlon
+          </div>
+          <%= render 'go_top' %>
+        </div>
         <% @triathlon_products.each do |product| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
             <%= render 'card_product', product: product %>
           </div>
         <% end %>
-      <% end %>
+      </div>
     </div>
-    <div class="col-xs-12" id="swim">
-      <% if @swim_products.count > 0 %>
-        <h4>Natation (<%= @swim_products.count %>)</h4>
+  <% end %>
+</div>
+<div id="swim">
+  <% if @swim_products.count > 0 %>
+    <%= render 'red_triangle' %>
+    <div class="container">
+      <div class="row">
+        <div class="product-heading-content">
+          <div class="product-heading-title">
+            Natation
+          </div>
+          <%= render 'go_top' %>
+        </div>
         <% @swim_products.each do |product| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
             <%= render 'card_product', product: product %>
           </div>
         <% end %>
-      <% end %>
+      </div>
     </div>
-    <div class="col-xs-12" id="bike">
-      <% if @bike_products.count > 0 %>
-        <h4>Vélo (<%= @bike_products.count %>)</h4>
+  <% end %>
+</div>
+<div id="bike">
+  <% if @bike_products.count > 0 %>
+    <%= render 'gray_triangle' %>
+    <div class="container">
+      <div class="row">
+        <div class="product-heading-content">
+          <div class="product-heading-title">
+            Vélo
+          </div>
+          <%= render 'go_top' %>
+        </div>
          <% @bike_products.each do |product| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
             <%= render 'card_product', product: product %>
           </div>
         <% end %>
-      <% end %>
+      </div>
     </div>
-    <div class="col-xs-12" id="run">
-      <% if @run_products.count > 0 %>
-        <h4>Course à pied (<%= @run_products.count %>)</h4>
-        <% @run_products.each do |product| %>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <%= render 'card_product', product: product %>
+  <% end %>
+</div>
+<div id="run">
+  <% if @run_products.count > 0 %>
+    <%= render 'red_triangle' %>
+    <div class="container">
+      <div class="row">
+        <div class="product-heading-content">
+          <div class="product-heading-title">
+            Course à pied
           </div>
-        <% end %>
-      <% end %>
+          <%= render 'go_top' %>
+        </div>
+          <% @run_products.each do |product| %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <%= render 'card_product', product: product %>
+            </div>
+          <% end %>
+      </div>
     </div>
-    <div class="col-xs-12" id="electro">
-      <% if @electro_products.count > 0 %>
-        <h4>Electro (<%= @electro_products.count %>)</h4>
+  <% end %>
+</div>
+<div id="electro">
+  <% if @electro_products.count > 0 %>
+    <%= render 'gray_triangle' %>
+    <div class="container">
+      <div class="row">
+        <div class="product-heading-content">
+          <div class="product-heading-title">
+            Electro
+          </div>
+          <%= render 'go_top' %>
+        </div>
         <% @electro_products.each do |product| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
             <%= render 'card_product', product: product %>
           </div>
         <% end %>
-      <% end %>
+      </div>
     </div>
-    <div class="col-xs-12" id="rent">
-      <% if @rent_products.count > 0 %>
-        <h4>Location (<%= @rent_products.count %>)</h4>
+  <% end %>
+</div>
+<div id="rent">
+  <% if @rent_products.count > 0 %>
+    <%= render 'red_triangle' %>
+    <div class="container">
+      <div class="row">
+        <div class="product-heading-content">
+          <div class="product-heading-title">
+            Location
+          </div>
+          <%= render 'go_top' %>
+        </div>
         <% @rent_products.each do |product| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
             <%= render 'card_product', product: product %>
           </div>
         <% end %>
-      <% end %>
-    </div>
-    <div class="col-xs-12">
-      <h4>Vendus</h4>
-      <% @sold_products.each do |product| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'card_product', product: product %>
-        </div>
-      <% end %>
-    </div>
-    <% if member? %>
-      <div class="hidden-sm hidden-md hidden-lg">
-        <%= link_to new_product_path do %>
-          <div class="plus-button plus-button-mobile">
-            <i class="far fa-edit"></i>
-          </div>
-        <% end %>
       </div>
-      <div class="hidden-xs">
-        <%= link_to new_product_path do %>
-          <div class="plus-button plus-button-desktop">
-            <i class="far fa-edit"></i>
-             Déposer une annonce
+    </div>
+  <% end %>
+</div>
+<div>
+  <% if @sold_products.count > 0 %>
+    <%= render 'gray_triangle' %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="product-heading-content">
+            <div class="product-heading-title">
+              Vendus
+            </div>
+            <%= render 'go_top' %>
           </div>
-        <% end %>
+          <% @sold_products.each do |product| %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <%= render 'card_product', product: product %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+
+<% if member? %>
+  <div class="hidden-sm hidden-md hidden-lg">
+    <%= link_to new_product_path do %>
+      <div class="plus-button plus-button-mobile">
+        <i class="far fa-edit"></i>
       </div>
     <% end %>
   </div>
-</div>
+  <div class="hidden-xs">
+    <%= link_to new_product_path do %>
+      <div class="plus-button plus-button-desktop">
+        <i class="far fa-edit"></i>
+         Déposer une annonce
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
 
