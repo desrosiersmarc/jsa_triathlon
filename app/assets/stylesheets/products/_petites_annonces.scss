@@ -1,12 +1,16 @@
 .product-a-list{
-  padding: 10px 10px 25px 10px;
-  border: solid 1px $gray;
+  padding: 10px 10px 10px 10px;
+  border: solid 1px $light-gray;
+  color: $red;
   &:hover {
     padding: 10px;
-    background-color: rgba(201, 16, 59, 0.2);
+    background: linear-gradient(270deg, #101eec, #ec10e4);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 0s ease infinite;
+    -moz-animation: AnimationName 0s ease infinite;
+    animation: AnimationName 0s ease infinite;
     color: $white;
-    border: $red;
-    border-bottom: 15px solid $red;
     box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
   }
 }
@@ -16,4 +20,59 @@ a {
 
 .a-list-content {
   margin-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.rectangles-content{
+  position: relative;
+}
+.gray-rectangle{
+  // background-color: $gray;
+  background: #000000;
+  background: -webkit-linear-gradient(right, #000000, #F90401);
+  background: -moz-linear-gradient(right, #000000, #F90401);
+  background: linear-gradient(to left, #000000, #F90401);
+  height: 60px;
+}
+
+.red-rectangle{
+  // background-color: $red;
+  background: #000000;
+  background: -webkit-linear-gradient(right, #000000, #F90401);
+  background: -moz-linear-gradient(right, #000000, #F90401);
+  background: linear-gradient(to left, #000000, #F90401);
+  height: 60px;
+}
+.white-left-triangle{
+    border-color: transparent transparent $white transparent;
+    border-width: 0 0 60px 100vw;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+}
+
+.white-right-triangle{
+border-color: transparent transparent transparent $white;
+    border-width: 60px 0px 0 100vw;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+}
+.product-heading-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-heading-title{
+  font-size: 25px;
+  color: $red;
+  padding: 20px;
+}
+.go-top{
+  color: $red;
+  font-size: 25px;
+  a {
+    color: $red;
+  }
 }
