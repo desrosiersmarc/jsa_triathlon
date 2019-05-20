@@ -17,13 +17,13 @@ class DashboardsController < ApplicationController
     User.all.each do |user|
       contributions = 0
 
-      contributions = user.articles.where(article_type_id: 3)
-                                   .where('updated_at > ?', Time.now-30.day)
-                                   .count*5
-                    + user.reviews.where('updated_at > ?', Time.now-30.day)
-                                  .count*2
-                    + user.likes.where('updated_at > ?', Time.now-30.day)
-                                .count
+      contributions = user.articles
+                          .where(article_type_id: 3)
+                          .where('updated_at > ?', Time.now-30.day)
+                          .count*5 + user.reviews
+                          .where('updated_at > ?', Time.now-30.day).count*2+ user.likes
+                          .where('updated_at > ?', Time.now-30.day)
+                          .count
 
 
 
