@@ -1,34 +1,42 @@
-<div class="container">
-  <div class="row">
-    <div class="sportswears-title-content">
-      <div class="sportswears-title">
-        Les tenues du club
-      </div>
-    </div>
-    <% @sportswears.each do |sportswear| %>
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <%= render 'card_sportswears', product: sportswear %>
-      </div>
-    <% end %>
-    <% if admin? %>
-      <%= link_to new_product_path do %>
-        <div class="hidden-sm hidden-md hidden-lg">
-          <%= link_to new_product_path do %>
-            <div class="plus-button plus-button-mobile">
-              <i class="far fa-edit"></i>
-            </div>
-          <% end %>
+<div class="sportswears-content">
+  <div class="sportswears-triangle">
+
+  </div>
+  <div class="sportswears-triangle-white">
+
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="sportswears-title-content">
+        <div class="sportswears-title">
+          Les tenues du club
         </div>
-        <div class="hidden-xs">
-          <%= link_to new_product_path do %>
-            <div class="plus-button plus-button-desktop">
-              <i class="far fa-edit"></i>
-               Créer une nouvelle tenue
-            </div>
-          <% end %>
+      </div>
+      <% @sportswears.each do |sportswear| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <%= render 'card_sportswears', product: sportswear %>
         </div>
       <% end %>
-    <% end %>
+      <% if admin? %>
+        <%= link_to new_product_path do %>
+          <div class="hidden-sm hidden-md hidden-lg">
+            <%= link_to new_product_path do %>
+              <div class="plus-button plus-button-mobile">
+                <i class="far fa-edit"></i>
+              </div>
+            <% end %>
+          </div>
+          <div class="hidden-xs">
+            <%= link_to new_product_path do %>
+              <div class="plus-button plus-button-desktop">
+                <i class="far fa-edit"></i>
+                 Créer une nouvelle tenue
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
