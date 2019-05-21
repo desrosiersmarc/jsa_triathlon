@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
+      Author.create!(user_id: current_user.id, article_id: @article.id)
       redirect_to article_path(@article)
       if @article.send_email_admin
         @list_admins.each do |admin|
@@ -84,6 +85,7 @@ class ArticlesController < ApplicationController
   def update
     @article.update(article_params)
     if @article.save
+      Author.create!(user_id: current_user.id, article_id: @article.id)
       redirect_to article_path(@article)
       if @article.send_email_admin
         @list_admins.each do |admin|
