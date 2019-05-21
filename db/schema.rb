@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190517211714) do
+ActiveRecord::Schema.define(version: 20190521115543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20190517211714) do
     t.boolean "send_email_admin", default: true
     t.index ["article_type_id"], name: "index_articles_on_article_type_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_authors_on_article_id"
+    t.index ["user_id"], name: "index_authors_on_user_id"
   end
 
   create_table "clubs", force: :cascade do |t|
@@ -103,6 +112,7 @@ ActiveRecord::Schema.define(version: 20190517211714) do
     t.string "photo"
     t.boolean "active", default: true
     t.boolean "sold", default: false
+    t.json "photos"
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
     t.index ["size_id"], name: "index_products_on_size_id"
     t.index ["sport_type_id"], name: "index_products_on_sport_type_id"
@@ -158,6 +168,8 @@ ActiveRecord::Schema.define(version: 20190517211714) do
 
   add_foreign_key "articles", "article_types"
   add_foreign_key "articles", "users"
+  add_foreign_key "authors", "articles"
+  add_foreign_key "authors", "users"
   add_foreign_key "clubs", "users"
   add_foreign_key "likes", "articles"
   add_foreign_key "likes", "users"

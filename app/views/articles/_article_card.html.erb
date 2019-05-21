@@ -7,7 +7,7 @@
       </div>
       <div class="article-author">
         <i class="fas fa-user-edit"></i>
-        <%= article.user.firstname %>
+        <%= article.authors.first.user.firstname %>
       </div>
     </div>
   <% end %>
@@ -54,7 +54,22 @@
     <p><%= raw article.content %></p>
     <p>
   </div>
-  <% if admin? %>
+  <div class="article-authors">
+    <% article.authors.each_with_index do |author, i| %>
+
+      <% if i == 0 %>
+        Créé par
+        <%= author.user.firstname %>
+        (<%= l author.created_at, format: '%-d/%-m %R' %>)
+        <%= article.authors.length == i+1 ? '.' : ' et mis à jour par ' %>
+      <% else %>
+        <%= author.user.firstname %>
+        (<%= l author.created_at, format: '%-d/%-m %R' %>)
+        <%= article.authors.length == i+1 ? '.' : ',' %>
+      <% end %>
+    <% end %>
+  </div>
+  <% if member? %>
     <%= link_to edit_article_path(article) do %>
       <div class="article-edit-link ">
         <i class="far fa-edit"></i>
