@@ -4,6 +4,7 @@ class Article < ApplicationRecord
   has_many :reviews
   has_many :likes
   has_many :participations
+  has_many :authors
   mount_uploader :photo, PhotoUploader
 
   validates :name, presence: true, length: {maximum: 60, minimum: 5}
