@@ -14,16 +14,23 @@ class DashboardsController < ApplicationController
 
   def influencers
     influencers = []
+
+    calculation_period = Time.now-30.day
+
     User.all.each do |user|
       contributions = 0
 
-      contributions = user.articles
-                          .where(article_type_id: 3)
-                          .where('updated_at > ?', Time.now-30.day)
-                          .count*5 + user.reviews
-                          .where('updated_at > ?', Time.now-30.day).count*2+ user.likes
-                          .where('updated_at > ?', Time.now-30.day)
-                          .count
+      articles_pts = user.nb_contests(calculation_period)*5
+
+
+      reviews_pts = user.reviews
+                        .where('updated_at > ?', calculation_period).count*2
+
+      likes_pts = user.likes
+                      .where('updated_at > ?', calculation_period).count
+
+
+      contributions = articles_pts + reviews_pts + likes_pts
 
 
 
