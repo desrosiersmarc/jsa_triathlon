@@ -28,9 +28,9 @@ class PagesController < ApplicationController
   end
 
   def my_articles
-    @my_articles = Article.where(user: current_user)
-                          .sort_by {|article| article.updated_at}
-                          .reverse
+    @my_articles = current_user.articles.uniq
+                               .sort_by {|article| article.updated_at}
+                               .reverse
   end
 
   def my_ads

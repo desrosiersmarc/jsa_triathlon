@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-  belongs_to :user
+  # belongs_to :user
   belongs_to :article_type
   has_many :reviews
   has_many :likes

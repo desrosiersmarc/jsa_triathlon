@@ -9,6 +9,11 @@
   <div class="article-form-photo">
     <%= f.input :photo, label: t('.photo'), label_html:{class: 'red-alert'}, error: 'il faut une photo'%>
     <%= f.input :photo_cache, as: :hidden %>
+    <% if  @article.errors.messages[:photo].any? %>
+      <div class="invalid-feedback-md">
+        Vous devez ajouter une photo
+      </div>
+    <% end %>
     <% if @article.photo? %>
       <%= cl_image_tag(@article.photo, :width => 400, :thumb => "pad") %>
     <% end %>
@@ -27,7 +32,7 @@
       <%= f.input :send_email_admin, label: "Cocher cette case pour envoyer l'article au bureau 🤪" %>
     </div>
   <% end %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%#= f.hidden_field :user_id, value: current_user.id %>
 
   <%= f.submit 'Enregistrer', class: 'btn btn-block btn-danger' %>
 <% end %>
