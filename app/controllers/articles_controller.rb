@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_action :mailing_list, only: [:create, :update]
   before_action :mailing_list_admin, only: [:create, :update]
   before_action :find_participation, only: [:show]
-  #before_action :find_participation, only: [:show]
+
 
 
   def index
