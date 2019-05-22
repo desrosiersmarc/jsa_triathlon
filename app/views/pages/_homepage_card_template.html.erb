@@ -13,13 +13,13 @@
               <i class="fas fa-exclamation-triangle"></i>
             </div>
           <% end %>
-          <% if article.user.photo? %>
+          <% if article.authors.first.user.photo? %>
             <div class="picture-card-name-photo">
-              <%= render 'shared/user_picture', user: article.user %>
+              <%= render 'shared/user_picture', user: article.authors.first.user %>
             </div>
           <% else %>
             <div class="picture-card-name">
-              <%= article.user.firstname %>
+              <%= article.authors.first.user.firstname %>
             </div>
           <% end %>
 
