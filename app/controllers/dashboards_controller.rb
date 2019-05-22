@@ -15,7 +15,7 @@ class DashboardsController < ApplicationController
   def influencers
     influencers = []
 
-    calculation_period = Time.now-30.day
+    calculation_period = Time.now-31.day
 
     User.all.each do |user|
       contributions = 0
