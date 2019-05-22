@@ -7,8 +7,10 @@ class User < ApplicationRecord
 
   has_many :reviews
   has_many :likes
-  has_many :articles #through authors ?
+  has_many :authors
+  has_many :articles, through: :authors
   has_many :participations
+
 
   validates :firstname, presence: true
   validates :lastname, presence: true
