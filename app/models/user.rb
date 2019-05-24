@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :likes
   has_many :authors
-  # has_many :articles, through: :authors, source: :articles #TODO
+  has_many :articles, through: :authors
   has_many :participations
 
 
