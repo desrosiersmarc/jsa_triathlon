@@ -18,7 +18,9 @@
   <%= f.input :sex, collection: @sex, label: t('.sex') %>
   <%= f.input :sport_type_id, label: t('.sport_type') , collection: @sport_types %>
   <% if admin? %>
-    <%= f.input :product_type_id, label: t('.product_type'), collection: @product_types%>
+    <div class="article-mail-div">
+      <%= f.input :product_type_id, label: t('.product_type'), collection: @product_types%>
+    </div>
   <% else %>
     <%= f.input :product_type_id, input_html: {value: 2}, as: :hidden%>
   <% end %>
