@@ -46,16 +46,16 @@
 
   <p>Bonne journée</p>
   <p>
-    <%= @article.user.firstname %>
-    (<%= @article.user.profil %>)
+    <%= @article.authors.last.user.firstname %>
+    (<%= @article.authors.last.user.profil %>)
   </p>
   <p>
     <i class="fas fa-mobile-alt"></i>
-    <%= @article.user.mobil_phone %>
+    <%= @article.authors.last.user.mobil_phone %>
   </p>
   <p>
     <i class="far fa-envelope"></i>
-    <%= @article.user.email %>
+    <%= @article.authors.last.user.email %>
   </p>
 </div>
 
