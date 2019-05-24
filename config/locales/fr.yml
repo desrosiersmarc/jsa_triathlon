@@ -78,6 +78,21 @@ fr:
         one: is the wrong length (should be 1 character)
         other: is the wrong length (should be %{count} characters)
       other_than: must be other than %{count}
+  products:
+    form_product:
+      photo: Photos
+      name: Titre de l'annonce
+      description: Description de l'annonce
+      placeholder_description: Vous diposez de 350 caractères pour décrire votre annonce
+      price: Prix de votre article
+      stock: Stock / Quantité
+      size: Taille
+      sex: Sex
+      sport_type: Choisissez la rubrique pour l'affichage de l'annonce
+      product_type: Pour les administrateurs, choisir entre "Tenues" ou "Petites annonces"
+      active: Publier l'annonce sur le site
+      sold: Cocher la case si l'article est vendu
+      submit: Enregistrer
   simple_form:
     "yes": 'Yes'
     "no": 'No'
