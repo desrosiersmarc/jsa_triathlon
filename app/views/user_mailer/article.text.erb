@@ -12,8 +12,8 @@ N'hésite pas à le commenter ou à le liker.
 
 Bonne journée
 
-<%= @article.user.firstname %> (<%= @article.user.profil %>)
+<%= @article.authors.last.user.firstname %> (<%= @article.authors.last.user.profil %>)
 
-<%= @article.user.mobil_phone %>
-<%= @article.user.email %>
+<%= @article.authors.last.user.mobil_phone %>
+<%= @article.authors.last.user.email %>
 
