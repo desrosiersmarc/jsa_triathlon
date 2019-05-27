@@ -29,6 +29,7 @@ class ArticlesController < ApplicationController
       if @article.send_email
         @list_members.each do |member|
           send_article_email(member)
+          sleep 0.3
         end
       end
     else
@@ -95,6 +96,7 @@ class ArticlesController < ApplicationController
       if @article.send_email
         @list_members.each do |member|
           send_article_email(member)
+          sleep 0.3
         end
       end
     else
