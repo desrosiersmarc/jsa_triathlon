@@ -24,7 +24,7 @@ module ApplicationHelper
     if user.photo?
       cl_image_path(user.photo, :gravity=>"face", :crop=>"thumb")
     else
-      image_path('https://picsum.photos/200/300/?gravity=east')
+      image_path("https://res.cloudinary.com/dmbf8fog4/image/upload/v1559075961/JSA%20Triathlon/inconnu.jpg")
     end
   end
 
