@@ -37,4 +37,8 @@ Rails.application.routes.draw do
   resources :products, only: [:new, :show, :create, :edit, :update]
   resources :clubs, only: [:index, :new, :edit, :show, :create, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.member } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end
