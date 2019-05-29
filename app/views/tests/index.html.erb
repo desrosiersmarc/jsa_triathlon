@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <h3>
+      Test area
+    </h3>
+
+    <%= link_to new_test_path, class:"btn btn-block btn-danger" do %>
+    Faire un nouveau test
+    <% end %>
+
+    <h3>Previous test</h3>
+    <% @tests.each do |test| %>
+      <p>
+        <%= test.name %>
+        <%= l test.created_at, format: '%-d-%-m-%Y %R' %>
+      </p>
+    <% end %>
+
+  </div>
+</div>

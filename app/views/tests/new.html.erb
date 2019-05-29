@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <h3>Test area send an email to a list</h3>
+    <%= simple_form_for(@test) do |f| %>
+      <%= f.input :name, label: "Nom du test %>
+      <%= f.submit "Lancement du test", class: "btn btn-danger btn-block" %>
+    <% end %>
+  </div>
+</div>
