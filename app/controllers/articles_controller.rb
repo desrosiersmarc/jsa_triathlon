@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_article, only: [:show, :edit, :update, :send_article_email]
   before_action :charge_article_types, only: [:index, :new, :edit]
-  before_action :mailing_list, only: [:create, :update]
+  before_action :mailing_list_1, only: [:create, :update]
+  before_action :mailing_list_2, only: [:create, :update]
   before_action :mailing_list_admin, only: [:create, :update]
   before_action :find_participation, only: [:show]
 
@@ -25,7 +26,8 @@ class ArticlesController < ApplicationController
         send_article_email(@list_admins)
       end
       if @article.send_email
-        send_article_email(@list_members)
+        send_article_email(@list_members_1)
+        send_article_email(@list_members_2)
       end
     else
       render :new
@@ -87,7 +89,8 @@ class ArticlesController < ApplicationController
         send_article_email(@list_admins)
       end
       if @article.send_email
-        send_article_email(@list_members)
+        send_article_email(@list_members_1)
+        send_article_email(@list_members_2)
       end
     else
       render :edit
@@ -143,8 +146,14 @@ private
     return likers_list
   end
 
-  def mailing_list
-    @list_members = User.where(notification: true)
+  def mailing_list_1
+    @list_members_1 = User.where(notification: true)
+                        .where(mailing_group: 1)
+                        .map{|user| user.email}.join(';')
+  end
+  def mailing_list_2
+    @list_members_2 = User.where(notification: true)
+                        .where(mailing_group: 2)
                         .map{|user| user.email}.join(';')
   end
 
