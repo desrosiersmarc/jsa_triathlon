@@ -22,14 +22,10 @@ class ArticlesController < ApplicationController
       Author.create!(user_id: current_user.id, article_id: @article.id)
       redirect_to article_path(@article)
       if @article.send_email_admin
-        @list_admins.each do |admin|
-          send_article_email(admin)
-        end
+        send_article_email(@list_admins)
       end
       if @article.send_email
-        @list_members.each do |member|
-          send_article_email(member)
-        end
+        send_article_email(@list_members)
       end
     else
       render :new
@@ -88,14 +84,10 @@ class ArticlesController < ApplicationController
       Author.create!(user_id: current_user.id, article_id: @article.id)
       redirect_to article_path(@article)
       if @article.send_email_admin
-        @list_admins.each do |admin|
-          send_article_email(admin)
-        end
+        send_article_email(@list_admins)
       end
       if @article.send_email
-        @list_members.each do |member|
-          send_article_email(member)
-        end
+        send_article_email(@list_members)
       end
     else
       render :edit
@@ -152,16 +144,18 @@ private
   end
 
   def mailing_list
-    @list_members = User.where(notification: true).where(role: nil)
+    @list_members = User.where(notification: true)
+                        .map{|user| user.email}.join(';')
   end
 
   def mailing_list_admin
     @list_admins = User.where(role: 'admin')
+                       .map{|user| user.email}.join(';')
   end
 
-  def send_article_email(user)
-    @user = user
-    UserMailer.article(@user, @article).deliver_later
+  def send_article_email(users)
+    @users = users
+    UserMailer.article(@users, @article).deliver_later
     # UserMailer.article(@user, @article).deliver_now
   end
 
