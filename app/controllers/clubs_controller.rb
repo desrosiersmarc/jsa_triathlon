@@ -37,7 +37,7 @@ class ClubsController < ApplicationController
     # @clubs = Article.where(article_type: 7) + Article.where(article_type: 8)
     @clubs = Club.all
     @users_to_display = User.where(display_profil: true)
-    @users = @users_to_display.sort_by { |member| member.lastname}
+    @users = @users_to_display.sort_by { |member| member.lastname.upcase}
     @office_members = @users_to_display.where(office_member: true).sort_by { |member| member.lastname}
     @coachs = @users_to_display.where(coach: true).sort_by { |member| member.lastname}
   end
