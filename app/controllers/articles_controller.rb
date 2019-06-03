@@ -164,8 +164,11 @@ private
 
   def send_article_email(users)
     @users = users
-    UserMailer.article(@users, @article).deliver_later
-    # UserMailer.article(@user, @article).deliver_now
+    if @article.article_type_id == 6
+      ContestMailer.result(@users, @article).deliver_later
+    else
+      UserMailer.article(@users, @article).deliver_later
+    end
   end
 
   def find_participation

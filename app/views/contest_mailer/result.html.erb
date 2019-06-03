@@ -1,27 +1,22 @@
-<%= render 'header' %>
-<!-- <div> in header -->
-  <p>Bonjour à toutes et à tous, </p>
-  <p>Un nouvel article vient d'être publié sur notre site dans la rubrique <%= @article.article_type.name.downcase %>.</p>
+<%= render 'user_mailer/header' %>
+<p>Bonjour à toutes et à tous, </p>
+<p>Voici les résultats de l'épreuve
   <span class="bold-mail">
     <%= @article.name %>
   </span>
-  <p>
-    Cet événement aura lieu le
-    <span class="bold-mail">
-      <%= l @article.date, format: '%A' %>
-      <%= l @article.date, format: '%d' %>
-      <%= l @article.date, format: '%B'%>
-      <%= l @article.date, format: '%Y'%>
-    </span>
-    à
+  qui a eu lieu le
+  <span class="bold-mail">
+    <%= l @article.date, format: '%A' %>
+    <%= l @article.date, format: '%d' %>
+    <%= l @article.date, format: '%B'%>
+    <%= l @article.date, format: '%Y'%>
+  </span>
+  à
     <span class="bold-mail">
       <%= @article.location %>
     </span>
-    à partir de
-    <span class="bold-mail">
-      <%= @article.start_time.strftime('%H:%M') %>
-    </span>
-  </p>
+</p>
+
   <div class="mail-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path(@article.photo) %>') ">
   </div>
   <p>
@@ -50,5 +45,4 @@
     <i class="far fa-envelope"></i>
     <%= @article.authors.last.user.email %>
   </p>
-<!-- </div> in footer -->
-<%= render 'footer' %>
+<%= render 'user_mailer/footer' %>
