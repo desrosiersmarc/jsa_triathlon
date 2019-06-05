@@ -42,7 +42,7 @@ fr:
       end_time: "Si besoin, heure de fin"
       location: "Lieu de l'événement"
       link: "Si besoin, coller le lien vers l'événement"
-      photo: "Sélectionnez une photo pour illustrer l'article, l'événement"
+      photo: 📷 Télécharger une photo pour illustrer l'article, l'événement"
       content: "Contenu de l'article"
       article_type: "Sélectionez le type d'article"
   errors:
@@ -80,7 +80,7 @@ fr:
       other_than: must be other than %{count}
   products:
     form_product:
-      photo: Photos
+      photo: 📷 Télécharger une photo
       name: Titre de l'annonce
       description: Description de l'annonce
       placeholder_description: Vous diposez de 350 caractères pour décrire votre annonce

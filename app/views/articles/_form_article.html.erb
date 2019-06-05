@@ -7,7 +7,10 @@
   <% end %>
 
   <div class="article-form-photo">
-    <%= f.input :photo, label: t('.photo'), label_html:{class: 'red-alert'}, error: 'il faut une photo'%>
+    <%#= f.input :photo, label: t('.photo'), label_html:{class: 'red-alert'} %>
+
+    <%= f.input :photo, input_html: { class: 'hidden' }, label_html: { class: 'upload-photo box-shadow-md'}, label: t('.photo')%>
+
     <%= f.input :photo_cache, as: :hidden %>
     <% if  @article.errors.messages[:photo].any? %>
       <div class="invalid-feedback-md">
