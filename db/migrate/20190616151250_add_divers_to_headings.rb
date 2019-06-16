@@ -1,5 +1,5 @@
 class AddDiversToHeadings < ActiveRecord::Migration[5.1]
   def change
-    ArticleType.create(name: 'Divers')
+    ArticleType.create! id:9, name: 'Divers'
   end
 end
