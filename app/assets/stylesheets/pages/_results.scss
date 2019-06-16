@@ -20,25 +20,31 @@
   }
 }
 
-.result-on-mobile-wrapper {
-  background-color: $gray;
-  margin: 0 -15px 0 -15px;
+.home-calendar-link {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+  height: 40px;
+  width: 200px;
+  border-radius: 30px 0 0 0;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: $white;
+  background-color: $red;
+  &:hover {
+    color: $white;
+    text-decoration: none;
+    background: linear-gradient(270deg, #101eec, #ec10e4);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 0s ease infinite;
+    -moz-animation: AnimationName 0s ease infinite;
+    animation: AnimationName 0s ease infinite;
+  }
 }
 
-.result-on-mobile-content {
-  border: solid 1px $red;
-  height: 100px;
-  width: 100px;
-  border-radius: 50px;
-  color: $white;
-  display: flex;
-  align-items: center;
-  margin: 15px 0 15px 0;
-  justify-content: center;
-  background-color: $red;
-}
 
 
