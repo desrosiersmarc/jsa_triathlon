@@ -46,19 +46,15 @@
       Voir toutes les épreuves
   <% end %>
 
-  <div class="hidden-xs">
-    <%= link_to results_path, class: "home-results" do %>
-      Voir les résultats
-    <% end %>
-  </div>
 </div>
-<div class="col-xs-12 hidden-sm hidden-md hidden-lg">
-  <div class="result-on-mobile-wrapper">
-    <%= link_to results_path, class: "result-on-mobile-content" do %>
-      Résultats
-    <% end %>
-  </div>
+<div class="wrapper-result">
+  <%= link_to results_path, class: "home-results" do %>
+    <i class="fas fa-trophy"></i>
+    Voir les résultats
+    <i class="fas fa-trophy"></i>
+  <% end %>
 </div>
+
 <div class="wrapper wrapper-black">
   <div class="wrapper-title">
     L'école de triathlon
