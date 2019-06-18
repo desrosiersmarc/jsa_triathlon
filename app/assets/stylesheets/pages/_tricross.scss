@@ -1,0 +1,23 @@
+.body-tricross {
+  background-color: #243E21;
+  color: #ABC83E;
+  min-height: 100vh;
+}
+
+.subscription {
+  background-color: #ABC83E;
+  height: 150px;
+  width: 300px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.subscription-content {
+  display: flex;
+  justify-content: center;
+}
