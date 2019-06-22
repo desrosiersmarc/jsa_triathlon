@@ -6,15 +6,15 @@ module ApplicationHelper
 
   def helper_image_path(element)
     if element.photo?
-      cl_image_path(element.photo)
+      cl_image_path(element.photo, quality:"auto:low")
     else
-      image_path('https://res.cloudinary.com/dmbf8fog4/image/upload/c_scale,q_50,w_407/v1541453183/JSA%20Triathlon/calendrier_agenda.jpg')
+      image_path('https://res.cloudinary.com/dmbf8fog4/image/upload/q_auto:low/c_scale,q_10,w_407/v1541453183/JSA%20Triathlon/calendrier_agenda.jpg')
     end
   end
 
   def helper_image_tag(element)
     if element.photo?
-      cl_image_tag(element.photo)
+      cl_image_tag(element.photo, quality:"auto:low")
     else
       image_path('https://picsum.photos/200/300/?gravity=east')
     end
@@ -22,9 +22,9 @@ module ApplicationHelper
 
   def helper_user_picture(user)
     if user.photo?
-      cl_image_path(user.photo, :gravity=>"face", :crop=>"thumb")
+      cl_image_path(user.photo, :gravity=>"face", :crop=>"thumb", quality:"auto:low")
     else
-      image_path("https://res.cloudinary.com/dmbf8fog4/image/upload/v1559075961/JSA%20Triathlon/inconnu.jpg")
+      image_path("https://res.cloudinary.com/dmbf8fog4/image/upload/q_auto:low/v1559075961/JSA%20Triathlon/inconnu.jpg")
     end
   end
 
