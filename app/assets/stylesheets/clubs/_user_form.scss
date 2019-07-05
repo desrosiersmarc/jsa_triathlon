@@ -1,0 +1,10 @@
+.user-input{
+  width: fit-content;
+}
+
+.profil-user-informations {
+  background-color: $gray-light;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
