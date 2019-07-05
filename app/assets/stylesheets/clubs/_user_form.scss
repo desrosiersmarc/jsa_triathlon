@@ -3,8 +3,16 @@
 }
 
 .profil-user-informations {
-  background-color: $gray-light;
+  background-color: #DDDDDD;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  padding: 10px;
+  border: solid 1px $gray-light;
+}
+.strava-logo{
+  color: orange;
+  text-align: center;
+  padding-top: 10px;
+  font-size: xx-large;
 }

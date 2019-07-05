@@ -2,7 +2,9 @@
   <div class="row">
     <h2><%= t(".title", resource: resource.model_name.human) %></h2>
 
-    <%= image_tag helper_user_picture(current_user) %>
+    <div class="user-card-picture" style="background-image: url(<%= helper_user_picture(current_user) %>")>
+    3
+    4    </div>
 
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
