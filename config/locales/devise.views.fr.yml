@@ -133,6 +133,7 @@ fr:
         firstname: Prénom
         lastname: Nom
         mobil_phone: Numéro de téléphone portable
+        strava_profil: Lien vers le profil Strava
     unlocks:
       new:
         resend_unlock_instructions: Renvoyer les instructions de déblocage

@@ -8,8 +8,12 @@
   <div class="user-card-profil">
     <%= user.profil %>
   </div>
-  <div class="user-card-strava">
-    <i class="fab fa-strava"></i>
-  </div>
+  <% if !user.strava_profil.nil? %>
+    <a href= <%= user.strava_profil %>, target = '_blank' >
+      <div class="user-card-strava">
+        <i class="fab fa-strava"></i>
+      </div>
+    </a>
+  <% end %>
 
 </div>

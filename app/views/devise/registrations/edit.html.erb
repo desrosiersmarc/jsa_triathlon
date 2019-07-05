@@ -6,13 +6,14 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
+        <%= render 'devise/shared/form_complement', {f: f} %>
+
         <%= f.input :email, required: true, autofocus: true %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></p>
         <% end %>
 
-        <%= render 'devise/shared/form_complement', {f: f} %>
 
         <%= f.input :password,
                     hint: t(".leave_blank_if_you_don_t_want_to_change_it"),

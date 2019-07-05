@@ -40,4 +40,7 @@
   top: 5px;
   left: 5px;
   box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  &:hover {
+    background-color: $red;
+  }
 }
