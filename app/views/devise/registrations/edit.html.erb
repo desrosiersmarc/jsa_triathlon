@@ -12,6 +12,8 @@
           <p><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></p>
         <% end %>
 
+        <%= render 'devise/shared/form_complement', {f: f} %>
+
         <%= f.input :password,
                     hint: t(".leave_blank_if_you_don_t_want_to_change_it"),
                     required: false,
@@ -23,7 +25,6 @@
                     hint: t(".we_need_your_current_password_to_confirm_your_changes"),
                     required: true,
                     input_html: { autocomplete: "current-password" } %>
-        <%= render 'devise/shared/form_complement', {f: f} %>
       </div>
 
       <div class="form-actions">

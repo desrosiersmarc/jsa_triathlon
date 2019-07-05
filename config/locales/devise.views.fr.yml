@@ -95,7 +95,7 @@ fr:
         cancel_my_account: Supprimer mon compte
         currently_waiting_confirmation_for_email: 'Confirmation en attente pour: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laissez ce champ vide pour le laisser inchangé
-        title: "Éditer %{resource}"
+        title: "Mettre à jour mon profil"
         unhappy: 'Pas content ?'
         update: Modifier
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour valider ces modifications
@@ -129,6 +129,10 @@ fr:
       minimum_password_length:
         one: "(%{count} caractère au moins)"
         other: "(%{count} caractères au moins)"
+      form_complement:
+        firstname: Prénom
+        lastname: Nom
+        mobil_phone: Numéro de téléphone portable
     unlocks:
       new:
         resend_unlock_instructions: Renvoyer les instructions de déblocage
