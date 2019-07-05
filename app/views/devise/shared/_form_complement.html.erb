@@ -1,9 +1,19 @@
-<%= f.input :firstname, label: (t(".firstname")) %>
-<%= f.input :lastname, label: t(".lastname") %>
-<!-- sTODO -->
-<%#= f.input :birthday, as: :date, label: t(".birthday") %>
-<%= f.input :mobil_phone, label: t(".mobil_phone") %>
 <%= f.input :photo %>
 <%= f.input :photo_cache, as: :hidden %>
-<%= f.input :display_profil, as: :boolean, label: "Apparaitre sur le trombinoscope du club ?" %>
-<%= f.input :notification, as: :boolean, label: "Recevoir les notifications ?" %>
+<div class="profil-user-informations">
+  <%= f.input :firstname, label: t(".firstname"), input_html:{class: 'user-input'}%>
+  <%= f.input :lastname, label: t(".lastname"), input_html:{class: 'user-input'} %>
+  <!-- sTODO -->
+  <%#= f.input :birthday, as: :date, label: t(".birthday") %>
+  <%= f.input :mobil_phone, label: t(".mobil_phone"), input_html:{class: 'user-input'}%>
+
+</div>
+<div class="strava-logo">
+  <i class="fab fa-strava"></i>
+</div>
+<%= f.input :strava_profil, label: t(".strava_profil") %>
+
+<div class="profil-user-informations">
+  <%= f.input :display_profil, as: :boolean, label: "Apparaitre sur le trombinoscope du club ?" %>
+  <%= f.input :notification, as: :boolean, label: "Recevoir les notifications ?" %>
+</div>
