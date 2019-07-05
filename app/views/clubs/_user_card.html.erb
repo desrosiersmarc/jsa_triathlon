@@ -1,13 +1,15 @@
-<div class="user-card-content box-shadow-md">
+<div class="user-card-content">
   <div class="user-card-picture" style="background-image: url(<%= helper_user_picture(user) %>")>
 
   </div>
   <div class="user-card-name">
     <%= user.firstname %> <%= user.lastname.upcase %>
   </div>
-  <div class="user-card-title-content">
-    <div class="user-card-title">
-      <%= user.profil %>
-    </div>
+  <div class="user-card-profil">
+    <%= user.profil %>
   </div>
+  <div class="user-card-strava">
+    <i class="fab fa-strava"></i>
+  </div>
+
 </div>

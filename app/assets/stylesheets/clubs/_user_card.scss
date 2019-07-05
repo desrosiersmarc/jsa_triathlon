@@ -21,21 +21,23 @@
 
 }
 
-.user-card-title-content {
-    border-bottom: 25px solid $red;
-    border-left: 35px solid transparent;
-    border-right: 18px solid transparent;
-    right: -22px;
-    color: #FFF;
-    position: absolute;
-    top: 21px;
-    width: 150px;
-    -webkit-transform: rotate(0.1turn);
-    transform: rotate(0.1turn);
-    display: flex;
-    justify-content: center;
+.user-card-profil {
+  color: $red;
+  text-align: center;
 }
-.user-card-title {
+
+.user-card-strava {
+  background-color: #E95B24;
+  color: white;
+  height: 40px;
+  width: 40px;
+  font-size: xx-large;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  font-size: 14px;
+  top: 5px;
+  left: 5px;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
 }
