@@ -19,11 +19,11 @@ class User < ApplicationRecord
   def nb_contests(calculation_period)
     sum = 0
     self.authors.each do |author|
-      if author.article.article_type_id == 3
+      # if author.article.article_type_id == 3
         if author.article.updated_at > calculation_period
           sum += 1
         end
-      end
+      # end
     end
     return sum
   end
