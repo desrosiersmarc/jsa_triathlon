@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :lastname, presence: true
   validates :mobil_phone, presence: true, numericality: true, length: {maximum: 13, minimum: 10 }
 
-  def nb_contests(calculation_period)
+  def nb_articles(calculation_period)
     sum = 0
     self.authors.each do |author|
       # if author.article.article_type_id == 3
