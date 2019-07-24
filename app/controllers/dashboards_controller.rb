@@ -32,10 +32,11 @@ class DashboardsController < ApplicationController
 
       contributions = articles_pts + reviews_pts + likes_pts
 
-
-
       if contributions != 0
-        influencers << {user: user, score: contributions}
+        influencers << {user: user, score: contributions,
+                        nb_articles: articles_pts/5,
+                        nb_reviews: reviews_pts/2,
+                        nb_likes: likes_pts}
       end
     end
     @influencers = influencers.sort_by{|influencer| influencer[:score]}
