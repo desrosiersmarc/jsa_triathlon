@@ -20,7 +20,7 @@ class DashboardsController < ApplicationController
     User.all.each do |user|
       contributions = 0
 
-      articles_pts = user.nb_contests(calculation_period)*5
+      articles_pts = user.nb_articles(calculation_period)*5
 
 
       reviews_pts = user.reviews
