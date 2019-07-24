@@ -27,14 +27,19 @@
               <li>
                 <div class="influencer-stat">
                   <%= render 'shared/user_picture', {user: influencer[:user]} %>
-                  <div class="influencer-score">
-                    <%= influencer[:score] %> pts
-                    <i class="far fa-newspaper"></i>
-                    <%= influencer[:nb_articles] %>
-                    <i class="far fa-comment"></i>
-                    <%= influencer[:nb_reviews] %>
-                    <i class="fas fa-heart"></i>
-                    <%= influencer[:nb_likes] %>
+                  <div class="influencer-informations">
+                    <div class="influencer-score">
+                      <%= influencer[:score] %> pts
+                    </div>
+                    <div class="inluencer-details-score">
+                      <i class="far fa-newspaper"></i>
+                      <%= influencer[:nb_articles] %>
+                      <i class="far fa-comment"></i>
+                      <%= influencer[:nb_reviews] %>
+                      <i class="fas fa-heart"></i>
+                      <%= influencer[:nb_likes] %>
+                    </div>
+
                   </div>
                 </div>
               </li>
