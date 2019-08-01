@@ -3,12 +3,12 @@ class DashboardsController < ApplicationController
   before_action :influencers, only: [:index]
 
   def index
-    @nb_articles = Article.where('updated_at > ?', Time.now-7.day)
+    @nb_articles = Article.where('created_at > ?', Time.now-7.day)
                           .where(active: true)
                           .count
-    @nb_reviews = Review.where('updated_at > ?', Time.now-7.day)
+    @nb_reviews = Review.where('created_at > ?', Time.now-7.day)
                           .count
-    @nb_likes = Like.where('updated_at > ?', Time.now-7.day)
+    @nb_likes = Like.where('created_at > ?', Time.now-7.day)
                           .count
   end
 
@@ -20,23 +20,35 @@ class DashboardsController < ApplicationController
     User.all.each do |user|
       contributions = 0
 
-      articles_pts = user.nb_articles(calculation_period)*5
+      articles_nb = user.nb_articles(calculation_period)
 
 
-      reviews_pts = user.reviews
-                        .where('updated_at > ?', calculation_period).count*2
+      reviews_nb = user.reviews
+                        .where('created_at > ?', calculation_period).count
 
-      likes_pts = user.likes
-                      .where('updated_at > ?', calculation_period).count
+      likes_nb = user.likes
+                      .where('created_at > ?', calculation_period).count
+
+      pictures_nb = Picture.where(user_id: user.id)
+                            .where('created_at > ?', calculation_period)
+                            .count
+
+      products_nb = Product.where(user_id: user.id)
+                            .where('created_at > ?', calculation_period)
+                            .count
 
 
-      contributions = articles_pts + reviews_pts + likes_pts
+      contributions = articles_nb*5 + reviews_nb*2 + likes_nb + pictures_nb*5 + products_nb*3
+
 
       if contributions != 0
         influencers << {user: user, score: contributions,
-                        nb_articles: articles_pts/5,
-                        nb_reviews: reviews_pts/2,
-                        nb_likes: likes_pts}
+                        nb_articles: articles_nb,
+                        nb_reviews: reviews_nb,
+                        nb_likes: likes_nb,
+                        nb_pictures: pictures_nb,
+                        nb_products: products_nb
+                        }
       end
     end
     @influencers = influencers.sort_by{|influencer| influencer[:score]}
