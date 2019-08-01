@@ -2,6 +2,26 @@
   background-color: #243E21;
   color: #ABC83E;
   min-height: 100vh;
+  font-family: fantasy;
+}
+
+.tricross-link {
+  font-weight: bold;
+  background-color: red;
+  padding: 22px;
+  color: white;
+  &:hover{
+    color: white;
+    background-color: #243E21;
+  }
+}
+
+.tricross-title-content {
+  text-align: center;
+  font-size: 50px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
 }
 
 .wrapper-homepage {
@@ -55,6 +75,7 @@
 .subscription-content {
   display: flex;
   justify-content: center;
+  padding: 20px;
 }
 
 .countdown {
@@ -67,4 +88,19 @@
   background-size: cover !important;
   border: solid white 13px;
   margin-bottom: 20px;
+}
+
+.white-link {
+  color: white;
+  &:hover {
+    font-size: 30px;
+    font-weight: bold;
+    color:white;
+  }
+}
+
+.icon-content{
+  font-size: 50px;
+  color: white;
+  text-align: center;
 }
