@@ -38,6 +38,10 @@
                       <%= influencer[:nb_reviews] %>
                       <i class="fas fa-heart"></i>
                       <%= influencer[:nb_likes] %>
+                      <i class="fas fa-camera-retro"></i>
+                      <%= influencer[:nb_pictures] %>
+                      <i class="fas fa-cart-plus"></i>
+                      <%= influencer[:nb_products] %>
                     </div>
 
                   </div>
@@ -47,9 +51,11 @@
           <% end %>
         </ul>
         <div class="point-explanation">
-        *Total des points = nombre d'article créés x 5pts
-        + le nombre de commentaires x 2pts
-        + le nombre de likes x 1pts
+        *Total des points = nombre d'article x 5pts
+        + nombre d'albums x 5pts
+        + nombre d'annonces x 3pts
+        + nombre de commentaires x 2pts
+        + nombre de likes x 1pts
       </div>
     </div>
   </div>
