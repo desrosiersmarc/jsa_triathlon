@@ -54,4 +54,5 @@ module ApplicationHelper
   def helper_list_participants(article)
     article.participations
   end
+
 end
