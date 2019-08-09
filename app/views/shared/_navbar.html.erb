@@ -13,13 +13,17 @@
     <%= link_to "Résultats", results_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Les photos", pictures_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
+    <% if admin? %>
+      <%= link_to "Mes articles", my_articles_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to notifications_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+        <i class="far fa-envelope"></i>
+      <% end %>
+    <% end %>
+
     <% if member? %>
       <%= link_to "Mes annonces", my_ads_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
 
-    <% if admin? %>
-      <%= link_to "Mes articles", my_articles_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% end %>
 
 
     <% if user_signed_in? %>

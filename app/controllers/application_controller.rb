@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:firstname, :lastname, :birthday, :mobil_phone, :display_profil, :strava_profil, :photo])
   end
 
-    def local_create_notifications (content_id, content_type)
+    def create_notifications (content_id, content_type)
 
       if content_type == 'article'
         article_id_value = content_id

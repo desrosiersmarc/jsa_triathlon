@@ -2,7 +2,8 @@
   <div class="row">
     <h3>Mes notifications</h3>
     <% @my_notifications.each do |notification| %>
-      <%  if !notification.read %>
+      <%  if !notification.read && !notification.article_id.nil? %>
+
         <div class="notification-content">
           <%= l notification.created_at, format: '%d %B %Y' %>
           <%= Article.find(notification.article_id).name %>
