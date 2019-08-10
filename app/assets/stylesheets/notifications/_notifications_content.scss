@@ -1,0 +1,44 @@
+.notifications-content{
+
+}
+
+.notification-content{
+  display: flex;
+  justify-content: space-between;
+  min-height: 40px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  background-color: $red;
+  border: 1px $red solid;
+  a {
+    color: $white;
+  }
+  &:hover {
+    background-color: $white;
+    color: $red;
+  }
+}
+
+.notification-link {
+  min-height: 40px;
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  &:hover {
+    color: $red;
+  }
+}
+
+.notification-trash {
+  color: $red;
+  background-color:$white;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover{
+    color: $white;
+    background-color: $red;
+  }
+}
