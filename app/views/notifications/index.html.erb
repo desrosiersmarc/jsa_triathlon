@@ -1,19 +1,26 @@
 <div class="container">
   <div class="row">
     <h3>Mes notifications</h3>
-    <% @my_notifications.each do |notification| %>
-      <%  if !notification.read && !notification.article_id.nil? %>
+    <div class="notifications-content">
+      <% @my_notifications.each do |notification| %>
+        <%  if !notification.read && !notification.article_id.nil? %>
 
-        <div class="notification-content">
-          <%= l notification.created_at, format: '%d %B %Y' %>
-          <%= Article.find(notification.article_id).name %>
-          <%= link_to "Voir", article_path(notification.article_id), class: "btn btn-danger" %>
+          <div class="notification-content">
+            <%= link_to article_path(notification.article_id) do %>
+              <div class="notification-link">
+                  <%= l notification.created_at, format: '%d %B %Y' %>
+                  <%= Article.find(notification.article_id).name %>
+              </div>
+            <% end %>
+            <div class="notification-trash">
+              <i class="far fa-trash-alt"></i>
+            </div>
+          </div>
+        <% end %>
 
-          <%= notification.read %>
-        </div>
       <% end %>
 
-    <% end %>
+    </div>
   </div>
 </div>
 
