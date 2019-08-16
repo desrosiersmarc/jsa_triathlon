@@ -4,7 +4,6 @@
     <div class="notifications-content">
       <% @my_notifications.each do |notification| %>
         <%  if !notification.read && !notification.article_id.nil? %>
-
           <div class="notification-content">
             <%= link_to article_path(notification.article_id) do %>
               <div class="notification-link">
@@ -13,7 +12,7 @@
               </div>
             <% end %>
             <div class="notification-trash">
-              <i class="far fa-trash-alt"></i>
+              <%= render 'form_notification', {notification: notification} %>
             </div>
           </div>
         <% end %>

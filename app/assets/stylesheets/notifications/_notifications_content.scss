@@ -38,7 +38,20 @@
   justify-content: center;
   align-items: center;
   &:hover{
-    color: $white;
+    i {
+      color: $white;
+    }
     background-color: $red;
   }
+  i {
+    color: $red;
+  }
+}
+
+.hide-check {
+  display: none;
+}
+.trash-button {
+  border: none;
+  background-color: transparent;
 }
