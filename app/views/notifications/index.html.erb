@@ -12,9 +12,7 @@
               </div>
             <% end %>
             <div class="notification-trash">
-              <%= link_to edit_notification_path(notification.id) do %>
-                <i class="far fa-trash-alt"></i>
-              <% end %>
+              <%= render 'form_notification', {notification: notification} %>
             </div>
           </div>
         <% end %>

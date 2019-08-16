@@ -1,13 +1,5 @@
 <div class="container">
   <div class="row">
-    <%= simple_form_for(@notification) do |f| %>
-      <%= f.input :article_id %>
-      <%= f.input :picture_id %>
-      <%= f.input :product_id %>
-      <%= f.input :read, input_html: {checked: true} %>
-      <%= f.input :user_id %>
-      <%= f.submit 'Enregistrer' %>
-    <% end %>
-
+    <%= render 'form_notification', {notification: @notification} %>
   </div>
 </div>

@@ -1,0 +1,12 @@
+<%= simple_form_for notification, remote: false do |f| %>
+  <%= f.input :article_id, as: :hidden %>
+  <%= f.input :picture_id, as: :hidden %>
+  <%= f.input :product_id, as: :hidden  %>
+  <div class="hide-check">
+    <%= f.input :read, input_html: {checked: true}%>
+  </div>
+  <%= f.input :user_id, as: :hidden %>
+  <%= button_tag type: 'submit', class: "trash-button" do %>
+      <i class="far fa-trash-alt"></i>
+  <% end %>
+<% end %>
