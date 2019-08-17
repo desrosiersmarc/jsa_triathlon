@@ -1,0 +1,8 @@
+<%= link_to notifications_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+  <div class="bell-content">
+    <i class="fas fa-bell"></i>
+    <div class="bell-quantity">
+      <%= helper_count_notifications %>
+    </div>
+  </div>
+<% end %>
