@@ -15,6 +15,7 @@ class PicturesController < ApplicationController
   def create
     @picture = Picture.new(picture_params)
     if @picture.save
+      create_notifications(@picture.id, 'picture')
       redirect_to pictures_path
     else
       render :new
