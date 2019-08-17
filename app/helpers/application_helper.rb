@@ -55,4 +55,8 @@ module ApplicationHelper
     article.participations
   end
 
+  def helper_count_notifications
+    @count_notifications = Notification.where(user_id: current_user.id).where(read: nil).count
+  end
+
 end
