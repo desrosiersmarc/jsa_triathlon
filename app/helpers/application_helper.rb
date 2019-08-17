@@ -56,7 +56,7 @@ module ApplicationHelper
   end
 
   def helper_count_notifications
-    @count_notifications = Notification.where(user_id: current_user.id).where(read: nil).count
+    @count_notifications = Notification.where(user_id: current_user.id).where(read: false).count
   end
 
 end
