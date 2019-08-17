@@ -3,14 +3,53 @@
     <h3>Mes notifications</h3>
     <div class="notifications-content">
       <% @my_notifications.each do |notification| %>
+
         <%  if !notification.read && !notification.article_id.nil? %>
           <div class="notification-content">
             <%= link_to article_path(notification.article_id) do %>
               <div class="notification-link">
-                  <%= l notification.created_at, format: '%d %B %Y' %>
-                  <%= Article.find(notification.article_id).name %>
+                <div class="notification-icon">
+                  <i class="far fa-newspaper"></i>
+                </div>
+                <%= l notification.created_at, format: '%d %B %Y' %>
+                <%= Article.find(notification.article_id).name %>
               </div>
             <% end %>
+            <div class="notification-trash">
+              <%= render 'form_notification', {notification: notification} %>
+            </div>
+          </div>
+        <% end %>
+
+        <% if !notification.read && !notification.product_id.nil? %>
+          <div class="notification-content">
+
+            <%= link_to product_path(notification.product_id) do %>
+              <div class="notification-link">
+                <div class="notification-icon">
+                  <i class="fas fa-cart-plus"></i>
+                </div>
+                <%= l notification.created_at, format: '%d %B %Y' %>
+                <%= Product.find(notification.product_id).name %>
+              </div>
+            <% end %>
+            <div class="notification-trash">
+              <%= render 'form_notification', {notification: notification} %>
+            </div>
+          </div>
+        <% end %>
+
+        <% if !notification.read && !notification.picture_id.nil? %>
+          <div class="notification-content">
+            <a href="<%= Picture.find(notification.picture_id).link %>" target="_blank">
+              <div class="notification-link">
+                <div class="notification-icon">
+                  <i class="far fa-images"></i>
+                </div>
+                <%= l notification.created_at, format: '%d %B %Y' %>
+                <%= Picture.find(notification.picture_id).title %>
+              </div>
+            </a>
             <div class="notification-trash">
               <%= render 'form_notification', {notification: notification} %>
             </div>

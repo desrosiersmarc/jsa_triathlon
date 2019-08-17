@@ -36,6 +36,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
+      create_notifications(@product.id, 'product')
       redirect_to product_path(@product)
     else
       render :new
