@@ -50,6 +50,11 @@ class ProductsController < ApplicationController
   def update
     @product.update(product_params)
     if @product.save
+      if @product.notification?
+        update_notifications(@product.id, 'product')
+      else
+        create_notifications(@product.id, 'product')
+      end
       redirect_to product_path(@product)
     else
       render :edit

@@ -25,6 +25,11 @@ class PicturesController < ApplicationController
   def update
     @picture.update(picture_params)
     if @picture.save
+      if @picture.notification?
+        update_notifications(@picture.id, 'picture')
+      else
+        create_notifications(@picture.id, 'picture')
+      end
       redirect_to pictures_path
     else
       render :edit

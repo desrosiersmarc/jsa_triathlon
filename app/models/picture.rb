@@ -7,4 +7,9 @@ validates :link, presence: true #, format: {with: /\A(http.|https.|www.)/, messa
 validates :date, presence: true
 validates :user_id, presence: true
 # validates :photo, presence: true
+
+def notification?
+  !Notification.where(picture_id: self.id).empty?
+end
+
 end

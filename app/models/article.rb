@@ -31,4 +31,8 @@ class Article < ApplicationRecord
     end
     return sum
   end
+
+  def notification?
+    !Notification.where(article_id: self.id).empty?
+  end
 end
