@@ -10,4 +10,8 @@ class Product < ApplicationRecord
   validates :description, presence: true, length: {maximum: 350, minimum: 5}
   validates :price, presence: true
   # validates :stock, presence: true
+
+  def notification?
+    !Notification.where(product_id: self.id).empty?
+  end
 end

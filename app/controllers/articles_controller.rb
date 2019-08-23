@@ -85,6 +85,11 @@ class ArticlesController < ApplicationController
     @article.update(article_params)
     if @article.save
       Author.create!(user_id: current_user.id, article_id: @article.id)
+      if @article.notification?
+        update_notifications(@article.id, 'article')
+      else
+        create_notifications(@article.id, 'article')
+      end
       redirect_to article_path(@article)
       if @article.send_email_admin
         send_article_email(@list_admins)

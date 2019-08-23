@@ -34,4 +34,12 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def update_notifications(content_id, content_type)
+    content_to_test = content_type + '_id'
+    content_to_test = content_to_test.to_sym
+    Notification.where(content_to_test=> content_id).each do |notif|
+      notif.update(read: false)
+    end
+  end
+
 end
