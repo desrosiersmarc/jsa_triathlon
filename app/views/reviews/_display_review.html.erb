@@ -5,7 +5,7 @@
   <% reviews.each do |review| %>
     <div class="review">
       <div class="review-name">
-        <%= review.user.firstname %>
+        <%= name_to_display(review.user.id) %>
       </div>
       <div class="review-content box-shadow-md">
         <%= review.content %>

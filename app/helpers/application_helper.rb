@@ -59,4 +59,11 @@ module ApplicationHelper
     @count_notifications = Notification.where(user_id: current_user.id).where(read: false).count
   end
 
+  def name_to_display(id)
+    firstname = User.find(id).firstname.downcase.capitalize
+    lastname = User.find(id).lastname[0].downcase.capitalize + "."
+
+    firstname + " " + lastname
+  end
+
 end

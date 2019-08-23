@@ -7,7 +7,7 @@
       </div>
       <div class="article-author">
         <i class="fas fa-user-edit"></i>
-        <%= article.authors.first.user.firstname %>
+        <%= name_to_display(article.authors.first.user.id) %>
       </div>
     </div>
   <% end %>
@@ -61,11 +61,11 @@
 
       <% if i == 0 %>
         Créé par
-        <%= author.user.firstname %>
+        <%= name_to_display(author.user.id) %>
         (<%= l author.created_at, format: '%-d/%-m %R' %>)
         <%= article.authors.length == i+1 ? '.' : ' et mis à jour par ' %>
       <% else %>
-        <%= author.user.firstname %>
+        <%= name_to_display(author.user.id) %>
         (<%= l author.created_at, format: '%-d/%-m %R' %>)
         <%= article.authors.length == i+1 ? '.' : ',' %>
       <% end %>
