@@ -11,12 +11,20 @@
                 <div class="notification-icon">
                   <i class="far fa-newspaper"></i>
                 </div>
-                <%= l notification.created_at, format: '%d %B %Y' %>
-                <%= Article.find(notification.article_id).name %>
+                <div class="notification-text">
+                  <%= l Article.find(notification.article_id).date, format: '%d/%m/%y' %>
+                  <%= Article.find(notification.article_id).name %>
+                </div>
               </div>
             <% end %>
-            <div class="notification-trash">
-              <%= render 'form_notification', {notification: notification} %>
+            <div class="update-trash">
+              <div class="notification-update">
+                <i class="fas fa-history"></i>
+                <%= l Article.find(notification.article_id).updated_at, format: '%d/%m %H:%M' %>
+              </div>
+              <div class="notification-trash">
+                <%= render 'form_notification', {notification: notification} %>
+              </div>
             </div>
           </div>
         <% end %>
@@ -29,12 +37,19 @@
                 <div class="notification-icon">
                   <i class="fas fa-cart-plus"></i>
                 </div>
-                <%= l notification.created_at, format: '%d %B %Y' %>
+                <%= l Product.find(notification.product_id).created_at, format: '%d/%m/%y' %>
                 <%= Product.find(notification.product_id).name %>
               </div>
             <% end %>
-            <div class="notification-trash">
-              <%= render 'form_notification', {notification: notification} %>
+            <div class="update-trash">
+              <div class="notification-update">
+                <i class="fas fa-history"></i>
+                <%= l Product.find(notification.product_id).updated_at, format: '%d/%m %H:%M' %>
+              </div>
+              <div class="notification-trash">
+                <%= render 'form_notification', {notification: notification} %>
+              </div>
+
             </div>
           </div>
         <% end %>
@@ -46,12 +61,14 @@
                 <div class="notification-icon">
                   <i class="far fa-images"></i>
                 </div>
-                <%= l notification.created_at, format: '%d %B %Y' %>
+                <%= l Picture.find(notification.picture_id).date, format: '%d %B %Y' %>
                 <%= Picture.find(notification.picture_id).title %>
               </div>
             </a>
-            <div class="notification-trash">
-              <%= render 'form_notification', {notification: notification} %>
+            <div class="update-trash">
+              <div class="notification-trash">
+                <%= render 'form_notification', {notification: notification} %>
+              </div>
             </div>
           </div>
         <% end %>

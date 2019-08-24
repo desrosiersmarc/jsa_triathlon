@@ -2,7 +2,9 @@ class NotificationsController < ApplicationController
   before_action :find_notification, only: [:edit, :update]
 
   def index
-    @my_notifications = Notification.where(user_id: current_user.id).reverse
+    @my_notifications = Notification.where(user_id: current_user.id)
+                                    .sort_by {|notification| notification.updated_at}
+                                    .reverse
   end
 
   def edit
