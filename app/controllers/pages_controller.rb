@@ -47,6 +47,10 @@ class PagesController < ApplicationController
                            .uniq
   end
 
+  def divers
+    @divers = select_articles(22,100)
+  end
+
 private
   def select_articles(article_type, nb_days)
     articles = Article.where(article_type: article_type, active: true)

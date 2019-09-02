@@ -9,19 +9,20 @@
     <%= link_to "Tricross", tricross_path, class: "tricross-link"  %>
     <%= link_to "Le club", clubs_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%#= link_to "Evénements du club", club_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Tenues", sportswears_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%#= link_to "Tenues", sportswears_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Résultats", results_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Les photos", pictures_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Divers", divers_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-    <% if admin? %>
-      <%= link_to "Mes articles", my_articles_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= render 'shared/notifications' %>
-    <% end %>
 
     <% if member? %>
       <%= link_to "Mes annonces", my_ads_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
 
+    <% if admin? %>
+      <%= link_to "Mes articles", my_articles_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= render 'shared/notifications' %>
+    <% end %>
 
 
     <% if user_signed_in? %>
