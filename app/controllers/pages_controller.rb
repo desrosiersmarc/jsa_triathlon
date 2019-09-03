@@ -48,7 +48,7 @@ class PagesController < ApplicationController
   end
 
   def divers
-    @divers = select_articles(9,100)
+    @divers = select_articles(9,100).reverse
   end
 
 private

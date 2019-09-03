@@ -1,6 +1,6 @@
 <%= render 'homepage_carousel', homepage_club: @club %>
-<% if member? %>
-    <%#= render 'homepage_form' %>
+<% if admin? %>
+    <%= render 'homepage_new' %>
 <% end %>
 <div class="wrapper">
   <div class="wrapper-title">
