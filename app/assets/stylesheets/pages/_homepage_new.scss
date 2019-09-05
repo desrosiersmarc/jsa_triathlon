@@ -1,0 +1,61 @@
+.hp-new-content {
+  position: relative;
+}
+
+.hp-new-content-hide {
+  color: $white;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 30px;
+}
+
+.hp-new{
+  color: $white;
+  ul {
+    list-style: square;
+  }
+  text-decoration: none;
+  a {
+    color: $white;
+  }
+}
+
+.hp-new-title{
+  font-size: 30px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.hp-new-explanation {
+
+}
+
+.hp-new-calendar {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.download-card {
+  position: relative;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 10px;
+  height: 200px;
+  padding: 30px;
+  box-shadow: 5px 5px 20px rgba(255,255,255,0.4);
+  margin-bottom: 10px;
+}
+
+.download-card:hover {
+  transition: 1s ease-in-out;
+  font-size: 25px;
+  background-color: rgba(201, 16, 59, 0.5);
+  text-shadow: 5px 5px 20px #FFF;
+}
+
+.download-card-arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 50px;
+}
