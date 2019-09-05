@@ -43,6 +43,9 @@
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
+            <li>
+              <%= l current_user.last_sign_in_at, format: '%d/%m %H:%M' %>
+            </li>
           </ul>
         </div>
       </div>
