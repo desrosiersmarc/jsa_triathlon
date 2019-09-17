@@ -1,3 +1,14 @@
-Divers#divers_article
+Bonjour à toutes et à tous,
 
-<%= @greeting %>, find me in app/views/divers_mailer/divers_article.text.erb
+Un nouvel article vient d'être publié sur le site : <%= @article.name %>
+
+Lien pour accéder à l'article <%=("https://jsa-triathlon.herokuapp.com/articles/" + @article.id.to_s) %>
+
+N'hésites pas à le commenter ou à le liker.
+
+Bonne journée
+
+<%= @article.authors.last.user.firstname %> (<%= @article.authors.last.user.profil %>)
+
+<%= @article.authors.last.user.mobil_phone %>
+<%= @article.authors.last.user.email %>
