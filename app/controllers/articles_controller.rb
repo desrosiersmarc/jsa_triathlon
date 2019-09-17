@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     if @article.save
       Author.create!(user_id: current_user.id, article_id: @article.id)
       create_notifications(@article.id, 'article')
-      destroy_old_notifications(15)
+      DestroyOldNotificationsJob.set(wait: 1.minute).perform_later
       redirect_to article_path(@article)
       if @article.send_email_admin
         send_article_email(@list_admins)
@@ -176,10 +176,6 @@ private
     else
       UserMailer.article(@users, @article).deliver_later
     end
-  end
-
-  def destroy_old_notifications(period)
-    Notification.where("updated_at < ?", Time.now-period.day).destroy_all
   end
 
   def find_participation
