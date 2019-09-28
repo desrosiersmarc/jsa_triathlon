@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     if @article.save
       Author.create!(user_id: current_user.id, article_id: @article.id)
       create_notifications(@article.id, 'article')
-      DestroyOldNotificationsJob.set(wait: 1.minute).perform_later
+      # DestroyOldNotificationsJob.set(wait: 1.minute).perform_later
       redirect_to article_path(@article)
       if @article.send_email_admin
         send_article_email(@list_admins)
