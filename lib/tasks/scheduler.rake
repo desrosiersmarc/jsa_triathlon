@@ -14,3 +14,10 @@ task :destroy_old_notifications => :environment do
               end
 
 end
+
+task :newsletter => :environment do
+  if Time.now.day.odd?
+    UserTestMailer.email_test("mdesrosiers@orange.fr").deliver
+  end
+end
+
