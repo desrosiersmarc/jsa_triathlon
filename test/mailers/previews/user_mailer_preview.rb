@@ -9,4 +9,8 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.article(user, article)
   end
 
+  def newsletter
+    UserMailer.newsletter
+  end
+
 end
