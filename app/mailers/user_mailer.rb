@@ -11,4 +11,8 @@ class UserMailer < ApplicationMailer
     mail(Bcc: @users, subject: "[JSA] #{@article.article_type.name.upcase}
       -#{@article.name} #{l @article.date, format: '%A %d %B'}")
   end
+
+  def newsletter
+    mail(to: 'mdesrosiers@orange.fr')
+  end
 end
