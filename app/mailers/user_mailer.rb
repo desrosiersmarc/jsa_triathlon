@@ -12,7 +12,19 @@ class UserMailer < ApplicationMailer
       -#{@article.name} #{l @article.date, format: '%A %d %B'}")
   end
 
-  def newsletter
+  def newsletter(club_events,
+                training_events,
+                next_contests,
+                last_results,
+                tri_school,
+                various_articles)
+    @club_events = club_events
+    @training_events = training_events
+    @next_contests = next_contests
+    @last_results = last_results
+    @tri_school = tri_school
+    @various_articles = various_articles
+
     mail(to: 'mdesrosiers@orange.fr')
   end
 end

@@ -1,3 +1,53 @@
 <%= render 'header' %>
-<h3>Newsletter</h3>
+<h3>Newsletter du <%= Time.now  %></h3>
+
+<p>Vous trouverez ci-dessous les dernières informations du club</p>
+
+<h4>Le mot du président</h4>
+
+<h4>prochains événements du clubs</h4>
+
+<% @club_events.each do |club_event| %>
+  <p>
+    <%= club_event.inspect %>
+  </p>
+<% end %>
+
+<h4>Le mot de l'entraineur</h4>
+
+<h4>Les derniers entrainements ou les prochains</h4>
+<% @training_events.each do |training_event| %>
+  <p>
+    <%= training_event.inspect %>
+  </p>
+<% end %>
+
+<h4>Les prochaines courses</h4>
+<% @next_contests.each do |next_contest| %>
+  <p>
+    <%= next_contest.inspect %>
+  </p>
+<% end %>
+
+<h4>Les derniers résultats</h4>
+<% @last_results.each do |last_result| %>
+  <p>
+    <%= last_result.inspect %>
+  </p>
+<% end %>
+
+<h4>Quelques informations de l'école de triathlon</h4>
+<% @tri_school.each do |tri_school| %>
+  <%= tri_school.inspect %>
+<% end %>
+
+<h4>Les informations diverses</h4>
+<% @various_articles.each do |various_article| %>
+  <p>
+    <%= various_article.inspect %>
+  </p>
+<% end %>
+
+
+
 <%= render 'footer' %>
