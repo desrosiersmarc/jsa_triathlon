@@ -1,52 +1,53 @@
 <%= render 'header' %>
-<h3>Newsletter du <%= Time.now  %></h3>
+<h3 style="text-align: center"><%= l Time.now, format: '%B %Y'  %></h3>
 
 <p>Vous trouverez ci-dessous les dernières informations du club</p>
 
 <h4>Le mot du président</h4>
-
+  <%= raw Article.find(1036).content  %>
 <h4>prochains événements du clubs</h4>
 
-<% @club_events.each do |club_event| %>
-  <p>
-    <%= club_event.inspect %>
-  </p>
-<% end %>
+<div class="nl-articles-content">
+  <% @club_events.each do |club_event| %>
+    <%= render 'newsletter-card', {article: club_event} %>
+  <% end %>
+</div>
 
 <h4>Le mot de l'entraineur</h4>
 
 <h4>Les derniers entrainements ou les prochains</h4>
-<% @training_events.each do |training_event| %>
-  <p>
-    <%= training_event.inspect %>
-  </p>
-<% end %>
-
+<div class="nl-articles-content">
+  <% @training_events.each do |training_event| %>
+    <%= render 'newsletter-card', {article: training_event} %>
+  <% end %>
+</div>
 <h4>Les prochaines courses</h4>
-<% @next_contests.each do |next_contest| %>
-  <p>
-    <%= next_contest.inspect %>
-  </p>
-<% end %>
-
+<div class="nl-articles-content">
+  <% @next_contests.each do |next_contest| %>
+    <%= render 'newsletter-card', {article: next_contest} %>
+  <% end %>
+</div>
 <h4>Les derniers résultats</h4>
-<% @last_results.each do |last_result| %>
-  <p>
-    <%= last_result.inspect %>
-  </p>
-<% end %>
+<div class="nl-articles-content">
+  <% @last_results.each do |last_result| %>
+    <%= render 'newsletter-card', {article: last_result} %>
+  <% end %>
+</div>
 
 <h4>Quelques informations de l'école de triathlon</h4>
-<% @tri_school.each do |tri_school| %>
-  <%= tri_school.inspect %>
-<% end %>
+<div class="nl-articles-content">
+  <% @tri_school.each do |tri_school| %>
+    <%= render 'newsletter-card', {article: tri_school} %>
+  <% end %>
+</div>
 
 <h4>Les informations diverses</h4>
-<% @various_articles.each do |various_article| %>
-  <p>
-    <%= various_article.inspect %>
-  </p>
-<% end %>
+<div class="nl-articles-content">
+  <% @various_articles.each do |various_article| %>
+    <%= render 'newsletter-card', {article: various_article} %>
+  <% end %>
+
+</div>
 
 
 
