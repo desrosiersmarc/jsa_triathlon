@@ -46,7 +46,7 @@ class ClubsController < ApplicationController
   end
 
   def impots
-    @impots = Article.where(article_type: 8).first
+    # @impots = Article.where(article_type: 8).first
   end
 
 private
