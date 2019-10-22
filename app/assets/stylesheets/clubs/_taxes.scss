@@ -5,3 +5,22 @@
 .taxes-title {
   text-align: center;
 }
+
+.tr-color {
+  background-color: $light-gray;
+}
+
+.table-content {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  border: 1px solid $gray;
+  td {
+    border: 1px solid $gray;
+    padding: 5px 10px;
+  }
+}
+// align="center" border="1" cellpadding="1" cellspacing="1" style="width:500px"
