@@ -10,12 +10,22 @@
   background-color: $light-gray;
 }
 
+.tr-color-limit {
+  background-color: $red;
+  font-weight: bold;
+  color: $white;
+}
+
 .table-content {
   text-align: center;
   display: flex;
   justify-content: center;
 }
 
+
+.bold-text {
+  font-weight: bold;
+}
 table {
   border: 1px solid $gray;
   td {
