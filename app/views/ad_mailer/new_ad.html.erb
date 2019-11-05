@@ -1,5 +1,21 @@
 <%= render 'user_mailer/header' %>
-<p>Bonjour à toutes et à tous, </p>
+<p>Un nouvelle annonce vient d'être mise en ligne</p>
+<p>
+  <%= @product.name %>
+</p>
+<img src=" <%= @product.photo %> " alt="" class="product-photo">
+<p>
+  <%= @product.description %>
+</p>
+<p>
+  <%= @product.user.firstname %>
 
-<p>Nouvelle annonce</p>
+  <%= @product.user.lastname %>
+</p>
+<p>
+  <%= @product.user.mobil_phone %>
+</p>
+<p>
+  <%= @product.user.email %>
+</p>
 <%= render 'user_mailer/footer' %>

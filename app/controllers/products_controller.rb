@@ -36,6 +36,9 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
+      if @product.product_type == 2
+        #send email
+      end
       create_notifications(@product.id, 'product')
       redirect_to product_path(@product)
     else
@@ -98,6 +101,17 @@ private
            .where(active: true)
            .where(sold: false)
            .sort_by {|product| product.sport_type}
+  end
+
+  def mailing_list_1
+    @list_members_1 = User.where(notification: true)
+                        .where(mailing_group: 1)
+                        .map{|user| user.email}.join(';')
+  end
+  def mailing_list_2
+    @list_members_2 = User.where(notification: true)
+                        .where(mailing_group: 2)
+                        .map{|user| user.email}.join(';')
   end
 
 end
