@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:sportswears, :show, :petites_annonces]
   before_action :load_collections, only: [:new, :create, :edit, :update]
   before_action :find_product, only: [:show, :edit, :update]
+  before_action :mailing_list_1, only: [:create, :update]
+  before_action :mailing_list_2, only: [:create, :update]
 
   def sportswears
     @sportswears = if user_signed_in? && current_user.role == 'admin'
@@ -36,8 +38,9 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      if @product.product_type == 2
-        #send email
+      if @product.product_type_id == 2
+        AdMailer.new_ad(@product, @list_members_1).deliver_later
+        AdMailer.new_ad(@product, @list_members_2).deliver_later
       end
       create_notifications(@product.id, 'product')
       redirect_to product_path(@product)

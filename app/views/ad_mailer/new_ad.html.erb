@@ -1,21 +1,31 @@
 <%= render 'user_mailer/header' %>
 <p>Un nouvelle annonce vient d'être mise en ligne</p>
-<p>
-  <%= @product.name %>
-</p>
-<img src=" <%= @product.photo %> " alt="" class="product-photo">
+<div class="ad-informations">
+  <%= @product.name.upcase %>
+</div>
+<a href=<%= 'https://www.angouleme-triathlon.fr/products/' + "#{@product.id}" %> >
+  <img src=" <%= @product.photo %> " alt="" class="product-photo">
+</a>
+
 <p>
   <%= @product.description %>
 </p>
-<p>
+<div class="ad-price">
+  <%= @product.price %> €
+</div>
+<div class="ad-informations">
   <%= @product.user.firstname %>
 
   <%= @product.user.lastname %>
-</p>
-<p>
-  <%= @product.user.mobil_phone %>
-</p>
-<p>
-  <%= @product.user.email %>
-</p>
+</div>
+<div class="ad-contact-content">
+  <a href="tel: <%= @product.user.mobil_phone %>" class="ad-contact">
+    <%= @product.user.mobil_phone %>
+  </a>
+</div>
+<div class="ad-contact-content">
+  <a href="mailto: <%= @product.user.email %>" class="ad-contact">
+    <%= @product.user.email %>
+  </a>
+</div>
 <%= render 'user_mailer/footer' %>

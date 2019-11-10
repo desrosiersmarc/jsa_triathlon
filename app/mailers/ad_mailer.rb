@@ -5,9 +5,8 @@ class AdMailer < ApplicationMailer
   #
   #   en.ad_mailer.new_ad.subject
   #
-  def new_ad
-    @product = Product.find(29)
-
-    mail to: "to@example.org"
+  def new_ad(product, mailing_list)
+    @product = product
+    mail to: "mdesrosiers@orange.fr"
   end
 end
