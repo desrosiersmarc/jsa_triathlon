@@ -3,10 +3,11 @@
 <div class="ad-informations">
   <%= @product.name.upcase %>
 </div>
-<a href=<%= 'https://www.angouleme-triathlon.fr/products/' + "#{@product.id}" %> >
-  <img src=" <%= @product.photo %> " alt="" class="product-photo">
-</a>
-
+<div class="ad-product-picture">
+  <a href=<%= 'https://www.angouleme-triathlon.fr/products/' + "#{@product.id}" %> >
+    <img src=" <%= @product.photo %> " alt="" class="product-photo">
+  </a>
+</div>
 <p>
   <%= @product.description %>
 </p>

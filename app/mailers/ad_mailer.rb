@@ -7,6 +7,7 @@ class AdMailer < ApplicationMailer
   #
   def new_ad(product, mailing_list)
     @product = product
-    mail to: "mdesrosiers@orange.fr"
+    @mailing_list = "mdesrosiers@orange.fr"
+    mail(Bcc: @mailing_list , subject: "[JSA] A vendre #{@product.name}")
   end
 end
