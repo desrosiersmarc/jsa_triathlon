@@ -1,17 +1,36 @@
   <div class="newsletter-card">
-    <div class="nl-card-name">
-      <%= article.name %>
-    </div>
+    <table>
+      <tr>
+        <td colspan="2">
+          <div class="nl-card-name">
+            <%= article.name %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div class="nl-card-photo">
+            <img src="<%= article.photo %>" alt="">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="nl-card-location">
+            <%= article.location %>
+          </div>
+        </td>
+        <td style="width: 50px">
+          <div class="nl-card-date-content">
+            <div class="nl-card-date">
+            </div>
+            <div class="nl-card-date-text">
+              <%= l article.date, format: '%d/%m' %>
+            </div>
 
-    <div class="nl-card-photo">
-      <img src="<%= article.photo %>" alt="">
-    </div>
-    <div class="nl-card-date">
-      <%= l article.date, format: '%d/%m' %>
-    </div>
-
-    <div class="nl-card-location">
-      <%= article.location %>
-    </div>
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
 
