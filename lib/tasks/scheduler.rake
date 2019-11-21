@@ -49,12 +49,14 @@ def article_by_type(type)
          .where('updated_at >= ?', Time.now-30.day)
 end
 
-def birthday_list_method
-  birthday_list = []
-  User.all.each do |user|
-    if user.birthday.month == Time.now.month
-      birthday_list << user
+  def birthday_list_method
+    birthday_list = []
+    User.all.each do |user|
+      if user.birthday?
+        if user.birthday.month == Time.now.month
+          birthday_list << user
+        end
+      end
     end
+    return birthday_list
   end
-  return birthday_list
-end
