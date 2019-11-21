@@ -5,51 +5,86 @@
 
 <h4>Le mot du président</h4>
   <p>
-    Récupérer les informations du dernier article avec le type mot du président et du bureau ou du club ?
+ Un modèle de discours : Qui n’a pas planché pendant des heures sur la rédaction d’un discours ? Parfois, cet effort est récompensé car vous avez su trouver les mots et accrocher votre public mais souvent, la page reste blanche. Pourtant, que d’occasions où vous serez amené à devoir préparer un discours, qu’il soit lu par vous-même ou par une autre personne. Plus de problème, nous sommes là ! Ainsi, au sein de l’entreprise, nombre de situations amènent ce genre d’exercice. Il en est de même dans la vie familiale lors d’évènements tels qu’un baptême , une communion, un mariage, un décès, un anniversaire, etc. Et l’amour ? N’avez-vous jamais pensé et repensé comment vous alliez faire une déclaration ou un discours à votre bien-aimé(e) ?
+
+Dans tous les cas et pour chaque opportunité, vous trouverez le discours qu’il vous faut au moment où il vous le faut. Vous n’aurez plus alors qu’à le répéter devant une glace en adoptant le ton adéquat. C’est sûr, vous ferez l’unanimité auprès de votre auditoire et votre prestation sera appréciée. Nos rédacteurs professionnels ont rédigé ces discours pour vous et se sont, à chaque fois, mis dans la situation que vous serez amené à rencontrer.
   </p>
 <h4>prochains événements du clubs</h4>
 
 <div class="nl-articles-content">
   <% @club_events.each do |club_event| %>
-    <%= render 'newsletter-card', {article: club_event} %>
+    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{club_event.id.to_s}"%>">
+      <%= render 'newsletter-card', {article: club_event} %>
+    </a>
   <% end %>
 </div>
 
 <h4>Le mot de l'entraineur</h4>
+<ul>
+  <li>
+    Le but de cette période est de développer toutes les qualités physiques nécessaires à la pratique du triathlon. Toutefois, l'accent est mis sur l'endurance de base.
+  </li>
+  <li>
+    Cette période dure de 3 à 6 mois en fonction de l'âge et de la durée de la période de compétition. Je conseille aux jeunes triathlètes d'accorder une grande importance à cette période. Ceci leur permettra de construire une carrière sportive solide.
+  </li>
+  <li>
+    Le volume et l'intensité de l'entraînement augmente progressivement durant toute la période.
+  </li>
+  <li>
+    Le début de cette période permet de travailler la technique ainsi que les points faibles.
+  </li>
+</ul>
 
 <h4>Les derniers entrainements ou les prochains</h4>
 <div class="nl-articles-content">
   <% @training_events.each do |training_event| %>
-    <%= render 'newsletter-card', {article: training_event} %>
+    <a href=" <%='https://www.angouleme-triathlon.fr/articles/' + "#{training_event.id.to_s}"%>">
+        <%= render 'newsletter-card', {article: training_event} %>
+    </a>
   <% end %>
 </div>
 <h4>Les prochaines courses</h4>
 <div class="nl-articles-content">
   <% @next_contests.each do |next_contest| %>
-    <%= render 'newsletter-card', {article: next_contest} %>
+    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{next_contest.id.to_s}"%>">
+      <%= render 'newsletter-card', {article: next_contest} %>
+    </a>
   <% end %>
 </div>
 <h4>Les derniers résultats</h4>
 <div class="nl-articles-content">
   <% @last_results.each do |last_result| %>
-    <%= render 'newsletter-card', {article: last_result} %>
+    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{last_result.id.to_s}"%>">
+      <%= render 'newsletter-card', {article: last_result} %>
+    </a>
   <% end %>
 </div>
+
+<h4>Les dernières photos</h4>
 
 <h4>Quelques informations de l'école de triathlon</h4>
 <div class="nl-articles-content">
   <% @tri_school.each do |tri_school| %>
-    <%= render 'newsletter-card', {article: tri_school} %>
+    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{tri_school.id.to_s}"%>">
+      <%= render 'newsletter-card', {article: tri_school} %>
+    </a>
   <% end %>
 </div>
+
+<h4>Les anniversaires du mois</h4>
+  <% @birthdays.each do |member| %>
+  <p><%= member.firstname %> <%= member.lastname.upcase[0] %>., le <%= member.birthday.day %></p>
+  <% end %>
 
 <h4>Les informations diverses</h4>
 <div class="nl-articles-content">
   <% @various_articles.each do |various_article| %>
-    <%= render 'newsletter-card', {article: various_article} %>
+    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{various_article.id.to_s}"%>">
+      <%= render 'newsletter-card', {article: various_article} %>
+    </a>
   <% end %>
-
 </div>
+<h4>Retrouvez les <%= @ads_count %> petites annonces actuellement en ligne</h4>
 
 
 

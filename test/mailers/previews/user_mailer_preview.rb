@@ -15,22 +15,36 @@ class UserMailerPreview < ActionMailer::Preview
     next_contests = article_by_type(3)
     last_results = article_by_type(6)
     tri_school = article_by_type(4)
-    various_articles = article_by_type(9)
-    # pictures
-    # ads
+    various_articles = article_by_type(9).take(3)
+    birthdays = birthday_list_method
+    pictures = Picture.last
+    ads_count = Product.where(product_type_id: 2).count
 
     UserMailer.newsletter(club_events,
                           training_events,
                           next_contests,
                           last_results,
                           tri_school,
-                          various_articles)
+                          various_articles,
+                          birthdays,
+                          pictures,
+                          ads_count)
 
   end
 
   def article_by_type(type)
     Article.where(article_type: type)
-           .where('updated_at >= ?', Time.now-30.day)
+           .where('updated_at >= ?', Time.now-130.day)
+  end
+
+  def birthday_list_method
+    birthday_list = []
+    User.all.each do |user|
+      if user.birthday.month == Time.now.month
+        birthday_list << user
+      end
+    end
+    return birthday_list
   end
 
 end
