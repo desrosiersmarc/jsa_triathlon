@@ -17,11 +17,11 @@ end
 
 task :newsletter => :environment do
   # if Time.now.day == 1
-    club_events = article_by_type(1)
-    training_events = article_by_type(2)
-    next_contests = article_by_type(3)
-    last_results = article_by_type(6)
-    tri_school = article_by_type(4)
+    club_events = article_by_type(1).take(3)
+    training_events = article_by_type(2).take(3)
+    next_contests = article_by_type(3).take(3)
+    last_results = article_by_type(6).take(3)
+    tri_school = article_by_type(4).take(3)
     various_articles = article_by_type(9).take(3)
     birthdays = birthday_list_method
     pictures = Picture.last
@@ -35,9 +35,7 @@ task :newsletter => :environment do
                           various_articles,
                           birthdays,
                           pictures,
-                          ads_count).deliver
-
-
+                          ads_count)
 
   # end
 
