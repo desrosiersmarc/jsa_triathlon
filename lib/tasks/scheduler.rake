@@ -35,7 +35,7 @@ task :newsletter => :environment do
                           various_articles,
                           birthdays,
                           pictures,
-                          ads_count)
+                          ads_count).deliver
 
   # end
 
