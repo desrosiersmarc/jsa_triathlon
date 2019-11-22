@@ -31,7 +31,9 @@ class UserMailer < ApplicationMailer
     @pictures = Picture.last
     @ads_count = Product.where(product_type_id: 2).count
 
-    mail(to: 'mdesrosiers@orange.fr')
+    mailing_list_admin
+
+    mail(Bcc: @list_admins)
   end
 
   def birthday_list_method
@@ -44,6 +46,11 @@ class UserMailer < ApplicationMailer
       end
     end
     return birthday_list
+  end
+
+  def mailing_list_admin
+    @list_admins = User.where(role: 'admin')
+                       .map{|user| user.email}.join(';')
   end
 
 end
