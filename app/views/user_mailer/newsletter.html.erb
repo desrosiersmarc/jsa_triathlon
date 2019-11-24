@@ -5,15 +5,25 @@
   <p>Ceci une projet de newsletter avec les différentes rubriques possibles pour un premier envoi en janvier</p>
   <p>Envoi automatique tous les lundis pour le moment puis le 1er du mois à partir de janvier</p>
 </div>
-  <p>Vous trouverez ci-dessous les dernières informations du club</p>
 
-<h4>Le mot du président</h4>
-  <p>
- Un modèle de discours : Qui n’a pas planché pendant des heures sur la rédaction d’un discours ? Parfois, cet effort est récompensé car vous avez su trouver les mots et accrocher votre public mais souvent, la page reste blanche. Pourtant, que d’occasions où vous serez amené à devoir préparer un discours, qu’il soit lu par vous-même ou par une autre personne. Plus de problème, nous sommes là ! Ainsi, au sein de l’entreprise, nombre de situations amènent ce genre d’exercice. Il en est de même dans la vie familiale lors d’évènements tels qu’un baptême , une communion, un mariage, un décès, un anniversaire, etc. Et l’amour ? N’avez-vous jamais pensé et repensé comment vous alliez faire une déclaration ou un discours à votre bien-aimé(e) ?
+<p>
+  L'année 2019 commence tout juste et nous avons le plaisir de vous envoyer la première newsletter du club.
+</p>
+<p>
+  Nous démarrons une année importante pour notre club avec en mars l'assemblée générale qui sera l'occasion pour tous les membres d'élir le bureau qui portera à vos yeux le projet le plus intéressant. Si vous souhaitez présenter un projet, n'hésitez pas à vous faire connaitre auprès des membres du bureau pour que nous puissions vous aider à le présenter avant l'AG.
+</p>
+<p>
+  Nous souhaitons à travers cette newsletter pouvoir vous informer tous les mois de la vie du club, de l'avancement des projets et également vous permettre de faire connaissance avec les différents membres du club.
+</p>
+<p>
+  ...
+</p>
+<p>
+  Cette newsletter est la votre alors n'hésitez pas à nous faire part de vos idées, vos remarques pour que nous puissions la faire évoluer tout au long de l'année.
+</p>
 
-Dans tous les cas et pour chaque opportunité, vous trouverez le discours qu’il vous faut au moment où il vous le faut. Vous n’aurez plus alors qu’à le répéter devant une glace en adoptant le ton adéquat. C’est sûr, vous ferez l’unanimité auprès de votre auditoire et votre prestation sera appréciée. Nos rédacteurs professionnels ont rédigé ces discours pour vous et se sont, à chaque fois, mis dans la situation que vous serez amené à rencontrer.
-  </p>
-<h4>prochains événements du clubs</h4>
+
+<h4>Prochains événements du clubs</h4>
 
 <div class="nl-articles-content">
   <% @club_events.each do |club_event| %>
@@ -55,6 +65,9 @@ Dans tous les cas et pour chaque opportunité, vous trouverez le discours qu’i
     </a>
   <% end %>
 </div>
+<a href="http://www.angouleme-triathlon.fr/contests" class="nl-a-link" target="_blank">
+  <%= render 'link-button' %>
+</a>
 <h4>Les derniers résultats</h4>
 <div class="nl-articles-content">
   <% @last_results.each do |last_result| %>
@@ -63,8 +76,14 @@ Dans tous les cas et pour chaque opportunité, vous trouverez le discours qu’i
     </a>
   <% end %>
 </div>
+<a href="http://www.angouleme-triathlon.fr/results" class="nl-a-link" target="_blank">
+  <%= render 'link-button' %>
+</a>
 
 <h4>Les dernières photos</h4>
+  <a href="http://www.angouleme-triathlon.fr/pictures" class="nl-a-link" target="_blank">
+    <%= render 'link-button' %>
+  </a>
 
 <h4>Quelques informations de l'école de triathlon</h4>
 <div class="nl-articles-content">
@@ -74,6 +93,9 @@ Dans tous les cas et pour chaque opportunité, vous trouverez le discours qu’i
     </a>
   <% end %>
 </div>
+<a href="http://www.angouleme-triathlon.fr/school" class="nl-a-link" target="_blank">
+  <%= render 'link-button' %>
+</a>
 
 <h4>Les anniversaires du mois</h4>
   <% @birthdays.each do |member| %>
@@ -89,6 +111,10 @@ Dans tous les cas et pour chaque opportunité, vous trouverez le discours qu’i
   <% end %>
 </div>
 <h4>Retrouvez les <%= @ads_count %> petites annonces actuellement en ligne</h4>
+
+<a href="http://www.angouleme-triathlon.fr/petites_annonces" class="nl-a-link" target="_blank">
+  <%= render 'link-button' %>
+</a>
 
 
 
