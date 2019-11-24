@@ -17,6 +17,32 @@ end
 
 task :newsletter => :environment do
   if Time.now.strftime('%u') == 1
+    newsletter_content
+  end
+end
+
+task :newsletter_test => :environment do
+    newsletter_content
+end
+
+def article_by_type(type)
+  Article.where(article_type: type)
+         .where('updated_at >= ?', Time.now-30.day)
+end
+
+def birthday_list_method
+  birthday_list = []
+  User.all.each do |user|
+    if user.birthday?
+      if user.birthday.month == Time.now.month
+        birthday_list << user
+      end
+    end
+  end
+  return birthday_list
+end
+
+def newsletter_content
     club_events = article_by_type(1).take(3)
     training_events = article_by_type(2).take(3)
     next_contests = article_by_type(3).take(3)
@@ -36,24 +62,4 @@ task :newsletter => :environment do
                           birthdays,
                           pictures,
                           ads_count).deliver
-  end
-
-
 end
-
-def article_by_type(type)
-  Article.where(article_type: type)
-         .where('updated_at >= ?', Time.now-30.day)
-end
-
-  def birthday_list_method
-    birthday_list = []
-    User.all.each do |user|
-      if user.birthday?
-        if user.birthday.month == Time.now.month
-          birthday_list << user
-        end
-      end
-    end
-    return birthday_list
-  end
