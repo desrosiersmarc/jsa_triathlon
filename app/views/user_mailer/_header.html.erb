@@ -186,18 +186,40 @@
       border-radius: 3px;
     }
 
+    .nl-a-link{
+      text-decoration: none;
+    }
     .nl-card-name{
       padding: 15px 5px;
       width: 97%;
       color: #221F20;/*Gray*/
       font-weight: bold;
-      font-size: 20px;
+      font-size: 18px;
       text-align:center;
 
     }
-    .nl-card-date-content {
-      position: relative;
+
+    .nl-alert {
+      border: 1px red solid;
+      border-radius: 3px;
+      padding: 5px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bolder;
+      background-color: rgba(255,43,100, 0.3);
+      color: #FFF;
     }
+
+    .nl-card-date-td {
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      background: linear-gradient(to left, #101eec, #ec10e4);
+      background-size: 400% 400%;
+      color: #FFF;
+      text-align: center;
+    }
+
     .nl-card-date{
       height: 50px;
       width: 50px;
@@ -208,14 +230,10 @@
       box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
       z-index: 1;
       text-align: center;
+      /*???*/
 
     }
-    .nl-card-date-text {
-      position: absolute;
-      top: 15px;
-      left: 6px;
-      color: #FFF;
-    }
+
     .nl-card-location{
       width: 93.5%;
       padding: 5px 10px;
@@ -229,12 +247,14 @@
     .nl-card-link{
 
     }
-    .nl-card-photo {
+    .nl-car-photo-td{
+      height: 185px;
+      width: 300px;
       text-align: center;
     }
     .nl-card-photo img {
-      width: 100%;
-      max-height: 200px;
+      max-width: 100%;
+      max-height: 185px;
     }
     .product-photo {
       width: 60vw;

@@ -8,7 +8,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="2">
+        <td colspan="2" class="nl-car-photo-td">
           <div class="nl-card-photo">
             <img src="<%= article.photo %>" alt="">
           </div>
@@ -20,15 +20,8 @@
             <%= article.location %>
           </div>
         </td>
-        <td style="width: 50px">
-          <div class="nl-card-date-content">
-            <div class="nl-card-date">
-            </div>
-            <div class="nl-card-date-text">
-              <%= l article.date, format: '%d/%m' %>
-            </div>
-
-          </div>
+        <td class="nl-card-date-td">
+          <%= l article.date, format: '%d/%m' %>
         </td>
       </tr>
     </table>
