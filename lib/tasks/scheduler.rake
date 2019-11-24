@@ -16,7 +16,7 @@ task :destroy_old_notifications => :environment do
 end
 
 task :newsletter => :environment do
-  # if Time.now.day == 1
+  if Time.now.strftime('%u') == 1
     club_events = article_by_type(1).take(3)
     training_events = article_by_type(2).take(3)
     next_contests = article_by_type(3).take(3)
@@ -36,8 +36,7 @@ task :newsletter => :environment do
                           birthdays,
                           pictures,
                           ads_count).deliver
-
-  # end
+  end
 
 
 end

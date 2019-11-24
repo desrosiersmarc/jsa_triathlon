@@ -1,9 +1,11 @@
 <%= render 'header' %>
 <h3 style="text-align: center"><%= l Time.now, format: '%B %Y'  %></h3>
 
-<p>Vous trouverez ci-dessous les dernières informations du club</p>
-
-<h1>Ceci une projet de newsletter avec les différentes rubriques possibles</h1>
+<div class="nl-alert">
+  <p>Ceci une projet de newsletter avec les différentes rubriques possibles pour un premier envoi en janvier</p>
+  <p>Envoi automatique tous les lundis pour le moment puis le 1er du mois à partir de janvier</p>
+</div>
+  <p>Vous trouverez ci-dessous les dernières informations du club</p>
 
 <h4>Le mot du président</h4>
   <p>
@@ -15,7 +17,7 @@ Dans tous les cas et pour chaque opportunité, vous trouverez le discours qu’i
 
 <div class="nl-articles-content">
   <% @club_events.each do |club_event| %>
-    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{club_event.id.to_s}"%>">
+    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{club_event.id.to_s}"%>" class="nl-a-link">
       <%= render 'newsletter-card', {article: club_event} %>
     </a>
   <% end %>
@@ -40,7 +42,7 @@ Dans tous les cas et pour chaque opportunité, vous trouverez le discours qu’i
 <h4>Les derniers entrainements ou les prochains</h4>
 <div class="nl-articles-content">
   <% @training_events.each do |training_event| %>
-    <a href=" <%='https://www.angouleme-triathlon.fr/articles/' + "#{training_event.id.to_s}"%>">
+    <a href=" <%='https://www.angouleme-triathlon.fr/articles/' + "#{training_event.id.to_s}"%> "class="nl-a-link">
         <%= render 'newsletter-card', {article: training_event} %>
     </a>
   <% end %>
@@ -48,7 +50,7 @@ Dans tous les cas et pour chaque opportunité, vous trouverez le discours qu’i
 <h4>Les prochaines courses</h4>
 <div class="nl-articles-content">
   <% @next_contests.each do |next_contest| %>
-    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{next_contest.id.to_s}"%>">
+    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{next_contest.id.to_s}"%>" class="nl-a-link">
       <%= render 'newsletter-card', {article: next_contest} %>
     </a>
   <% end %>
@@ -56,7 +58,7 @@ Dans tous les cas et pour chaque opportunité, vous trouverez le discours qu’i
 <h4>Les derniers résultats</h4>
 <div class="nl-articles-content">
   <% @last_results.each do |last_result| %>
-    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{last_result.id.to_s}"%>">
+    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{last_result.id.to_s}"%>" class="nl-a-link">
       <%= render 'newsletter-card', {article: last_result} %>
     </a>
   <% end %>
@@ -67,7 +69,7 @@ Dans tous les cas et pour chaque opportunité, vous trouverez le discours qu’i
 <h4>Quelques informations de l'école de triathlon</h4>
 <div class="nl-articles-content">
   <% @tri_school.each do |tri_school| %>
-    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{tri_school.id.to_s}"%>">
+    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{tri_school.id.to_s}"%>" class="nl-a-link">
       <%= render 'newsletter-card', {article: tri_school} %>
     </a>
   <% end %>
@@ -81,7 +83,7 @@ Dans tous les cas et pour chaque opportunité, vous trouverez le discours qu’i
 <h4>Les informations diverses</h4>
 <div class="nl-articles-content">
   <% @various_articles.each do |various_article| %>
-    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{various_article.id.to_s}"%>">
+    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{various_article.id.to_s}"%>" class="nl-a-link">
       <%= render 'newsletter-card', {article: various_article} %>
     </a>
   <% end %>
