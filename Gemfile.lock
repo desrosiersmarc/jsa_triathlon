@@ -188,7 +188,8 @@ GEM
     puma (4.3.1)
       nio4r (~> 2.0)
     rack (2.0.5)
-    rack-cors (1.0.2)
+    rack-cors (1.1.0)
+      rack (>= 2.0.0)
     rack-protection (2.0.5)
       rack
     rack-proxy (0.6.5)
