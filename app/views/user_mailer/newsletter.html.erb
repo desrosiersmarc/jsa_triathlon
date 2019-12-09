@@ -34,6 +34,9 @@
 </div>
 
 <h4>Le mot de l'entraineur</h4>
+<div class="nl_alert">
+  A voir avec Grég tous les mois
+</div>
 <ul>
   <li>
     Le but de cette période est de développer toutes les qualités physiques nécessaires à la pratique du triathlon. Toutefois, l'accent est mis sur l'endurance de base.
@@ -50,6 +53,9 @@
 </ul>
 
 <h4>Les derniers entrainements ou les prochains</h4>
+<div class="nl-alert">
+  Est ce que nous gardons cette rubrique ?
+</div>
 <div class="nl-articles-content">
   <% @training_events.each do |training_event| %>
     <a href=" <%='https://www.angouleme-triathlon.fr/articles/' + "#{training_event.id.to_s}"%> "class="nl-a-link">
@@ -58,6 +64,9 @@
   <% end %>
 </div>
 <h4>Les prochaines courses</h4>
+<div class="nl-alert">
+  Si nous n'avons pas de courses à venir, la rubrique peut être masquée. Votre avis ?
+</div>
 <div class="nl-articles-content">
   <% @next_contests.each do |next_contest| %>
     <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{next_contest.id.to_s}"%>" class="nl-a-link">
@@ -69,6 +78,9 @@
   <%= render 'link-button' %>
 </a>
 <h4>Les derniers résultats</h4>
+<div class="nl-alert">
+  Si nous n'avons pas de résultats du mois en cours, la rubrique peut être masquée. Votre avis ?
+</div>
 <div class="nl-articles-content">
   <% @last_results.each do |last_result| %>
     <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{last_result.id.to_s}"%>" class="nl-a-link">
@@ -86,6 +98,9 @@
   </a>
 
 <h4>Quelques informations de l'école de triathlon</h4>
+<div class="nl-alert">
+  A alimenter régulièrement. Qui peut poster quelques articles régulièrement ?
+</div>
 <div class="nl-articles-content">
   <% @tri_school.each do |tri_school| %>
     <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{tri_school.id.to_s}"%>" class="nl-a-link">
@@ -98,11 +113,17 @@
 </a>
 
 <h4>Les anniversaires du mois</h4>
+<div class="nl-alert">
+  Fabrice, il faudrait mettre à jour la base de données avec les dates de naissance? J'ai fait le mois de décembre.
+</div>
   <% @birthdays.each do |member| %>
   <p><%= member.firstname %> <%= member.lastname.upcase[0] %>., le <%= member.birthday.day %></p>
   <% end %>
 
 <h4>Les informations diverses</h4>
+<div class="nl-alert">
+  Est ce que nous sélectionnons les articles à diffuser dans cette rubrique ?
+</div>
 <div class="nl-articles-content">
   <% @various_articles.each do |various_article| %>
     <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{various_article.id.to_s}"%>" class="nl-a-link">
