@@ -16,7 +16,7 @@ task :destroy_old_notifications => :environment do
 end
 
 task :newsletter => :environment do
-  if Time.now.strftime('%u') == 1
+  if Time.now.strftime('%u').to_i == 1
     newsletter_content
   end
 end
