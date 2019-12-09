@@ -5,7 +5,8 @@ ruby '2.5.0'
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
-gem 'puma'
+# gem 'puma'
+gem "puma", ">= 3.12.2"
 gem 'rails', '5.1.4'
 gem 'redis'
 
