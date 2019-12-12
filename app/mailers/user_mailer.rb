@@ -30,6 +30,7 @@ class UserMailer < ApplicationMailer
     @birthdays = birthday_list_method
     @pictures = Picture.last
     @ads_count = Product.where(product_type_id: 2).count
+    @newsletter_chapters = Newsletter.all
 
     mailing_list_admin
 

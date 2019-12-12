@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Liste des rubriques de la newsletter</h2>
+  <p>
+    Vous trouvez ci-dessous le texte qui sera affiché dans notre prochaine newsletter.
+  </p>
+  <p>
+    Les modifications sont à faire au plus tard le dernier jour du mois pour en envoi automatique le 1er de chaque mois
+  </p>
+  <% @newsletter_chapters.each do |chapter| %>
+    <h4>
+      <%= chapter.name %>
+      <%= link_to edit_newsletter_path(chapter) do %>
+        <i class="far fa-edit i-color"></i>
+      <% end %>
+
+    </h4>
+    <div class="chapter-content">
+      <p><%= raw chapter.content %></p>
+    </div>
+    <div class="chapter-update">
+      <i class="far fa-calendar-check"></i>
+      <%= l chapter.updated_at, format: '%A %d %B %Y %H:%m' %>
+    </div>
+  <% end %>
+</div>
