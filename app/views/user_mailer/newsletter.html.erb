@@ -7,21 +7,7 @@
   <p>préparer une mise à jour des rubriques en ligne</p>
 </div>
 
-<p>
-  L'année 2019 commence tout juste et nous avons le plaisir de vous envoyer la première newsletter du club.
-</p>
-<p>
-  Nous démarrons une année importante pour notre club avec en mars l'assemblée générale qui sera l'occasion pour tous les membres d'élir le bureau qui portera à vos yeux le projet le plus intéressant. Si vous souhaitez présenter un projet, n'hésitez pas à vous faire connaitre auprès des membres du bureau pour que nous puissions vous aider à le présenter avant l'AG.
-</p>
-<p>
-  Nous souhaitons à travers cette newsletter pouvoir vous informer tous les mois de la vie du club, de l'avancement des projets et également vous permettre de faire connaissance avec les différents membres du club.
-</p>
-<p>
-  ...
-</p>
-<p>
-  Cette newsletter est la votre alors n'hésitez pas à nous faire part de vos idées, vos remarques pour que nous puissions la faire évoluer tout au long de l'année.
-</p>
+<%= raw @newsletter_chapters.find(1).content %>
 
 
 <h4>Prochains événements du clubs</h4>
@@ -35,23 +21,10 @@
 </div>
 
 <h4>Le mot de l'entraineur</h4>
-<div class="nl_alert">
+<div class="nl-alert">
   A voir avec Grég tous les mois
 </div>
-<ul>
-  <li>
-    Le but de cette période est de développer toutes les qualités physiques nécessaires à la pratique du triathlon. Toutefois, l'accent est mis sur l'endurance de base.
-  </li>
-  <li>
-    Cette période dure de 3 à 6 mois en fonction de l'âge et de la durée de la période de compétition. Je conseille aux jeunes triathlètes d'accorder une grande importance à cette période. Ceci leur permettra de construire une carrière sportive solide.
-  </li>
-  <li>
-    Le volume et l'intensité de l'entraînement augmente progressivement durant toute la période.
-  </li>
-  <li>
-    Le début de cette période permet de travailler la technique ainsi que les points faibles.
-  </li>
-</ul>
+<%= raw @newsletter_chapters.find(2).content %>
 
 <h4>Les derniers entrainements ou les prochains</h4>
 <div class="nl-alert">

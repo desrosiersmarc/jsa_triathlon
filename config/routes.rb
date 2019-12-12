@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   resources :clubs, only: [:index, :new, :edit, :show, :create, :update]
   resources :tests, only: [:index, :new, :create]
   resources :notifications, only: [:index, :edit, :update]
+  resources :newsletters, only: [:index, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   require "sidekiq/web"
   authenticate :user, lambda { |u| u.member } do

@@ -1,0 +1,13 @@
+<div class="container">
+
+  <h3>Edition <%= @newsletter.name %></h3>
+  <p>Conseils :</p>
+  <ul>
+    <li>Pour les photos, mettre une largeur maximum de 400px</li>
+    <li></li>
+  </ul>
+  <%= simple_form_for(@newsletter) do |f| %>
+    <%= f.text_area :content, class: 'ckeditor' %>
+    <%= f.submit 'Enregistrer', class: 'btn btn-block btn-danger' %>
+  <% end %>
+</div>
