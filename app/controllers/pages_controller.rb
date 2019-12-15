@@ -74,11 +74,11 @@ private
   end
 
   def select_club_events
-    @club_events = select_articles(1, 7)
+    @club_events = select_articles(1, 100)
   end
 
   def select_school
-    @schools = select_articles(4, 7)
+    @schools = select_articles(4, 100)
   end
 
   def select_results
@@ -86,11 +86,11 @@ private
   end
 
   def select_clubs
-    @clubs = select_articles(7, 7)
+    @clubs = select_articles(7, 100)
   end
 
   def select_trainings
-    @trainings = select_articles(2, 3)
+    @trainings = select_articles(2, 100)
   end
 
 end
