@@ -74,11 +74,11 @@ private
   end
 
   def select_club_events
-    @club_events = select_articles(1, 100)
+    @club_events = select_articles(1, 100).reverse
   end
 
   def select_school
-    @schools = select_articles(4, 100)
+    @schools = select_articles(4, 100).reverse
   end
 
   def select_results
