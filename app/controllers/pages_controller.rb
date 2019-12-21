@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     @clubs = @clubs.take(3)
     @club_events_top3 = select_articles_homepage(1)
     @contests_top3 = select_articles_homepage(3)
-    @schools_top3 = @schools.take(3)
+    @schools_top3 = select_articles_homepage(4)
     @results_top3 = @results.take(3)
     @trainings_top3 = select_articles_homepage(2)
 
