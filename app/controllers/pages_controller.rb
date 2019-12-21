@@ -17,7 +17,7 @@ class PagesController < ApplicationController
     # 5 Partner
     @club = Club.all.first
     @clubs = @clubs.take(3)
-    @club_events_top3 = @club_events.take(3)
+    @club_events_top3 = select_articles_homepage(1).reverse
     @contests_top3 = @contests.take(3)
     @schools_top3 = @schools.take(3)
     @results_top3 = @results.take(3)
@@ -57,10 +57,24 @@ private
             .where('date > ?', Time.now - nb_days.day)
             .sort_by { |article| article.date}
     if articles == []
-      return Article.where(article_type: article_type, active: true)
+      return Article.where(article_type: article_type, active: true).last
     else
       return articles
     end
+  end
+
+  def select_articles_homepage(article_type)
+    articles = Article.where(article_type: article_type, active: true)
+                      .where('date > ?', Time.now)
+                      .sort_by {|article| article.date}
+    if articles.count > 3
+      return articles.take(3)
+    elsif articles.count == 0
+      return Article.where(article_type: article_type, active: true).last
+    else
+      return articles
+    end
+
   end
 
   def select_contests
@@ -74,11 +88,11 @@ private
   end
 
   def select_club_events
-    @club_events = select_articles(1, 100).reverse
+    @club_events = select_articles(1, 365).reverse
   end
 
   def select_school
-    @schools = select_articles(4, 100).reverse
+    @schools = select_articles(4, 365)
   end
 
   def select_results
@@ -86,11 +100,11 @@ private
   end
 
   def select_clubs
-    @clubs = select_articles(7, 100)
+    @clubs = select_articles(7, 365)
   end
 
   def select_trainings
-    @trainings = select_articles(2, 100)
+    @trainings = select_articles(2, 365)
   end
 
 end
