@@ -34,7 +34,7 @@ class UserMailer < ApplicationMailer
 
     mailing_list_admin
 
-    mail(Bcc: @list_admins, subject: "JSA-Newsletter #{l Time.now, format: '%A %d %B'}")
+    mail(Bcc: @list_admins, subject: "JSA-Newsletter #{l Time.now, format: '%B %Y'}")
   end
 
   def birthday_list_method
