@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     @club = Club.all.first
     @clubs = @clubs.take(3)
     @club_events_top3 = select_articles_homepage(1)
-    @contests_top3 = @contests.take(3)
+    @contests_top3 = select_articles_homepage(3)
     @schools_top3 = @schools.take(3)
     @results_top3 = @results.take(3)
     @trainings_top3 = @trainings.take(3).reverse
@@ -70,7 +70,9 @@ private
     if articles.count > 3
       return articles.take(3)
     elsif articles.count == 0
-      return Article.where(article_type: article_type, active: true).last
+      articles = []
+      articles << Article.where(article_type: article_type, active: true).last
+      return articles
     else
       return articles
     end
@@ -78,7 +80,7 @@ private
   end
 
   def select_contests
-    @contests = select_articles(3, 7)
+    @contests = select_articles(3, 365)
   end
 
   def select_all_articles(article_type)
