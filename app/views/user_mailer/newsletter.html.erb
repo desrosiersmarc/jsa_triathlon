@@ -2,9 +2,7 @@
 <h3 style="text-align: center"><%= l Time.now, format: '%B %Y'  %></h3>
 
 <div class="nl-alert">
-  <p>Ceci une projet de newsletter avec les différentes rubriques possibles pour un premier envoi en janvier</p>
-  <p>Envoi automatique tous les lundis pour le moment puis le 1er du mois à partir de janvier</p>
-  <p>préparer une mise à jour des rubriques en ligne</p>
+  <p>Derniére version avant envoi</p>
 </div>
 
 <%= raw @newsletter_chapters.find(1).content %>
@@ -26,21 +24,29 @@
 </div>
 <%= raw @newsletter_chapters.find(2).content %>
 
-<h4>Les derniers entrainements ou les prochains</h4>
-<div class="nl-alert">
-  Est ce que nous gardons cette rubrique ?
-</div>
-<div class="nl-articles-content">
-  <% @training_events.each do |training_event| %>
-    <a href=" <%='https://www.angouleme-triathlon.fr/articles/' + "#{training_event.id.to_s}"%> "class="nl-a-link">
-        <%= render 'newsletter-card', {article: training_event} %>
-    </a>
-  <% end %>
-</div>
-<h4>Les prochaines courses</h4>
-<div class="nl-alert">
-  Si nous n'avons pas de courses à venir, la rubrique peut être masquée. Votre avis ?
-</div>
+<% if !@training_events.nil? %>
+  <h4>Les prochains entrainements</h4>
+  <div class="nl-articles-content">
+    <% @training_events.each do |training_event| %>
+      <a href=" <%='https://www.angouleme-triathlon.fr/articles/' + "#{training_event.id.to_s}"%> "class="nl-a-link">
+          <%= render 'newsletter-card', {article: training_event} %>
+      </a>
+    <% end %>
+  </div>
+<% end %>
+
+<table>
+  <tr>
+    <td>
+      <h4>Les prochaines courses</h4>
+    </td>
+    <td>
+      <a href="http://www.angouleme-triathlon.fr/contests" class="nl-a-link" target="_blank">
+        <%= render 'link-button' %>
+      </a>
+    </td>
+  </tr>
+</table>
 <div class="nl-articles-content">
   <% @next_contests.each do |next_contest| %>
     <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{next_contest.id.to_s}"%>" class="nl-a-link">
@@ -48,33 +54,54 @@
     </a>
   <% end %>
 </div>
-<a href="http://www.angouleme-triathlon.fr/contests" class="nl-a-link" target="_blank">
-  <%= render 'link-button' %>
-</a>
-<h4>Les derniers résultats</h4>
-<div class="nl-alert">
-  Si nous n'avons pas de résultats du mois en cours, la rubrique peut être masquée. Votre avis ?
-</div>
-<div class="nl-articles-content">
-  <% @last_results.each do |last_result| %>
-    <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{last_result.id.to_s}"%>" class="nl-a-link">
-      <%= render 'newsletter-card', {article: last_result} %>
-    </a>
-  <% end %>
-</div>
-<a href="http://www.angouleme-triathlon.fr/results" class="nl-a-link" target="_blank">
-  <%= render 'link-button' %>
-</a>
 
-<h4>Les dernières photos</h4>
-  <a href="http://www.angouleme-triathlon.fr/pictures" class="nl-a-link" target="_blank">
-    <%= render 'link-button' %>
-  </a>
+<% if !@last_results.nil? %>
+  <table>
+    <tr>
+      <td>
+        <h4>Les derniers résultats</h4>
+      </td>
+      <td>
+        <a href="http://www.angouleme-triathlon.fr/results" class="nl-a-link" target="_blank">
+          <%= render 'link-button' %>
+        </a>
+      </td>
+    </tr>
+  </table>
+  <div class="nl-articles-content">
+    <% @last_results.each do |last_result| %>
+      <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{last_result.id.to_s}"%>" class="nl-a-link">
+        <%= render 'newsletter-card', {article: last_result} %>
+      </a>
+    <% end %>
+  </div>
+<% end %>
 
-<h4>Quelques informations de l'école de triathlon</h4>
-<div class="nl-alert">
-  A alimenter régulièrement. Qui peut poster quelques articles régulièrement ?
-</div>
+<table>
+  <tr>
+    <td>
+      <h4>Les dernières photos</h4>
+    </td>
+    <td>
+      <a href="http://www.angouleme-triathlon.fr/pictures" class="nl-a-link" target="_blank">
+        <%= render 'link-button' %>
+      </a>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td>
+      <h4>Quelques informations de l'école de triathlon</h4>
+    </td>
+    <td>
+      <a href="http://www.angouleme-triathlon.fr/school" class="nl-a-link" target="_blank">
+        <%= render 'link-button' %>
+      </a>
+    </td>
+  </tr>
+</table>
 <div class="nl-articles-content">
   <% @tri_school.each do |tri_school| %>
     <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{tri_school.id.to_s}"%>" class="nl-a-link">
@@ -82,22 +109,13 @@
     </a>
   <% end %>
 </div>
-<a href="http://www.angouleme-triathlon.fr/school" class="nl-a-link" target="_blank">
-  <%= render 'link-button' %>
-</a>
 
 <h4>Les anniversaires du mois</h4>
-<div class="nl-alert">
-  Fabrice, il faudrait mettre à jour la base de données avec les dates de naissance? J'ai fait le mois de décembre.
-</div>
-  <% @birthdays.each do |member| %>
+<% @birthdays.each do |member| %>
   <p><%= member.firstname %> <%= member.lastname.upcase[0] %>., le <%= member.birthday.day %></p>
-  <% end %>
+<% end %>
 
 <h4>Les informations diverses</h4>
-<div class="nl-alert">
-  Est ce que nous sélectionnons les articles à diffuser dans cette rubrique ?
-</div>
 <div class="nl-articles-content">
   <% @various_articles.each do |various_article| %>
     <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{various_article.id.to_s}"%>" class="nl-a-link">
@@ -105,11 +123,20 @@
     </a>
   <% end %>
 </div>
-<h4>Retrouvez les <%= @ads_count %> petites annonces actuellement en ligne</h4>
 
-<a href="http://www.angouleme-triathlon.fr/petites_annonces" class="nl-a-link" target="_blank">
-  <%= render 'link-button' %>
-</a>
+<table>
+  <tr>
+    <td>
+      <h4>Retrouvez les <%= @ads_count %> petites annonces actuellement en ligne</h4>
+    </td>
+    <td>
+      <a href="http://www.angouleme-triathlon.fr/petites_annonces" class="nl-a-link" target="_blank">
+        <%= render 'link-button' %>
+      </a>
+    </td>
+  </tr>
+</table>
+
 
 
 
