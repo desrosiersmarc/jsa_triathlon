@@ -24,7 +24,7 @@
 </div>
 <%= raw @newsletter_chapters.find(2).content %>
 
-<% if !@training_events.nil? %>
+<% if @training_events.count > 0 %>
   <h4>Les prochains entrainements</h4>
   <div class="nl-articles-content">
     <% @training_events.each do |training_event| %>
@@ -55,7 +55,7 @@
   <% end %>
 </div>
 
-<% if !@last_results.nil? %>
+<% if @last_results.count > 0 %>
   <table>
     <tr>
       <td>
@@ -115,7 +115,19 @@
   <p><%= member.firstname %> <%= member.lastname.upcase[0] %>., le <%= member.birthday.day %></p>
 <% end %>
 
-<h4>Les informations diverses</h4>
+<table>
+  <tr>
+    <td>
+      <h4>Les informations diverses</h4>
+    </td>
+    <td>
+      <a href="http://www.angouleme-triathlon.fr/divers" class="nl-a-link" target="_blank">
+        <%= render 'link-button' %>
+      </a>
+    </td>
+  </tr>
+</table>
+
 <div class="nl-articles-content">
   <% @various_articles.each do |various_article| %>
     <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{various_article.id.to_s}"%>" class="nl-a-link">
