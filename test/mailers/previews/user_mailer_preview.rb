@@ -34,7 +34,7 @@ class UserMailerPreview < ActionMailer::Preview
 
   def article_by_type_past(type)
     articles = Article.where(article_type: type)
-                      .where('updated_at >= ?', Time.now-30.day)
+                      .where('date >= ?', Time.now-30.day)
                       .sort_by {|article| article.date}
     if articles.count > 3
       return articles.take(3)
@@ -45,7 +45,7 @@ class UserMailerPreview < ActionMailer::Preview
 
   def article_by_type_next(type)
     articles = Article.where(article_type: type)
-                      .where('updated_at >= ?', Time.now)
+                      .where('date >= ?', Time.now)
                       .sort_by {|article| article.date}
     if articles.count > 3
       return articles.take(3)
