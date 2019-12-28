@@ -25,10 +25,27 @@ task :newsletter_test => :environment do
     newsletter_content
 end
 
-def article_by_type(type)
-  Article.where(article_type: type)
-         .where('updated_at >= ?', Time.now-30.day)
-end
+  def article_by_type_past(type)
+    articles = Article.where(article_type: type)
+                      .where('date >= ?', Time.now-30.day)
+                      .sort_by {|article| article.date}
+    if articles.count > 3
+      return articles.take(3)
+    else
+      return articles
+    end
+  end
+
+  def article_by_type_next(type)
+    articles = Article.where(article_type: type)
+                      .where('date >= ?', Time.now)
+                      .sort_by {|article| article.date}
+    if articles.count > 3
+      return articles.take(3)
+    else
+      return articles
+    end
+  end
 
 def birthday_list_method
   birthday_list = []
@@ -43,12 +60,12 @@ def birthday_list_method
 end
 
 def newsletter_content
-    club_events = article_by_type(1).take(3)
-    training_events = article_by_type(2).take(3)
-    next_contests = article_by_type(3).take(3)
-    last_results = article_by_type(6).take(3)
-    tri_school = article_by_type(4).take(3)
-    various_articles = article_by_type(9).take(3)
+    club_events = article_by_type_next(1)
+    training_events = article_by_type_next(2)
+    next_contests = article_by_type_next(3)
+    last_results = article_by_type_past(6)
+    tri_school = article_by_type_past(4)
+    various_articles = article_by_type_past(9)
     birthdays = birthday_list_method
     pictures = Picture.last
     ads_count = Product.where(product_type_id: 2).count
