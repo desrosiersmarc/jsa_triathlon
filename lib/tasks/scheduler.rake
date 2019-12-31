@@ -16,17 +16,19 @@ task :destroy_old_notifications => :environment do
 end
 
 task :newsletter => :environment do
-  if Time.now.strftime('%u').to_i == 1
-    newsletter_content
+  if Time.now.strftime('%d').to_i == 2
+    newsletter_content(mailing_list_1)
+    newsletter_content(mailing_list_2)
   end
 end
 
 task :newsletter_test => :environment do
-    newsletter_content
+    newsletter_content(mailing_list_admin, "Projet qui partira le 2 janvier 2020")
 end
 
   def article_by_type_past(type)
     articles = Article.where(article_type: type)
+                      .where(active: true)
                       .where('date >= ?', Time.now-30.day)
                       .sort_by {|article| article.date}
     if articles.count > 3
@@ -38,6 +40,7 @@ end
 
   def article_by_type_next(type)
     articles = Article.where(article_type: type)
+                      .where(active: true)
                       .where('date >= ?', Time.now)
                       .sort_by {|article| article.date}
     if articles.count > 3
@@ -59,7 +62,7 @@ def birthday_list_method
   return birthday_list
 end
 
-def newsletter_content
+def newsletter_content(users, alert)
     club_events = article_by_type_next(1)
     training_events = article_by_type_next(2)
     next_contests = article_by_type_next(3)
@@ -70,7 +73,9 @@ def newsletter_content
     pictures = Picture.last
     ads_count = Product.where(product_type_id: 2).count
 
-    UserMailer.newsletter(club_events,
+    UserMailer.newsletter(users,
+                          alert,
+                          club_events,
                           training_events,
                           next_contests,
                           last_results,
@@ -79,4 +84,20 @@ def newsletter_content
                           birthdays,
                           pictures,
                           ads_count).deliver
+end
+
+def mailing_list_admin
+  @list_admins = User.where(role: 'admin')
+                     .map{|user| user.email}.join(';')
+end
+
+def mailing_list_1
+  @list_members_1 = User.where(notification: true)
+                      .where(mailing_group: 1)
+                      .map{|user| user.email}.join(';')
+end
+def mailing_list_2
+  @list_members_2 = User.where(notification: true)
+                      .where(mailing_group: 2)
+                      .map{|user| user.email}.join(';')
 end

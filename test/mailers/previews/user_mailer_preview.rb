@@ -10,6 +10,8 @@ class UserMailerPreview < ActionMailer::Preview
   end
 
   def newsletter
+    users = 'mdesrosiers@orange.fr'
+    alert = nil
     club_events = article_by_type_next(1)
     training_events = article_by_type_next(2)
     next_contests = article_by_type_next(3)
@@ -20,7 +22,7 @@ class UserMailerPreview < ActionMailer::Preview
     pictures = Picture.last
     ads_count = Product.where(product_type_id: 2).count
 
-    UserMailer.newsletter(club_events,
+    UserMailer.newsletter(users, alert, club_events,
                           training_events,
                           next_contests,
                           last_results,
@@ -34,6 +36,7 @@ class UserMailerPreview < ActionMailer::Preview
 
   def article_by_type_past(type)
     articles = Article.where(article_type: type)
+                      .where(active: true)
                       .where('date >= ?', Time.now-30.day)
                       .sort_by {|article| article.date}
     if articles.count > 3
@@ -45,6 +48,7 @@ class UserMailerPreview < ActionMailer::Preview
 
   def article_by_type_next(type)
     articles = Article.where(article_type: type)
+                      .where(active: true)
                       .where('date >= ?', Time.now)
                       .sort_by {|article| article.date}
     if articles.count > 3
