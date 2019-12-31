@@ -1,9 +1,11 @@
 <%= render 'header' %>
 <h3 style="text-align: center"><%= l Time.now, format: '%B %Y'  %></h3>
 
-<div class="nl-alert">
-  <p>Derniére version avant envoi</p>
-</div>
+<% if !@alert.nil? %>
+  <div class="nl-alert">
+    <%= @alert %>
+  </div>
+<% end %>
 
 <%= raw @newsletter_chapters.find(1).content %>
 
@@ -18,10 +20,8 @@
   <% end %>
 </div>
 
-<h4>Le mot de l'entraineur</h4>
-<div class="nl-alert">
-  A voir avec Grég tous les mois
-</div>
+<h4>Le mot de Grég. notre entraineur</h4>
+
 <%= raw @newsletter_chapters.find(2).content %>
 
 <% if @training_events.count > 0 %>
@@ -47,6 +47,10 @@
     </td>
   </tr>
 </table>
+<p>N'hésitez pas à créer les courses auxquelles vous allez participer dans l'année en cliquant sur le lien ci-dessous : </p>
+<div class="create-contest">
+  <a href="http://www.angouleme-triathlon.fr/articles/new" class="link-button-success"> Créer une course</a>
+</div>
 <div class="nl-articles-content">
   <% @next_contests.each do |next_contest| %>
     <a href="<%='https://www.angouleme-triathlon.fr/articles/' + "#{next_contest.id.to_s}"%>" class="nl-a-link">

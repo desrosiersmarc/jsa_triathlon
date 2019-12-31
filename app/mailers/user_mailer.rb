@@ -12,7 +12,9 @@ class UserMailer < ApplicationMailer
       -#{@article.name} #{l @article.date, format: '%A %d %B'}")
   end
 
-  def newsletter(club_events,
+  def newsletter(users,
+                alert,
+                club_events,
                 training_events,
                 next_contests,
                 last_results,
@@ -21,6 +23,8 @@ class UserMailer < ApplicationMailer
                 birthdays,
                 pictures,
                 ads_count)
+    @users = users
+    @alert = alert
     @club_events = club_events
     @training_events = training_events
     @next_contests = next_contests
@@ -32,9 +36,7 @@ class UserMailer < ApplicationMailer
     @ads_count = Product.where(product_type_id: 2).count
     @newsletter_chapters = Newsletter.all
 
-    mailing_list_admin
-
-    mail(Bcc: @list_admins, subject: "JSA-Newsletter #{l Time.now, format: '%B %Y'}")
+    mail(Bcc: @users, subject: "JSA-Newsletter #{l Time.now, format: '%B %Y'}")
   end
 
   def birthday_list_method
@@ -47,11 +49,6 @@ class UserMailer < ApplicationMailer
       end
     end
     return birthday_list
-  end
-
-  def mailing_list_admin
-    @list_admins = User.where(role: 'admin')
-                       .map{|user| user.email}.join(';')
   end
 
 end
