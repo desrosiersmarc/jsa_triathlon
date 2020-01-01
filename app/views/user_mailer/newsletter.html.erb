@@ -160,6 +160,7 @@
     </td>
   </tr>
 </table>
+<div class="nl-product-text">N'hésitez pas à déposer vos annonces sur le site (et à les mettre à jour 😉)</div>
 <% @products.each do |product| %>
   <a href="<%='https://www.angouleme-triathlon.fr/products/' + "#{product.id.to_s}"%>">
       <%= product.name %> | <%= product.price %>€

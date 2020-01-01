@@ -72,6 +72,10 @@ def newsletter_content(users, alert)
     birthdays = birthday_list_method
     pictures = Picture.last
     ads_count = Product.where(product_type_id: 2).count
+    products = Product.where('sport_type_id <> ?', 6)
+                      .where(active: true)
+                      .where(sold: false)
+                      .sort_by{|product| product.created_at}
 
     UserMailer.newsletter(users,
                           alert,
@@ -83,7 +87,8 @@ def newsletter_content(users, alert)
                           various_articles,
                           birthdays,
                           pictures,
-                          ads_count).deliver
+                          ads_count,
+                          products).deliver
 end
 
 def mailing_list_admin
