@@ -23,7 +23,7 @@ task :newsletter => :environment do
 end
 
 task :newsletter_test => :environment do
-    newsletter_content(mailing_list_admin, "Projet qui partira le 2 janvier 2020")
+    newsletter_content("mdesrosiers@orange.fr", "Projet qui partira le 2 janvier 2020")
 end
 
   def article_by_type_past(type)
