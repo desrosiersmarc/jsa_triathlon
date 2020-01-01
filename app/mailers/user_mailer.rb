@@ -22,7 +22,8 @@ class UserMailer < ApplicationMailer
                 various_articles,
                 birthdays,
                 pictures,
-                ads_count)
+                ads_count,
+                products)
     @users = users
     @alert = alert
     @club_events = club_events
@@ -35,6 +36,7 @@ class UserMailer < ApplicationMailer
     @pictures = Picture.last
     @ads_count = Product.where(product_type_id: 2).count
     @newsletter_chapters = Newsletter.all
+    @products = products
 
     mail(Bcc: @users, subject: "JSA-Newsletter #{l Time.now, format: '%B %Y'}")
   end

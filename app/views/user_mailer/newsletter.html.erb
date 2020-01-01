@@ -9,7 +9,7 @@
 
 <%= raw @newsletter_chapters.find(1).content %>
 
-
+<div class="logo-title"></div>
 <h4>Prochains événements du clubs</h4>
 
 <div class="nl-articles-content">
@@ -19,12 +19,13 @@
     </a>
   <% end %>
 </div>
-
+<div class="logo-title"></div>
 <h4>Le mot de Grég. notre entraineur</h4>
 
 <%= raw @newsletter_chapters.find(2).content %>
 
 <% if @training_events.count > 0 %>
+  <div class="logo-title"></div>
   <h4>Les prochains entrainements</h4>
   <div class="nl-articles-content">
     <% @training_events.each do |training_event| %>
@@ -35,6 +36,7 @@
   </div>
 <% end %>
 
+<div class="logo-title"></div>
 <table>
   <tr>
     <td>
@@ -60,6 +62,7 @@
 </div>
 
 <% if @last_results.count > 0 %>
+  <div class="logo-title"></div>
   <table>
     <tr>
       <td>
@@ -81,6 +84,7 @@
   </div>
 <% end %>
 
+<div class="logo-title"></div>
 <table>
   <tr>
     <td>
@@ -94,6 +98,7 @@
   </tr>
 </table>
 
+<div class="logo-title"></div>
 <table>
   <tr>
     <td>
@@ -114,11 +119,13 @@
   <% end %>
 </div>
 
+<div class="logo-title"></div>
 <h4>Les anniversaires du mois</h4>
 <% @birthdays.each do |member| %>
   <p><%= member.firstname %> <%= member.lastname.upcase[0] %>., le <%= member.birthday.day %></p>
 <% end %>
 
+<div class="logo-title"></div>
 <table>
   <tr>
     <td>
@@ -140,6 +147,7 @@
   <% end %>
 </div>
 
+<div class="logo-title"></div>
 <table>
   <tr>
     <td>
@@ -152,6 +160,11 @@
     </td>
   </tr>
 </table>
+<% @products.each do |product| %>
+  <a href="<%='https://www.angouleme-triathlon.fr/products/' + "#{product.id.to_s}"%>">
+      <%= product.name %> | <%= product.price %>€
+  </a> -
+<% end %>
 
 
 

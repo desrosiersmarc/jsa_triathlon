@@ -21,6 +21,10 @@ class UserMailerPreview < ActionMailer::Preview
     birthdays = birthday_list_method
     pictures = Picture.last
     ads_count = Product.where(product_type_id: 2).count
+    products = Product.where('sport_type_id <> ?', 6)
+                      .where(active: true)
+                      .where(sold: false)
+                      .sort_by{|product| product.created_at}
 
     UserMailer.newsletter(users, alert, club_events,
                           training_events,
@@ -30,7 +34,8 @@ class UserMailerPreview < ActionMailer::Preview
                           various_articles,
                           birthdays,
                           pictures,
-                          ads_count)
+                          ads_count,
+                          products)
 
   end
 
