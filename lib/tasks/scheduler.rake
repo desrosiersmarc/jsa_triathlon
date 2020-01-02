@@ -17,8 +17,8 @@ end
 
 task :newsletter => :environment do
   if Time.now.strftime('%d').to_i == 2
-    newsletter_content(mailing_list_1)
-    newsletter_content(mailing_list_2)
+    newsletter_content(mailing_list_1,"")
+    newsletter_content(mailing_list_2,"")
   end
 end
 
