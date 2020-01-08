@@ -34,7 +34,7 @@ class UserMailer < ApplicationMailer
     @various_articles = various_articles
     @birthdays = birthday_list_method
     @pictures = Picture.last
-    @ads_count = Product.where(product_type_id: 2).count
+    @ads_count = ads_count
     @newsletter_chapters = Newsletter.all
     @products = products
 
