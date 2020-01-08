@@ -71,12 +71,12 @@ def newsletter_content(users, alert)
     various_articles = article_by_type_past(9)
     birthdays = birthday_list_method
     pictures = Picture.last
-    ads_count = Product.where(product_type_id: 2).count
     products = Product.where('sport_type_id <> ?', 6)
                       .where(product_type_id: 2)
                       .where(active: true)
                       .where(sold: false)
                       .sort_by{|product| product.created_at}
+    ads_count = products.count
 
     UserMailer.newsletter(users,
                           alert,
