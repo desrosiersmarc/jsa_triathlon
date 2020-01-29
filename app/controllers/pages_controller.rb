@@ -65,7 +65,7 @@ private
 
   def select_articles_homepage(article_type)
     articles = Article.where(article_type: article_type, active: true)
-                      .where('date > ?', Time.now)
+                      .where('date > ?', Time.now-1.day)
                       .sort_by {|article| article.date}
     if articles.count > 3
       return articles.take(3)
