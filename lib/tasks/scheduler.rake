@@ -22,8 +22,23 @@ task :newsletter => :environment do
   end
 end
 
-task :newsletter_test => :environment do
-    newsletter_content("mdesrosiers@orange.fr", "Projet qui partira le 2 janvier 2020")
+task :newsletter_md => :environment do
+    newsletter_content("mdesrosiers@orange.fr", "Projet pour moi")
+end
+
+task :newsletter_bureau => :environment do
+    mailing_list_bureau = "pandry@laposte.net;
+                          alexisbonneau@gmail.com;
+                          wboucard@aol.com;
+                          jf.hascoet@laposte.net;
+                          fabrice.rusig@ingeliance.com;
+                          thomas.marin@live.fr;
+                          o.huti@orange.fr;
+                          cedricpetit.cp@gmail.com;
+                          emanaomie@gmail.com;
+                          chlocawil@yahoo.fr;
+                          mdesrosiers@orange.fr"
+    newsletter_content("mdesrosiers@orange.fr", "Projet")
 end
 
   def article_by_type_past(type)
