@@ -38,7 +38,7 @@ task :newsletter_bureau => :environment do
                           emanaomie@gmail.com;
                           chlocawil@yahoo.fr;
                           mdesrosiers@orange.fr"
-    newsletter_content("mdesrosiers@orange.fr", "Projet")
+    newsletter_content(mailing_list_bureau, "Projet qui partira le 2")
 end
 
   def article_by_type_past(type)
