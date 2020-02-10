@@ -123,17 +123,18 @@ def seed_products
 end
 
 def seed_user_production
-  filepath = "db/jsa_members.csv"
+  filepath = "db/jsa_members_2020.csv"
   CSV.foreach(filepath) do |row|
     User.create(firstname: row[0],
                 lastname: row[1],
-                email: row[4],
-                password: row[8],
+                birthday: row[2],
+                email: row[3],
+                password: '123soleil',
                 member: true,
-                mobil_phone: '0606060606',
+                mobil_phone: '0000000000',
                 profil: 'Membre')
     print "*"
-    #puts "#{row[0].upcase} #{row[1]} - #{row[4]} - #{row[8]}"
+    puts "#{row[0].upcase} #{row[1]} - #{row[2]} - #{row[3]}"
   end
 end
 
@@ -182,8 +183,8 @@ when "development"
   # puts "Create Products"
   # 10.times do seed_products end
   # puts "Products created"
-  #seed_user_production
-  seed_picture_albums
+  seed_user_production
+  # seed_picture_albums
 
 when "production"
   # set_article_types
@@ -197,7 +198,7 @@ when "production"
   #seed_sizes
   #seed_product_types
   #seed_sport_types
-  #seed_user_production
-  seed_picture_albums
+  seed_user_production
+  # seed_picture_albums
 
 end
