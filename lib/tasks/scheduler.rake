@@ -19,6 +19,7 @@ task :newsletter => :environment do
   if Time.now.strftime('%d').to_i == 2
     newsletter_content(mailing_list_1,"")
     newsletter_content(mailing_list_2,"")
+    newsletter_content(mailing_list_3,"")
   end
 end
 
@@ -120,5 +121,10 @@ end
 def mailing_list_2
   @list_members_2 = User.where(notification: true)
                       .where(mailing_group: 2)
+                      .map{|user| user.email}.join(';')
+end
+def mailing_list_3
+  @list_members_3 = User.where(notification: true)
+                      .where(mailing_group: 3)
                       .map{|user| user.email}.join(';')
 end
