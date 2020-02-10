@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update]
   before_action :mailing_list_1, only: [:create, :update]
   before_action :mailing_list_2, only: [:create, :update]
+  before_action :mailing_list_3, only: [:create, :update]
 
   def sportswears
     @sportswears = if user_signed_in? && current_user.role == 'admin'
@@ -41,6 +42,7 @@ class ProductsController < ApplicationController
       if @product.product_type_id == 2
         AdMailer.new_ad(@product, @list_members_1).deliver_later
         AdMailer.new_ad(@product, @list_members_2).deliver_later
+        AdMailer.new_ad(@product, @list_members_3).deliver_later
       end
       create_notifications(@product.id, 'product')
       redirect_to product_path(@product)
@@ -114,6 +116,11 @@ private
   def mailing_list_2
     @list_members_2 = User.where(notification: true)
                         .where(mailing_group: 2)
+                        .map{|user| user.email}.join(';')
+  end
+  def mailing_list_3
+    @list_members_3 = User.where(notification: true)
+                        .where(mailing_group: 3)
                         .map{|user| user.email}.join(';')
   end
 

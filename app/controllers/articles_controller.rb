@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   before_action :charge_article_types, only: [:index, :new, :edit]
   before_action :mailing_list_1, only: [:create, :update]
   before_action :mailing_list_2, only: [:create, :update]
+  before_action :mailing_list_3, only: [:create, :update]
   before_action :mailing_list_admin, only: [:create, :update]
   before_action :find_participation, only: [:show]
 
@@ -29,6 +30,7 @@ class ArticlesController < ApplicationController
       if @article.send_email
         send_article_email(@list_members_1)
         send_article_email(@list_members_2)
+        send_article_email(@list_members_3)
       end
     else
       render :new
@@ -97,6 +99,7 @@ class ArticlesController < ApplicationController
       if @article.send_email
         send_article_email(@list_members_1)
         send_article_email(@list_members_2)
+        send_article_email(@list_members_3)
       end
     else
       render :edit
@@ -160,6 +163,11 @@ private
   def mailing_list_2
     @list_members_2 = User.where(notification: true)
                         .where(mailing_group: 2)
+                        .map{|user| user.email}.join(';')
+  end
+  def mailing_list_3
+    @list_members_3 = User.where(notification: true)
+                        .where(mailing_group: 3)
                         .map{|user| user.email}.join(';')
   end
 
