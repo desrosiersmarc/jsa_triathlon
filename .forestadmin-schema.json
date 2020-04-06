@@ -2271,7 +2271,7 @@
     }, {
       "field": "mailing_group",
       "type": "Number",
-      "default_value": "2",
+      "default_value": "3",
       "enums": null,
       "integration": null,
       "is_filterable": true,
