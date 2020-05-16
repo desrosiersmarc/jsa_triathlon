@@ -16,8 +16,7 @@ class PagesController < ApplicationController
                       .take(3)
     # 5 Partner
     @club = Club.all.first
-    # @clubs = @clubs.take(3)
-    @clubs = @clubs.first
+    @clubs = @clubs.take(3)
     @club_events_top3 = select_articles_homepage(1)
     @contests_top3 = select_articles_homepage(3)
     @schools_top3 = select_articles_homepage(4)
