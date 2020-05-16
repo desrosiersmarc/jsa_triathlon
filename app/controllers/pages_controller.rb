@@ -16,12 +16,12 @@ class PagesController < ApplicationController
                       .take(3)
     # 5 Partner
     @club = Club.all.first
-    @clubs = @clubs.take(3)
+    # @clubs = @clubs.take(3)
+    @clubs = @clubs
     @club_events_top3 = select_articles_homepage(1)
     @contests_top3 = select_articles_homepage(3)
     @schools_top3 = select_articles_homepage(4)
     # @results_top3 = @results.take(3)
-    #
     @results_top3 = @results
     @trainings_top3 = select_articles_homepage(2)
 
