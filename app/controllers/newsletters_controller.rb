@@ -3,6 +3,7 @@ class NewslettersController < ApplicationController
 
   def index
     @newsletter_chapters = Newsletter.all.sort_by{|newsletter| newsletter.id}
+    @newsletter_setup = Newsletter.find(1)
   end
 
   def edit
@@ -25,6 +26,8 @@ class NewslettersController < ApplicationController
   def newsletter_params
     params.require(:newsletter).permit(
       :name,
-      :content)
+      :content,
+      :send_newsletter,
+      :send_newsletter_date)
   end
 end
