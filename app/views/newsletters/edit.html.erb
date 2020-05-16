@@ -7,6 +7,8 @@
     <li></li>
   </ul>
   <%= simple_form_for(@newsletter) do |f| %>
+    <%= f.input :send_newsletter %>
+    <%= f.input :send_newsletter_date, collection: 1..15 %>
     <%= f.text_area :content, class: 'ckeditor' %>
     <%= f.submit 'Enregistrer', class: 'btn btn-block btn-danger' %>
   <% end %>

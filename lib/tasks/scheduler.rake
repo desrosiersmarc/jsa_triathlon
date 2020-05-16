@@ -16,30 +16,36 @@ task :destroy_old_notifications => :environment do
 end
 
 task :newsletter => :environment do
-  if Time.now.strftime('%d').to_i == 0
-    newsletter_content(mailing_list_1,"")
-    newsletter_content(mailing_list_2,"")
-    newsletter_content(mailing_list_3,"")
+  if Newsletter.first.send_newsletter
+    if Time.now.strftime('%d').to_i == Newsletter.first.send_newsletter_date.to_i
+      newsletter_content(mailing_list_1,"")
+      newsletter_content(mailing_list_2,"")
+      newsletter_content(mailing_list_3,"")
+    end
   end
 end
 
 task :newsletter_md => :environment do
+  if Time.now.strftime('%d').to_i == 25
     newsletter_content("mdesrosiers@orange.fr", "Projet pour moi")
+  end
 end
 
 task :newsletter_bureau => :environment do
+  if Time.now.strftime('%d').to_i == 30
     mailing_list_bureau = "pandry@laposte.net;
                           alexisbonneau@gmail.com;
                           wboucard@aol.com;
                           jf.hascoet@laposte.net;
                           fabrice.rusig@ingeliance.com;
-                          thomas.marin@live.fr;
                           o.huti@orange.fr;
                           cedricpetit.cp@gmail.com;
                           emanaomie@gmail.com;
-                          chlocawil@yahoo.fr;
                           mdesrosiers@orange.fr"
-    newsletter_content(mailing_list_bureau, "Projet qui partira le 2")
+    newsletter_content(mailing_list_bureau,
+      "Projet qui partira le #{Newsletter.first.send_newsletter_date.to_i} si
+      la newsletter l'envoi du mail est bien activé. Etat actuel : #{Newsletter.first.send_newsletter}")
+  end
 end
 
   def article_by_type_past(type)
