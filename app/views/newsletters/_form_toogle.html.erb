@@ -1,0 +1,22 @@
+<div id="nl-toogle">
+  <div class="nl-toggle-content">
+    <div class="nl-toggle-mail-texte">
+      <div class="nl-toggle-mail">
+        <i class="fas fa-envelope"></i>
+      </div>
+        <p>Envoyer automatiquement la newsletter</p>
+    </div>
+    <div class="nl-toggle">
+      <%= simple_form_for @newsletter, remote: true do |f|  %>
+        <%= f.input :send_newsletter, label: false, input_html: {checked: !@newsletter.send_newsletter} %>
+        <%= button_tag(type: 'submit',class: 'button-remove-css') do %>
+          <% if @newsletter.send_newsletter %>
+            <i class="fas fa-toggle-on"></i>
+          <% else %>
+            <i class="fas fa-toggle-off"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

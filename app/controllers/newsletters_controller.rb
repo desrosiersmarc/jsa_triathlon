@@ -4,6 +4,7 @@ class NewslettersController < ApplicationController
   def index
     @newsletter_chapters = Newsletter.all.sort_by{|newsletter| newsletter.id}
     @newsletter_setup = Newsletter.find(1)
+    @newsletter = Newsletter.find(1)
   end
 
   def edit
@@ -12,7 +13,11 @@ class NewslettersController < ApplicationController
   def update
     @newsletter.update(newsletter_params)
     if @newsletter.save
-      redirect_to newsletters_path
+      # redirect_to newsletters_path
+      respond_to do |format|
+        format.html {redirect_to newsletters_path}
+        format.js
+      end
     else
       render :edit
     end
