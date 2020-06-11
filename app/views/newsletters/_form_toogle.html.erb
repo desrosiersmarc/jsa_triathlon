@@ -8,7 +8,9 @@
     </div>
     <div class="nl-toggle">
       <%= simple_form_for @newsletter, remote: true do |f|  %>
-        <%= f.input :send_newsletter, label: false, input_html: {checked: !@newsletter.send_newsletter} %>
+        <div class="chekbox-hide">
+          <%= f.input :send_newsletter, label: false, input_html: {checked: !@newsletter.send_newsletter} %>
+        </div>
         <%= button_tag(type: 'submit',class: 'button-remove-css') do %>
           <% if @newsletter.send_newsletter %>
             <i class="fas fa-toggle-on"></i>
