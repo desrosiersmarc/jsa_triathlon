@@ -1,39 +1,8 @@
 <div class="container">
   <div class="alert-area">
     <h2>Gestion de la newsletter</h2>
-      <div class="nl-toggle-content">
-        <div class="nl-toggle-mail-texte">
-          <div class="nl-toggle-mail">
-            <i class="fas fa-envelope"></i>
-          </div>
-            <p>Envoyer automatiquement la newsletter</p>
-        </div>
-        <div class="nl-toggle">
-          <%= link_to edit_newsletter_path(1) do %>
-            <% if @newsletter_setup.send_newsletter %>
-              <i class="fas fa-toggle-on"></i>
-            <% else %>
-              <i class="fas fa-toggle-off"></i>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <div class="nl-toggle-content">
-        <div class="nl-toggle-mail-texte">
-          <div class="nl-toggle-mail">
-            <i class="fas fa-calendar-check"></i>
-          </div>
-            <p>
-              Date d'envoi de la prochaine newsletter :
-              <%= @newsletter_setup.send_newsletter_date %>
-            </p>
-        </div>
-        <%= link_to edit_newsletter_path(1) do %>
-          <div class="nl-toggle">
-            <i class="far fa-edit"></i>
-          </div>
-        <% end %>
-      </div>
+    <%= render 'form_toogle' %>
+    <%= render 'form_date' %>
   </div>
   <h2>Liste des rubriques de la newsletter</h2>
   <p>
