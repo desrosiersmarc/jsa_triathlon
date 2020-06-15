@@ -14,6 +14,7 @@
         <%= button_tag(type: 'submit',class: 'button-remove-css') do %>
           <% if @newsletter.send_newsletter %>
             <i class="fas fa-toggle-on"></i>
+            <i class="fas fa-exclamation-triangle"></i>
           <% else %>
             <i class="fas fa-toggle-off"></i>
           <% end %>
