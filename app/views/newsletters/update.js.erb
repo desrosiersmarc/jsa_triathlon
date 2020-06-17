@@ -1,8 +1,10 @@
-console.log('Hello wolrd!');
+
 function refreshForm(innerHTML) {
   const newToogleForm = document.getElementById('nl-toogle');
   newToogleForm.innerHTML = innerHTML;
 }
 
 
+refreshForm('<%= j render "newsletters/form_date" %>');
 refreshForm('<%= j render "newsletters/form_toogle" %>');
+

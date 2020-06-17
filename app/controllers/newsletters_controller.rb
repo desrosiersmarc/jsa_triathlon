@@ -3,7 +3,7 @@ class NewslettersController < ApplicationController
 
   def index
     @newsletter_chapters = Newsletter.all.sort_by{|newsletter| newsletter.id}
-    @newsletter_setup = Newsletter.find(1)
+    # @newsletter_setup = Newsletter.find(1)
     @newsletter = Newsletter.find(1)
   end
 
