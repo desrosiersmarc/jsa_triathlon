@@ -1,4 +1,4 @@
-console.log("participants");
+// console.log("participants");
 
 let div_read = document.getElementById('912');
 

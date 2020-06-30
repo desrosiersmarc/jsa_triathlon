@@ -23,3 +23,23 @@
     </div>
   </div>
 </div>
+
+<div id="nl-date">
+  <div class="nl-toggle-content">
+    <div class="nl-toggle-mail-texte">
+      <div class="nl-toggle-mail">
+        <i class="fas fa-calendar-check"></i>
+      </div>
+        <p>
+          Date d'envoi de la prochaine newsletter :
+          <%= @newsletter.send_newsletter_date %>
+        </p>
+    </div>
+    <%= simple_form_for @newsletter, remote: true do |f| %>
+      <%= f.input :send_newsletter_date, label: false, collection: 1..15, id: 'date-list' %>
+      <div class="nl-form-date">
+        <%= f.submit 'Mettre à jour la date', class: 'btn btn-danger', id: 'submit-date' %>
+      </div>
+    <% end %>
+  </div>
+</div>
