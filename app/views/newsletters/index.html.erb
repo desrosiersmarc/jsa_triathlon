@@ -1,8 +1,9 @@
 <div class="container">
   <div class="alert-area">
     <h2>Gestion de la newsletter</h2>
-    <%= render 'form_toogle' %>
-    <%= render 'form_date' %>
+    <div id="form_newsletter">
+      <%= render 'form_newsletter_param', {newsletter: @newsletter} %>
+    </div>
   </div>
   <h2>Liste des rubriques de la newsletter</h2>
   <p>
