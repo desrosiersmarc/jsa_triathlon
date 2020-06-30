@@ -6,7 +6,29 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <%= link_to "Le club", clubs_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <div class="dropdown-toggle navbar-wagon-item navbar-wagon-link" id="navbar-wagon-menu" data-toggle="dropdown">Le club</div>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li>
+            <%= link_to "Le mot du président", clubs_path(anchor: 'le-mot-du-president'), class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+          <li>
+            <%= link_to "Les sites", clubs_path(anchor: 'les-sites'), class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+          <li>
+            <%= link_to "Les commissions", clubs_path(anchor: 'commissions'), class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+          <li>
+            <%= link_to "Les coachs", clubs_path(anchor: 'coachs'), class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+          <li>
+            <%= link_to "Les membres", clubs_path(anchor: 'les-membres'), class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <%= link_to "Tricross", tricross_path, class: "navbar-wagon-item navbar-wagon-link"  %>
     <%#= link_to "Evénements du club", club_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%#= link_to "Tenues", sportswears_path, class: "navbar-wagon-item navbar-wagon-link" %>

@@ -1,14 +1,20 @@
 <div class="container">
   <div class="row">
-    <div class="club-heading box-shadow-md" id="history">
+    <div class="club-heading box-shadow-md" id="le-mot-du-president">
       <%= render 'edit_link', club: @clubs.find(1)  %>
-      <h3>L'histoire et la vie du club</h3>
+      <h3>Le mot du président</h3>
       <%= raw @clubs.find(1).content %>
     </div>
-    <div class="club-heading box-shadow-md" id="training-places">
+    <div class="club-heading box-shadow-md" id="les-sites">
       <%= render 'edit_link', club: @clubs.find(2)  %>
       <h3>Les lieux d'entrainements</h3>
+      <iframe src="https://www.google.com/maps/d/embed?mid=182y50fVA6j6lRKJa9e3yRkcog_ZOey4G" width="100%" height="480"></iframe>
       <%= raw @clubs.find(2).content %>
+    </div>
+    <div class="club-heading box-shadow-md" id="commissions">
+      <%= render 'edit_link', club: @clubs.find(4)  %>
+      <h3>Les commissions</h3>
+      <%= raw @clubs.find(4).content %>
     </div>
     <div class="club-heading box-shadow-md" id="coachs">
       <%= render 'edit_link', club: @clubs.find(5)  %>
@@ -22,32 +28,47 @@
         <% end %>
       </div>
     </div>
-    <div class="club-heading box-shadow-md" id="office">
-      <%= render 'edit_link', club: @clubs.find(3)  %>
-      <h3>Le bureau</h3>
-      <%= raw @clubs.find(3).content %>
-      <div class="row">
-        <% @office_members.each do |member| %>
-        <div class="col-xs-6 col-sm-4 col-md-3">
-          <%= render 'user_card', {user: member} %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="club-heading box-shadow-md" id="commissions">
-      <%= render 'edit_link', club: @clubs.find(4)  %>
-      <h3>Les commissions</h3>
-      <%= raw @clubs.find(4).content %>
-    </div>
-    <div class="club-heading box-shadow-md" id="members">
+
+    <!-- <div class="club-heading box-shadow-md" id="le-bureau"> -->
+      <%#= render 'edit_link', club: @clubs.find(3)  %>
+      <!-- <h3>Le bureau</h3> -->
+      <%#= raw @clubs.find(3).content %>
+      <!-- <div class="row"> -->
+        <%# @office_members.each do |member| %>
+        <!-- <div class="col-xs-6 col-sm-4 col-md-3"> -->
+          <%#= render 'user_card', {user: member} %>
+        <!-- </div> -->
+        <%# end %>
+      <!-- </div> -->
+    <!-- </div> -->
+
+    <div class="club-heading box-shadow-md" id="les-membres">
       <h3>Les membres (<%= @users.count %>)</h3>
-      <div class="row">
-        <% @users.each do |user| %>
-          <div class="col-xs-6 col-sm-4 col-md-3">
-            <%= render 'user_card', {user: user} %>
-          </div>
-        <% end %>
-      </div>
+        <div class="row">
+          <% if member? %>
+            <% @users.each do |user| %>
+              <div class="col-xs-6 col-sm-4 col-md-3">
+                <%= render 'user_card', {user: user} %>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="member-area-not-connected">
+              <i class="fas fa-unlock-alt"></i>
+              Connectez vous pour voir les membres
+              <div class="signin-logo-red">
+                <%= link_to new_user_session_path do %>
+                  <i class="fas fa-sign-in-alt"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+    </div>
+    <div class="club-heading box-shadow-md" id="histoire-du-club">
+      <%= render 'edit_link', club: @clubs.find(1)  %>
+      <h3>L'histoire et la vie du club</h3>
+      <%= raw @clubs.find(1).content %>
+    </div>
     </div>
   </div>
 </div>
