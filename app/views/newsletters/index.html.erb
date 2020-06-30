@@ -1,32 +1,52 @@
-<div class="container">
-  <div class="alert-area">
-    <h2>Gestion de la newsletter</h2>
-    <div id="form_newsletter">
-      <%= render 'form_newsletter_param', {newsletter: @newsletter} %>
+<% if admin? %>
+
+  <div class="container">
+    <div class="alert-area">
+      <h2>Gestion de la newsletter</h2>
+      <div id="form_newsletter">
+        <%= render 'form_newsletter_param', {newsletter: @newsletter} %>
+      </div>
     </div>
+    <h2>Liste des rubriques de la newsletter</h2>
+    <p>
+      Vous trouvez ci-dessous le texte qui sera affiché dans notre prochaine newsletter.
+    </p>
+    <p>
+      Les modifications sont à faire au plus tard le dernier jour du mois pour en envoi automatique le 2 de chaque mois.
+    </p>
+    <% @newsletter_chapters.each do |chapter| %>
+      <h4>
+        <%= chapter.name %>
+        <%= link_to edit_newsletter_path(chapter) do %>
+          <i class="far fa-edit i-color"></i>
+        <% end %>
+
+      </h4>
+      <div class="chapter-content">
+        <p><%= raw chapter.content %></p>
+      </div>
+      <div class="chapter-update">
+        <i class="far fa-calendar-check"></i>
+        <%= l chapter.updated_at, format: '%A %d %B %Y %H:%m' %>
+      </div>
+    <% end %>
   </div>
-  <h2>Liste des rubriques de la newsletter</h2>
-  <p>
-    Vous trouvez ci-dessous le texte qui sera affiché dans notre prochaine newsletter.
-  </p>
-  <p>
-    Les modifications sont à faire au plus tard le dernier jour du mois pour en envoi automatique le 2 de chaque mois.
-  </p>
-  <% @newsletter_chapters.each do |chapter| %>
-    <h4>
-      <%= chapter.name %>
-      <%= link_to edit_newsletter_path(chapter) do %>
-        <i class="far fa-edit i-color"></i>
-      <% end %>
-
-    </h4>
-    <div class="chapter-content">
-      <p><%= raw chapter.content %></p>
-    </div>
-    <div class="chapter-update">
-      <i class="far fa-calendar-check"></i>
-      <%= l chapter.updated_at, format: '%A %d %B %Y %H:%m' %>
-    </div>
-  <% end %>
-</div>
-
+<% else %>
+    <div class="article article-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dmbf8fog4/image/upload/q_auto:low/v1593522828/JSA%20Triathlon/ironman42.jpg) ">
+      <div class="text-center">
+        <div class="article-title">
+          Perdu ? N'hésitez pas à nous contacter par mail
+        </div>
+        <div class="article-title">
+          <a href="mailto: angoulemetriathlon@gmail.com">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+        <div class="article-title">
+          <a href="mailto: angoulemetriathlon@gmail.com">
+            angoulemetriathlon@gmail.com
+          </a>
+        </div>
+      </div>
+  </div>
+<% end %>
