@@ -1,5 +1,7 @@
 class NewslettersController < ApplicationController
   before_action :find_newsletter, only: [:edit, :update]
+  skip_before_action :authenticate_user!,
+                      only: []
 
   def index
     @newsletter_chapters = Newsletter.all.sort_by{|newsletter| newsletter.id}
