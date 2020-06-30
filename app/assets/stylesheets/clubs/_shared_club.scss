@@ -1,0 +1,12 @@
+.member-area-not-connected{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: x-large;
+}
+
+.signin-logo-red {
+  a {
+    color: $red;
+  }
+}
