@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'my_ads', to: 'pages#my_ads'
   get 'tricross', to: 'pages#tricross'
   get 'divers', to: 'pages#divers'
+  get 'subscription', to: 'pages#subscription'
 
   get 'sportswears', to: 'products#sportswears'
   get 'petites_annonces', to: 'products#petites_annonces'
