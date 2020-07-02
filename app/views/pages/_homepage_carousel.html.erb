@@ -1,13 +1,13 @@
 <div class="wrapper-carousel">
-  <%= render 'influencer' %>
-  <div class="container">
-    <div class="row">
+  <%#= render 'influencer' %>
+  <!-- <div class="container"> -->
+    <!-- <div class="row"> -->
       <div class="wrapper-title-content">
         <div class="wrapper-title wrapper-title-border-bottom">
-          Qui sommes nous ?
+          Les dernières actus
         </div>
       </div>
-      <div class="col-xs-12 col-md-6">
+      <div class="col-xs-12">
         <div id="carousel-homepage" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
           <ol class="carousel-indicators">
@@ -93,21 +93,6 @@
           </a>
         </div>
       </div>
-      <div class="col-xs-12 col-md-6">
-        <div class="home-club-content">
-          <div class="home-club-history">
-            <p>
-              <%= raw homepage_club.content %>
-            </p>
-          </div>
-          <div class="home-club-learn-more">
-            <%= link_to clubs_path, class: "link-to-class" do %>
-              En savoir plus
-              <i class="fas fa-arrow-right"></i>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!-- </div> -->
+  <!-- </div> -->
 </div>

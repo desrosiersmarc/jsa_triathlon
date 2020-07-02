@@ -1,6 +1,7 @@
+<%= render 'homepage_title' %>
 <%= render 'homepage_carousel', homepage_club: @club %>
 <%#= render 'homepage_new' %>
-<div class="wrapper">
+<div class="wrapper wrapper-black">
   <div class="wrapper-title">
     Evénements du club
   </div>
@@ -9,11 +10,11 @@
       <%= render 'homepage_event_card', {articles: @club_events_top3} %>
     </div>
   </div>
-  <%= link_to club_events_path, class: "wrapper-link wrapper-link-black" do  %>
+  <%= link_to club_events_path, class: "wrapper-link wrapper-link-white" do  %>
     Voir tous les événements
   <% end %>
 </div>
-<div class="wrapper wrapper-black">
+<div class="wrapper">
   <div class="wrapper-title">
     Entraînements
     <i class="fas fa-file-download"></i>
@@ -23,7 +24,7 @@
       <%= render 'wrapper_cards', {articles: @trainings_top3} %>
     </div>
   </div>
-  <%= link_to trainings_path, class: "wrapper-link wrapper-link-white"  do %>
+  <%= link_to trainings_path, class: "wrapper-link wrapper-link-black"  do %>
       Voir tous les entraînements
   <% end %>
   <div class="hidden-xs">
@@ -32,7 +33,7 @@
     <% end %>
   </div>
 </div>
-<div class="wrapper">
+<div class="wrapper wrapper-black">
   <div class="wrapper-title">
     Prochaines épreuves
   </div>
@@ -41,7 +42,7 @@
       <%= render 'wrapper_cards', {articles: @contests_top3} %>
     </div>
   </div>
-  <%= link_to contests_path, class: "wrapper-link wrapper-link-black"  do %>
+  <%= link_to contests_path, class: "wrapper-link wrapper-link-white"  do %>
       Voir toutes les épreuves
   <% end %>
 
@@ -54,7 +55,7 @@
   <% end %>
 </div>
 
-<div class="wrapper wrapper-black">
+<div class="wrapper">
   <div class="wrapper-title">
     L'école de triathlon
   </div>
@@ -63,11 +64,11 @@
       <%= render 'wrapper_cards', {articles: @schools_top3} %>
     </div>
   </div>
-  <%= link_to school_path, class: "wrapper-link wrapper-link-white"  do %>
+  <%= link_to school_path, class: "wrapper-link wrapper-link-black"  do %>
     Voir tous les articles
   <% end %>
 </div>
-<div class="wrapper">
+<div class="wrapper wrapper-black">
   <div class="wrapper-title">
     Divers
   </div>
@@ -109,7 +110,7 @@
   </div>
 </div>
 </div>
-<div class="wrapper wrapper-black">
+<div class="wrapper">
   <div class="wrapper-title">
     Les photos
   </div>
@@ -119,7 +120,7 @@
     </div>
   </div>
 
-  <%= link_to pictures_path, class: "wrapper-link wrapper-link-white" do %>
+  <%= link_to pictures_path, class: "wrapper-link wrapper-link-black" do %>
     Voir toutes les photos
   <% end %>
 </div>

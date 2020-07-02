@@ -2,7 +2,7 @@
   width:100%;
   padding: 10px 0 10px 0;
   min-height: 60vh;
-  background-color: $gray;
+  // background-color: $gray;
   color: $white;
 }
 
@@ -37,6 +37,7 @@
 
 .wrapper-title-border-bottom {
   border-bottom: solid 1px $red;
+  color: $gray;
 }
 
 .wrapper-link {
