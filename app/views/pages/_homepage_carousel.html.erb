@@ -22,7 +22,7 @@
           <div class="carousel-inner" role="listbox">
             <div class="item active">
               <%= link_to article_path(@club_events_top3.first) do %>
-                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@club_events_top3.first) %>);">
+                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path_hp(@club_events_top3.first) %>);">
                 </div>
                 <div class="carousel-caption">
                   <h3>
@@ -34,7 +34,7 @@
             </div>
             <div class="item ">
               <%= link_to article_path(@contests_top3.first) do %>
-                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@contests_top3.first) %>);">
+                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path_hp(@contests_top3.first) %>);">
                 </div>
                 <div class="carousel-caption">
                   <h3>
@@ -46,7 +46,7 @@
             </div>
             <div class="item ">
               <%= link_to article_path(@results_top3.first) do %>
-                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@results_top3.first)%>);">
+                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path_hp(@results_top3.first)%>);">
                 </div>
                 <div class="carousel-caption">
                   <h3>
@@ -58,7 +58,7 @@
             </div>
              <div class="item ">
               <%= link_to article_path(@schools_top3.first) do %>
-                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@schools_top3.first) %>);">
+                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path_hp(@schools_top3.first) %>);">
                 </div>
                 <div class="carousel-caption">
                   <h3>
@@ -70,7 +70,7 @@
             </div>
             <div class="item ">
               <%= link_to picture_path(@pictures.first) do %>
-                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path(@pictures.first)%>);">
+                <div class="carousel-div-picture carousel-events-height" style="background-image:url(<%= helper_image_path_hp(@pictures.first)%>);">
                 </div>
                 <div class="carousel-caption">
                   <h3>

@@ -12,6 +12,14 @@ module ApplicationHelper
     end
   end
 
+  def helper_image_path_hp(element)
+    if element.photo?
+      cl_image_path(element.photo, quality:"auto:good")
+    else
+      image_path('https://res.cloudinary.com/dmbf8fog4/image/upload/q_auto:low/c_scale,q_10,w_407/v1541453183/JSA%20Triathlon/calendrier_agenda.jpg')
+    end
+  end
+
   def helper_image_tag(element)
     if element.photo?
       cl_image_tag(element.photo, quality:"auto:low")
