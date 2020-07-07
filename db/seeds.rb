@@ -152,7 +152,22 @@ def seed_picture_albums
 end
 
 
+def seed_ancestry_tree_for_articles
+  #for each article
+  Article.all.each do |article|
+    #find the year ancestry
+    article_year = TimePeriod.where('name = ?', article.date.year.to_s)
+    #find the month in this year
+    article_month_id = article_year[0].children[article.date.month-1].id
+    #update Article.time_period_id with month id
+    article.update(time_period_id: article_month_id)
+    puts "*"
 
+
+  end
+
+
+end
 
 
 case Rails.env
@@ -183,8 +198,9 @@ when "development"
   # puts "Create Products"
   # 10.times do seed_products end
   # puts "Products created"
-  seed_user_production
+  #seed_user_production
   # seed_picture_albums
+  seed_ancestry_tree_for_articles
 
 when "production"
   # set_article_types
@@ -198,7 +214,7 @@ when "production"
   #seed_sizes
   #seed_product_types
   #seed_sport_types
-  seed_user_production
+  #seed_user_production
   # seed_picture_albums
 
 end
