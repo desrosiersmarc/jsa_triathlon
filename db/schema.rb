@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200630174734) do
+ActiveRecord::Schema.define(version: 20200702185650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,9 @@ ActiveRecord::Schema.define(version: 20200630174734) do
     t.boolean "active", default: true
     t.boolean "send_email", default: false
     t.boolean "send_email_admin", default: true
+    t.bigint "time_period_id"
     t.index ["article_type_id"], name: "index_articles_on_article_type_id"
+    t.index ["time_period_id"], name: "index_articles_on_time_period_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
@@ -168,6 +170,14 @@ ActiveRecord::Schema.define(version: 20200630174734) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "time_periods", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_time_periods_on_ancestry"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -200,6 +210,7 @@ ActiveRecord::Schema.define(version: 20200630174734) do
   end
 
   add_foreign_key "articles", "article_types"
+  add_foreign_key "articles", "time_periods"
   add_foreign_key "articles", "users"
   add_foreign_key "authors", "articles"
   add_foreign_key "authors", "users"
