@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
   # belongs_to :user
   belongs_to :article_type
+  belongs_to :time_period
   has_many :reviews
   has_many :likes
   has_many :participations

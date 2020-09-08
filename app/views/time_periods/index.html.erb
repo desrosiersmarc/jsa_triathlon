@@ -1,0 +1,33 @@
+<h3>Hello Time Period Index</h3>
+<% @time_period_parents.each do |parent| %>
+  <%= link_to time_period_path(parent.id) do %>
+    <h3>
+      <%= parent.name%> -
+      <%= TimePeriod.find(parent.id).children.map{|e| e.articles.count}.sum %>
+    </h3>
+  <% end %>
+  <%parent.children.each do |child| %>
+    <%= link_to time_period_path(child.id) do %>
+      <% if child.articles.count != 0 %>
+        <p>
+          <%= child.name %> -
+          <%= child.articles.count %>
+        </p>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+      <% @time_period_articles.each do |article| %>
+        <% if article.active %>
+          <div class="col-xs-12 col-md-4">
+            <%= render 'pages/homepage_card_template', {article: article} %>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>
+
+

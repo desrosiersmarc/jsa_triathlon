@@ -281,7 +281,7 @@
       "widget": null,
       "validations": []
     }, {
-      "field": "time_period_id",
+      "field": "time_period",
       "type": "Number",
       "default_value": null,
       "enums": null,
@@ -291,8 +291,9 @@
       "is_required": false,
       "is_sortable": true,
       "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
+      "reference": "TimePeriod.id",
+      "inverse_of": "articles",
+      "relationship": "BelongsTo",
       "widget": null,
       "validations": []
     }, {
@@ -2092,6 +2093,22 @@
         "type": "is like",
         "value": "/^[0-9]+(/[0-9]+)*$/"
       }]
+    }, {
+      "field": "articles",
+      "type": ["Number"],
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": false,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "Article.id",
+      "inverse_of": "time_period",
+      "relationship": "HasMany",
+      "widget": null,
+      "validations": []
     }],
     "segments": [],
     "actions": []

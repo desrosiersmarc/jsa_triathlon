@@ -1,0 +1,44 @@
+<div class="navbar-period">
+  <% @time_period_parents.each do |parent| %>
+  <%= link_to time_period_path(parent.id) do %>
+    <div class="navbar-period-text">
+      <%= parent.name%> -
+      <%= TimePeriod.find(parent.id).children.map{|e| e.articles.where(active: true).count}.sum %>
+    </div>
+  <% end %>
+  <%parent.children.each do |child| %>
+    <%= link_to time_period_path(child.id) do %>
+      <% if child.articles.count != 0 %>
+        <div class="navbar-period-text">
+          <%= child.name %> -
+          <%= child.articles.where(active: true).count %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
+
+  <div class="test">
+    <div class="container">
+      <div class="row">
+        <% if !@time_period.parent.nil? %>
+          <p>
+            <%= @time_period.parent.name %> - <%= @time_period.name %>
+          </p>
+        <% else %>
+          <div class="navbar-period-text">
+            <%= @time_period.name %>
+          </h1>
+        <% end %>
+
+        <% @time_period.articles.each do |article| %>
+            <% if article.active %>
+              <div class="col-xs-12 col-md-4">
+                <%= render 'pages/homepage_card_template', {article: article} %>
+              </div>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
