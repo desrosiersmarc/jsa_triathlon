@@ -31,7 +31,6 @@ gem 'letter_opener', group: :development
 gem 'gibbon'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
-gem 'ancestry'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
