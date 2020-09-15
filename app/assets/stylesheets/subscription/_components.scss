@@ -20,20 +20,20 @@ table {
 }
 
 .total-top{
-  border-top: solid 4px #639EF5;
-  border-right: solid 4px #639EF5;
-  border-left: solid 4px #639EF5;
+  border-top: solid 4px $blue-md;
+  border-right: solid 4px $blue-md;
+  border-left: solid 4px $blue-md;
 }
 
 .total-middle {
-  border-right: solid 4px #639EF5;
-  border-left: solid 4px #639EF5;
+  border-right: solid 4px $blue-md;
+  border-left: solid 4px $blue-md;
 }
 
 .total-bottom {
-  border-right: solid 4px #639EF5;
-  border-left: solid 4px #639EF5;
-  border-bottom: solid 4px #639EF5;
+  border-right: solid 4px $blue-md;
+  border-left: solid 4px $blue-md;
+  border-bottom: solid 4px $blue-md;
   height: 50px;
 }
 .logo-width {
@@ -56,16 +56,23 @@ li {
 .visit-card-img{
   width: 50px;
   border-radius: 25px;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
 }
 
 .visit-card{
-  border: solid 1px #E5E5E5;;
+  border: solid 1px $blue-md;
   border-radius: 5px;
   padding: 10px;
-  background-color: #FBFBFC;
+  background-color: $blue-md;
   position: relative;
+  color: $white;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+  a {
+    color: $white;
+  }
   i {
-    color: #639EF5;
+    color: $white;
   }
 }
 .visit-card-name{
