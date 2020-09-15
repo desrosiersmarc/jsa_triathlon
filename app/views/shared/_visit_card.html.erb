@@ -18,7 +18,7 @@
     </div>
     <div class="visit-card-phone">
       <i class="fas fa-mobile-alt"></i>
-      <a href="tel:<%= contact.mobil_phone %>" class=""><%= contact.mobil_phone %></a>
+      <a href="tel:<%= contact.mobil_phone %>" class=""><%= contact.mobil_phone.scan(/../).join("-")%></a>
     </div>
   </div>
 </div>
