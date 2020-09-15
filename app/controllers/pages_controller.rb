@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!,
                       only: [:home, :calendar, :club_events, :results,
-                        :contests, :tricross]
+                        :contests, :tricross, :subscription]
   before_action :select_contests, only: [:home, :contests, :list_dates]
   before_action :select_club_events, only: [:home, :club_events]
   before_action :select_school, only: [:home, :school]
@@ -54,6 +54,11 @@ class PagesController < ApplicationController
   def divers
     @divers = select_articles(9,365).reverse
   end
+
+  def subscription
+    @contactables = User.where(contactable: true)
+  end
+
 
 private
   def select_articles(article_type, nb_days)

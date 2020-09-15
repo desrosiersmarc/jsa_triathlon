@@ -92,16 +92,17 @@
         </table>
         <ul>
           <li>(1) La licence « SANS ENTRAINEMENTS » ne permet pas l’accès à l’ensemble des créneaux CLUB.</li>
-          <li>Remise de 10% à partir du 2e licenciés de la même famille.</li>
+          <li>Remise de 10% (sur le total) à partir du 2e licenciés de la même famille.</li>
           <li>Pénalité de Retard en cas de dépassement de la date limite de dépôt des dossiers = 30€</li>
           <li>Licence offerte pour les éducateurs bénévoles permanents (mini 1 intervention par semaine).</li>
           <li>Licence offerte pour les arbitres + prise en charge des frais de déplacement.</li>
           <li>Remise de 20% pour les renouvellements avec le code PROMO COVID 2020 !! (Cumulable avec la remise famille).</li>
         </ul>
-        MODALITES ADHESION AU CLUB :
+        <h4>MODALITES ADHESION AU CLUB :</h4>
+        <h5>1ère adhésion :</h5>
         <ul>
           <li>
-            Inscription ou renouvellement en ligne sur le site : fftri.com
+            Inscription en ligne sur le site : <a href="https://espacetri.fftri.com/" target="_blank">fftri.com</a> (à imprimer et signer) ou formulaire « licence FFtri » renseigné signé
           </li>
           <li>
             le formulaire de demande d'entrée à Nautilis (1 seul par personne, même s'il y en a 2 dans le fichier) + 1 photo
@@ -110,27 +111,30 @@
             un certificat médical de non contre-indication de la pratique du Sport en compétition,
           </li>
           <li>
-            le réglement par chèque
+            le règlement par chèque
           </li>
           <li>
-            MERCI de prendre le temps de compléter vos dossiers pour une validation dans les temps !
+            pour les mineurs, la Charte école de triathlon signée par les parents
+          </li>
+        </ul>
+        <h5>Renouvellement :</h5>
+        <ul>
+          <li>
+            Inscription en ligne sur le site : <a href="https://espacetri.fftri.com/" target="_blank">fftri.com</a> (à imprimer et signer)
+          </li>
+          <li>
+            Le formulaire de demande d'entrée à Nautilis (1 seul par personne, même s'il y en a 2 dans le fichier) + la carte Nautilis
+          </li>
+          <li>
+            Tous les 3 ans, un certificat médical de non contre-indication de la pratique du Sport en compétition
+          </li>
+          <li>
+            le règlement par chèque
           </li>
         </ul>
 
-
-
         <div class="col-xs-12 col-sm-3">
-          <a href="https://res.cloudinary.com/dmbf8fog4/image/upload/v1567667847/JSA%20Triathlon/2020-Formalite%CC%81s_d_adhe%CC%81sions.pdf" target="_blank">
-            <div class="download-card">
-              Formalités d'adhésion club
-              <div class="download-card-arrow">
-                <i class="fas fa-arrow-alt-circle-down"></i>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-xs-12 col-sm-3">
-          <a href="https://res.cloudinary.com/dmbf8fog4/image/upload/v1567667847/JSA%20Triathlon/2020-JSA_Nautilis.pdf" target="_blank">
+          <a href="https://res.cloudinary.com/dmbf8fog4/image/upload/v1599828184/JSA%20Triathlon/JSA_Nautilis_2020-21.pdf" target="_blank">
             <div class="download-card">
               Formulaire Nautilis
               <div class="download-card-arrow">
@@ -150,6 +154,17 @@
           </div>
           </a>
         </div>
+        <div class="col-xs-12 col-sm-3">
+          <a href="https://res.cloudinary.com/dmbf8fog4/image/upload/v1599829411/JSA%20Triathlon/certificat_medical_mod%C3%A8le.pdf" target="_blank">
+            <div class="download-card">
+              Certificat médical
+              <div class="download-card-arrow">
+                <i class="fas fa-arrow-alt-circle-down"></i>
+              </div>
+          </div>
+          </a>
+        </div>
+
         <div class="col-xs-12 col-sm-3">
           <a href="https://res.cloudinary.com/dmbf8fog4/image/upload/v1567667847/JSA%20Triathlon/2020-Re%CC%80glement-JSATri.pdf" target="_blank">
             <div class="download-card">
@@ -172,34 +187,19 @@
             M. HASCOET Jean-François – 75, Rue Lautrette, Apt 14 - 16000 ANGOULEME
           </li>
           <li>
-            <a href="mailto:jsa.triathlon@gmail.com" class="btn btn-info">
+            <a href="mailto:jsa.triathlon@gmail.com" class="">
               jsa.triathlon@gmail.com
             </a>
           </li>
         </ul>
-        <p>
-        </p>
-        <p>
-        </p>
-        <p>
-        </p>
 
         <p>
           Si vous avez des questions d'ordre sportif, vous pouvez contactez  :
         </p>
-        <p>
-          Alexis Bonneau (Responsable Commission Sportive) :
-          <a href="mailto:alexisbonneau@gmail.com" class="btn btn-info">alexisbonneau@gmail.com</a>
-          ou
-          <a href="tel:0650487911" class="btn btn-info">06-50-48-79-11</a>
-        </p>
-        <p>
-          William Boucard (Président) :
-          <a href="mailto:wboucard@aol.com" class="btn btn-info">wboucard@aol.com</a>
-          ou
-          <a href="tel:0699823701" class="btn btn-info">06-99-82-37-01</a>
-        </p>
 
+        <% @contactables.each do |contact| %>
+          <%= render 'shared/visit_card', {contact: contact} %>
+        <% end %>
       </div>
     </div>
   </div>
