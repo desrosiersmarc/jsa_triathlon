@@ -187,7 +187,7 @@
             M. HASCOET Jean-François – 75, Rue Lautrette, Apt 14 - 16000 ANGOULEME
           </li>
           <li>
-            <a href="mailto:jsa.triathlon@gmail.com" class="btn btn-info">
+            <a href="mailto:jsa.triathlon@gmail.com" class="">
               jsa.triathlon@gmail.com
             </a>
           </li>
@@ -196,39 +196,10 @@
         <p>
           Si vous avez des questions d'ordre sportif, vous pouvez contactez  :
         </p>
-        <div class="col-xs-12 col-sm-4">
-          <div class="contact-card">
-            <div class="contact-card-name">
-              Alexis Bonneau (Responsable Commission Sportive) :
-            </div>
-            <div class="contact-card-photo">
-              <img src="<%= helper_user_picture( User.where(lastname: 'Bonneau').first) %>" alt="" class="contact-card-img">
-            </div>
-            <div class="contact-card-mail">
-              <a href="mailto:alexisbonneau@gmail.com" class="btn btn-info">alexisbonneau@gmail.com</a>
-            </div>
-            <div class="contact-card-phone">
-              <a href="tel:0650487911" class="btn btn-info">06-50-48-79-11</a>
-            </div>
-          </div>
-        </div>
-        <p>
-          Fabrice Rusig (Secrétaire) :
-          <p>
-            <a href="mailto:fabrice.rusig@ingeliance.com" class="btn btn-info">fabrice.rusig@ingeliance.com</a>
-            ou
-            <a href="tel:0630980620" class="btn btn-info">06-30-98-06-20</a>
-          </p>
-        </p>
-        <p>
-          William Boucard (Président) :
-          <p>
-            <a href="mailto:wboucard@aol.com" class="btn btn-info">wboucard@aol.com</a>
-            ou
-            <a href="tel:0699823701" class="btn btn-info">06-99-82-37-01</a>
-          </p>
-        </p>
 
+        <% @contactables.each do |contact| %>
+          <%= render 'shared/visit_card', {contact: contact} %>
+        <% end %>
       </div>
     </div>
   </div>

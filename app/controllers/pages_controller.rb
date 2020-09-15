@@ -55,6 +55,11 @@ class PagesController < ApplicationController
     @divers = select_articles(9,365).reverse
   end
 
+  def subscription
+    @contactables = User.where(contactable: true)
+  end
+
+
 private
   def select_articles(article_type, nb_days)
     articles = Article.where(article_type: article_type, active: true)

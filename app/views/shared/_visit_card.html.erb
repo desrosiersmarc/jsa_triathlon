@@ -1,0 +1,24 @@
+<div class="col-xs-12 col-sm-4">
+  <div class="visit-card">
+    <div class="visit-card-name">
+      <div><%= contact.firstname %></div>
+      <div><%= contact.lastname %></div>
+    </div>
+    <!-- add role -->
+    <div class="visit-card-photo">
+      <img src="<%= helper_user_picture(contact) %>" alt="" class="visit-card-img">
+    </div>
+    <div class="visit-card-role">
+      <i class="fas fa-user-tag"></i>
+      <%= contact.role %>
+    </div>
+    <div class="visit-card-mail">
+      <i class="fas fa-envelope"></i>
+      <a href="mailto:<%= contact.email %>" class=""><%= contact.email %></a>
+    </div>
+    <div class="visit-card-phone">
+      <i class="fas fa-mobile-alt"></i>
+      <a href="tel:<%= contact.mobil_phone %>" class=""><%= contact.mobil_phone %></a>
+    </div>
+  </div>
+</div>

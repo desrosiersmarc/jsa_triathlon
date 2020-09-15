@@ -53,7 +53,23 @@ li {
   list-style-image: url("https://res.cloudinary.com/dmbf8fog4/image/upload/c_scale,w_15/v1555969918/JSA%20Triathlon/logo.jpg")
 }
 
-.contact-card-img{
+.visit-card-img{
   width: 50px;
   border-radius: 25px;
+}
+
+.visit-card{
+  border: solid 1px #E5E5E5;;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #FBFBFC;
+  position: relative;
+  color: #639EF5;
+  a {
+    color: #639EF5;
+  }
+}
+.visit-card-name{
+  position: absolute;
+  left: 70px;
 }
