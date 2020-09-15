@@ -63,16 +63,17 @@ li {
   border: solid 1px $blue-md;
   border-radius: 5px;
   padding: 10px;
-  background-color: $blue-md;
+  background-color: #639ef51c;
   position: relative;
-  color: $white;
+  color: $blue-md;
   box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
   margin-bottom: 30px;
+  min-height: 160px;
   a {
-    color: $white;
+    color: $blue-md;
   }
   i {
-    color: $white;
+    color: $blue-md;
   }
 }
 .visit-card-name{
