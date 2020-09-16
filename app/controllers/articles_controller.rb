@@ -38,6 +38,8 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article.update(send_email: false)
+    @article.update(send_email_admin: false)
     @reviews = @article.reviews.where('content != ?', '')
                                 .sort_by {|review| review.created_at}
                                 .reverse
@@ -189,7 +191,6 @@ private
         DiversMailer.divers_article(@users, @article).deliver_later
       else
         UserMailer.article(@users, @article).deliver_later
-
       end
   end
 
