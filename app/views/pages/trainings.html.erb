@@ -1,13 +1,28 @@
-<div class="strava-iframe">
-  <iframe allowtransparency frameborder='0' height='160' scrolling='no' src='https://www.strava.com/clubs/197315/latest-rides/8da01a7ca665b313db51e3ace8814d782e71112f?show_rides=false' width='300'></iframe>
+<div class="container">
+  <div class="row">
+    <div id="calendar">
+      <h3>Calendrier des séances avec lieux et coachs</h3>
+      <%= render 'google_calendar' %>
+    </div>
+  </div>
 </div>
 <div class="container">
   <div class="row">
-    <h3>Liste de tous les entraînements</h3>
-    <% @trainings.each do |training| %>
-      <div class="col-xs-12 col-sm-4">
-        <%= render 'homepage_card_template', article: training %>
-      </div>
-    <% end %>
+    <div id="typical_session">
+      <h3>Planning type des différentes séances</h3>
+      <img src="https://cdn.shopify.com/s/files/1/0101/2792/products/Under_Construction_copy_600x600_crop_center.jpg?v=1569104295" alt="">
+    </div>
+
+    <div id="week_session">
+      <h3>Liste des séances de la semaine</h3>
+      <% @week_articles.each do |training| %>
+        <div class="col-xs-12 col-sm-4">
+          <%= render 'homepage_card_template', article: training %>
+        </div>
+      <% end %>
+    </div>
   </div>
+</div>
+<div class="strava-iframe" id="strava">
+  <iframe allowtransparency frameborder='0' height='267' scrolling='no' src='https://www.strava.com/clubs/197315/latest-rides/8da01a7ca665b313db51e3ace8814d782e71112f?show_rides=false' width='500'></iframe>
 </div>
