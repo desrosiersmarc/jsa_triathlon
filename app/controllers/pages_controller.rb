@@ -43,7 +43,8 @@ class PagesController < ApplicationController
   end
 
   def trainings
-    @trainings = select_articles(2,365).reverse
+    # @trainings = select_articles(2,365).reverse
+    @week_articles = select_week_articles(2)
   end
 
   def contests
@@ -70,6 +71,19 @@ private
     else
       return articles
     end
+  end
+
+  def select_week_articles(article_type)
+    # Collect today date and day of the week
+    week_day = Time.now.wday
+    # Calculate the difference between today and the monday of the week and the sunday
+    week_monday = Time.now-week_day.day
+    week_sunday = Time.now+(7-week_day).day
+    # Select articles between the monday and the sunday
+    week_articles = Article.where(article_type: article_type, active: true)
+                           .where('date > ?', week_monday)
+                           .where('date <= ?', week_sunday)
+                           .sort_by {|article| article.date}
   end
 
   def select_articles_homepage(article_type)

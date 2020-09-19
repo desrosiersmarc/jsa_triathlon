@@ -28,9 +28,30 @@
         </ul>
       </div>
     </div>
+
+
     <%= link_to "Inscription", subscription_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <div class="navbar-wagon-it">
+      <div class="dropdown">
+        <div class="dropdown-toggle navbar-wagon-item navbar-wagon-link" id="navbar-wagon-menu" data-toggle="dropdown">Entrainements</div>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li>
+            <%= link_to "Plannings", trainings_path(anchor: 'calendar'), class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+          <li>
+            <%= link_to "Séances types", trainings_path(anchor: 'typical_session'), class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+          <li>
+            <%= link_to "Cette semaine", trainings_path(anchor: 'week_session'), class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+          <li>
+            <%= link_to "Strava du club", trainings_path(anchor: 'strava'), class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+        </ul>
+      </div>
+    </div>
     <%#= link_to "Planning", calendar_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Entrainements", trainings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%#= link_to "Entrainements", trainings_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%#= link_to "Tricross", tricross_path, class: "navbar-wagon-item navbar-wagon-link"  %>
     <%#= link_to "Evénements du club", club_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%#= link_to "Tenues", sportswears_path, class: "navbar-wagon-item navbar-wagon-link" %>
