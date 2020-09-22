@@ -39,7 +39,8 @@ class ClubsController < ApplicationController
     @users_to_display = User.where(display_profil: true).where(member: true)
     @users = @users_to_display.sort_by { |member| member.lastname.upcase}
     @office_members = @users_to_display.where(office_member: true).sort_by { |member| member.lastname}
-    @coachs = @users_to_display.where(coach: true).sort_by { |member| member.lastname}
+    @coachs = @users_to_display.where(coach: true)
+                               .sort_by { |member| member.firstname}
   end
 
   def finances
