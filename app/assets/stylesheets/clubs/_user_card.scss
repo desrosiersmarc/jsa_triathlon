@@ -44,3 +44,26 @@
     background-color: $red;
   }
 }
+
+.user-card-sport-icon-content{
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-card-sport-icon{
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgba(0,0,0,0.2);
+    color:#ffffff9c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+
+}

@@ -15,5 +15,24 @@
       </div>
     </a>
   <% end %>
+  <% if user.coach %>
+    <div class="user-card-sport-icon-content">
+      <% if user.skill_swim %>
+        <div class="user-card-sport-icon">
+          <i class="fas fa-swimmer fa-lg"></i>
+        </div>
+      <% end %>
+      <% if user.skill_bike %>
+        <div class="user-card-sport-icon">
+          <i class="fas fa-biking fa-lg"></i>
+        </div>
+      <% end %>
+      <% if user.skill_run %>
+        <div class="user-card-sport-icon">
+          <i class="fas fa-running fa-lg"></i>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
 </div>
