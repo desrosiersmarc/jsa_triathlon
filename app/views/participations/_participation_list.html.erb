@@ -1,6 +1,5 @@
 <div  id="participation-list">
   <b>Membres participants :</b>
-  <i class="fas fa-hard-hat"></i>
   <div class="participation-user-list">
     <% @article.participations.each do |participation| %>
       <%= render 'shared/user_picture', {user: participation.user } %>
