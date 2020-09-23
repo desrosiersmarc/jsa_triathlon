@@ -2435,7 +2435,7 @@
       "validations": []
     }, {
       "field": "skill_swim",
-      "type": "String",
+      "type": "Boolean",
       "default_value": null,
       "enums": null,
       "integration": null,
@@ -2450,7 +2450,7 @@
       "validations": []
     }, {
       "field": "skill_bike",
-      "type": "String",
+      "type": "Boolean",
       "default_value": null,
       "enums": null,
       "integration": null,
@@ -2465,7 +2465,7 @@
       "validations": []
     }, {
       "field": "skill_run",
-      "type": "String",
+      "type": "Boolean",
       "default_value": null,
       "enums": null,
       "integration": null,
