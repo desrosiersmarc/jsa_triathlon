@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   resources :pictures, only: [:index, :new, :create, :show, :edit, :update]
   #TODO create update method
+
+  resources :users
   resources :dashboards, only: [:index]
   resources :articles do
     resources :reviews, only: [:new, :create]
