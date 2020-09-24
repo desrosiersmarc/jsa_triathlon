@@ -1,0 +1,37 @@
+<% if admin? %>
+  <div class="container">
+    <div class="row">
+      <%= link_to users_path do %>
+      <i class="fas fa-arrow-left"></i>
+      Liste des membres
+      <% end %>
+      <%= simple_form_for @user do |f| %>
+        <%= f.error_notification %>
+        <h3>
+          <%= @user.firstname %> <%= @user.lastname %>
+        </h3>
+          <%#= f.input :email %>
+          <%#= f.input :firstname %>
+          <%#= f.input :lastname %>
+          <%#= f.input :birthday %>
+          <%#= f.input :mobil_phone %>
+          <%#= f.input :role %>
+          <%= f.input :profil, label: 'Description affichée sous la photo de profil' %>
+          <div class="user-check">
+            <%= f.input :office_member, label: 'Membre du bureau ?' %>
+            <%= f.input :coach, label: 'Coach ?' %>
+            <%= f.input :display_profil, label: 'Afficher le profil ?' %>
+            <%= f.input :member, label: 'Membre ?' %>
+            <%#= f.input :notification, label: 'Accepte les notifications ?' %>
+            <%#= f.input :mailing_group %>
+            <%#= f.input :strava_profil %>
+            <%= f.input :contactable, label: 'Apparait sur le site comme contactable ?' %>
+            <%= f.input :skill_swim, label: 'Coach natation ?' %>
+            <%= f.input :skill_bike, label: 'Coach vélo ?' %>
+            <%= f.input :skill_run, label: 'Coach course à pied' %>
+          </div>
+          <%= f.submit 'Mettre à jour le membre', class: 'btn btn-danger btn-block' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
