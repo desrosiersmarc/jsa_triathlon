@@ -9,7 +9,7 @@ before_action :find_user, only: [:update, :edit]
 
   def update
     @user.update(user_params)
-    if @user.save}
+    if @user.save
       redirect_to edit_user_path(@user)
     else
       render :edit
