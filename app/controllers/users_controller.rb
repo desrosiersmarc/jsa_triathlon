@@ -4,7 +4,7 @@ before_action :find_user, only: [:update, :edit]
   def index
     @users = User.where(member: true)
                  .sort_by{|user| user.lastname}
-    @web_subscritpion_users = User.where("member = ? OR member =?", nil, false)
+    @web_subscritpion_users = User.where(member: nil)
   end
 
   def update
