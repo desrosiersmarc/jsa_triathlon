@@ -17,26 +17,35 @@
           <%#= f.input :mobil_phone %>
           <%#= f.input :role %>
           <div class="user-check">
-            compte créé le
-            <%= l(@user.created_at, format: '%d %B %Y') %>
+            <p>
+              compte créé le
+              <%= l(@user.created_at, format: '%d %B %Y') %>
+            </p>
+            <% if !@user.last_sign_in_at.nil? %>
+              <p>
+                dernière connexion le
+                <%= l(@user.last_sign_in_at, format: '%d %B %Y') %>
+              </p>
+            <% end %>
+
           </div>
           <div class="user-check">
-            <%= f.input :member, label: 'Membre ?' %>
-            <%= f.input :display_profil, label: 'Afficher le profil ?' %>
+            <%= f.input :member, label: 'Membre ?', as: :select %>
+            <%= f.input :display_profil, label: 'Afficher le profil ?', as: :select %>
           <%= f.input :profil, label: 'Description affichée sous la photo de profil' %>
           </div>
           <div class="user-check">
-            <%= f.input :office_member, label: 'Membre du bureau ?' %>
+            <%= f.input :office_member, label: 'Membre du bureau ?', as: :select %>
             <%#= f.input :notification, label: 'Accepte les notifications ?' %>
             <%#= f.input :mailing_group %>
             <%#= f.input :strava_profil %>
-            <%= f.input :contactable, label: 'Apparait sur le site comme contactable ?' %>
+            <%= f.input :contactable, label: 'Apparait sur le site comme contactable ?', as: :select %>
           </div>
           <div class="user-check">
-            <%= f.input :coach, label: 'Coach ?' %>
-            <%= f.input :skill_swim, label: 'Coach natation ?' %>
-            <%= f.input :skill_bike, label: 'Coach vélo ?' %>
-            <%= f.input :skill_run, label: 'Coach course à pied ?' %>
+            <%= f.input :coach, label: 'Coach ?', as: :select %>
+            <%= f.input :skill_swim, label: 'Coach natation ?', as: :select %>
+            <%= f.input :skill_bike, label: 'Coach vélo ?', as: :select %>
+            <%= f.input :skill_run, label: 'Coach course à pied ?', as: :select %>
           </div>
           <%= f.submit 'Mettre à jour le membre', class: 'btn btn-danger btn-block' %>
       <% end %>
