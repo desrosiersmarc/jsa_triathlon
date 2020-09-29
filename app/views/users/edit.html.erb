@@ -16,19 +16,27 @@
           <%#= f.input :birthday %>
           <%#= f.input :mobil_phone %>
           <%#= f.input :role %>
+          <div class="user-check">
+            compte créé le
+            <%= l(@user.created_at, format: '%d %B %Y') %>
+          </div>
+          <div class="user-check">
+            <%= f.input :member, label: 'Membre ?' %>
+            <%= f.input :display_profil, label: 'Afficher le profil ?' %>
           <%= f.input :profil, label: 'Description affichée sous la photo de profil' %>
+          </div>
           <div class="user-check">
             <%= f.input :office_member, label: 'Membre du bureau ?' %>
-            <%= f.input :coach, label: 'Coach ?' %>
-            <%= f.input :display_profil, label: 'Afficher le profil ?' %>
-            <%= f.input :member, label: 'Membre ?' %>
             <%#= f.input :notification, label: 'Accepte les notifications ?' %>
             <%#= f.input :mailing_group %>
             <%#= f.input :strava_profil %>
             <%= f.input :contactable, label: 'Apparait sur le site comme contactable ?' %>
+          </div>
+          <div class="user-check">
+            <%= f.input :coach, label: 'Coach ?' %>
             <%= f.input :skill_swim, label: 'Coach natation ?' %>
             <%= f.input :skill_bike, label: 'Coach vélo ?' %>
-            <%= f.input :skill_run, label: 'Coach course à pied' %>
+            <%= f.input :skill_run, label: 'Coach course à pied ?' %>
           </div>
           <%= f.submit 'Mettre à jour le membre', class: 'btn btn-danger btn-block' %>
       <% end %>

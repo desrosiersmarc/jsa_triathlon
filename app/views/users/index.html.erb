@@ -1,7 +1,11 @@
 <% if admin? %>
   <div class="container">
     <div class="row">
-      <h3>Liste des inscritpions sur le web</h3>
+      <h3>
+        Liste des inscriptions directes sur le web
+        - <%= @web_subscritpion_users.length %>
+
+        </h3>
       <% @web_subscritpion_users.each do |new_user| %>
         <%= render 'user_bo_card', {user: new_user} %>
       <% end %>
@@ -11,7 +15,9 @@
       <% @alpha_letters.each do |letter| %>
         <% user_by_letter(letter) %>
         <% if @user_by_letter.length!=0 %>
-          <h3><%=letter%></h3>
+          <div class="user-letter">
+            <%=letter%> - <%= @user_by_letter.count %>
+          </div>
           <div class="row">
             <% @user_by_letter.each do |user| %>
               <%= render 'user_bo_card', {user: user} %>
