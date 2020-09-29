@@ -1,0 +1,10 @@
+<div class="col-sm-4">
+  <%= link_to edit_user_path(user) do %>
+     <i class="far fa-edit"></i>
+  <% end %>
+  <%= user.lastname.upcase %>
+  <%= user.firstname %>
+  <% if !user.strava_profil.nil? %>
+    <i class="fab fa-strava"></i>
+  <% end %>
+</div>

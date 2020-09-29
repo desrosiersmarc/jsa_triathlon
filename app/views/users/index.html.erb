@@ -3,24 +3,22 @@
     <div class="row">
       <h3>Liste des inscritpions sur le web</h3>
       <% @web_subscritpion_users.each do |new_user| %>
-        <div class="col-sm-4">
-          <%= new_user.lastname %>
-          <%= new_user.firstname %>
-        </div>
+        <%= render 'user_bo_card', {user: new_user} %>
       <% end %>
     </div>
     <div class="row">
       <h3>Tous les membres</h3>
-      <% @users.each do |user| %>
-        <div class="col-sm-4">
-          <%= link_to edit_user_path(user) do %>
-            <i class="far fa-edit"></i>
-          <% end %>
-          <%= user.lastname.upcase %>
-          <%= user.firstname %>
-        </div>
+      <% @alpha_letters.each do |letter| %>
+        <% user_by_letter(letter) %>
+        <% if @user_by_letter.length!=0 %>
+          <h3><%=letter%></h3>
+          <div class="row">
+            <% @user_by_letter.each do |user| %>
+              <%= render 'user_bo_card', {user: user} %>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
-
     </div>
   </div>
 <% end %>

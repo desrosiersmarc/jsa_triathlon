@@ -2,9 +2,8 @@ class UsersController < ApplicationController
 before_action :find_user, only: [:update, :edit]
 
   def index
-    @users = User.where(member: true)
-                 .sort_by{|user| user.lastname}
     @web_subscritpion_users = User.where(member: nil)
+    @alpha_letters = ('A'..'Z').to_a
   end
 
   def update
@@ -15,6 +14,7 @@ before_action :find_user, only: [:update, :edit]
       render :edit
     end
   end
+
 private
   def find_user
     @user = User.find(params[:id])
@@ -42,4 +42,5 @@ private
       :skill_run)
 
   end
+
 end
