@@ -165,10 +165,12 @@ color: $gray;
   }
 }
 
-.overlay-user-picture {
-  opacity: 0;
-  transition: 1s ease;
-  background-color: rgba(255,255,255,0.6);
+
+.user-picture-name{
+  position: relative;
+  top:-50px;
+  visibility: hidden;
+  background-color: rgba(255,255,255,0.9);
   color:$gray;
   height: 50px;
   border-radius: 25px;
@@ -179,9 +181,10 @@ color: $gray;
   justify-content: center;
   border: 1px solid $gray-lighter;
   box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
-  &:hover {
-    opacity: 1;
-  }
 }
 
+
+.user-picture:hover .user-picture-name{
+  visibility: visible;
+}
 

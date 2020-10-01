@@ -1,6 +1,8 @@
 <div class="user-picture" style="background-image: url('<%= helper_user_picture(user) %>')">
-  <div class="overlay-user-picture">
-    <%= user.firstname %>
-    <%= user.lastname[0].upcase %>.
+  <div class="user-picture-name">
+    <span>
+      <%= user.firstname %>
+      <%= user.lastname[0].upcase %>
+    </span>
   </div>
 </div>
