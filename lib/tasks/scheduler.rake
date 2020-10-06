@@ -31,6 +31,18 @@ task :newsletter_md => :environment do
   end
 end
 
+task :product_check => :environment do
+  products = Product.where(active: true)
+                    .where(sold: false)
+                    .where('updated_at < ?', Time.now+3.month)
+  puts "Il y a #{products.count} produits à traiter"
+  products.each do |product|
+    user = User.find(product.user_id)
+    ProductMailer.active_product(user, product).deliver
+    product.update(active: false)
+  end
+end
+
 task :newsletter_bureau => :environment do
   if Time.now.strftime('%d').to_i == 30
     mailing_list_bureau = "pandry@laposte.net;

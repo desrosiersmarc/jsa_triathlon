@@ -1,0 +1,31 @@
+<%= render 'user_mailer/header' %>
+
+<P>Salut <%= @user.firstname %>,</P>
+<p>
+  Ton annonce <b> <%= @product.name %> </b> est en ligne depuis le <b><%= l(@product.created_at, format: '%d %B %Y') %></b> et n'a pas été modifiée depuis le <b><%= l(@product.updated_at, format: '%d %B %Y') %></b>.
+</p>
+<!-- Photo de l'article -->
+<div class="active-product-photo" >
+  <%= cl_image_tag(@product.photo, width: "50%") %>
+</div>
+
+
+<p>
+  Elle vient d'être désactivée mais si le produit est toujours en vente ou en location, tu peux mettre à jour ton annonce en cliquant sur le lien ci-dessous.
+</p>
+
+<a href=" <%='http://www.angouleme-triathlon.fr/products/' + "#{@product.id}" + "/edit"  %> " >
+  <div class="link-button-success article-content-link">
+    Cliquez ici pour accéder à l'annonce
+  </div>
+</a>
+
+<p>Il te suffit de cocher <b> "publier l'annonce" </b>sur le site pour activer à nouveau ton annonce pour 3 mois
+</p>
+
+<p>
+  En cas de besoin, n'hésites pas à me contacter.
+</p>
+<p>Marc</p>
+<%= render 'user_mailer/footer' %>
+

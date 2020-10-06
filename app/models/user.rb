@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :articles, through: :authors
   has_many :participations
   has_many :notifications
+  has_many :products
 
 
   validates :firstname, presence: true
