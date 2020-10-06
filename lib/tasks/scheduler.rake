@@ -34,6 +34,7 @@ end
 task :product_check => :environment do
   products = Product.where(active: true)
                     .where(sold: false)
+                    .where(product_type_id: 2)
                     .where('updated_at < ?', Time.now+3.month)
   puts "Il y a #{products.count} produits à traiter"
   products.each do |product|
@@ -42,6 +43,17 @@ task :product_check => :environment do
     product.update(active: false)
   end
 end
+
+task :product_sold => :environment do
+  products = Product.where(active: true)
+                    .where(sold: true)
+                    .where(product_type_id: 2)
+                    .where('updated_at < ?', Time.now-15.day)
+  products.each do |product|
+    product.update(active: false)
+  end
+end
+
 
 task :newsletter_bureau => :environment do
   if Time.now.strftime('%d').to_i == 30
