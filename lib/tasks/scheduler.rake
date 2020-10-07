@@ -35,7 +35,7 @@ task :product_check => :environment do
   products = Product.where(active: true)
                     .where(sold: false)
                     .where(product_type_id: 2)
-                    .where('updated_at < ?', Time.now+3.month)
+                    .where('updated_at < ?', Time.now-3.month)
   puts "Il y a #{products.count} produits à traiter"
   products.each do |product|
     user = User.find(product.user_id)
