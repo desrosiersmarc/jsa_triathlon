@@ -134,6 +134,7 @@ fr:
         lastname: Nom
         mobil_phone: Numéro de portable
         strava_profil: Lien vers le profil Strava
+        birthday: "Date anniversaire"
     unlocks:
       new:
         resend_unlock_instructions: Renvoyer les instructions de déblocage
