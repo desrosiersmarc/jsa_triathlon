@@ -21,3 +21,13 @@
   border: solid 1px red;
   border-radius: 3px;
 }
+
+.user-page-icon{
+  display: flex;
+  justify-content: center;
+  font-size: 150px;
+  color: $red;
+  align-items: center;
+  height: 300px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
