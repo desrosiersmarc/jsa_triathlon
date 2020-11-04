@@ -16,6 +16,7 @@
           <%#= f.input :birthday %>
           <%#= f.input :mobil_phone %>
           <%#= f.input :role %>
+          <h4>Informations de connexion(s) sur le site</h4>
           <div class="user-check">
             <p>
               compte créé le
@@ -27,25 +28,28 @@
                 <%= l(@user.last_sign_in_at, format: '%d %B %Y') %>
               </p>
             <% end %>
-
           </div>
+          <h4>Paramètres du compte</h4>
           <div class="user-check">
-            <%= f.input :member, label: 'Membre ?', as: :select %>
-            <%= f.input :display_profil, label: 'Afficher le profil ?', as: :select %>
-          <%= f.input :profil, label: 'Description affichée sous la photo de profil' %>
+            <%= f.input :member, label: 'Est ce que ce profil est membre du club ?', as: :select %>
+            <%= f.input :display_profil, label: 'Est ce que ce profil est affiché sur le site (page club) ?', as: :select %>
+            <%= f.input :profil, label: 'Description affichée sous la photo de profil (Membre par défaut)' %>
+            <%= f.input :notification, label: 'Est ce que le profil reçoit les mails (articles, newsletter... ?', as: :select %>
           </div>
+          <h4>Paramètres spécifiques pour les membres du bureau</h4>
           <div class="user-check">
-            <%= f.input :office_member, label: 'Membre du bureau ?', as: :select %>
+            <%= f.input :office_member, label: 'Est ce que ce membre est membre du bureau ?', as: :select %>
             <%#= f.input :notification, label: 'Accepte les notifications ?' %>
             <%#= f.input :mailing_group %>
             <%#= f.input :strava_profil %>
-            <%= f.input :contactable, label: 'Apparait sur le site comme contactable ?', as: :select %>
+            <%= f.input :contactable, label: 'Est ce que ce membre doit apparait sur le site comme contactable ? (page inscription)', as: :select %>
           </div>
+          <h4>Paramètres spécifiques pour les coachs</h4>
           <div class="user-check">
-            <%= f.input :coach, label: 'Coach ?', as: :select %>
-            <%= f.input :skill_swim, label: 'Coach natation ?', as: :select %>
-            <%= f.input :skill_bike, label: 'Coach vélo ?', as: :select %>
-            <%= f.input :skill_run, label: 'Coach course à pied ?', as: :select %>
+            <%= f.input :coach, label: 'Est ce membre est coach ? ', as: :select %>
+            <%= f.input :skill_swim, label: 'Natation ?', as: :select %>
+            <%= f.input :skill_bike, label: 'Vélo ?', as: :select %>
+            <%= f.input :skill_run, label: 'Course à pied ?', as: :select %>
           </div>
           <%= f.submit 'Mettre à jour le membre', class: 'btn btn-danger btn-block' %>
       <% end %>
