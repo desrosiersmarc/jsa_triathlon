@@ -75,9 +75,9 @@ module ApplicationHelper
   end
 
   def user_by_letter(letter)
-    @user_by_letter = User.where(member: true)
-                          .where('lastname like ?', "#{letter}%")
+    @user_by_letter = User.where('lastname like ?', "#{letter}%")
                           .sort_by{|user| user.lastname}
+
   end
 
 end
