@@ -4,9 +4,6 @@
   <% end %>
   <%= user.lastname.upcase %>
   <%= user.firstname %>
-  <% if !user.strava_profil.nil? %>
-    <i class="fab fa-strava"></i>
-  <% end %>
   <% if !user.member %>
     <i class="fas fa-user-alt-slash user-no-member"></i>
   <% end %>
