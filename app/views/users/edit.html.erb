@@ -31,25 +31,26 @@
           </div>
           <h4>Paramètres du compte</h4>
           <div class="user-check">
-            <%= f.input :member, label: 'Est ce que ce profil est membre du club ?', as: :select %>
-            <%= f.input :display_profil, label: 'Est ce que ce profil est affiché sur le site (page club) ?', as: :select %>
+            <b>Est ce que ce profil est ... ?</b>
+            <%= f.input :member, label: 'membre du club',  boolean_style: :inline %>
+            <%= f.input :display_profil, label: 'affiché sur le site (page club)',  boolean_style: :inline %>
+            <%= f.input :notification, label: 'abonné aux mails (articles, newsletter...)',  boolean_style: :inline %>
             <%= f.input :profil, label: 'Description affichée sous la photo de profil (Membre par défaut)' %>
-            <%= f.input :notification, label: 'Est ce que le profil reçoit les mails (articles, newsletter... ?', as: :select %>
           </div>
           <h4>Paramètres spécifiques pour les membres du bureau</h4>
           <div class="user-check">
-            <%= f.input :office_member, label: 'Est ce que ce membre est membre du bureau ?', as: :select %>
+            <%= f.input :office_member, label: 'Est ce que ce membre est membre du bureau ?',  boolean_style: :inline  %>
             <%#= f.input :notification, label: 'Accepte les notifications ?' %>
             <%#= f.input :mailing_group %>
             <%#= f.input :strava_profil %>
-            <%= f.input :contactable, label: 'Est ce que ce membre doit apparait sur le site comme contactable ? (page inscription)', as: :select %>
+            <%= f.input :contactable, label: 'Est ce que ce membre doit apparait sur le site comme contactable ? (page inscription)',  boolean_style: :inline %>
           </div>
           <h4>Paramètres spécifiques pour les coachs</h4>
           <div class="user-check">
-            <%= f.input :coach, label: 'Est ce membre est coach ? ', as: :select %>
-            <%= f.input :skill_swim, label: 'Natation ?', as: :select %>
-            <%= f.input :skill_bike, label: 'Vélo ?', as: :select %>
-            <%= f.input :skill_run, label: 'Course à pied ?', as: :select %>
+            <%= f.input :coach, label: 'Est ce que ce membre est coach ? ',  boolean_style: :inline  %>
+            <%= f.input :skill_swim, label: 'Natation ?',  boolean_style: :inline %>
+            <%= f.input :skill_bike, label: 'Vélo ?',  boolean_style: :inline %>
+            <%= f.input :skill_run, label: 'Course à pied ?',  boolean_style: :inline %>
           </div>
           <%= f.submit 'Mettre à jour le membre', class: 'btn btn-danger btn-block' %>
       <% end %>
