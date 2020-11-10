@@ -11,9 +11,11 @@
       <% end %>
     </div>
     <div class="row">
+
       <h3>
         Tous les membres - <%= @active_members.length %>
       </h3>
+
       <% @alpha_letters.each do |letter| %>
         <% user_by_letter(letter) %>
         <% if @user_by_letter.length!=0 %>
