@@ -3,7 +3,7 @@
   // justify-content: space-around;
   border: solid $red 1px;
   border-radius: 5px;
-  padding: 10px;
+  // padding: 10px;
   margin-bottom: 10px;
   background-color: $light-gray;
   box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
@@ -35,4 +35,61 @@
 .user-no-member {
   font-weight:bolder; ;
   color: $red;
+}
+
+.user-toogle{
+  padding: 10px 15px 10px 15px;
+  background-color: #FFF;
+}
+
+.user-toogle-content{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-toogle-title {
+  font-weight: bold;
+}
+
+.user-toogle-icon{
+  // margin-right: 50px;
+  font-size: 25px;
+  &-on{
+    color: $blue-md;
+  }
+  &-off{
+    color: $gray-silver;
+  }
+}
+
+.user-toogle-text {}
+
+.separation {
+  border-bottom: solid 2px $light-gray;
+  margin: 0 15px;
+}
+
+.user-toogle-text-icon {
+  color: $gray-silver;
+  font-size: 14px;
+  margin-right: 10px;
+}
+.user-toogle-text-and-icon {
+  display:flex;
+}
+.user-toogle-input-text{
+  display:flex;
+}
+
+.user-toogle-header{
+  background-color: $light-gray;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+}
+.user-toogle-name{
+  text-align: center;
+  min-height: 100px;
+  font-size: 30px;
+  font-weight: bolder;
 }
