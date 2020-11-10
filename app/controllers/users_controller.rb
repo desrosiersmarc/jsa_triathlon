@@ -3,6 +3,7 @@ before_action :find_user, only: [:update, :edit]
 
   def index
     @web_subscritpion_users = User.where(member: nil)
+    @active_members = User.where(member: true)
     @alpha_letters = ('A'..'Z').to_a
   end
 
