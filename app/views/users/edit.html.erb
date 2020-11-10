@@ -1,59 +1,194 @@
 <% if admin? %>
   <div class="container">
-    <div class="row">
-      <%= link_to users_path do %>
+    <%= link_to users_path do %>
       <i class="fas fa-arrow-left"></i>
       Liste des membres
-      <% end %>
-      <%= simple_form_for @user do |f| %>
-        <%= f.error_notification %>
-        <h3>
-          <%= @user.firstname %> <%= @user.lastname %>
-        </h3>
-          <%#= f.input :email %>
-          <%#= f.input :firstname %>
-          <%#= f.input :lastname %>
-          <%#= f.input :birthday %>
-          <%#= f.input :mobil_phone %>
-          <%#= f.input :role %>
-          <h4>Informations de connexion(s) sur le site</h4>
-          <div class="user-check">
+    <% end %>
+    <div class="user-toogle-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="user-toogle-name">
             <p>
-              compte créé le
+              <%= @user.firstname %>
+            </p>
+            <p>
+              <%= @user.lastname %>
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="">
+            <p>
+              <i class="far fa-calendar-alt"></i>
+              Compte créé le
               <%= l(@user.created_at, format: '%d %B %Y') %>
             </p>
             <% if !@user.last_sign_in_at.nil? %>
               <p>
-                dernière connexion le
+                <i class="fas fa-sign-in-alt"></i>
+                Dernière connexion le
                 <%= l(@user.last_sign_in_at, format: '%d %B %Y') %>
               </p>
             <% end %>
+            <% if !@user.sign_in_count.nil? %>
+              <p>
+                <i class="fas fa-file-contract"></i>
+                <%=@user.sign_in_count%> connexion(s) depuis la création du compte
+              </p>
+            <% end %>
           </div>
-          <h4>Paramètres du compte</h4>
-          <div class="user-check">
-            <b>Est ce que ce profil est ... ?</b>
-            <%= f.input :member, label: 'membre du club',  boolean_style: :inline %>
-            <%= f.input :display_profil, label: 'affiché sur le site (page club)',  boolean_style: :inline %>
-            <%= f.input :notification, label: 'abonné aux mails (articles, newsletter...)',  boolean_style: :inline %>
-            <%= f.input :profil, label: 'Description affichée sous la photo de profil (Membre par défaut)' %>
+        </div>
+
+      </div>
+    </div>
+    <div class="row"></div>
+      <h4>PARAMETRES DU COMPTE</h4>
+      <div class="user-toogle">
+        <div class="user-toogle-content">
+          <div class="user-toogle-title">
+            Membre
           </div>
-          <h4>Paramètres spécifiques pour les membres du bureau</h4>
-          <div class="user-check">
-            <%= f.input :office_member, label: 'Est ce que ce membre est membre du bureau ?',  boolean_style: :inline  %>
-            <%#= f.input :notification, label: 'Accepte les notifications ?' %>
-            <%#= f.input :mailing_group %>
-            <%#= f.input :strava_profil %>
-            <%= f.input :contactable, label: 'Est ce que ce membre doit apparait sur le site comme contactable ? (page inscription)',  boolean_style: :inline %>
+          <%= render 'form_toogle_input', {info_value: 'member'} %>
+        </div>
+        <div class="user-toogle-text">
+          En activant ce paramètre, le profil intègre les options possibles d'affichage sur le site (si l'option affichage est activée).
+        </div>
+      </div>
+
+      <div class="separation"></div>
+
+      <div class="user-toogle">
+        <div class="user-toogle-content">
+          <div class="user-toogle-title">
+            Apparait sur le site
           </div>
-          <h4>Paramètres spécifiques pour les coachs</h4>
-          <div class="user-check">
-            <%= f.input :coach, label: 'Est ce que ce membre est coach ? ',  boolean_style: :inline  %>
-            <%= f.input :skill_swim, label: 'Natation ?',  boolean_style: :inline %>
-            <%= f.input :skill_bike, label: 'Vélo ?',  boolean_style: :inline %>
-            <%= f.input :skill_run, label: 'Course à pied ?',  boolean_style: :inline %>
+          <%= render 'form_toogle_input', {info_value: 'display_profil'} %>
+        </div>
+        <div class="user-toogle-text">
+          Si le profil est activé en tant que membre, cette option permet l'affichage sur la page du club.
+        </div>
+      </div>
+
+      <div class="separation"></div>
+
+      <div class="user-toogle">
+        <div class="user-toogle-content">
+          <div class="user-toogle-title">
+            Abonnement aux mails
           </div>
-          <%= f.submit 'Mettre à jour le membre', class: 'btn btn-danger btn-block' %>
-      <% end %>
+          <%= render 'form_toogle_input', {info_value: 'notification'} %>
+        </div>
+        <div class="user-toogle-text">
+          Permet la réception des emails sur les entrainements, les articles
+        </div>
+      </div>
+
+      <div class="separation"></div>
+
+      <div class="user-toogle">
+        <div class="user-toogle-title">
+          Description affichée sous la photo de profil
+        </div>
+        <div>
+          <%= simple_form_for @user do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :profil, label: false, input_html: {max_length: 20}, placeholder: 'Membre' %>
+            <div class="uer-toogle-text">
+              Saisir <b>Membre</b> pour les membres du club ou le libellé de la mission
+               pour les membres du bureau
+            </div>
+            <%= f.submit 'Mettre à jour la description', class: 'btn btn-primary btn-block' %>
+          <% end %>
+        </div>
+      </div>
+
+
+      <h4>BUREAU</h4>
+      <div class="user-toogle">
+        <div class="user-toogle-content">
+          <div class="user-toogle-title">
+            Membre du bureau
+          </div>
+          <%= render 'form_toogle_input', {info_value: 'office_member'} %>
+        </div>
+        <div class="user-toogle-text">
+          En activant cette option, le membre apparait également dans les membres du bureau. Penser à changer le libellé avec la mission dans le bureau
+        </div>
+      </div>
+
+      <div class="separation"></div>
+
+      <div class="user-toogle">
+        <div class="user-toogle-content">
+          <div class="user-toogle-title">
+            Contactable
+          </div>
+          <%= render 'form_toogle_input', {info_value: 'contactable'} %>
+        </div>
+        <div class="user-toogle-text">
+          Cette option permet l'affichage de ce membre du bureau sur la page inscription comme personne pouvant être contacté pour répondre aux questions.
+        </div>
+      </div>
+      <h4>COACH</h4>
+      <div class="separation"></div>
+
+      <div class="user-toogle">
+        <div class="user-toogle-content">
+          <div class="user-toogle-title">
+            Coach
+          </div>
+          <%= render 'form_toogle_input', {info_value: 'coach'} %>
+        </div>
+        <div class="user-toogle-text">
+          Cette option permet un affichage dans la liste des <b>coachs</b>, à compléter par les disciplines
+        </div>
+      </div>
+
+      <div class="separation"></div>
+
+      <div class="user-toogle">
+        <div class="user-toogle-content">
+          <div class="user-toogle-title">
+            Natation
+          </div>
+          <%= render 'form_toogle_input', {info_value: 'skill_swim'} %>
+        </div>
+        <div class="user-toogle-text">
+          Option permettant l'affichage du picto <b>natation</b> sur la photo du coach
+        </div>
+      </div>
+
+      <div class="separation"></div>
+
+      <div class="user-toogle">
+        <div class="user-toogle-content">
+          <div class="user-toogle-title">
+            Vélo
+          </div>
+          <%= render 'form_toogle_input', {info_value: 'skill_bike'} %>
+        </div>
+        <div class="user-toogle-text">
+          Option permettant l'affichage du picto <b>vélo</b> sur la photo du coach
+        </div>
+      </div>
+
+      <div class="separation"></div>
+
+      <div class="user-toogle">
+        <div class="user-toogle-content">
+          <div class="user-toogle-title">
+            Course à pied
+          </div>
+          <%= render 'form_toogle_input', {info_value: 'skill_run'} %>
+        </div>
+        <div class="user-toogle-text">
+          Option permettant l'affichage du picto <b>course à pied</b> sur la photo du coach
+        </div>
+      </div>
+
+      <div class="separation"></div>
+
+
     </div>
   </div>
 <% end %>

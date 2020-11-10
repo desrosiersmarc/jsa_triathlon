@@ -8,7 +8,7 @@
     </div>
     <div class="nl-toggle">
       <%= simple_form_for @newsletter, remote: true do |f|  %>
-        <div class="chekbox-hide">
+        <div class="checkbox-hide">
           <%= f.input :send_newsletter, label: false, input_html: {checked: !@newsletter.send_newsletter} %>
         </div>
         <%= button_tag(type: 'submit',class: 'button-remove-css') do %>

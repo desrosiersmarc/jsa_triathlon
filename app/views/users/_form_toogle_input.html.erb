@@ -1,0 +1,33 @@
+<%= simple_form_for @user, remote: false do |f| %>
+  <input name=<%= "user[#{info_value}]" %> type="hidden" value="0">
+  <div class="checkbox-hide">
+    <input class="form-check-input boolean optional"
+           type="checkbox"
+          value="1"
+          <% if !@user.send(info_value) %>
+            checked=""
+          <% end %>
+          name=<%= "user[#{info_value}]" %>
+          id=<%= "user_#{info_value}" %> >
+  </div>
+
+
+  <%= button_tag(type: 'submit', class: 'button-remove-css') do %>
+    <% if @user.send(info_value) %>
+      <div class="user-toogle-text-and-icon">
+        <div class="user-toogle-text-icon">
+          activé
+        </div>
+        <i class="fas fa-toggle-on user-toogle-icon user-toogle-icon-on"></i>
+
+      </div>
+    <% else %>
+      <div class="user-toogle-text-and-icon">
+        <div class="user-toogle-text-icon">
+          désactivé
+        </div>
+        <i class="fas fa-toggle-off user-toogle-icon user-toogle-icon-off"></i>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
