@@ -95,7 +95,7 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     ffi (1.13.1)
-    font-awesome-sass (5.0.13)
+    font-awesome-sass (5.6.1)
       sassc (>= 1.11)
     forest_liana (5.2.2)
       arel-helpers
@@ -323,7 +323,7 @@ DEPENDENCIES
   devise-i18n
   dotenv-rails
   faker
-  font-awesome-sass (~> 5.0.9)
+  font-awesome-sass (~> 5.6.1)
   forest_liana
   gibbon
   google-api-client
