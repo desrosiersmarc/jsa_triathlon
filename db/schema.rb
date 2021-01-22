@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210116173643) do
+ActiveRecord::Schema.define(version: 20210119074234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 20210116173643) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "abbreviation"
+  end
+
+  create_table "d3_contests", force: :cascade do |t|
+    t.datetime "date"
+    t.string "location"
+    t.bigint "contest_type_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contest_type_id"], name: "index_d3_contests_on_contest_type_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -226,6 +236,7 @@ ActiveRecord::Schema.define(version: 20210116173643) do
   add_foreign_key "authors", "articles"
   add_foreign_key "authors", "users"
   add_foreign_key "clubs", "users"
+  add_foreign_key "d3_contests", "contest_types"
   add_foreign_key "likes", "articles"
   add_foreign_key "likes", "users"
   add_foreign_key "notifications", "users"

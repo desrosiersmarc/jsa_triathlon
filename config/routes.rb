@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   resources :tests, only: [:index, :new, :create]
   resources :notifications, only: [:index, :edit, :update]
   resources :newsletters, only: [:index, :edit, :update]
+
+  resources :d3_contests
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   require "sidekiq/web"
   authenticate :user, lambda { |u| u.member } do
