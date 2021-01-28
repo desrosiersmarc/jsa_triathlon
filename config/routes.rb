@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get 'finances', to: 'clubs#finances'
   get 'impots', to: 'clubs#impots'
-
+  get 'la_division_3', to: 'd3_contests#division_3'
 
   # Google API test
   get '/redirect', to: 'calendar#redirect', as: 'redirect'

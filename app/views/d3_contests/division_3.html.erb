@@ -1,19 +1,18 @@
 <div class="container">
   <div class="row">
-    <p>
-      Tri lors de l'affichage des courses S, 1/2, F puis par date dans les différents types de course
-    </p>
+    <h4>Qu'est ce que c'est ?</h4>
+    <p>Le Championnat de France des clubs féminins et masculins de 3è Division de Triathlon se dispute sous la formule d’élimination directe sur 3 niveaux : Sélection régionale, Demi-Finale par zone (Nord, Nord-Est, Sud-Est, Sud-Ouest, Centre-Ouest) et finale. La Finale réunit l’ensemble des clubs qualifiés à l’issue de ½ finales de zone.</p>
 
-    <h2>
-      Courses division 3
-    </h2>
-    <div>
-      <%= link_to new_d3_contest_path do %>
-        <i class="fas fa-plus-circle"></i>
-        Créer une nouvelle course
-      <% end %>
-    </div>
-
+  <h4>Les équipes</h4>
+  <div class="col-xs-12 col-sm-12">
+    Equipes Femmes
+  </div>
+  <div class="col-xs-12 col-sm-12">
+    Equipes Hommes
+  </div>
+  <h4>
+    EPREUVES
+  </h4>
     <% @d3_contests.each do |d3_contest| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="d3-content">
@@ -38,10 +37,7 @@
             <%= l(d3_contest.date, format: '%d %B %Y') %>
           </div>
         </div>
-
       </div>
-
     <% end %>
   </div>
 </div>
-

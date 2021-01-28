@@ -21,6 +21,13 @@ class D3ContestsController < ApplicationController
   def edit
   end
 
+  def division_3
+    @d3_contests = D3Contest.where('date < ?', Date.civil(Time.now.year, 12,31))
+                            .where('date > ?', Date.civil(Time.now.year,1,1))
+                            .sort_by{ |contest| contest.date}
+
+  end
+
 private
   def d3_contest_params
     params.require(:d3_contest).permit(
