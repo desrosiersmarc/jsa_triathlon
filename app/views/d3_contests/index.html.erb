@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <p>
+      Tri lors de l'affichage des courses S, 1/2, F puis par date dans les différents types de course
+    </p>
+
+    <h2>
+      Courses division 3
+    </h2>
+    <div>
+      <%= link_to new_d3_contest_path do %>
+        <i class="fas fa-plus-circle"></i>
+        Créer une nouvelle course
+      <% end %>
+    </div>
+
+    <% @d3_contests.each do |d3_contest| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="d3-content">
+          <div class="d3-content-type">
+            <div class="d3-abbreviation">
+              <%= d3_contest.contest_type.abbreviation %>
+            </div>
+            <div class="d3-abbreviation-name">
+              <%= d3_contest.contest_type.name %>
+            </div>
+          </div>
+
+          <div class="d3-name">
+            <%= d3_contest.name %>
+          </div>
+          <div class="d3-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <%= d3_contest.location %>
+          </div>
+          <div class="d3-date">
+            <i class="fas fa-calendar-check"></i>
+            <%= l(d3_contest.date, format: '%d %B %Y') %>
+          </div>
+        </div>
+
+      </div>
+
+    <% end %>
+  </div>
+</div>
+

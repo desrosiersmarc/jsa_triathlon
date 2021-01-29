@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <h3>Créer une course D3</h3>
+    <%= link_to d3_contests_path do %>
+      <i class="fas fa-list"></i>
+      Liste des courses
+    <% end %>
+
+    <%= simple_form_for(@d3_contest) do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :name, label: 'Nom de la course' %>
+      <%= f.input :location, label: 'Lieu' %>
+      <%= f.input :date, as: :date, order:[:day, :month, :year], input_html:{class: 'date-time'} %>
+      <%= f.input :contest_type_id, collection: @contest_types, label: 'Type de course', input_html:{value: 1} %>
+      <%= f.submit 'Enregistrer', class: 'btn btn-danger btn-block' %>
+    <% end %>
+
+  </div>
+</div>

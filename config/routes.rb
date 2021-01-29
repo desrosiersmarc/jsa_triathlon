@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get 'finances', to: 'clubs#finances'
   get 'impots', to: 'clubs#impots'
-
+  get 'la_division_3', to: 'd3_contests#division_3'
 
   # Google API test
   get '/redirect', to: 'calendar#redirect', as: 'redirect'
@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   resources :tests, only: [:index, :new, :create]
   resources :notifications, only: [:index, :edit, :update]
   resources :newsletters, only: [:index, :edit, :update]
+
+  resources :d3_contests
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   require "sidekiq/web"
   authenticate :user, lambda { |u| u.member } do
