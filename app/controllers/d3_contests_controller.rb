@@ -22,6 +22,16 @@ class D3ContestsController < ApplicationController
   end
 
   def division_3
+    @d3_men_manager = User.where(gender: "Homme")
+                           .where(d3_manager: true)
+    @d3_women_manager = User.where(gender: "Femme")
+                           .where(d3_manager: true)
+
+    @d3_mens = User.where(gender: "Homme")
+                    .where(d3: true)
+    @d3_womens = User.where(gender: "Femme")
+                    .where(d3: true)
+
     @d3_contests = D3Contest.where('date < ?', Date.civil(Time.now.year, 12,31))
                             .where('date > ?', Date.civil(Time.now.year,1,1))
                             .sort_by{ |contest| contest.date}

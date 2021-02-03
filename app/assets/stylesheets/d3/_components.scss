@@ -36,3 +36,29 @@
 .d3-date{
   color: $blue-md;
 }
+
+.d3-member-picture{
+  height: 60px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+}
+
+.d3-team{
+  background-color: $light-gray;
+  min-height: 300px;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.d3-members{
+}
+
+.d3-member-content{
+
+}
+.d3-member-picture{
+width: 60px;
+}
+.d3-member-fullname{
+  font-size: 16px;
+}
