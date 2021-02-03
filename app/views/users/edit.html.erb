@@ -187,7 +187,41 @@
       </div>
 
       <div class="separation"></div>
-
+      <h4>Division 3</h4>
+      <div class="user-toogle">
+        <div class="user-toogle-content">
+          <div class="user-toogle-title">
+            Membre de l'équipe D3 ?
+          </div>
+          <%= render 'form_toogle_input', {info_value: 'd3'} %>
+        </div>
+        <div class="user-toogle-text">
+          Option permettant l'affichage du membre dans la rubrique D3
+        </div>
+      </div>
+      <div class="user-toogle">
+        <div class="user-toogle-content">
+          <div class="user-toogle-title">
+            Manager de l'équipe D3 ?
+          </div>
+          <%= render 'form_toogle_input', {info_value: 'd3_manager'} %>
+        </div>
+        <div class="user-toogle-text">
+          Option permettant l'affichage du manager de l'équipe D3
+        </div>
+      </div>
+      <div class="user-toogle">
+        <div class="user-toogle-title">
+          Sexe
+        </div>
+        <div>
+          <%= simple_form_for @user do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :gender, label: false, collection: ["Femme", "Homme"] %>
+            <%= f.submit 'Mettre à jour', class: 'btn btn-primary btn-block' %>
+          <% end %>
+        </div>
+      </div>
 
     </div>
   </div>

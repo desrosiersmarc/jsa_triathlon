@@ -42,7 +42,10 @@ private
       :contactable,
       :skill_swim,
       :skill_bike,
-      :skill_run)
+      :skill_run,
+      :d3,
+      :d3_manager,
+      :gender)
 
   end
 
