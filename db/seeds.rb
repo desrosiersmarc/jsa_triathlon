@@ -24,7 +24,7 @@ end
 
 def seed_user
   print "Create user"
-  user_created = User.create(email: "md@md.fr", password: "123soleil", firstname: "Marc", lastname: "Desrosiers", birthday: '01/11/1972', mobil_phone: '0662262352')
+  user_created = User.create(email: "md@md.fr", password: "123soleil", firstname: "Marc", lastname: "Desrosiers", birthday: '01/11/1972', mobil_phone: '0662262352', d3:true)
   user_created = User.create(email: "alexisbonneau@gmail.com", password: "123soleil", firstname: "Alexis", lastname: "Bonneau", birthday: '01/11/1972', mobil_phone: '0606060606')
   user_created = User.create(email: "o.huti@orange.fr", password: "123soleil", firstname: "Olivier", lastname: "Hutinet", birthday: '01/11/1972', mobil_phone: '0606060606')
   user_created = User.create(email: "y.allard@ent-allard.com", password: "123soleil", firstname: "Yvette", lastname: "Allard", birthday: '01/11/1972', mobil_phone: '0606060606')
@@ -45,18 +45,19 @@ def seed_articles(article_type_sample_id)
       end_time: Time.now.strftime('%T'),
       location: Faker::Address.city,
       link: Faker::Internet.url,
-      content: Faker::Lorem.paragraph(rand(0..3)),
-      user: User.all.sample,
+      content: Faker::Lorem.paragraph(sentence_count: rand(1..3)),
+      user_id: User.all.sample.id,
       article_type_id: ArticleType.all.sample.id,
       active: true)
   article.remote_photo_url = url
   article.save
+  Author.create!(user_id: User.all.sample.id, article_id: article.id)
       print "*"
 end
 
 def seed_pictures
     puts "Create pictures"
-  url="http://eu.ironman.com/~/media/e52189b7e5f94db0bb2d43e717ec87ad/28092017%20rotator%20im703nice%203.jpg?w=1600&h=980&c=1"
+  url="https://res.cloudinary.com/dmbf8fog4/image/upload/v1593522828/JSA%20Triathlon/ironman42.jpg"
     pict = Picture.create(title: "Roc Azur",
       link: 'https://photos.app.goo.gl/3sAbyDVDjVxWJWDq8',
       date: '15 octobre 2018',
@@ -91,7 +92,7 @@ def seed_product_types
   puts "Create product types"
   ProductType.create! id:1, name: "Tenues"
   ProductType.create! id:2, name: "Bourse d'échange"
-  puts "Product types created<"
+  puts "Product types created"
 end
 
 def seed_sport_types
@@ -109,7 +110,7 @@ def seed_products
   product = Product.create(user_id: User.all.sample.id,
   name: 'Batman',
   size_id: Size.all.sample.id,
-  description: Faker::Lorem.paragraph(rand(0..3)),
+  description: Faker::Lorem.paragraph(sentence_count: rand(0..3)),
   price: rand(0..999),
   stock: rand(0..99),
   sex: ['Unisex', 'Femme', 'Homme'].sample,
@@ -123,17 +124,21 @@ def seed_products
 end
 
 def seed_user_production
-  filepath = "db/jsa_members_2020.csv"
+  filepath = "db/jsa_members_seed.csv"
   CSV.foreach(filepath) do |row|
     User.create(firstname: row[0],
                 lastname: row[1],
                 birthday: row[2],
                 email: row[3],
+                role: row[4],
+                gender: row[5],
+                d3: row[6],
+                d3_manager: row[7],
                 password: '123soleil',
                 member: true,
                 mobil_phone: '0000000000',
                 profil: 'Membre')
-    print "*"
+    print "-"
     puts "#{row[0].upcase} #{row[1]} - #{row[2]} - #{row[3]}"
   end
 end
@@ -151,40 +156,78 @@ def seed_picture_albums
   puts "Done !"
 end
 
+def seed_d3_contest_types
+  ContestType.create!(id: 1, name: 'Sélection', abbreviation: 'S')
+  ContestType.create!(id: 2, name: 'Demi Finale', abbreviation: '1/2')
+  ContestType.create!(id: 3, name: 'Finale', abbreviation: 'F')
+end
+
+def seed_d3_contests
+  D3Contest.create(
+    date: '15/06/2021',
+    location: 'Bordeaux',
+    contest_type_id: 1,
+    name: 'Triathlon du pont de pierre')
+
+  D3Contest.create(
+  date: '15/07/2021',
+  location: 'Angoulême',
+  contest_type_id: 2,
+  name: 'Triathlon du Lac')
+
+  D3Contest.create(
+  date: '15/09/2021',
+  location: 'Toulouse',
+  contest_type_id: 3,
+  name: "Triathlon de l'Espace")
+
+end
+
 
 
 
 
 case Rails.env
 when "development"
-  # puts "Delete all"
-  #   Picture.delete_all
-  #   Article.delete_all
-  #   Product.delete_all
-  #   User.delete_all
-  #   Size.delete_all
-  #   ProductType.delete_all
-  #   SportType.delete_all
-
-  # seed_user
-  # seed_pictures
-  # set_article_types
-
-  # seed_sizes
-  # seed_product_types
-  # seed_sport_types
+  puts "Delete all"
+    Picture.delete_all
+    Author.delete_all
+    Article.delete_all
+    Product.delete_all
+    User.delete_all
+    Size.delete_all
+    ProductType.delete_all
+    SportType.delete_all
+    D3Contest.delete_all
+    ContestType.delete_all
 
 
-  # puts "Create Articles"
-  #   60.times do seed_articles(ArticleType.all.sample)    end
-  # puts ""
-  # puts "Articles created"
 
-  # puts "Create Products"
-  # 10.times do seed_products end
-  # puts "Products created"
+  seed_user
+  seed_pictures
+  set_article_types
+
+  seed_sizes
+  seed_product_types
+  seed_sport_types
+
+  seed_d3_contest_types
+  seed_d3_contests
+
+  puts "Create Products"
+  10.times do seed_products end
+  puts "Products created"
+
   seed_user_production
   # seed_picture_albums
+
+  # Add D3 results
+
+  puts "Create Articles"
+    60.times do seed_articles(ArticleType.all.sample)    end
+  puts ""
+  puts "Articles created"
+
 
 when "production"
   # set_article_types
@@ -198,7 +241,7 @@ when "production"
   #seed_sizes
   #seed_product_types
   #seed_sport_types
-  seed_user_production
+  # seed_user_production
   # seed_picture_albums
 
 end

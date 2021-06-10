@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210129183831) do
+ActiveRecord::Schema.define(version: 20210310201800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,22 @@ ActiveRecord::Schema.define(version: 20210129183831) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["contest_type_id"], name: "index_d3_contests_on_contest_type_id"
+  end
+
+  create_table "d3_results", force: :cascade do |t|
+    t.integer "rank"
+    t.time "swim"
+    t.time "t1"
+    t.time "bike"
+    t.time "t2"
+    t.time "run"
+    t.time "total"
+    t.bigint "user_id"
+    t.bigint "d3_contest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["d3_contest_id"], name: "index_d3_results_on_d3_contest_id"
+    t.index ["user_id"], name: "index_d3_results_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -240,6 +256,8 @@ ActiveRecord::Schema.define(version: 20210129183831) do
   add_foreign_key "authors", "users"
   add_foreign_key "clubs", "users"
   add_foreign_key "d3_contests", "contest_types"
+  add_foreign_key "d3_results", "d3_contests"
+  add_foreign_key "d3_results", "users"
   add_foreign_key "likes", "articles"
   add_foreign_key "likes", "users"
   add_foreign_key "notifications", "users"

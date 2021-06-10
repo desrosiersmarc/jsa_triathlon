@@ -872,6 +872,22 @@
       "inverse_of": null,
       "widget": null,
       "validations": []
+    }, {
+      "field": "d3_results",
+      "type": ["Number"],
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": false,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "D3Result.id",
+      "inverse_of": "d3_contest",
+      "relationship": "HasMany",
+      "widget": null,
+      "validations": []
     }],
     "segments": [],
     "actions": []
@@ -900,38 +916,6 @@
       "widget": null,
       "validations": []
     }, {
-      "field": "user",
-      "type": "Number",
-      "default_value": null,
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": false,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": "User.id",
-      "inverse_of": null,
-      "relationship": "BelongsTo",
-      "widget": null,
-      "validations": []
-    }, {
-      "field": "d3_contest",
-      "type": "Number",
-      "default_value": null,
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": false,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": "D3Contest.id",
-      "inverse_of": null,
-      "relationship": "BelongsTo",
-      "widget": null,
-      "validations": []
-    }, {
       "field": "rank",
       "type": "Number",
       "default_value": null,
@@ -939,13 +923,16 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": false,
+      "is_required": true,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": []
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
     }, {
       "field": "swim",
       "type": "Time",
@@ -954,13 +941,16 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": false,
+      "is_required": true,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": []
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
     }, {
       "field": "t1",
       "type": "Time",
@@ -969,13 +959,16 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": false,
+      "is_required": true,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": []
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
     }, {
       "field": "bike",
       "type": "Time",
@@ -984,13 +977,16 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": false,
+      "is_required": true,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": []
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
     }, {
       "field": "t2",
       "type": "Time",
@@ -999,13 +995,16 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": false,
+      "is_required": true,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": []
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
     }, {
       "field": "run",
       "type": "Time",
@@ -1014,13 +1013,16 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": false,
+      "is_required": true,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": []
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
     }, {
       "field": "total",
       "type": "Time",
@@ -1029,13 +1031,54 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": false,
+      "is_required": true,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": []
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
+    }, {
+      "field": "user",
+      "type": "Number",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": true,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "User.id",
+      "inverse_of": null,
+      "relationship": "BelongsTo",
+      "widget": null,
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
+    }, {
+      "field": "d3_contest",
+      "type": "Number",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": true,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "D3Contest.id",
+      "inverse_of": "d3_results",
+      "relationship": "BelongsTo",
+      "widget": null,
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
     }, {
       "field": "created_at",
       "type": "Date",

@@ -82,7 +82,39 @@
             <%= l(d3_contest.date, format: '%d %B %Y') %>
           </div>
         </div>
+        <%= link_to new_d3_result_path do %>
+          <i class="fas fa-user-edit"></i>
+          Saisir un résultat
+        <% end %>
+        <% d3_contest.d3_results.each do |result| %>
+          <div class='d3-result-content'>
+            <p>
+              <%= result.user.firstname %>
+              <%= result.user.lastname %>
+            </p>
+            <div class='d3-result-rank'>
+              <%= result.rank %>
+            </div>
+            <p>
+              Temps total: <%= l result.total, format: '%H:%M:%S' %>
+            </p>
+            <p>
+              <i class="fas fa-swimmer fa-lg"></i>
+              <%= l result.swim, format: '%H:%M:%S' %>
+              t1: <%= l result.t1, format: '%M:%S' %>
+            </p>
+            <p>
+              <i class="fas fa-biking fa-lg"></i> <%= l result.bike, format: '%H:%M:%S' %>
+              t2: <%= l result.t2, format: '%M:%S' %>
+            </p>
+            <p>
+              <i class="fas fa-running fa-lg"></i> <%= l result.run, format: '%H:%M:%S' %>
+            </p>
+
+          </div>
+        <% end %>
       </div>
+
     <% end %>
   </div>
 </div>
