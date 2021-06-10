@@ -182,15 +182,15 @@ private
     @users = users
     case @article.article_type_id
       when 1..4
-        UserMailer.article(@users, @article).deliver_later
+        UserMailer.article(@users, @article, current_user.email).deliver_later
       when 6
         ContestMailer.result(@users, @article).deliver_later
       when 7
-        UserMailer.article(@users, @article).deliver_later
+        UserMailer.article(@users, @article, current_user.email).deliver_later
       when 9
         DiversMailer.divers_article(@users, @article).deliver_later
       else
-        UserMailer.article(@users, @article).deliver_later
+        UserMailer.article(@users, @article, current_user.email).deliver_later
       end
   end
 

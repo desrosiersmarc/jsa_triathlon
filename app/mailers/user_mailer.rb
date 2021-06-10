@@ -5,10 +5,11 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.article.subject
   #
-  def article(users, article)
+  def article(users, article, sender)
     @article = article
     @users = users
-    mail(Bcc: @users, subject: "[JSA] #{@article.article_type.name.upcase}
+    @sender = sender
+    mail(reply_to: @sender, Bcc: @users, subject: "[JSA] #{@article.article_type.name.upcase}
       -#{@article.name} #{l @article.date, format: '%A %d %B'}")
   end
 

@@ -6,7 +6,8 @@ class UserMailerPreview < ActionMailer::Preview
     # UserMailer.article
     article = Article.last
     user = User.first
-    UserMailer.article(user, article)
+    sender = 'mdesrosiers.test@gmail.com'
+    UserMailer.article(user, article, sender)
   end
 
   def newsletter
