@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+#
 require 'csv'
 
 def set_article_types
@@ -184,49 +186,63 @@ def seed_d3_contests
 end
 
 
+def seed_partners
+  10.times do
+    Partner.create(
+      user_id: User.first.id,
+      name: Faker::FunnyName.three_word_name ,
+      contact:Faker::Name.name ,
+      offer: rand(0..99),
+      website: Faker::Internet.domain_name,
+      address: Faker::Address.full_address,
+      description: Faker::ChuckNorris.fact
+      )
+  end
+end
 
 
 
 case Rails.env
 when "development"
-  puts "Delete all"
-    Picture.delete_all
-    Author.delete_all
-    Article.delete_all
-    Product.delete_all
-    User.delete_all
-    Size.delete_all
-    ProductType.delete_all
-    SportType.delete_all
-    D3Contest.delete_all
-    ContestType.delete_all
+  # puts "Delete all"
+  #   Picture.delete_all
+  #   Author.delete_all
+  #   Article.delete_all
+  #   Product.delete_all
+  #   User.delete_all
+  #   Size.delete_all
+  #   ProductType.delete_all
+  #   SportType.delete_all
+  #   D3Contest.delete_all
+  #   ContestType.delete_all
+    Partners.delete_all
 
 
 
-  seed_user
-  seed_pictures
-  set_article_types
+  # seed_user
+  # seed_pictures
+  # set_article_types
 
-  seed_sizes
-  seed_product_types
-  seed_sport_types
+  # seed_sizes
+  # seed_product_types
+  # seed_sport_types
 
-  seed_d3_contest_types
-  seed_d3_contests
+  # seed_d3_contest_types
+  # seed_d3_contests
 
-  puts "Create Products"
-  10.times do seed_products end
-  puts "Products created"
+  # puts "Create Products"
+  # 10.times do seed_products end
+  # puts "Products created"
 
-  seed_user_production
+  # seed_user_production
   # seed_picture_albums
 
   # Add D3 results
 
-  puts "Create Articles"
-    60.times do seed_articles(ArticleType.all.sample)    end
-  puts ""
-  puts "Articles created"
+  # puts "Create Articles"
+  #   60.times do seed_articles(ArticleType.all.sample)    end
+  # puts ""
+  # puts "Articles created"
 
 
 when "production"

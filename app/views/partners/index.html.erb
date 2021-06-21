@@ -1,1 +1,19 @@
+<div class="container">
+  <div class="row">
+    <h3>
+      Liste des partenaires
+    </h3>
 
+    <% @partners.each do |partner| %>
+      <div>
+        <p> <%= partner.name %> </p>
+        <p> <%= partner.contact %> </p>
+        <p> <%= partner.offer %> </p>
+        <p> <%= partner.website %> </p>
+        <p> <%= partner.address %> </p>
+        <p> <%= partner.description %> </p>
+      </div>
+    <% end %>
+
+  </div>
+</div>
