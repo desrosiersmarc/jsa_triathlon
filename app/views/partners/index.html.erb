@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <h3>
+      Liste des partenaires
+    </h3>
+
+    <% @partners.each do |partner| %>
+        <div class="col-xs-12 col-sm-3">
+          <div class="partner-card-photo">
+            <%= cl_image_tag partner.photo, width: 250 %>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="partner-card-text-content">
+            <div class="partner-card-name">
+              <%= partner.name %>
+            </div>
+            <div class="partner-card-contact">
+              <i class="fas fa-address-card"></i>
+              <%= partner.contact %>
+            </div>
+            <a href="www.google.fr" target="_blank">
+              <div class="partner-card-website">
+                <i class="fas fa-link"></i>
+                <%= partner.website %>
+              </div>
+            </a>
+            <div class="partner-card-address">
+              <i class="fas fa-map-marker-alt"></i>
+              <%= partner.address %>
+            </div>
+            <div class="partner-card-description">
+              <i class="fas fa-gift"></i>
+              <%= partner.description %>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+          <div class="partner-card-offer-content">
+            <% if partner.offer > 0 %>
+              <%= partner.offer %> %
+            <% else %>
+              Offre spéciale
+            <% end %>
+          </div>
+
+        </div>
+        <!-- <p> <%= partner.active %> </p> -->
+    <% end %>
+
+  </div>
+</div>
