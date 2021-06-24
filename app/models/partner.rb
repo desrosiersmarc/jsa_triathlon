@@ -7,6 +7,7 @@ class Partner < ApplicationRecord
   validates :offer, presence: true#, length {maximum: 100}
   validates :address, presence: true
   validates :description, presence: true
+  mount_uploader :photo, PhotoUploader
 
   #TODO add picture and active:boolean
 end

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <%= simple_form_for(@partner) do |f| %>
+      <%= f.error_notification %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.input :name, label: "Nom de l'entreprise" %>
+      <%= f.input :contact, label: "Prénom et nom du contact" %>
+      <%= f.input :offer, collection: (0..99), label: "% de l'offre, si 0 affichade OFFRE SPECIALE sur le site" %>
+      <%= f.input :website, label: "Site internet du partenaire" %>
+      <%= f.input :address, label: 'Adresse du partenaire' %>
+      <%= f.input :description, label: "Description de l'offre" %>
+      <%= f.input :photo, label: 'Télécharger une photo' %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.input :active %>
+      <%= f.submit "Sauvegarder", class: 'btn btn-danger btn-block' %>
+    <% end %>
+  </div>
+</div>

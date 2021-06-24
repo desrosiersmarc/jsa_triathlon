@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210621162917) do
+ActiveRecord::Schema.define(version: 20210622111950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,6 +144,8 @@ ActiveRecord::Schema.define(version: 20210621162917) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
+    t.boolean "active"
     t.index ["user_id"], name: "index_partners_on_user_id"
   end
 
