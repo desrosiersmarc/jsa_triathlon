@@ -31,16 +31,34 @@
             </div>
             <div class="partner-card-description">
               <i class="fas fa-gift"></i>
-              <%= partner.description %>
+              <% if member? %>
+                <%= partner.description %>
+                <% else %>
+                  Connectez vous pour voir le détail des offres...
+                  <%= link_to user_session_path do %>
+                    <i class="fas fa-sign-in-alt"></i>
+                  <% end %>
+              <% end %>
             </div>
           </div>
+          <% if admin? %>
+            <div class="partner-card-edit">
+              <%= link_to edit_partner_path(partner), class: 'red-text' do %>
+                <i class="fas fa-user-edit"></i>
+              <% end %>
+            </div>
+          <% end %>
         </div>
         <div class="col-xs-12 col-sm-3">
           <div class="partner-card-offer-content">
-            <% if partner.offer > 0 %>
-              <%= partner.offer %> %
-            <% else %>
-              Offre spéciale
+            <% if member? %>
+              <% if partner.offer > 0 %>
+                <%= partner.offer %> %
+              <% else %>
+                Offre spéciale
+              <% end %>
+              <% else %>
+                <i class="fas fa-lock"></i>
             <% end %>
           </div>
 
