@@ -1,8 +1,18 @@
 <div class="container">
   <div class="row">
-    <h3>
-      Liste des partenaires
-    </h3>
+    <div class="partner-title">
+      <h3>
+        Liste des partenaires
+      </h3>
+      <% if admin? %>
+        <div>
+          <%= link_to new_partner_path, class: 'partner-add' do %>
+            <i class="fas fa-plus-circle"></i>
+          <% end %>
+        </div>
+      <% end %>
+
+    </div>
 
     <% @partners.each do |partner| %>
         <div class="col-xs-12 col-sm-3">
