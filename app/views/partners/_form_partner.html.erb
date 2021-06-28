@@ -10,8 +10,7 @@
   <%= f.input :photo, label: 'Télécharger une photo' %>
   <%= f.input :photo_cache, as: :hidden %>
   <% if !@partner.photo.nil? %>
-    <%= cl_image_tag @partner.photo, width: 200 %>
-    <h3>TODO : ZOOM</h3>
+      <%= cl_image_tag @partner.photo, width: 200 %>
   <% end %>
   <%= f.input :active %>
   <%= f.submit "Sauvegarder", class: 'btn btn-danger btn-block' %>
