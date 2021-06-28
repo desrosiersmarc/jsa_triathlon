@@ -1,5 +1,6 @@
 class PartnersController < ApplicationController
   skip_before_action :authenticate_user!, only:[:index]
+  before_action :find_partner, only:[:edit, :update]
 
   def index
     @partners = Partner.all
@@ -18,6 +19,18 @@ class PartnersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @partner.update(partner_params)
+    if @partner.save
+      redirect_to partners_path
+    else
+      render :edit
+    end
+  end
+
 private
   def partner_params
     params.require(:partner).permit(
@@ -31,5 +44,9 @@ private
       :active,
       :photo)
 
+  end
+
+  def find_partner
+    @partner = Partner.find(params[:id])
   end
 end
