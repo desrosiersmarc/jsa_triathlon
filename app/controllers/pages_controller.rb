@@ -23,6 +23,7 @@ class PagesController < ApplicationController
     @schools_top3 = select_articles_homepage(4)
     @results_top3 = @results.take(3)
     @trainings_top3 = select_articles_homepage(2)
+    @partners = Partner.where(active: true)
 
 
 
