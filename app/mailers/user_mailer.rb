@@ -9,7 +9,7 @@ class UserMailer < ApplicationMailer
     @article = article
     @users = users
     @sender = sender
-    mail(from: sender, Bcc: @users, subject: "[JSA] #{@article.article_type.name.upcase}
+    mail(Cc: sender, Bcc: @users, subject: "[JSA] #{@article.article_type.name.upcase}
       -#{@article.name} #{l @article.date, format: '%A %d %B'}")
   end
 
