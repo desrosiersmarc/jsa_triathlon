@@ -23,7 +23,7 @@ gem 'webpacker'
 
 # Personal gem
 gem 'cloudinary'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 gem 'devise-i18n'
 gem 'jquery-rails'
 gem 'ckeditor_rails'
