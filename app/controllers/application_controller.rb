@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
       product_id_value = content_id
     end
 
-    User.all.each do |user|
+    User.where(member: true).each do |user|
       Notification.create(
         user_id: user.id,
         read: false,
