@@ -39,7 +39,7 @@
     </div>
     <% if !current_user.nil? %>
       <div class="participation-content" id="contest-buttons">
-        <% if article.date > Time.now %>
+        <% if article.date <= Time.now+1.day %>
           <% if @participation.id.nil? %>
             <%= render 'participations/form_participation', {article: @article, participation: @participation, participation_value: 1} %>
           <% else %>
