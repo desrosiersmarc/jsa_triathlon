@@ -1,8 +1,16 @@
 desc "This task is called by the Heroku scheduler add-on"
 task :destroy_old_notifications => :environment do
-  Notification.where("updated_at < ?", Time.now-15.day).destroy_all
 
-  Notification.where("created_at < ?", Time.now-15.day)
+  if Notification.count > 2000
+    Notification.all.each do |notif|
+      notif.delete
+    end
+      print 'Notifications purge'
+  end
+
+  Notification.where("updated_at < ?", Time.now-7.day).destroy_all
+
+  Notification.where("created_at < ?", Time.now-7.day)
               .map{|notif| if  notif.created_at == notif.updated_at then notif end}
               .each do |notif|
                 notif.delete
