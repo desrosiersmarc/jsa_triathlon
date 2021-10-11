@@ -12,6 +12,7 @@ before_action :find_user, only: [:update, :edit]
   def update
     @user.update(user_params)
     if @user.save
+      user_name_merge(@user)
       redirect_to edit_user_path(@user)
     else
       render :edit
@@ -45,8 +46,12 @@ private
       :skill_run,
       :d3,
       :d3_manager,
-      :gender)
+      :gender,
+      :name)
+  end
 
+  def user_name_merge(user)
+    user.update(name: @user.firstname + " " + @user.lastname)
   end
 
 end
