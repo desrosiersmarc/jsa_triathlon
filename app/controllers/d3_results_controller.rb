@@ -7,7 +7,8 @@ class D3ResultsController < ApplicationController
 
   def new
     @d3_result = D3Result.new
-    @d3_competitors = User.where(d3: true).map{|user| user.id}
+    # @d3_competitors = User.where(d3: true).map{|user| user.id}
+    @d3_competitors = User.where(d3: true)
     @d3_contests = D3Contest.where('extract(year from date) = ?', Time.now.year)
   end
 
