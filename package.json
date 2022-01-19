@@ -2,7 +2,7 @@
   "name": "jsa_triathlon",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.5",
+    "@rails/webpacker": "5.4.3",
     "bootstrap": "3",
     "jquery": "^3.5.0"
   },
