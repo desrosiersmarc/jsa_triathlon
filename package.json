@@ -1,8 +1,5 @@
 {
   "name": "jsa_triathlon",
-  "engines": {
-    "node": "15.1.0"
-  },
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
