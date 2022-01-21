@@ -197,9 +197,11 @@
           Si vous avez des questions d'ordre sportif, vous pouvez contactez  :
         </p>
 
-        <% @contactables.each do |contact| %>
-          <%= render 'shared/visit_card', {contact: contact} %>
-        <% end %>
+        <div id="contacts">
+          <% @contactables.each do |contact| %>
+            <%= render 'shared/visit_card', {contact: contact} %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
