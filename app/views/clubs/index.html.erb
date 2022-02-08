@@ -29,18 +29,18 @@
       </div>
     </div>
 
-    <!-- <div class="club-heading box-shadow-md" id="le-bureau"> -->
-      <%#= render 'edit_link', club: @clubs.find(3)  %>
-      <!-- <h3>Le bureau</h3> -->
-      <%#= raw @clubs.find(3).content %>
-      <!-- <div class="row"> -->
-        <%# @office_members.each do |member| %>
-        <!-- <div class="col-xs-6 col-sm-4 col-md-3"> -->
-          <%#= render 'user_card', {user: member} %>
-        <!-- </div> -->
-        <%# end %>
-      <!-- </div> -->
-    <!-- </div> -->
+    <div class="club-heading box-shadow-md" id="le-bureau">
+      <%= render 'edit_link', club: @clubs.find(3)  %>
+      <h3>Le bureau</h3>
+      <%= raw @clubs.find(3).content %>
+      <div class="row">
+        <% @office_members.each do |member| %>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <%= render 'user_card', {user: member} %>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
     <div class="club-heading box-shadow-md" id="les-membres">
       <h3>Les membres (<%= @users.count %>)</h3>

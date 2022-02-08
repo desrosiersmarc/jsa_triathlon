@@ -13,11 +13,31 @@
     <div class="row">
 
       <h3>
-        Tous les membres - <%= @active_members.length %>
+        Tous les membres actifs- <%= @active_members.length %>
       </h3>
 
       <% @alpha_letters.each do |letter| %>
-        <% user_by_letter(letter) %>
+        <% user_by_letter(letter, true) %>
+        <% if @user_by_letter.length!=0 %>
+          <div class="user-letter">
+            <%=letter%> - <%= @user_by_letter.count %>
+          </div>
+          <div class="row">
+            <% @user_by_letter.each do |user| %>
+              <%= render 'user_bo_card', {user: user} %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="row">
+
+      <h3>
+        Tous les membres non actifs
+      </h3>
+
+      <% @alpha_letters.each do |letter| %>
+        <% user_by_letter(letter, false) %>
         <% if @user_by_letter.length!=0 %>
           <div class="user-letter">
             <%=letter%> - <%= @user_by_letter.count %>
