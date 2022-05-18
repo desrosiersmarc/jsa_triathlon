@@ -113,6 +113,13 @@ private
                 .reverse
   end
 
+  def select_articles_by_year(article_type, date)
+    articles = Article.where(article_type: article_type, active: true)
+                      .where('updated_at>?',date)
+                      .sort_by{|article| article.date}
+                      .reverse
+  end
+
   def select_club_events
     @club_events = select_articles(1, 365).reverse
   end
@@ -122,7 +129,7 @@ private
   end
 
   def select_results
-    @results = select_all_articles(6)
+    @results = select_articles_by_year(6,'01/01/2022')
   end
 
   def select_clubs
