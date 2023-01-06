@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
-ruby '2.7.7'
+ruby '3.0.4'
 
 
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
-gem 'pg', '~> 0.21'
+# gem 'pg', '~> 0.21'
+gem 'pg', '~> 1.1'
 # gem 'puma'
 gem "puma", ">= 3.12.2"
-gem 'rails', '5.1.4'
+gem 'rails', '~> 6.0'
 gem 'redis'
 
 gem 'autoprefixer-rails'
@@ -26,7 +27,7 @@ gem 'cloudinary'
 gem 'carrierwave', '~> 1.3'
 gem 'devise-i18n'
 gem 'jquery-rails'
-gem 'ckeditor_rails'
+gem 'ckeditor_rails_6'
 gem 'faker'
 gem 'google-api-client', require: 'google/apis/calendar_v3'
 gem 'forest_liana'
