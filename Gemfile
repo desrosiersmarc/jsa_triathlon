@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
-ruby '2.7.7'
+ruby '3.0.5'
 
 
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
-gem 'pg', '~> 0.21'
+# gem 'pg', '~> 0.21'
+gem 'pg', '~> 1.1'
 # gem 'puma'
 gem "puma", ">= 3.12.2"
-gem 'rails', '5.1.4'
+gem 'rails', '6.1.7'
 gem 'redis'
 
 gem 'autoprefixer-rails'
