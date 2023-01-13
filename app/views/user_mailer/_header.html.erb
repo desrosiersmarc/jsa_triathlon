@@ -13,11 +13,25 @@
       color: #221F20;
     }
 
+    .mail-area {
+      display: flex;
+      justify-content: center;  
+    }
     .mail-content {
       background-color: #FFF;
-      padding: 5vw;
+      /* padding: 5vw; */
       border-radius: 15px 15px 0 0;
+      max-width: 600px;
 
+    }
+    .mail-content-text {
+      margin: 5px;
+    }
+
+    .article-title-content{
+      display: flex;
+      justify-content: center;
+      padding: 20px 0px 20px 0px;
     }
     .article-post-it-content{
       display: flex;
@@ -46,20 +60,32 @@
     .unsubscribe {
       background-color: #FFF;
       padding: 10px;
+      font-size: 12px;
+
     }
 
+    .footer{
+      display: flex;
+      justify-content: center;
+    }
     .footer-content{
       border-top: solid 2px #C9103B; /*red*/
       background-color: #FFF;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 10px;
+      /* padding: 10px; */
+      max-width : 600px;
       border-radius: 0 0 15px 15px;
       box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
     }
-    .cdos-address {
+
+    .cdos-address-logo {
       text-align: center;
+    }
+    .cdos-address-text {
+      text-align: center;
+      font-size: 10px;
     }
     .calendar-content{
       display: flex;
@@ -165,6 +191,7 @@
 
     .mail-picture {
       height: 350px;
+      max-width: 600px;
       background-position: center center;
       background-size: cover !important;
       color: $white;
@@ -343,11 +370,16 @@
   </style>
 </head>
 <body>
-<div class="mail-content article-shadow">
-  <div class="logo-title">
-    <img src="https://res.cloudinary.com/dmbf8fog4/image/upload/c_scale,w_100/v1555969918/JSA%20Triathlon/logo.jpg" alt="">
-    <p class="jsa-title">
-      Angoulême Triathlon
-    </p>
-  </div>
-
+<div class="mail-area">
+  <div class="mail-content article-shadow">
+    <div class="logo-title">
+      <img src="https://res.cloudinary.com/dmbf8fog4/image/upload/c_scale,w_100/v1555969918/JSA%20Triathlon/logo.jpg" alt="">
+      <p class="jsa-title">
+        Angoulême Triathlon
+      </p>
+    </div>
+    <div class="article-title-content">
+      <span class="bold-mail">
+        <%= @article.name %>
+      </span>
+    </div>
