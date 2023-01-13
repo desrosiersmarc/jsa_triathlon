@@ -1,31 +1,54 @@
 <%= render 'header' %>
 <!-- <div> in header -->
-  <div class="mail-content-text">
-
-  </div>
+  <p>Bonjour à toutes et à tous, </p>
+  <p>Un nouvel article vient d'être publié sur notre site dans la rubrique <%= @article.article_type.name.downcase %>.</p>
+  <span class="bold-mail">
+    <%= @article.name %>
+  </span>
+  <p>
+    Cet événement aura lieu le
+    <span class="bold-mail">
+      <%= l @article.date, format: '%A' %>
+      <%= l @article.date, format: '%d' %>
+      <%= l @article.date, format: '%B'%>
+      <%= l @article.date, format: '%Y'%>
+    </span>
+    à
+    <span class="bold-mail">
+      <%= @article.location %>
+    </span>
+    à partir de
+    <span class="bold-mail">
+      <%= @article.start_time.strftime('%H:%M') %>
+    </span>
+  </p>
   <div class="mail-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path(@article.photo) %>') ">
   </div>
-
-  <div class="mail-content-text">
-    <p>
-      <%= raw @article.content %>
-    </p>
-    <p>
-      <%= @article.authors.last.user.firstname %>
-      (<%= @article.authors.last.user.profil %> - <%= @article.authors.last.user.mobil_phone %>)
-    </p>
-    <p>
-      (Si vous avez des questions, vous pouvez faire "répondre à tous" et je recevrai votre mail)
-    </p>
-    <div class="article-content-link">
-      <a href=<%= 'https://www.angouleme-triathlon.fr/articles/' + "#{@article.id.to_s}" %> >
-          <div class="article-link">
-          Voir l'article sur le site
-          <i class="fas fa-long-arrow-alt-right"></i>
-        </div>
-      </a>
-    </div>
+  <p>
+    <%= raw @article.content %>
+  </p>
+  <div class="article-content-link">
+    <a href=<%= 'https://www.angouleme-triathlon.fr/articles/' + "#{@article.id.to_s}" %> >
+        <div class="article-link">
+        Voir l'article
+        <i class="fas fa-long-arrow-alt-right"></i>
+      </div>
+    </a>
   </div>
-</div>
+
+
+  <p>Bonne journée</p>
+  <p>
+    <%= @article.authors.last.user.firstname %>
+    (<%= @article.authors.last.user.profil %>)
+  </p>
+  <p>
+    <i class="fas fa-mobile-alt"></i>
+    <%= @article.authors.last.user.mobil_phone %>
+  </p>
+  <p>
+    <i class="far fa-envelope"></i>
+    <%= @article.authors.last.user.email %> (Si vous avez des questions, vous pouvez faire "répondre à tous" et je recevrai votre mail)
+  </p>
 <!-- </div> in footer -->
 <%= render 'footer' %>
