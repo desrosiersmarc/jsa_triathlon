@@ -1,31 +1,46 @@
 <%= render 'header' %>
-<!-- <div> in header -->
-  <div class="mail-content-text">
+<body>
+  <div class="mail-area">
+    <div class="mail-content article-shadow">
+      <div class="logo-title">
+        <img src="https://res.cloudinary.com/dmbf8fog4/image/upload/c_scale,w_100/v1555969918/JSA%20Triathlon/logo.jpg" alt="">
+        <p class="jsa-title">
+          Angoulême Triathlon
+        </p>
+      </div>
+      <div class="article-title-content">
+        <span class="bold-mail">
+          <%= @article.name %>
+        </span>
+      </div>
+      <div class="mail-content-text">
 
-  </div>
-  <div class="mail-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path(@article.photo) %>') ">
-  </div>
+      </div>
+      <div class="mail-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path(@article.photo) %>') ">
+      </div>
 
-  <div class="mail-content-text">
-    <p>
-      <%= raw @article.content %>
-    </p>
-    <p>
-      <%= @article.authors.last.user.firstname %>
-      (<%= @article.authors.last.user.profil %> - <%= @article.authors.last.user.mobil_phone %>)
-    </p>
-    <p>
-      (Si vous avez des questions, vous pouvez faire "répondre à tous" et je recevrai votre mail)
-    </p>
-    <div class="article-content-link">
-      <a href=<%= 'https://www.angouleme-triathlon.fr/articles/' + "#{@article.id.to_s}" %> >
-          <div class="article-link">
-          Voir l'article sur le site
-          <i class="fas fa-long-arrow-alt-right"></i>
+      <div class="mail-content-text">
+        <p>
+          <%= raw @article.content %>
+        </p>
+        <p>
+          <%= @article.authors.last.user.firstname %>
+          (<%= @article.authors.last.user.profil %> - <%= @article.authors.last.user.mobil_phone %>)
+        </p>
+        <p>
+          (Si vous avez des questions, vous pouvez faire "répondre à tous" et je recevrai votre mail)
+        </p>
+        <div class="article-content-link">
+          <a href=<%= 'https://www.angouleme-triathlon.fr/articles/' + "#{@article.id.to_s}" %> >
+              <div class="article-link">
+              Voir l'article sur le site
+              <i class="fas fa-long-arrow-alt-right"></i>
+            </div>
+          </a>
         </div>
-      </a>
+      </div>
+    <%= render 'footer' %>
     </div>
   </div>
-</div>
-<!-- </div> in footer -->
-<%= render 'footer' %>
+</body>
+</html>
