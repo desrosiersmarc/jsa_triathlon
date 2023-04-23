@@ -1,6 +1,6 @@
 .body-tricross {
-  background-color: #243E21;
-  color: #ABC83E;
+  background-color: #000000;
+  color: #FFF;
   min-height: 100vh;
   font-family: fantasy;
 }
@@ -24,8 +24,8 @@
   font-weight: bold;
 }
 
-.wrapper-homepage {
-  height: 75vh;
+.contest-wrapper-homepage {
+  height: 605px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +45,7 @@
   color: $white;
   font-size: 20px;
   font-weight: bold;
-  background: linear-gradient(270deg, #246641, #dcea15);
+  background: linear-gradient(270deg, #ed260c, #dcea15);
   background-size: 400% 400%;
 
   -webkit-animation: AnimationName 30s ease infinite;
@@ -68,14 +68,18 @@
       100%{background-position:0% 50%}
   }
   &:hover {
-    background: linear-gradient(270deg, #342466, #e915ea);
+    background: linear-gradient(270deg, #342466, #ed260c);
     background-size: 400% 400%;
   }
 }
 
-.subscription-content {
+.div-sub {
   display: flex;
   justify-content: center;
+}
+.subscription-content {
+  // display: flex;
+  // justify-content: center;
   padding: 20px;
 }
 
@@ -110,5 +114,5 @@
   height: 100%;
   display: flex;
   align-items: center;
-  width: 400px;
+  width: 428px;
 }
