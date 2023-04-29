@@ -3,6 +3,8 @@ before_action :find_user, only: [:update, :edit]
 
   def index
     @web_subscritpion_users = User.where(member: nil)
+                                  .sort_by{|web_subscritpion_user| web_subscritpion_user.created_at}
+                                  .reverse
 
     @active_members = User.where(member: true)
 
