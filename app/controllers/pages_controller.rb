@@ -88,7 +88,9 @@ private
   end
 
   def select_articles_homepage(article_type)
-    # binding.pry
+    if article_type == 3
+      # binding.pry
+    end
     # list pinned article and take the last one
     last_pinned_article = Article.where(article_type: article_type, active: true)
                                  .where(pinned_article:true)
@@ -104,8 +106,7 @@ private
     if articles.count >= 3
       #return articles.take(3)
       if last_pinned_article.nil? 
-        articles.take(3)
-        return articles
+        return articles.take(3)
       else
         articles_to_reverse = articles.take(2)<<last_pinned_article
         articles = articles_to_reverse.reverse
@@ -121,7 +122,13 @@ private
       end
       return articles
     else
-      return last_pinned_article.nil? ? articles:articles<<last_pinned_article
+      if last_pinned_article.nil?
+        return articles
+      else
+        articles_to_reverse = articles.take(2)<<last_pinned_article
+        articles = articles_to_reverse.reverse
+        return articles      
+      end
     end
 
   end
