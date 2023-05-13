@@ -31,6 +31,7 @@
     <%= f.text_area :content, class: 'ckeditor', label: t('.content') %>
     <%= f.input :active, label: " Publier l'article ?" %>
     <div class="article-mail-div">
+      <%= f.input :pinned_article, label: "Cocher la case pour épingler l'article 📌" %>
       <%= f.input :send_email, label: "Cocher cette case pour envoyer l'article à tous les membres (bureau inclus) 🤗" %>
       <%= f.input :send_email_admin, label: "Cocher cette case pour envoyer l'article uniquement au bureau 🤪" %>
     </div>

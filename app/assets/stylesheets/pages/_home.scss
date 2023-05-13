@@ -55,12 +55,10 @@
 }
 
 .logo-homepage-gradient {
-    background: linear-gradient(270deg, #000000, #C9103B);
+    background: #C9103B;
     background-size: 400% 400%;
-
-    -webkit-animation: AnimationName 10s ease infinite;
-    -moz-animation: AnimationName 10s ease infinite;
-    animation: AnimationName 10s ease infinite;
+    font-size: 40px;
+    color: #FFF;
 }
 
 @-webkit-keyframes AnimationName {

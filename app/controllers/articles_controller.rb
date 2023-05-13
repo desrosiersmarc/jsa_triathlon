@@ -123,6 +123,7 @@ private
       :active,
       :send_email,
       :send_email_admin,
+      :pinned_article,
       :photo)
   end
 
