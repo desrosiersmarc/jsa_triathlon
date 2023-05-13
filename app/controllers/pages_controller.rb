@@ -88,17 +88,40 @@ private
   end
 
   def select_articles_homepage(article_type)
+    # binding.pry
+    # list pinned article and take the last one
+    last_pinned_article = Article.where(article_type: article_type, active: true)
+                                 .where(pinned_article:true)
+                                 .sort_by{|article| article.date}.last
+    # list other articles without pinned
     articles = Article.where(article_type: article_type, active: true)
                       .where('date > ?', Time.now-1.day)
                       .sort_by {|article| article.date}
-    if articles.count > 3
-      return articles.take(3)
+
+    # merge pinned and 2 or 3 not pinned and sort_by pinned_article
+    # save in another var the result of the reverse
+
+    if articles.count >= 3
+      #return articles.take(3)
+      if last_pinned_article.nil? 
+        articles.take(3)
+        return articles
+      else
+        articles_to_reverse = articles.take(2)<<last_pinned_article
+        articles = articles_to_reverse.reverse
+        return articles
+      end
     elsif articles.count == 0
       articles = []
-      articles << Article.where(article_type: article_type, active: true).last
+      # articles << Article.where(article_type: article_type, active: true).last
+      if last_pinned_article.nil?
+        articles << Article.where(article_type: article_type, active: true).last
+      else
+        articles << last_pinned_article
+      end
       return articles
     else
-      return articles
+      return last_pinned_article.nil? ? articles:articles<<last_pinned_article
     end
 
   end
