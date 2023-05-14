@@ -3,6 +3,13 @@
     <div class="picture-card">
       <%= link_to article_path(article) do %>
         <div class="picture-card-photo picture picture-card-photo-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= helper_image_path(article) %>');">
+          
+          <% if article.pinned_article  %>
+            <div class="picture-card-bookmark">
+              <i class="fa-solid fa-bookmark"></i>
+            </div>
+          <% end %>
+          
           <div class="picture-card-title">
             <%= article.name %>
           </div>
