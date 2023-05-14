@@ -2,6 +2,7 @@
 <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
     <div class="event-card-content box-shadow-md">
       <div class="event-card-text gradient-an-blue-purple">
+
         <h3><%= articles.first.name %></h3>
         <p><%= articles.first.date.strftime('%d/%m/%Y') %></p>
         <i class="fas fa-map-marker-alt"></i>
@@ -38,6 +39,11 @@
 
             <%= link_to article_path(article) do %>
               <div class="event-card-picture" style="background-image: url('<%= helper_image_path(article) %>');">
+                <% if article.pinned_article  %>
+                  <div class="event-card-picture-bookmark">
+                    <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                <% end %>
              </div>
             <% end %>
 
