@@ -1,10 +1,4 @@
 <div class="container">
-  <div class="row">
-    <div id="calendar">
-      <h3>Calendrier des séances avec lieux et coachs</h3>
-      <%= render 'google_calendar' %>
-    </div>
-  </div>
 </div>
 <div class="container">
   <div class="row">
@@ -20,15 +14,15 @@
     </div>
 
     <div id="week_session">
-      <h3>Liste des séances de la semaine</h3>
-      <% @week_articles.each do |training| %>
-        <div class="col-xs-12 col-sm-4">
-          <%= render 'homepage_card_template', article: training %>
-        </div>
-      <% end %>
+      <h3>Retrouvez toutes les séances sur l'application IDO</h3>
+      <a href="https://www.idosport.app/login" target='_blank'  >
+        <img src="https://res.cloudinary.com/dmbf8fog4/image/upload/v1683904464/ujigoyq6hhqbtbva24kh.jpg" alt="IDO Picture" class="trainin-picture">
+      </a>  
     </div>
+    
   </div>
 </div>
 <div class="strava-iframe" id="strava">
+<iframe allowtransparency frameborder='0' height='454' scrolling='no' src='https://www.strava.com/clubs/197315/latest-rides/8da01a7ca665b313db51e3ace8814d782e71112f?show_rides=true' width='300'></iframe>
   <iframe allowtransparency frameborder='0' height='267' scrolling='no' src='https://www.strava.com/clubs/197315/latest-rides/8da01a7ca665b313db51e3ace8814d782e71112f?show_rides=false' width='500'></iframe>
 </div>
