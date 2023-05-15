@@ -12,27 +12,24 @@
     </div>
   </div>
   <%= link_to club_events_path, class: "wrapper-link wrapper-link-white" do  %>
-    Voir tous les événements
+    Voir tous les événements du club
   <% end %>
 </div>
+
 <div class="wrapper">
   <div class="wrapper-title">
-    Entraînements
+    L'école de triathlon
   </div>
   <div class="container">
     <div class="row">
-      <%= render 'wrapper_cards', {articles: @trainings_top3} %>
+      <%= render 'wrapper_cards', {articles: @schools_top3} %>
     </div>
   </div>
-  <%= link_to trainings_path, class: "wrapper-link wrapper-link-black"  do %>
-      Voir tous les entraînements
+  <%= link_to school_path, class: "wrapper-link wrapper-link-black"  do %>
+    Voir tous les articles
   <% end %>
-  <div class="hidden-xs">
-    <%= link_to calendar_path, class: "home-calendar-link" do %>
-      Voir le calendrier
-    <% end %>
-  </div>
 </div>
+
 <div class="wrapper wrapper-black">
   <div class="wrapper-title">
     Prochaines épreuves
@@ -57,17 +54,15 @@
 
 <div class="wrapper">
   <div class="wrapper-title">
-    L'école de triathlon
+    Entraînements
   </div>
   <div class="container">
     <div class="row">
-      <%= render 'wrapper_cards', {articles: @schools_top3} %>
+      <%= render 'wrapper_cards', {articles: @trainings_top3} %>
     </div>
   </div>
-  <%= link_to school_path, class: "wrapper-link wrapper-link-black"  do %>
-    Voir tous les articles
-  <% end %>
 </div>
+
 <div class="wrapper wrapper-black">
   <div class="wrapper-title">
     Divers
