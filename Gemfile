@@ -34,7 +34,7 @@ gem 'forest_liana'
 gem 'letter_opener', group: :development
 gem 'gibbon'
 # gem 'sidekiq'
-gem "sidekiq", "<7"
+gem "sidekiq", "<8"
 gem 'sidekiq-failures', '~> 1.0'
 
 group :development do
