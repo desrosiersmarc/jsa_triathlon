@@ -14,3 +14,8 @@ $headers-font: "Raleway", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+@font-face{
+    font-family: "logoFontTitle";
+    src: font-url('BADABB__.TTF') format("truetype");
+}
+$my-font: "logoFontTitle";
