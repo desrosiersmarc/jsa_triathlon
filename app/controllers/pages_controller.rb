@@ -165,7 +165,7 @@ private
   end
 
   def select_results
-    @results = select_articles_by_year(6,'01/01/2022')
+    @results = select_articles_by_year(6,Time.now.beginning_of_year)
   end
 
   def select_clubs

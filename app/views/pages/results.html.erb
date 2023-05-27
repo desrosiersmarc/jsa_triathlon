@@ -2,9 +2,8 @@
   <div class="row">
     <div class="col-xs-12">
       <h3>
-        Les résultats pour l'année 2022
+        Les résultats pour l'année <%=Time.now.beginning_of_year.year%>
       </h3>
-      <p>Vous retrouverez bientôt l'historique des résultats 😉</p>
     </div>
     <% @results.each do |result| %>
       <div class="col-xs-12 col-sm-4">
