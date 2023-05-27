@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   before_action :select_clubs, only: [:home]
   before_action :select_trainings, only: [:home]
 
+
   def home
     @pictures = Picture.all
                       .sort_by { |article| article.updated_at}
@@ -23,6 +24,11 @@ class PagesController < ApplicationController
     @schools_top3 = select_articles_homepage(4)
     @results_top3 = @results.take(3)
     @trainings_top3 = select_articles_homepage(2)
+
+  # work in progress >>
+    @carousels = @club_events_top3 + @schools_top3
+  # << end work in progress area
+
     @partners = Partner.where(active: true)
 
 
