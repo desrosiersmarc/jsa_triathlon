@@ -30,7 +30,6 @@ gem 'jquery-rails'
 gem 'ckeditor_rails'
 gem 'faker'
 gem 'google-api-client', require: 'google/apis/calendar_v3'
-gem 'forest_liana'
 gem 'letter_opener', group: :development
 gem 'gibbon'
 # gem 'sidekiq'
