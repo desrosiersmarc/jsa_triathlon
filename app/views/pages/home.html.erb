@@ -139,12 +139,12 @@
     <% end %>
   </div>
 <% else %>
-  <a href="https://espacetri.fftri.com/">
+  <%= link_to subscription_path do %>
     <div class="licence box-shadow-md">
       <div>Se</div>
       <div>licencier</div>
     </div>
-  </a>
+  <%end%>
 <% end %>
 
 <%= render 'homepage_partners' %>
