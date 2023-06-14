@@ -3,6 +3,7 @@ class TestsController < ApplicationController
 
   def index
     @tests = Test.all
+    @workout = Workout.first
   end
 
   def new

@@ -10,8 +10,17 @@
     position: absolute;
     width: 100%;
     height: 60px;
-    background-color: #F08732;
+    // background-color: #F08732;
     border-radius: 5px 5px 0px 0px;
+}
+.workout-color-swim {
+    background-color: #F08732;
+}
+.workout-color-bike {
+    background-color: #54f066;
+}
+.workout-color-run {
+    background-color: #4232f0;
 }
 .workout-sport{
     color:$white;
@@ -39,21 +48,13 @@
     bottom: 1px;
     left: 5px;
 }
-.workout-start-hour{
+.workout-hours{
     color: #FFF;
     position: absolute;
     left: 35px;
     bottom: 5px;
     font-size: small;
 
-}
-.workout-end-hour{
-    font-size: 20px;
-    color: $white;
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
-    font-size: small;
 }
 .workout-text{
     position: absolute;
