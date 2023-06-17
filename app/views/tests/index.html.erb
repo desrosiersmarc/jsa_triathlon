@@ -17,8 +17,16 @@
       </p>
     <% end %>
 
-    <%= render 'workout_card_model', {workout: @workout} %>
+    <%= render 'shared/workout_card', {workout: @workout} %>
 
+    <% WeekDay.all.each do |day| %>
+      <p class="workout-th"><%= day.name %></p>
+      <% if !@workouts[day.id].nil? %>
+        <% @workouts[day.id].each do |workout| %>
+          <%= render 'shared/workout_card', {workout: workout} %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
   <table>
     <tr>
@@ -31,48 +39,48 @@
       <th class="workout-th">Dimanche</th>
     </tr>
     <tr class="workout-td">
-      <td><%= render 'workout_card' %></td>
-      <td><%= render 'workout_card' %></td>
-      <td><%= render 'workout_card' %></td>
-      <td><%= render 'workout_card' %></td>
-      <td><%= render 'workout_card' %></td>
-      <td><%= render 'workout_card' %></td>
-      <td><%= render 'workout_card' %></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
     </tr>
     <tr class="workout-td">
-      <td><%= render 'workout_card' %></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
       <td></td>
       <td></td>
       <td></td>
-      <td><%= render 'workout_card' %></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
       <td></td>
-      <td><%= render 'workout_card' %></td>
-    </tr>
-    <tr class="workout-td">
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><%= render 'workout_card' %></td>
-      <td><%= render 'workout_card' %></td>
-      <td><%= render 'workout_card' %></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
     </tr>
     <tr class="workout-td">
       <td></td>
-      <td><%= render 'workout_card' %></td>
       <td></td>
-      <td><%= render 'workout_card' %></td>
       <td></td>
-      <td><%= render 'workout_card' %></td>
+      <td></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
     </tr>
     <tr class="workout-td">
-      <td><%= render 'workout_card' %></td>
-      <td><%= render 'workout_card' %></td>
+      <td></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
+      <td></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
+      <td></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
+    </tr>
+    <tr class="workout-td">
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
-      <td><%= render 'workout_card' %></td>
+      <td><%= render 'shared/workout_card', {workout: @workout} %></td>
     </tr>
   </table>
 </div>

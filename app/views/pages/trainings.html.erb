@@ -1,4 +1,81 @@
 <div class="container">
+  <div class="row">
+    <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+      
+      <% WeekDay.all.each do |day| %>
+        <p class="workout-th"><%= day.name %></p>
+        <% if !@workouts[day.id].nil? %>
+          <% @workouts[day.id].each do |workout| %>
+            <%= render 'shared/workout_card', {workout: workout} %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+    </div>
+    <div class="hidden-xs">
+      <table>
+        <tr>
+          <th class="workout-th">Lundi</th>
+          <th class="workout-th">Mardi</th>
+          <th class="workout-th">Mercredi</th>
+          <th class="workout-th">Jeudi</th>
+          <th class="workout-th">Vendredi</th>
+          <th class="workout-th">Samedi</th>
+          <th class="workout-th">Dimanche</th>
+        </tr>
+        //each on maximum number of workout on a day
+        //create tr with class
+          //each with index and test day complete td with card
+
+        <tr class="workout-td">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="workout-td">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="workout-td">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="workout-td">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="workout-td">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    </div>
+
+  </div>
 </div>
 <div class="container">
   <div class="row">

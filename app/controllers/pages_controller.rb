@@ -36,22 +36,28 @@ class PagesController < ApplicationController
 
     @product_echange_count = Product.where(product_type_id: 2, active: true).count
 
-
+    
+    
   end
-
+  
   def my_articles
     @my_articles = current_user.articles.uniq
-                               .sort_by {|article| article.updated_at}
-                               .reverse
+    .sort_by {|article| article.updated_at}
+    .reverse
   end
-
+  
   def my_ads
     @my_ads = Product.where(user: current_user, product_type_id: 2)
   end
-
+  
   def trainings
     # @trainings = select_articles(2,365).reverse
     @week_articles = select_week_articles(2)
+    @workouts =[]
+    WeekDay.all.each do |day|
+      @workouts << Workout.where(week_day_id: day.id).sort_by{|workout| workout.start_hour}
+      # add "" in array to have the same dimension by day
+    end
   end
 
   def contests

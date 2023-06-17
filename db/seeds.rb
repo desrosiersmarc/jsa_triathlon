@@ -200,6 +200,18 @@ def seed_partners
   end
 end
 
+def seed_workouts
+  25.times do
+    Workout.create(
+      name: "blabla bla",
+      start_hour: DateTime.now - (rand * 21),
+      end_hour: DateTime.now - (rand * 21),
+      location_id: rand(1..4),
+      week_day_id: rand(1..7),
+      sport_type_id: rand(2..4)
+    )  
+  end
+end
 
 
 case Rails.env
@@ -215,12 +227,14 @@ when "development"
   #   SportType.delete_all
   #   D3Contest.delete_all
   #   ContestType.delete_all
-    # Partners.delete_all
+  # Partners.delete_all
+  seed_workouts
+
 
 
 
   # seed_user
-  seed_pictures
+  # seed_pictures
   # set_article_types
 
   # seed_sizes

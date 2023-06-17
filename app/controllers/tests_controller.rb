@@ -4,6 +4,16 @@ class TestsController < ApplicationController
   def index
     @tests = Test.all
     @workout = Workout.first
+
+    @workouts =[]
+    # count maximum number of workouts for a day
+    # Select all workout for a day
+    WeekDay.all.each do |day|
+      @workouts << Workout.where(week_day_id: day.id-1).sort_by{|workout| workout.start_hour}
+    end
+    # Sort them
+
+    # add them in an array
   end
 
   def new
