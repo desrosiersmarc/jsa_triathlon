@@ -1,4 +1,51 @@
 <div class="container">
+  <div class="row">
+    <div class="col-xs-12 hidden-sm hidden-md hidden-lg">   
+      <% WeekDay.all.each do |day| %>
+        <p class="workout-th-mobile"><%= day.name %></p>
+        <% if !@workouts[day.id-1].nil? %>
+          <% @workouts[day.id-1].each do |workout| %>
+            <%= render 'shared/workout_card', {workout: workout} %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+
+    </div>
+    <div class="hidden-xs">
+      <table>
+        <tr>
+          <th class="workout-th">Lundi</th>
+          <th class="workout-th">Mardi</th>
+          <th class="workout-th">Mercredi</th>
+          <th class="workout-th">Jeudi</th>
+          <th class="workout-th">Vendredi</th>
+          <th class="workout-th">Samedi</th>
+          <th class="workout-th">Dimanche</th>
+        </tr>
+
+        <% i=0 %>
+        <% @workouts_max_number.times do %>
+            <tr class="workout-td">
+              <% j=0 %>
+              <% 7.times do %>
+                <% if @workouts[j][i].nil? %>
+                  <td></td>
+                <% else %>
+                  <td>
+                  <%= render 'shared/workout_card', {workout: @workouts[j][i]} %>
+                  </td>
+                <% end %>
+                <% j+=1 %>
+              <% end %>
+            </tr>
+          <% i+=1 %>
+        <% end %>
+      </table>
+    </div>
+    </div>
+
+  </div>
 </div>
 <div class="container">
   <div class="row">

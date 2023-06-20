@@ -1,0 +1,39 @@
+<div class="workout-content box-shadow-md">
+    <% if workout.sport_type_id == 2%>
+        <div class="workout-title-content workout-color-swim">
+    <% elsif workout.sport_type_id == 3 %>
+        <div class="workout-title-content workout-color-run">
+    <% else %>
+        <div class="workout-title-content workout-color-bike">
+    <% end %>
+            <div class="workout-sport">
+                <%= workout.sport_type.name %>
+            </div>
+            <div class="workout-sport-logo">
+                <% if workout.sport_type_id == 2 %>
+                    <i class="fas fa-swimmer fa-lg"></i>
+                <% elsif workout.sport_type_id == 3 %>
+                    <i class="fas fa-biking fa-lg"></i>
+                <% elsif workout.sport_type_id == 4 %>
+                    <i class="fas fa-running fa-lg"></i>
+                <% else %>
+
+                <% end %>
+            </div>
+            <div class="workout-hours-logo">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="workout-hours">
+                <%= l workout.start_hour, format:'%H:%M' %> > <%=l workout.end_hour, format: '%H:%M' %>
+            </div>
+        </div>
+    <div class="workout-text">
+        <%= workout.name %>
+    </div>
+    <div class="workout-location-logo">
+        <i class="fa-solid fa-location-dot"></i>
+    </div>
+    <div class="workout-location">
+        <%= workout.location.name %>
+    </div>  
+</div>

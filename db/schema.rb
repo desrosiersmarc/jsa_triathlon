@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_11_153539) do
+ActiveRecord::Schema.define(version: 2023_06_14_184000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,6 +131,12 @@ ActiveRecord::Schema.define(version: 2023_05_11_153539) do
     t.bigint "user_id"
     t.index ["article_id"], name: "index_likes_on_article_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "newsletters", force: :cascade do |t|
@@ -293,6 +299,26 @@ ActiveRecord::Schema.define(version: 2023_05_11_153539) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "week_days", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+  end
+
+  create_table "workouts", force: :cascade do |t|
+    t.string "name"
+    t.time "start_hour"
+    t.time "end_hour"
+    t.bigint "location_id", null: false
+    t.bigint "week_day_id", null: false
+    t.bigint "sport_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_workouts_on_location_id"
+    t.index ["sport_type_id"], name: "index_workouts_on_sport_type_id"
+    t.index ["week_day_id"], name: "index_workouts_on_week_day_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "article_types"
@@ -317,4 +343,7 @@ ActiveRecord::Schema.define(version: 2023_05_11_153539) do
   add_foreign_key "products", "users"
   add_foreign_key "reviews", "articles"
   add_foreign_key "reviews", "users"
+  add_foreign_key "workouts", "locations"
+  add_foreign_key "workouts", "sport_types"
+  add_foreign_key "workouts", "week_days"
 end

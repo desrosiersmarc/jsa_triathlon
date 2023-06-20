@@ -1,0 +1,100 @@
+.workout-content{
+    background-color: $white;
+    height: 110px;
+    width: 100%;
+    position: relative;
+    border-radius: 5px ;
+    margin-bottom: 15px;
+}
+.workout-title-content{
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    // background-color: #F08732;
+    border-radius: 5px 5px 0px 0px;
+}
+.workout-color-swim {
+    background-color: $swim;
+}
+.workout-color-bike {
+    background-color: $bike;
+}
+.workout-color-run {
+    background-color: $run;
+}
+.workout-sport{
+    color:$white;
+    position: absolute;
+    left: 5px;
+    font-weight: bold;
+    font-size: small;
+}
+.workout-sport-logo{
+    color: $white;
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    font-size: medium;
+
+}
+.workout-hours-logo{
+    color: #FFF;
+    position: absolute;
+    bottom: 0px;
+    left: 5px;
+    font-size: medium;
+}
+.workout-hours{
+    color: #FFF;
+    position: absolute;
+    left: 35px;
+    bottom: 0px;
+    font-size: small;
+
+}
+.workout-text{
+    position: absolute;
+    top: 40px;
+    height: 30px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+}
+.workout-location-logo{
+    position: absolute;
+    width: 100%;
+    font-size: xx-large;
+    top: 65px;
+    color: rgba(255, 99, 71, 0.3);
+    text-align: center;
+}
+.workout-location{
+    width: 100%;
+    position: absolute;
+    height: 40px;
+    top: 70px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.workout-td{
+    width: 150px;
+}
+.workout-th{
+    font-weight: bold;
+    font-family: $logo-font;
+    color: $white;
+    background-color: $red;
+    width: 150px;
+    text-align: center;
+}
+.workout-th-mobile{
+    font-weight: bold;
+    font-family: $logo-font;
+    color: $white;
+    background-color: $red;
+    text-align: center;
+}
