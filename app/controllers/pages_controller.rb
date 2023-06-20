@@ -53,11 +53,21 @@ class PagesController < ApplicationController
   def trainings
     # @trainings = select_articles(2,365).reverse
     @week_articles = select_week_articles(2)
-    @workouts =[]
+
+    workouts_max_number = 0
+    WeekDay.all.each do |day|
+      temp_max = Workout.where(week_day_id: day.id).count
+      if temp_max > workouts_max_number
+        workouts_max_number = temp_max
+      end
+      @workouts_max_number = workouts_max_number
+    end
+
+    @workouts = []
     WeekDay.all.each do |day|
       @workouts << Workout.where(week_day_id: day.id).sort_by{|workout| workout.start_hour}
-      # add "" in array to have the same dimension by day
     end
+
   end
 
   def contests

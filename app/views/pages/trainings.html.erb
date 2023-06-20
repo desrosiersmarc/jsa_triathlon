@@ -1,15 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
-      
+    <div class="col-xs-12 hidden-sm hidden-md hidden-lg">   
       <% WeekDay.all.each do |day| %>
-        <p class="workout-th"><%= day.name %></p>
-        <% if !@workouts[day.id].nil? %>
-          <% @workouts[day.id].each do |workout| %>
+        <p class="workout-th-mobile"><%= day.name %></p>
+        <% if !@workouts[day.id-1].nil? %>
+          <% @workouts[day.id-1].each do |workout| %>
             <%= render 'shared/workout_card', {workout: workout} %>
           <% end %>
         <% end %>
       <% end %>
+
 
     </div>
     <div class="hidden-xs">
@@ -23,54 +23,24 @@
           <th class="workout-th">Samedi</th>
           <th class="workout-th">Dimanche</th>
         </tr>
-        //each on maximum number of workout on a day
-        //create tr with class
-          //each with index and test day complete td with card
 
-        <tr class="workout-td">
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr class="workout-td">
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr class="workout-td">
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr class="workout-td">
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr class="workout-td">
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+        <% i=0 %>
+        <% @workouts_max_number.times do %>
+            <tr class="workout-td">
+              <% j=0 %>
+              <% 7.times do %>
+                <% if @workouts[j][i].nil? %>
+                  <td></td>
+                <% else %>
+                  <td>
+                  <%= render 'shared/workout_card', {workout: @workouts[j][i]} %>
+                  </td>
+                <% end %>
+                <% j+=1 %>
+              <% end %>
+            </tr>
+          <% i+=1 %>
+        <% end %>
       </table>
     </div>
     </div>
@@ -93,7 +63,7 @@
     <div id="week_session">
       <h3>Retrouvez toutes les séances sur l'application IDO</h3>
       <a href="https://www.idosport.app/login" target='_blank'  >
-        <img src="https://res.cloudinary.com/dmbf8fog4/image/upload/v1683904464/ujigoyq6hhqbtbva24kh.jpg" alt="IDO Picture" class="trainin-picture">
+        <img src="https://res.cloudinary.com/dmbf8fog4/image/upload/v1683904464/ujigoyq6hhqbtbva24kh.jpg" alt="IDO Picture" class="training-picture">
       </a>  
     </div>
     
