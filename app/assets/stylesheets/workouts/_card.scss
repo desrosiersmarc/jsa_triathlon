@@ -47,7 +47,7 @@
 .workout-hours{
     color: #FFF;
     position: absolute;
-    left: 35px;
+    right: 5px;
     bottom: 0px;
     font-size: small;
 
@@ -104,7 +104,13 @@
     font-size: 30px;
     padding: 10px;
     text-align: center;
+    text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.4);
 }
 .personnal-table{
     margin: 0px;
+}
+
+.workout-desktop-planning{
+    display: flex;
+    justify-content: center;
 }
