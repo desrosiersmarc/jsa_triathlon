@@ -13,38 +13,41 @@
 
     </div>
     <div class="hidden-xs">
-    <div id="planning">
+      <div class="workout-title text-shadow-md">
+        Planning 2022-2023
+      </div>
+      <div id="planning">
 
-      <table>
-        <tr>
-          <th class="workout-th">Lundi</th>
-          <th class="workout-th">Mardi</th>
-          <th class="workout-th">Mercredi</th>
-          <th class="workout-th">Jeudi</th>
-          <th class="workout-th">Vendredi</th>
-          <th class="workout-th">Samedi</th>
-          <th class="workout-th">Dimanche</th>
-        </tr>
+        <table class="personnal-table">
+          <tr>
+            <th class="workout-th">Lundi</th>
+            <th class="workout-th">Mardi</th>
+            <th class="workout-th">Mercredi</th>
+            <th class="workout-th">Jeudi</th>
+            <th class="workout-th">Vendredi</th>
+            <th class="workout-th">Samedi</th>
+            <th class="workout-th">Dimanche</th>
+          </tr>
 
-        <% i=0 %>
-        <% @workouts_max_number.times do %>
-            <tr class="workout-td">
-              <% j=0 %>
-              <% 7.times do %>
-                <% if @workouts[j][i].nil? %>
-                  <td></td>
-                <% else %>
-                  <td>
-                  <%= render 'shared/workout_card', {workout: @workouts[j][i]} %>
-                  </td>
+          <% i=0 %>
+          <% @workouts_max_number.times do %>
+              <tr class="workout-td">
+                <% j=0 %>
+                <% 7.times do %>
+                  <% if @workouts[j][i].nil? %>
+                    <td></td>
+                  <% else %>
+                    <td>
+                    <%= render 'shared/workout_card', {workout: @workouts[j][i]} %>
+                    </td>
+                  <% end %>
+                  <% j+=1 %>
                 <% end %>
-                <% j+=1 %>
-              <% end %>
-            </tr>
-          <% i+=1 %>
-        <% end %>
-      </table>
-    </div>
+              </tr>
+            <% i+=1 %>
+          <% end %>
+        </table>
+      </div>
     </div>
     </div>
 
