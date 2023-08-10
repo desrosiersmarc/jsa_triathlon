@@ -1,0 +1,16 @@
+<h3> 
+   Liste des entrainements
+</h3>
+
+<% @workouts.each do |workout| %>
+    <p>
+        <%= workout.id %> | <%= workout.name %> | 
+        <%= link_to workout_path(workout) do  %>
+            Voir le créneau
+        <% end %>
+        |
+        <%= link_to edit_workout_path(workout) do %>
+            modifier le créneau
+        <% end %>
+    </p>
+<% end %>

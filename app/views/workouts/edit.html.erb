@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <h3>Mise à jour du créneau</h3>
+        <%= @workout.name %>
+        <%= simple_form_for(@workout) do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :name %>
+            <div class="hour_content">
+                <%= f.input :start_hour, input_html: {class: 'date-time'} %>
+                <%= f.input :end_hour, input_html: {class: 'date-time'}%>
+            </div>
+            <%= f.input :location, collection: @locations%>
+            <%= f.input :week_day, collection: @week_days %>
+            <%= f.input :sport_type, collection: @sport_types%>
+            <%= f.submit 'Valider', class: "btn btn-danger btn-block" %>
+        <% end %>
+    
+    </div>
+</div>
