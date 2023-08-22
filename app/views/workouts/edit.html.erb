@@ -2,18 +2,7 @@
     <div class="row">
         <h3>Mise à jour du créneau</h3>
         <%= render 'shared/workout_card', {workout: @workout} %>
-        <%= simple_form_for(@workout) do |f| %>
-            <%= f.error_notification %>
-            <%= f.input :name %>
-            <div class="hour_content">
-                <%= f.input :start_hour, input_html: {class: 'date-time'} %>
-                <%= f.input :end_hour, input_html: {class: 'date-time'}%>
-            </div>
-            <%= f.input :location_id, collection: @locations%>
-            <%= f.input :week_day_id, collection: @week_days %>
-            <%= f.input :sport_type_id, collection: @sport_types%>
-            <%= f.submit 'Valider', class: "btn btn-danger btn-block" %>
-        <% end %>
+        <%= render 'form_workout' %>
     
     </div>
 </div>
