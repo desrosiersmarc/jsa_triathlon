@@ -1,0 +1,19 @@
+<h3> 
+   Liste des entrainements
+</h3>
+
+<% @workouts.each do |workout| %>
+    <div class="col-sm-4">
+        <%= link_to workout_path(workout) do  %>
+            <i class="fa-solid fa-eye"></i>
+        <% end %>
+        |
+        <%= link_to edit_workout_path(workout) do %>
+            <i class="fa-solid fa-pencil"></i>
+        <% end %>
+        |
+        <%= workout.week_day.name %>
+        |
+        <%= render 'shared/workout_card', {workout: workout} %>
+    </div>
+<% end %>

@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   resources :d3_contests
   resources :d3_results
   resources :partners
+  resources :workouts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   require "sidekiq/web"
   authenticate :user, lambda { |u| u.member } do
