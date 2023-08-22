@@ -2,7 +2,7 @@ class WorkoutsController < ApplicationController
     before_action :find_workout, only: [:show, :edit, :update]
 
     def index
-        @workouts = Workout.all
+        @workouts = Workout.all.sort_by{|workout| workout.week_day_id}
     end
 
     def show

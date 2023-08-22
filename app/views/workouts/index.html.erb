@@ -3,14 +3,17 @@
 </h3>
 
 <% @workouts.each do |workout| %>
-    <p>
-        <%= workout.id %> | <%= workout.name %> | 
+    <div class="col-sm-4">
         <%= link_to workout_path(workout) do  %>
-            Voir le créneau
+            <i class="fa-solid fa-eye"></i>
         <% end %>
         |
         <%= link_to edit_workout_path(workout) do %>
-            modifier le créneau
+            <i class="fa-solid fa-pencil"></i>
         <% end %>
-    </p>
+        |
+        <%= workout.week_day.name %>
+        |
+        <%= render 'shared/workout_card', {workout: workout} %>
+    </div>
 <% end %>
