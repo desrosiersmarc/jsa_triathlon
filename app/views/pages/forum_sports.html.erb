@@ -52,11 +52,15 @@
             <p>
                 Venez découvrir notre club et les projets pour la saison à venir ! 
             </p>
-
-
-
-
-        <div class="btn btn-primary">Planning des entrainements</div>
-        <div class="btn btn-primary">Inscription</div>
+        <div class="col-12 col-sm-6">
+            <%= link_to trainings_path do %>
+                <div class="btn btn-primary btn-block btn-top-margin">Planning des entrainements</div>
+            <% end %>
+        </div>
+        <div class="col-12 col-sm-6">
+            <%= link_to subscription_path do %>
+                <div class="btn btn-primary btn-block btn-top-margin">Inscription</div>
+            <% end %>
+        </div>
     </div>
 </div>
