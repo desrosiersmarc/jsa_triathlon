@@ -8,6 +8,22 @@ class WorkoutsController < ApplicationController
     def show
     end
 
+    def new
+        @workout = Workout.new
+        @locations = Location.all
+        @week_days = WeekDay.all
+        @sport_types = SportType.all
+    end
+    
+    def create
+        @workout = Workout.new(workout_params)
+        if @workout.save
+            redirect_to workouts_path
+        else
+            render :new
+        end
+    end 
+
     def edit
         @locations = Location.all
         @week_days = WeekDay.all
