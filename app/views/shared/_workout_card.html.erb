@@ -35,5 +35,14 @@
     </div>
     <div class="workout-location">
         <%= workout.location.name %>
-    </div>  
+    </div> 
+    <% if admin? %>
+        <%= link_to edit_workout_path(workout) do %>
+            <div class="workout-pen">
+                <div>
+                    <i class="fa-solid fa-pencil"></i>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
 </div>

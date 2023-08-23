@@ -1,6 +1,15 @@
 <div class="container">
     <div class="row">
-        <h3>Création d'un entrainement</h3>
+        <div class="workout-edit-content">
+            <%= link_to trainings_path do %>
+                <div class="workout-back">
+                    <i class="fa-solid fa-left-long"></i>
+                </div>
+            <% end %>
+            <div class="workout-edit-content-title">
+                Création d'un créneau
+            </div>
+        </div>
         <%= render 'form_workout' %>
     </div>
 </div>

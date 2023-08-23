@@ -1,12 +1,22 @@
 <%= simple_form_for(@workout) do |f| %>
     <%= f.error_notification %>
-    <%= f.input :name %>
-    <div class="hour_content">
-        <%= f.input :start_hour, input_html: {class: 'date-time'} %>
-        <%= f.input :end_hour, input_html: {class: 'date-time'}%>
+    <div class="col-sm-12">
+        <%= f.input :name, label: "Texte" %>
     </div>
-    <%= f.input :location_id, collection: @locations%>
-    <%= f.input :week_day_id, collection: @week_days %>
-    <%= f.input :sport_type_id, collection: @sport_types%>
+    <div class="col-sm-12">
+        <div class="hour_content">
+            <%= f.input :start_hour, input_html: {class: 'date-time'}, label: "Heure de début" %>
+            <%= f.input :end_hour, input_html: {class: 'date-time'}, label: "Heure de fin" %>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <%= f.input :location_id, collection: @locations, label: "Localisation"%>
+    </div>
+    <div class="col-sm-4">
+        <%= f.input :week_day_id, collection: @week_days, label: "Jour de la semaine" %>
+    </div>
+    <div class="col-sm-4">
+        <%= f.input :sport_type_id, collection: @sport_types, label: "Sport"%>
+    </div>
     <%= f.submit 'Valider', class: "btn btn-danger btn-block" %>
 <% end %>

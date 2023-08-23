@@ -1,8 +1,31 @@
 <div class="container">
     <div class="row">
-        <h3>Mise à jour du créneau</h3>
-        <%= render 'shared/workout_card', {workout: @workout} %>
-        <%= render 'form_workout' %>
-    
+        <div class="workout-edit-content">
+            <%= link_to trainings_path do %>
+                <div class="workout-back">
+                    <i class="fa-solid fa-left-long"></i>
+                </div>
+            <% end %>
+            <div class="workout-edit-content-title">
+                Mise à jour du créneau
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <%= render 'shared/workout_card', {workout: @workout} %>
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+            <%= link_to workout_path(@workout), method: :delete do%>
+                <div class="workout-trash-content">
+                    <i class="fa-solid fa-trash-can"></i>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 cols-sm-12">
+            <%= render 'form_workout' %>
+        </div>
     </div>
 </div>
