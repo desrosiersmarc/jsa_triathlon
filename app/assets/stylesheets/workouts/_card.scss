@@ -114,3 +114,22 @@
     display: flex;
     justify-content: center;
 }
+
+.workout-pen{
+    color: white;
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    background-color: $red;
+    border-radius: 25px 0px 3px 0px;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.workout-new{
+    color: $red;
+    font-size: 25px;
+}

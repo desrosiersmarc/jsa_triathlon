@@ -1,8 +1,19 @@
 <div class="container">
     <div class="row">
-        <h3>Mise à jour du créneau</h3>
-        <%= render 'shared/workout_card', {workout: @workout} %>
-        <%= render 'form_workout' %>
+        <h3>
+            <%= link_to trainings_path do %>
+                <i class="fa-solid fa-circle-chevron-left"></i>
+            <% end %> 
+            Mise à jour du créneau
+        </h3>
+        <div class="col-sm-4">
+            <%= render 'shared/workout_card', {workout: @workout} %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 cols-sm-12">
+            <%= render 'form_workout' %>
+        </div>
     
     </div>
 </div>

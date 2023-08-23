@@ -1,12 +1,5 @@
 class WorkoutsController < ApplicationController
-    before_action :find_workout, only: [:show, :edit, :update]
-
-    def index
-        @workouts = Workout.all.sort_by{|workout| workout.week_day_id}
-    end
-
-    def show
-    end
+    before_action :find_workout, only: [:edit, :update]
 
     def new
         @workout = Workout.new
@@ -33,7 +26,7 @@ class WorkoutsController < ApplicationController
     def update
         @workout.update(workout_params)
         if @workout.save
-            redirect_to workouts_path
+            redirect_to trainings_path
         else
             render :edit
         end

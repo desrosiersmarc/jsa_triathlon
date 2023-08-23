@@ -35,7 +35,15 @@
                 <% j=0 %>
                 <% 7.times do %>
                   <% if @workouts[j][i].nil? %>
-                    <td></td>
+                    <td>
+                      <% if admin? %>
+                        <%= link_to new_workout_path do %>
+                          <div class="workout-new">
+                            <i class="fa-solid fa-circle-plus"></i>
+                          </div>
+                        <% end %>
+                      <% end %>
+                    </td>
                   <% else %>
                     <td>
                     <%= render 'shared/workout_card', {workout: @workouts[j][i]} %>
