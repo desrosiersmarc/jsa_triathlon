@@ -1,5 +1,5 @@
 class WorkoutsController < ApplicationController
-    before_action :find_workout, only: [:edit, :update]
+    before_action :find_workout, only: [:edit, :update, :destroy]
 
     def new
         @workout = Workout.new
@@ -11,7 +11,7 @@ class WorkoutsController < ApplicationController
     def create
         @workout = Workout.new(workout_params)
         if @workout.save
-            redirect_to workouts_path
+            redirect_to trainings_path
         else
             render :new
         end
@@ -30,6 +30,11 @@ class WorkoutsController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def destroy
+        @workout.destroy
+        redirect_to trainings_path
     end
 private
     def find_workout

@@ -133,3 +133,29 @@
     color: $red;
     font-size: 25px;
 }
+
+.workout-back{
+    color: $red;
+}
+
+.workout-trash-content{
+    height: 110px;
+    // background-color: $gray-light;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    border: solid 1px $red;
+    border-radius: 3px;
+    color: $red;
+}
+
+.workout-edit-content{
+    display: flex;
+    margin-left: 15px;
+}
+
+.workout-edit-content-title{
+    color: $red;
+    margin-left: 10px;
+}
