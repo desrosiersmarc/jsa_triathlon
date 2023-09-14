@@ -33,7 +33,7 @@ gem 'google-api-client', require: 'google/apis/calendar_v3'
 gem 'letter_opener', group: :development
 gem 'gibbon'
 # gem 'sidekiq'
-gem "sidekiq", "<7"
+gem "sidekiq", "<8"
 gem 'sidekiq-failures', '~> 1.0'
 
 group :development do
