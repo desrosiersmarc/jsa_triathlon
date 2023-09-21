@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_14_184000) do
+ActiveRecord::Schema.define(version: 2023_09_13_154654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,12 @@ ActiveRecord::Schema.define(version: 2023_06_14_184000) do
     t.datetime "updated_at", null: false
     t.index ["d3_contest_id"], name: "index_d3_results_on_d3_contest_id"
     t.index ["user_id"], name: "index_d3_results_on_user_id"
+  end
+
+  create_table "licences", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "likes", force: :cascade do |t|
@@ -314,6 +320,8 @@ ActiveRecord::Schema.define(version: 2023_06_14_184000) do
     t.bigint "sport_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "licence_id"
+    t.index ["licence_id"], name: "index_workouts_on_licence_id"
     t.index ["location_id"], name: "index_workouts_on_location_id"
     t.index ["sport_type_id"], name: "index_workouts_on_sport_type_id"
     t.index ["week_day_id"], name: "index_workouts_on_week_day_id"
@@ -343,6 +351,7 @@ ActiveRecord::Schema.define(version: 2023_06_14_184000) do
   add_foreign_key "products", "users"
   add_foreign_key "reviews", "articles"
   add_foreign_key "reviews", "users"
+  add_foreign_key "workouts", "licences"
   add_foreign_key "workouts", "locations"
   add_foreign_key "workouts", "sport_types"
   add_foreign_key "workouts", "week_days"
