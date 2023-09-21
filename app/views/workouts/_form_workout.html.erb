@@ -1,6 +1,9 @@
 <%= simple_form_for(@workout) do |f| %>
     <%= f.error_notification %>
-    <div class="col-sm-12">
+    <div class="col-sm-6">
+        <%= f.input :licence_id, label: "Type de licence", collection: @licences %>
+    </div>
+    <div class="col-sm-6">
         <%= f.input :name, label: "Texte" %>
     </div>
     <div class="col-sm-12">

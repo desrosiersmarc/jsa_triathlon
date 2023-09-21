@@ -6,6 +6,7 @@ class WorkoutsController < ApplicationController
         @locations = Location.all
         @week_days = WeekDay.all
         @sport_types = SportType.all
+        @licences = Licence.all
     end
     
     def create
@@ -21,10 +22,16 @@ class WorkoutsController < ApplicationController
         @locations = Location.all
         @week_days = WeekDay.all
         @sport_types = SportType.all
+        @licences = Licence.all
     end
 
     def update
         @workout.update(workout_params)
+        @locations = Location.all
+        @week_days = WeekDay.all
+        @sport_types = SportType.all
+        @licences = Licence.all
+        
         if @workout.save
             redirect_to trainings_path
         else
@@ -48,7 +55,8 @@ private
             :end_hour,
             :location_id,
             :week_day_id,
-            :sport_type_id
+            :sport_type_id,
+            :licence_id
         )
         
     end
