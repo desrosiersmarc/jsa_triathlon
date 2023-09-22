@@ -6,9 +6,11 @@
   <div class="wrapper-title">
     Evenements du club
   </div>
-  <div class="container">
-    <div class="row">
-      <%= render 'homepage_event_card', {articles: @club_events_top3} %>
+  <div class="hidden-xs">
+    <div class="container">
+      <div class="row">
+        <%= render 'homepage_event_card', {articles: @club_events_top3} %>
+      </div>
     </div>
   </div>
   <%= link_to club_events_path, class: "wrapper-link wrapper-link-white" do  %>
@@ -20,11 +22,14 @@
   <div class="wrapper-title">
     L'ecole de triathlon
   </div>
-  <div class="container">
-    <div class="row">
-      <%= render 'wrapper_cards', {articles: @schools_top3} %>
+  <div class="hidden-xs">
+    <div class="container">
+      <div class="row">
+        <%= render 'wrapper_cards', {articles: @schools_top3} %>
+      </div>
     </div>
   </div>
+
   <%= link_to school_path, class: "wrapper-link wrapper-link-black"  do %>
     Voir tous les articles
   <% end %>
@@ -34,9 +39,11 @@
   <div class="wrapper-title">
     Prochaines epreuves
   </div>
-  <div class="container">
-    <div class="row">
-      <%= render 'wrapper_cards', {articles: @contests_top3} %>
+  <div class="hidden-xs">
+    <div class="container">
+      <div class="row">
+        <%= render 'wrapper_cards', {articles: @contests_top3} %>
+      </div>
     </div>
   </div>
   <%= link_to contests_path, class: "wrapper-link wrapper-link-white"  do %>
@@ -74,7 +81,7 @@
   </div>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-4 ">
+    <div class="hidden-xs col-sm-6 col-md-4 ">
       <%= link_to sportswears_path do %>
         <div class="picture-card">
           <div class="home-card home-card-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dmbf8fog4/image/upload/v1541711807/JSA%20Triathlon/jsa_dggizl.jpg)">
@@ -114,9 +121,11 @@
   <div class="wrapper-title">
     Les photos
   </div>
-  <div class="container">
-    <div class="row">
-      <%= render 'picture_link', {pictures: @pictures} %>
+  <div class="hidden-xs">
+    <div class="container">
+      <div class="row">
+        <%= render 'picture_link', {pictures: @pictures} %>
+      </div>
     </div>
   </div>
 
