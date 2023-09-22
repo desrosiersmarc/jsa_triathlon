@@ -104,8 +104,24 @@
         </div>
       <% end %>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-<!--         <li><a href="#">1-En construction</a></li>
-        <li><a href="#">2-En construction</a></li> -->
+        <li>
+          <%= link_to clubs_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+            <i class="fa-solid fa-people-group"></i>
+            Le club
+          <% end %>
+        </li>
+        <li>
+          <%= link_to subscription_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+            <i class="fa-solid fa-list-check"></i>
+            Inscription
+          <% end %>
+        </li>
+        <li>
+          <%= link_to trainings_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+            <i class="fa-solid fa-fire"></i>
+            Entrainements
+          <% end %>
+        </li>
         <% if user_signed_in? %>
           <li>
             <%= link_to notifications_path, class: "navbar-wagon-item navbar-wagon-link" do %>
