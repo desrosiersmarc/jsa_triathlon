@@ -10,7 +10,7 @@
   </div>
   <%= f.input :name, label: t('.name'), input_html: {maxlength: 40} %>
   <div class="counter-text counter-hide" id="counter-name">...</div>
-  <%= f.input :description, label: t('.description'), input_html: {placeholder: t('.placeholder_description'), maxlength: 350} %>
+  <%= f.text_area :description, class: 'ckeditor', label: t('.description'), input_html: {placeholder: t('.placeholder_description'), maxlength: 350} %>
   <div class="counter-text counter-hide" id="counter-description">...</div>
   <%= f.input :price, label: t('.price') %>
   <%= f.input :stock, collection: 1..20, label: t('.stock') %>
