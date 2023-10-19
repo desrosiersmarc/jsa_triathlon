@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:sportswears, :show, :petites_annonces]
   before_action :load_collections, only: [:new, :create, :edit, :update]
-  before_action :find_product, only: [:show, :edit, :update]
+  before_action :find_product, only: [:show, :edit, :update, :destroy]
   before_action :mailing_list_1, only: [:create, :update]
   before_action :mailing_list_2, only: [:create, :update]
   before_action :mailing_list_3, only: [:create, :update]
@@ -70,6 +70,11 @@ class ProductsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to sportswears_path
   end
 
 private

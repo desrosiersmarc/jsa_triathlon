@@ -10,3 +10,20 @@
   display: flex;
   justify-content: space-around;
 }
+
+.administrator-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.trash-content{
+  color: $red;
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
