@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:new, :create, :update]
     resources :participations, only: [:new, :create, :destroy]
   end
-  resources :products, only: [:new, :show, :create, :edit, :update]
+  resources :products, only: [:new, :show, :create, :edit, :update, :destroy]
   resources :clubs, only: [:index, :new, :edit, :show, :create, :update]
   resources :tests, only: [:index, :new, :create]
   resources :notifications, only: [:index, :edit, :update]
