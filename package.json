@@ -4,9 +4,11 @@
   "dependencies": {
     "@rails/webpacker": "5.4.3",
     "bootstrap": "3",
-    "jquery": "^3.5.0"
+    "jquery": "^3.5.0",
+    "webpack": "^5.0.0"
   },
   "devDependencies": {
+    "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.11.1"
   },
   "version": "0.0.0"
