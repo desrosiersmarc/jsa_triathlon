@@ -4,5 +4,5 @@ const environment = require('./environment')
 
 //module.exports = environment.toWebpackConfig()
 module.exports = {
-    mode: 'none',
-  };
+  mode: 'development',
+};
