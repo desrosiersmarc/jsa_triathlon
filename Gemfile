@@ -18,7 +18,9 @@ gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sass-rails'
 gem 'simple_form'
 # gem 'uglifier'
-gem 'webpacker'
+# gem 'webpacker'
+gem 'importmap-rails', '~> 1.2.3'
+gem 'stimulus-rails', '~> 1.3.0'
 
 #Gem update
 
