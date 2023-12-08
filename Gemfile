@@ -27,7 +27,7 @@ gem 'stimulus-rails', '~> 1.3.0'
 
 # Personal gem
 gem 'cloudinary'
-gem 'carrierwave', '~> 1.3'
+gem 'carrierwave', '~> 2.2'
 gem 'devise-i18n'
 gem 'jquery-rails'
 gem 'ckeditor_rails'
