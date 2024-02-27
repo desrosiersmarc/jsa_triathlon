@@ -9,7 +9,7 @@ gem 'pg', '~> 1.1'
 # gem 'puma'
 gem "puma", ">= 3.12.2"
 # gem 'rails', '6.1.7'
-gem 'rails', '7.1.2'
+gem 'rails', '7.1.3.1'
 gem 'redis'
 
 gem 'autoprefixer-rails'
