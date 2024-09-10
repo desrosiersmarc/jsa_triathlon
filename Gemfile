@@ -26,6 +26,7 @@ gem 'stimulus-rails', '~> 1.3.0'
 
 
 # Personal gem
+gem 'stringio',  '~> 3.1.0'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.3'
 gem 'devise-i18n'
@@ -38,6 +39,7 @@ gem 'gibbon'
 # gem 'sidekiq'
 gem 'sidekiq', '<7.2'
 gem 'sidekiq-failures', '~> 1.0'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
