@@ -8,7 +8,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 1.1'
 # gem 'puma'
 gem "puma", ">= 3.12.2"
-gem 'rails', '6.1.7'
+# gem 'rails', '6.1.7'
+gem 'rails', '7.1.2'
 gem 'redis'
 
 gem 'autoprefixer-rails'
@@ -43,8 +44,8 @@ end
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'listen', '~> 3.0.5'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'listen', '~> 3.5'
+  gem 'spring', '~> 3.0'
+  # gem 'spring-watcher-listen', '~> 2.1.0'
   gem 'dotenv-rails'
 end
