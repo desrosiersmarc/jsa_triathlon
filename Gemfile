@@ -10,6 +10,7 @@ gem 'pg', '~> 1.1'
 gem "puma", ">= 3.12.2"
 # gem 'rails', '6.1.7'
 gem 'rails', '7.1.2'
+gem "importmap-rails"
 gem 'redis'
 
 gem 'autoprefixer-rails'
@@ -18,7 +19,7 @@ gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
-gem 'webpacker'
+# gem 'webpacker'
 
 #Gem update
 
