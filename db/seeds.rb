@@ -15,27 +15,27 @@ def set_article_types
   puts " : X"
   puts ""
   puts "Create Article Types"
-    # ArticleType.create! id:1, name: 'club'
-    # ArticleType.create! id:2, name: 'Entrainement'
-    # ArticleType.create! id:3, name: 'Course'
-    # ArticleType.create! id:4, name: 'Ecole'
-    # ArticleType.create! id:5, name: 'Partenaire'
-    # ArticleType.create! id:6, name: 'Résultat'
+    ArticleType.create! id:1, name: 'club'
+    ArticleType.create! id:2, name: 'Entrainement'
+    ArticleType.create! id:3, name: 'Course'
+    ArticleType.create! id:4, name: 'Ecole'
+    ArticleType.create! id:5, name: 'Partenaire'
+    ArticleType.create! id:6, name: 'Résultat'
   puts "Article Types created"
 end
 
 def seed_user
-  print "Create user"
-  # user_created = User.create(email: "md@md.fr", password: "123soleil", firstname: "Marc", lastname: "Desrosiers", birthday: '01/11/1972', mobil_phone: '0662262352', d3:true)
-  # user_created = User.create(email: "alexisbonneau@gmail.com", password: "123soleil", firstname: "Alexis", lastname: "Bonneau", birthday: '01/11/1972', mobil_phone: '0606060606')
-  # user_created = User.create(email: "o.huti@orange.fr", password: "123soleil", firstname: "Olivier", lastname: "Hutinet", birthday: '01/11/1972', mobil_phone: '0606060606')
-  # user_created = User.create(email: "y.allard@ent-allard.com", password: "123soleil", firstname: "Yvette", lastname: "Allard", birthday: '01/11/1972', mobil_phone: '0606060606')
-  # user_created = User.create(email: "pandry@laposte.net", password: "123soleil", firstname: "Patrick", lastname: "Andry", birthday: '01/11/1972', mobil_phone: '0606060606')
-  # user_created = User.create(email: "seb.sudrie@hotmail.fr", password: "123soleil", firstname: "Sébastien", lastname: "Sudrie", birthday: '01/11/1972', mobil_phone: '0606060606')
-  # user_created = User.create(email: "hutinet.severine@orange.fr", password: "123soleil", firstname: "Séverine", lastname: "Hutinet", birthday: '01/11/1972', mobil_phone: '0606060606')
-  # user_created = User.create(email: "jf.hascoet@laposte.net ", password: "123soleil", firstname: "Jean-François", lastname: "Hascoet", birthday: '01/11/1972', mobil_phone: '0606060606')
+  puts "Create user"
+  user_created = User.create(email: "md@md.fr", password: "123soleil", firstname: "Marc", lastname: "Desrosiers", birthday: '01/11/1972', mobil_phone: '0662262352', d3:true)
+  user_created = User.create(email: "alexisbonneau@gmail.com", password: "123soleil", firstname: "Alexis", lastname: "Bonneau", birthday: '01/11/1972', mobil_phone: '0606060606')
+  user_created = User.create(email: "o.huti@orange.fr", password: "123soleil", firstname: "Olivier", lastname: "Hutinet", birthday: '01/11/1972', mobil_phone: '0606060606')
+  user_created = User.create(email: "y.allard@ent-allard.com", password: "123soleil", firstname: "Yvette", lastname: "Allard", birthday: '01/11/1972', mobil_phone: '0606060606')
+  user_created = User.create(email: "pandry@laposte.net", password: "123soleil", firstname: "Patrick", lastname: "Andry", birthday: '01/11/1972', mobil_phone: '0606060606')
+  user_created = User.create(email: "seb.sudrie@hotmail.fr", password: "123soleil", firstname: "Sébastien", lastname: "Sudrie", birthday: '01/11/1972', mobil_phone: '0606060606')
+  user_created = User.create(email: "hutinet.severine@orange.fr", password: "123soleil", firstname: "Séverine", lastname: "Hutinet", birthday: '01/11/1972', mobil_phone: '0606060606')
+  user_created = User.create(email: "jf.hascoet@laposte.net ", password: "123soleil", firstname: "Jean-François", lastname: "Hascoet", birthday: '01/11/1972', mobil_phone: '0606060606')
 
-  puts " : X"
+  print " : X"
 end
 
 def seed_articles(article_type_sample_id)
@@ -56,6 +56,14 @@ def seed_articles(article_type_sample_id)
   Author.create!(user_id: User.all.sample.id, article_id: article.id)
       print "*"
 end
+
+def seed_create_articles
+  print "Create Articles"
+    60.times do seed_articles(ArticleType.all.sample)    end
+  puts ""
+  puts "Articles created"
+end
+
 
 def seed_pictures
     puts "Create pictures"
@@ -92,8 +100,8 @@ end
 
 def seed_product_types
   puts "Create product types"
-  # ProductType.create! id:1, name: "Tenues"
-  # ProductType.create! id:2, name: "Bourse d'échange"
+  ProductType.create! id:1, name: "Tenues"
+  ProductType.create! id:2, name: "Bourse d'échange"
   puts "Product types created"
 end
 
@@ -214,49 +222,66 @@ def seed_workouts
 end
 
 
+
+
 case Rails.env
 when "development"
-  # puts "Delete all"
-  #   Picture.delete_all
-  #   Author.delete_all
-  #   Article.delete_all
-  #   Product.delete_all
-  #   User.delete_all
-  #   Size.delete_all
-  #   ProductType.delete_all
-  #   SportType.delete_all
-  #   D3Contest.delete_all
-  #   ContestType.delete_all
+  puts "Delete all"
+  Club.delete_all
+  puts "Club : x"
+  Picture.delete_all
+  puts "Picture : x"
+  Author.delete_all
+  puts "Author : x"
+  Article.delete_all
+  puts "Articles : x"
+  Product.delete_all
+  puts "Product : x"
+  User.delete_all
+  puts "User : x"
+  Size.delete_all
+  puts "Size : x"
+  ProductType.delete_all
+  puts "ProductType : x"
+  SportType.delete_all
+  puts "SportType : x"
+  D3Contest.delete_all
+  puts "D3Contest : x"
+  ContestType.delete_all
+  puts "ContestType : x"
   # Partners.delete_all
+  puts "Picture : NO"
   seed_workouts
 
 
 
 
-  # seed_user
-  # seed_pictures
-  # set_article_types
+  seed_user
+  seed_pictures
+  set_article_types
 
-  # seed_sizes
-  # seed_product_types
-  # seed_sport_types
+  seed_sizes
+  seed_product_types
+  seed_sport_types
 
-  # seed_d3_contest_types
-  # seed_d3_contests
+  seed_d3_contest_types
+  seed_d3_contests
 
-  # puts "Create Products"
-  # 10.times do seed_products end
-  # puts "Products created"
+  print "Create Products : "
+  10.times do seed_products 
+    print "*"
+  end
+  print "Products created!"
 
-  # seed_user_production
-  # seed_picture_albums
+  seed_user_production
+  #seed_picture_albums
 
-  # Add D3 results
+  #Add D3 results
 
-  # puts "Create Articles"
-  #   60.times do seed_articles(ArticleType.all.sample)    end
-  # puts ""
-  # puts "Articles created"
+  print "Create Articles"
+    60.times do seed_articles(ArticleType.all.sample)    end
+  puts ""
+  puts "Articles created"
 
 
 when "production"
