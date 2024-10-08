@@ -8,41 +8,42 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <div class="dropdown-toggle navbar-wagon-item navbar-wagon-link" id="navbar-wagon-menu" data-toggle="dropdown">Le club</div>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <button class="btn btn-navbar dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Le club
+        </button>
+        <ul class="dropdown-menu">
           <li>
-            <%= link_to "Le mot du président", clubs_path(anchor: 'le-mot-du-president'), class: "navbar-wagon-item navbar-wagon-link" %>
+            <%= link_to "Le mot du président", clubs_path(anchor: 'le-mot-du-president'), class: "dropdown-item" %>
           </li>
           <li>
-            <%= link_to "Les sites", clubs_path(anchor: 'les-sites'), class: "navbar-wagon-item navbar-wagon-link" %>
+            <%= link_to "Les commissions", clubs_path(anchor: 'commissions'), class: "dropdown-item" %>
           </li>
           <li>
-            <%= link_to "Les commissions", clubs_path(anchor: 'commissions'), class: "navbar-wagon-item navbar-wagon-link" %>
+            <%= link_to "Les coachs", clubs_path(anchor: 'coachs'), class: "dropdown-item" %>
           </li>
           <li>
-            <%= link_to "Les coachs", clubs_path(anchor: 'coachs'), class: "navbar-wagon-item navbar-wagon-link" %>
-          </li>
-          <li>
-            <%= link_to "Les membres", clubs_path(anchor: 'les-membres'), class: "navbar-wagon-item navbar-wagon-link" %>
+            <%= link_to "Les membres", clubs_path(anchor: 'les-membres'), class: "dropdown-item" %>
           </li>
         </ul>
       </div>
     </div>
 
-
     <%= link_to "Inscription", subscription_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <div class="navbar-wagon-it">
+
+    <div class="navbar-wagon-item">
       <div class="dropdown">
-        <div class="dropdown-toggle navbar-wagon-item navbar-wagon-link" id="navbar-wagon-menu" data-toggle="dropdown">Entrainements</div>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <button class="btn btn-navbar dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Entrainements
+        </button>
+        <ul class="dropdown-menu">
           <li>
-            <%= link_to "Planning", trainings_path(anchor: 'planning'), class: "navbar-wagon-item navbar-wagon-link" %>
+            <%= link_to "Planning", trainings_path(anchor: 'planning'), class: "dropdown-item" %>
           </li>
           <li>
-            <%= link_to "Séances types", trainings_path(anchor: 'typical_session'), class: "navbar-wagon-item navbar-wagon-link" %>
+            <%= link_to "Séances types", trainings_path(anchor: 'typical_session'), class: "dropdown-item" %>
           </li>
           <li>
-            <%= link_to "Lien IDO", trainings_path(anchor: 'week_session'), class: "navbar-wagon-item navbar-wagon-link" %>
+            <%= link_to "Lien IDO", trainings_path(anchor: 'week_session'), class: "dropdown-item" %>
           </li>
         </ul>
       </div>
